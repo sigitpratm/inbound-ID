@@ -1,0 +1,15 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 863.5 860.5">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #48b700;
+        stroke-miterlimit: 10;
+        stroke-width: 121px;
+      }
+    </style>
+  </defs>
+  <title>jippi</title>
+  <path class="cls-1" d="M468,528A180,180,0,1,0,648,708V312" transform="translate(-227.5 -88)"/>
+  <path class="cls-1" d="M829,551.5c111.29,0,201.5-90.21,201.5-201.5S940.29,148.5,829,148.5H287.5" transform="translate(-227.5 -88)"/>
+</svg>
