@@ -164,7 +164,7 @@ $categories = get_the_terms( get_the_ID(), 'product-category' );
 								</div>
 								<div class="col-span-2">
 									<h2 class="flex-auto text-xl font-medium text-gray-800"><?= $feature['title']?></h2>
-									<p class="mt-3 text-gray-700 text-md font-normal"><?= $feature['title']?></p>
+									<p class="mt-3 text-gray-700 text-md font-normal"><?= $feature['description']?></p>
 
 								</div>
 							</div>
