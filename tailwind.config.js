@@ -10,6 +10,7 @@ module.exports = {
 		'./assets/src/**/*.vue',
 		'./assets/src/**/*.jsx',
 	],
+
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		fontFamily: {

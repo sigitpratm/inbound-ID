@@ -93,13 +93,13 @@ mix
 	.copy('assets/src/img', 'assets/dist/img')
 	.copy('assets/src/fonts', 'assets/dist/fonts')
 
-	;
+;
 mix.postCss('assets/src/sass/style.css', 'assets/dist/css/style.css',
 	tailwindcss('./tailwind.config.js')
 );
 // mix.extract(['jquery'])
 
-	// mix.tailwind('./tailwind.config.js');
+// mix.tailwind('./tailwind.config.js');
 // mix.postCss('assets/src/sass/style.css', 'assets/dist/css')
 // 	.postCssConfig();
 // Add source map and versioning to assets in production environment.

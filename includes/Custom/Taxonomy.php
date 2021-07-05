@@ -60,7 +60,7 @@ class Taxonomy
 				'show_ui' => true,
 				'show_in_menu' => true,
 				'query_var' => true,
-//				'capability_type' => 'post',
+				'capability_type' => 'post',
 				'has_archive' => true,
 				'hierarchical' => false,
 				'show_in_rest' => true,
