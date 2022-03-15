@@ -2,10 +2,10 @@
 /**
  * Theme Customizer - Sidebar
  *
- * @package jippitheme
+ * @package EmkalabTheme
  */
 
-namespace JippiTheme\Api\Customizer;
+namespace EmkalabTheme\Api\Customizer;
 
 use WP_Customize_Color_Control;
 use Awps\Api\Customizer;
@@ -21,26 +21,26 @@ class Sidebar
 	 */
 	public function register( $wp_customize )
 	{
-		$wp_customize->add_section( 'jippitheme_sidebar_section' , array(
+		$wp_customize->add_section( 'EmkalabTheme_sidebar_section' , array(
 			'title' => __( 'Sidebar', __TEXT_DOMAIN__ ),
 			'description' => __( 'Customize the Sidebar' ),
 			'priority' => 161
 		) );
 
-		$wp_customize->add_setting( 'jippitheme_sidebar_background_color' , array(
+		$wp_customize->add_setting( 'EmkalabTheme_sidebar_background_color' , array(
 			'default' => '#ffffff',
 			'transport' => 'postMessage', // or refresh if you want the entire page to reload
 		) );
 
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'jippitheme_sidebar_background_color', array(
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'EmkalabTheme_sidebar_background_color', array(
 			'label' => __( 'Background Color', __TEXT_DOMAIN__ ),
-			'section' => 'jippitheme_sidebar_section',
-			'settings' => 'jippitheme_sidebar_background_color',
+			'section' => 'EmkalabTheme_sidebar_section',
+			'settings' => 'EmkalabTheme_sidebar_background_color',
 		) ) );
 
 		if ( isset( $wp_customize->selective_refresh ) ) {
-			$wp_customize->selective_refresh->add_partial( 'jippitheme_sidebar_background_color', array(
-				'selector' => '#jippitheme-sidebar-control',
+			$wp_customize->selective_refresh->add_partial( 'EmkalabTheme_sidebar_background_color', array(
+				'selector' => '#EmkalabTheme-sidebar-control',
 				'render_callback' => array( $this, 'output' ),
 				'fallback_refresh' => true
 			) );
@@ -53,7 +53,7 @@ class Sidebar
 	public function output()
 	{
 		echo '<style type="text/css">';
-			echo Customizer::css( '#sidebar', 'background-color', 'jippitheme_sidebar_background_color' );
+			echo Customizer::css( '#sidebar', 'background-color', 'EmkalabTheme_sidebar_background_color' );
 		echo '</style>';
 	}
 }

@@ -14,8 +14,8 @@
 	<?php settings_errors(); ?>
 
 	<form method="post" action="options.php">
-		<?php settings_fields( 'jippitheme_options_group' ); ?>
-		<?php do_settings_sections( 'jippitheme' ); ?>
+		<?php settings_fields( 'EmkalabTheme_options_group' ); ?>
+		<?php do_settings_sections( 'EmkalabTheme' ); ?>
 		<?php submit_button(); ?>
 	</form>
 </div>

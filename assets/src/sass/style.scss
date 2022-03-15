@@ -1,2 +1,6 @@
 @import "site-variable/root";
 @import "site-variable/normalize";
+@tailwind base;
+@tailwind components;
+@tailwind screens;
+@tailwind utilities;

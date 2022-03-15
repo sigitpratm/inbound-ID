@@ -5,7 +5,7 @@
  * @link https://jetpack.com/
  */
 
-namespace JippiTheme\Plugins;
+namespace EmkalabTheme\Plugins;
 
 use Jetpack;
 

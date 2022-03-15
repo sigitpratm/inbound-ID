@@ -7,7 +7,7 @@
  * @package jippi
  */
 
-namespace JippiTheme\Plugins;
+namespace EmkalabTheme\Plugins;
 
 class Acf
 {

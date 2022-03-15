@@ -22,7 +22,7 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				JippiTheme\Core\Tags::posted_on();
+				EmkalabTheme\Core\Tags::posted_on();
 				?>
 			</div><!-- .entry-meta -->
 		<?php
@@ -57,6 +57,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php JippiTheme\Core\Tags::entry_footer(); ?>
+		<?php EmkalabTheme\Core\Tags::entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

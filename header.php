@@ -65,11 +65,11 @@
 			font-display: swap;
 		}
 	</style>
+	<link rel="stylesheet" href="<?=mix("/css/style.css")?>" type="text/css"/>
 </head>
-
 <body <?php body_class('font-display'); ?> x-data="{atTop: true, isArchive: false}" x-on:scroll.window="atTop = (window.pageYOffset > 60) ? false : true; "
 >
 <?php wp_body_open(); ?>
 <?php do_action( 'jpp_header', 'envato' ); ?>
-<main id="page" class="site" <?php echo ! is_customize_preview() ?: 'style="padding: 0 40px;"'; ?>>
+<main id="page" class="site w-full border border-red-500 min-h-screen" <?php echo ! is_customize_preview() ?: 'style="padding: 0 40px;"'; ?>>
 	<div id="content" class="site-content">

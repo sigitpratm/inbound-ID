@@ -2,14 +2,14 @@
 /**
  * Theme Customizer
  *
- * @package jippitheme
+ * @package EmkalabTheme
  */
 
-namespace JippiTheme\Api;
+namespace EmkalabTheme\Api;
 
-use JippiTheme\Api\Customizer\Sidebar;
-use JippiTheme\Api\Customizer\Header;
-use JippiTheme\Api\Customizer\Footer;
+use EmkalabTheme\Api\Customizer\Sidebar;
+use EmkalabTheme\Api\Customizer\Header;
+use EmkalabTheme\Api\Customizer\Footer;
 
 /**
  * Customizer class
@@ -62,11 +62,11 @@ class Customizer
 	public function output()
 	{
 		echo '<!--Customizer CSS--> <style type="text/css">';
-			echo self::css( '#sidebar', 'background-color', 'jippitheme_sidebar_background_color' );
-			echo self::css( '.site-footer', 'background-color', 'jippitheme_footer_background_color' );
-			echo self::css( '.site-header', 'background-color', 'jippitheme_header_background_color' );
-			echo self::css( '.site-header', 'color', 'jippitheme_header_text_color' );
-			echo self::css( '.site-header a', 'color', 'jippitheme_header_link_color' );
+			echo self::css( '#sidebar', 'background-color', 'EmkalabTheme_sidebar_background_color' );
+			echo self::css( '.site-footer', 'background-color', 'EmkalabTheme_footer_background_color' );
+			echo self::css( '.site-header', 'background-color', 'EmkalabTheme_header_background_color' );
+			echo self::css( '.site-header', 'color', 'EmkalabTheme_header_text_color' );
+			echo self::css( '.site-header a', 'color', 'EmkalabTheme_header_link_color' );
 		echo '</style><!--/Customizer CSS-->';
 	}
 

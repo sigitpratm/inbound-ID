@@ -2,10 +2,10 @@
 /**
  * Build Gutenberg Blocks
  *
- * @package jippitheme
+ * @package EmkalabTheme
  */
 
-namespace JippiTheme\Api;
+namespace EmkalabTheme\Api;
 
 /**
  * Customizer class
@@ -78,10 +78,10 @@ class Gutenberg
 	 */
 	public function gutenberg_enqueue()
 	{
-		wp_register_script( 'gutenberg-jippitheme', get_template_directory_uri() . '/assets/dist/js/gutenberg.js', array( 'wp-blocks', 'wp-element', 'wp-editor' ) );
+		wp_register_script( 'gutenberg-EmkalabTheme', get_template_directory_uri() . '/assets/dist/js/gutenberg.js', array( 'wp-blocks', 'wp-element', 'wp-editor' ) );
 
-		register_block_type( 'gutenberg-jippitheme/jippitheme-cta', array(
-			'editor_script' => 'gutenberg-jippitheme', // Load script in the editor
+		register_block_type( 'gutenberg-EmkalabTheme/EmkalabTheme-cta', array(
+			'editor_script' => 'gutenberg-EmkalabTheme', // Load script in the editor
 		) );
 	}
 
@@ -91,6 +91,6 @@ class Gutenberg
 	 */
 	public function gutenberg_assets()
 	{
-		wp_enqueue_style( 'gutenberg-jippitheme-cta', get_template_directory_uri() . '/assets/dist/css/gutenberg.css', null );
+		wp_enqueue_style( 'gutenberg-EmkalabTheme-cta', get_template_directory_uri() . '/assets/dist/css/gutenberg.css', null );
 	}
 }

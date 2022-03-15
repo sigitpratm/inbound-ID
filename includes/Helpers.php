@@ -162,7 +162,7 @@ if ( ! function_exists( 'get_post_count_by_meta' ) ) {
 				),
 		];
 
-		return \JippiTheme\Query::post( $post_type, true, $args );
+		return \EmkalabTheme\Query::post( $post_type, true, $args );
 	}
 }
 require_once get_template_directory() . '/includes/helpers/comment.php';

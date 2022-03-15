@@ -1,6 +1,6 @@
 <?php
 
-namespace JippiTheme\Api;
+namespace EmkalabTheme\Api;
 
 use WP_Query;
 

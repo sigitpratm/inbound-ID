@@ -1,6 +1,6 @@
 <?php
 
-namespace JippiTheme\Setup;
+namespace EmkalabTheme\Setup;
 
 /**
  * Enqueue.

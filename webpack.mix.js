@@ -4,7 +4,6 @@
  * Check the documentation at
  * https://laravel-mix.com/
  */
-
 let mix = require( 'laravel-mix' );
 require('mix-tailwindcss');
 require( '@tinypixelco/laravel-mix-wp-blocks' );
@@ -20,7 +19,8 @@ const path = require('path');
 // mix.autoload({
 // 	jquery: ['$', 'window.jQuery', 'jQuery'],
 // });
-mix.setPublicPath( './assets/dist' );
+mix.setPublicPath( './assets/dist' )
+
 
 // Compile assets.
 mix
@@ -48,33 +48,23 @@ mix
 			resolve: {
 				extensions: [ '.tsx', '.ts', '.js', '.vue' ],
 				alias: {
-					// vue: '../../../node_modules/vue',
 					'@': path.resolve(__dirname, 'assets/src/scripts'),
 					'@json': path.resolve(__dirname, 'assets/src/json'),
 					'@sass': path.resolve(__dirname, 'assets/src/sass'),
-					// '@Core': path.resolve(__dirname, 'Modules/Core/Resources'), //~ Auth Modules
-					// '@Atm': path.resolve(__dirname, 'Modules/Atm/Resources'), //~ Setting Modules
-					// // '@Setting': path.resolve(__dirname, 'Modules/Setting/Resources'), //~ Setting Modules
-					// // '@Logger': path.resolve(__dirname, 'Modules/Logger/Resources'), //~ Setting Modules
-					// // '@Order': path.resolve(__dirname, 'Modules/Order/Resources'), //~ Setting Modules
-					// // '@Payment': path.resolve(__dirname, 'Modules/Payment/Resources'), //~ Setting Modules
-					// // '@Seo': path.resolve(__dirname, 'Modules/Seo/Resources'), //~ Setting Modules
-					// '@assets': path.resolve(__dirname, 'resources/assets'),
-					// '@sass': path.resolve(__dirname, 'resources/sass'),
 				},
 			},
 			module: {
-				// rules: [
-				// 	{
-				// 		test: /\.scss$/,
-				// 		loader: 'postcss-loader',
-				// 		options: {
-				// 			ident: 'postcss-scss',
-				// 			syntax: 'postcss-scss',
-				// 			plugins: () => [require('postcss-flexbugs-fixes')()]
-				// 		}
-				// 	}
-				// ]
+				rules: [
+					// {
+					// 	test: /\.scss$/,
+					// 	loader: 'postcss-loader',
+					// 	options: {
+					// 		ident: 'postcss-scss',
+					// 		syntax: 'postcss-scss',
+					// 		plugins: () => [require('postcss-flexbugs-fixes')()]
+					// 	}
+					// }
+				]
 			},
 		}
 
@@ -82,7 +72,7 @@ mix
 	})
 	.js( 'assets/src/scripts/app.js', 'assets/dist/js' )
 	// .js( 'assets/src/scripts/admin.js', 'assets/dist/js' )
-	.block( 'assets/src/scripts/gutenberg.js', 'assets/dist/js' )
+	// .block( 'assets/src/scripts/gutenberg.js', 'assets/dist/js' )
 	// .postCss("assets/src/sass/style.scss", "assets/dist/css", [
 	// 	require("tailwindcss"),
 	// ])
@@ -91,11 +81,10 @@ mix
 	// .sass( 'assets/src/sass/gutenberg.scss', 'assets/dist/css' )
 	.copy('assets/src/json', 'assets/dist/json')
 	.copy('assets/src/img', 'assets/dist/img')
-	.copy('assets/src/fonts', 'assets/dist/fonts')
-
-;
+	.copy('assets/src/fonts', 'assets/dist/fonts');
 mix.postCss('assets/src/sass/style.css', 'assets/dist/css/style.css',
-	tailwindcss('./tailwind.config.js')
+	// tailwindcss('./tailwind.config.js')
+require("tailwindcss"),
 );
 // mix.extract(['jquery'])
 

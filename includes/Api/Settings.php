@@ -2,10 +2,10 @@
 /**
  * Settings API
  *
- * @package jippitheme
+ * @package EmkalabTheme
  */
 
-namespace JippiTheme\Api;
+namespace EmkalabTheme\Api;
 
 /**
  * Settings API Class

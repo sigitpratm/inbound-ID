@@ -1,6 +1,6 @@
 <?php
 
-namespace JippiTheme\Api\Widgets;
+namespace EmkalabTheme\Api\Widgets;
 
 use WP_Widget;
 /**
@@ -18,7 +18,7 @@ class TextWidget extends WP_Widget
 
 	function __construct() {
 
-		$this->widget_ID = 'widget_jippitheme';
+		$this->widget_ID = 'widget_EmkalabTheme';
 
 		$this->widget_name = 'Jippi Custom Text';
 

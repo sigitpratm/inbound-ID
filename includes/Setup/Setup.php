@@ -1,5 +1,5 @@
 <?php
-namespace JippiTheme\Setup;
+namespace EmkalabTheme\Setup;
 
 class Setup {
 	/**

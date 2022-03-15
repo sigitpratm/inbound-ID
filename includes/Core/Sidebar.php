@@ -1,6 +1,6 @@
 <?php
 
-namespace JippiTheme\Core;
+namespace EmkalabTheme\Core;
 
 /**
  * Sidebar.

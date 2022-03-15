@@ -12,8 +12,8 @@ if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) :
 	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 endif;
 
-if ( class_exists( 'JippiTheme\\Init' ) ) :
-	JippiTheme\Init::register_services();
+if ( class_exists( 'EmkalabTheme\\Init' ) ) :
+	EmkalabTheme\Init::register_services();
 endif;
 
 

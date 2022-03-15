@@ -8,7 +8,7 @@
  * @package awps
  */
 
-namespace JippiTheme;
+namespace EmkalabTheme;
 
 final class Init
 {

@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+	"baseUrl": ".",
+	"skipLibCheck": true,
+	"skipDefaultLibCheck": true,
+	"paths": {
+	  "@handler": ["./assets/src/scripts/lib/handler"],
+	  "@lib": ["./assets/src/scripts/lib"]
+	}
+  },
+  "exclude": ["node_modules"]
+}

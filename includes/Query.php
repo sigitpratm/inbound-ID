@@ -1,5 +1,5 @@
 <?php
-namespace JippiTheme;
+namespace EmkalabTheme;
 
 class Query {
 

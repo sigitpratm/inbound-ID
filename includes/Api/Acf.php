@@ -2,10 +2,10 @@
 /**
  * Show ACF field in Rest
  *
- * @package jippitheme
+ * @package EmkalabTheme
  */
 
-namespace JippiTheme\Api;
+namespace EmkalabTheme\Api;
 
 /**
  * Customizer class

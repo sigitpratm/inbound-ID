@@ -1,6 +1,6 @@
 <?php
 
-namespace JippiTheme\Custom;
+namespace EmkalabTheme\Custom;
 
 /**
  * Custom

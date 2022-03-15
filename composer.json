@@ -25,12 +25,17 @@
         "wp-coding-standards/wpcs": "^2.3"
     },
     "autoload": {
-        "psr-4": { "JippiTheme\\": "./includes" },
+        "psr-4": { "EmkalabTheme\\": "./includes" },
         "files": [ "./includes/Helpers.php" ]
     },
     "scripts": {
         "test": ["@phpcs", "@parallel-lint"],
         "phpcs": "phpcs",
         "parallel-lint": "parallel-lint --blame --exclude vendor/ ."
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }

@@ -15,7 +15,7 @@
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 			<div class="entry-meta">
-				<?php JippiTheme\Core\Tags::posted_on(); ?>
+				<?php EmkalabTheme\Core\Tags::posted_on(); ?>
 			</div><!-- .entry-meta -->
 
 		<?php endif; ?>
@@ -48,6 +48,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php JippiTheme\core\tags::entry_footer(); ?>
+		<?php EmkalabTheme\core\tags::entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
