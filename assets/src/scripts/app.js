@@ -19,6 +19,3 @@ Alpine.store('accordion', {
 	tab: 0
 })
 Alpine.start()
-
-
-

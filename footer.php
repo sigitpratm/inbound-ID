@@ -11,35 +11,366 @@
 
 ?>
 
-	</div><!-- #content -->
-	</main><!-- #content -->
+</div><!-- #content -->
+</main><!-- #content -->
 
-<footer class="text-gray-100 body-font bg-gray-900">
-	<div class="max-w-7xl mx-auto px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-		<a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-100">
-			<img src="<?= jpp_assets('img/jippi.svg')?>" class="w-8" />
-			<span class="ml-3 text-xl">Jippi Themes</span>
-		</a>
-		<p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2021 —
-			<a href="https://jippi.co.id/" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">Jippi Solusitama Indonesia</a>
-		</p>
-		<span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-      <a target="_blank" href="https://www.facebook.com/jippi.id" class="text-gray-500">
-        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-        </svg>
-      </a>
-      <a target="_blank" href="https://www.instagram.com/jippi.id/" class="ml-3 text-gray-500">
-        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-        </svg>
-      </a>
+<footer class="bg-scheme-green relative z-30">
+	<div class="flex md:flex-row flex-col items-center justify-between container mx-auto py-16 text-white md:text-base xl:text-lg gap-16 xl:gap-0 px-4 xl:px-0">
 
-    </span>
+		<div class="w-full space-y-4 md:text-left text-center">
+			<a href="">
+				<p class="font-bold text-4xl xl:text-5xl">INBOUNDID</p>
+			</a>
+			<p class="w-full xl:w-2/3">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ea labore perferendis
+			</p>
+		</div>
+
+		<div class="w-full text-center ">
+			<p>+628123123123</p>
+			<p>admin@inboun.com</p>
+		</div>
+
+		<div class="w-full space-y-4">
+			<p class="font-bold text-2xl md:text-4xl text-center">Catch us on</p>
+			<div class="flex items-center justify-center gap-8">
+				<a href="#">
+					<img src="<?php echo jpp_assets( 'img/png/icIg.png' ) ?>" alt=""
+					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
+				</a>
+
+				<a href="#">
+					<img src="<?php echo jpp_assets( 'img/png/icTw.png' ) ?>" alt=""
+					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
+				</a>
+
+				<a href="#">
+					<img src="<?php echo jpp_assets( 'img/png/icFb.png' ) ?>" alt=""
+					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
+				</a>
+
+				<a href="#">
+					<img src="<?php echo jpp_assets( 'img/png/icLinked.png' ) ?>" alt=""
+					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
+				</a>
+
+				<a href="#">
+					<img src="<?php echo jpp_assets( 'img/png/icYt.png' ) ?>" alt=""
+					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="h-48 bg-gray-700 flex items-center justify-center">
+		<p class="text-center text-white">Lorem ipsum dolor sit amet, consectetur.</p>
 	</div>
 </footer>
+
 <?php wp_footer(); ?>
+
+<script>
+	/**
+	 * Header on scroll
+	 */
+	let headerDefault = document.getElementById("header")
+
+	if (headerDefault !== null) {
+		window.onscroll = () => {
+			if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
+				headerDefault.classList.add("header-active")
+			} else {
+				headerDefault.classList.remove("header-active")
+			}
+		}
+	}
+</script>
+
+<script>
+	function openTabArticle(evt, tabName) {
+		let i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("content-tab-order");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("tab-order-links");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace("active-menu-order", "");
+		}
+		document.getElementById(tabName).style.display = "block";
+		evt.currentTarget.className += " active-menu-order";
+	}
+</script>
+
+<script>
+	/**
+	 * SMALL MENU
+	 */
+	let btnBurger = document.getElementById("btn-burger")
+	btnBurger.addEventListener("click", function () {
+		let element = document.getElementById("small-nav");
+		element.classList.toggle("small-nav-active");
+	})
+
+
+	let header = document.getElementById("item-nav");
+	let btns = header.getElementsByClassName("btn-nav-sm");
+
+	for (let i = 0; i < btns.length; i++) {
+		btns[i].addEventListener("click", function () {
+			let current = document.getElementsByClassName("active-nav");
+			current[0].className = current[0].className.replace(" active-nav", "");
+			this.className += " active-nav";
+		});
+	}
+
+
+	/**
+	 * CHANGE CONTENT SLIDES
+	 * @param btnSlides
+	 * @param firstSlide
+	 */
+	function jpSlider(btnSlides, firstSlide) {
+		let indicatorSlider = document.querySelectorAll(btnSlides)
+		for (let i = 0; i < indicatorSlider.length; i++) {
+			let firstSlider = document.querySelector(firstSlide)
+			indicatorSlider[i].addEventListener("click", function () {
+				if (i === 0) {
+					firstSlider.style.marginLeft = "0%"
+				} else if (i === 1) {
+					firstSlider.style.marginLeft = "-100%"
+				} else if (i === 2) {
+					firstSlider.style.marginLeft = "-200%"
+				} else if (i === 3) {
+					firstSlider.style.marginLeft = "-300%"
+				} else if (i === 4) {
+					firstSlider.style.marginLeft = "-400%"
+				}
+			})
+		}
+	}
+
+	jpSlider(".btn-slider", ".first-slider")
+	jpSlider(".indicator-client-slider", ".first-slider-client")
+
+
+	/**
+	 * CHANGE TAB ARTICLE
+	 */
+	let tabLinksArticle = document.querySelectorAll('.indicator-tab-article')
+	let tabContentArticle = document.querySelectorAll('.content-tab-article')
+
+	tabLinksArticle.forEach(function (el) {
+		el.addEventListener("click", openTabs);
+	});
+
+
+	function openTabs(el) {
+		let btnTarget = el.currentTarget;
+		let article = btnTarget.dataset.target;
+
+		tabContentArticle.forEach(function (el) {
+			el.classList.remove("active-tab-article");
+		});
+
+		tabLinksArticle.forEach(function (el) {
+			el.classList.remove("active-tab-article");
+		});
+		document.querySelector("#" + article).classList.add("active-tab-article");
+	}
+
+</script>
+
+<script>
+	let slides = document.getElementsByClassName("slide-work");
+	let navLinks = document.getElementsByClassName("link-slide-work");
+	let currentSlide = 0;
+
+	let prevSlideWork = document.getElementById("prev-slide-work")
+	if (prevSlideWork !== null) {
+		prevSlideWork.addEventListener("click", () => {
+			changeSlide(currentSlide - 1)
+		});
+	}
+
+	let nexSlideWork = document.getElementById("next-slide-work")
+	if (nexSlideWork !== null) {
+		nexSlideWork.addEventListener("click", () => {
+			changeSlide(currentSlide + 1)
+		});
+	}
+
+	function changeSlide(moveTo) {
+		if (moveTo >= slides.length) {
+			moveTo = 0;
+		}
+		if (moveTo < 0) {
+			moveTo = slides.length - 1;
+		}
+
+		slides[currentSlide].classList.toggle("slide-work-active");
+		navLinks[currentSlide].classList.toggle("slide-nav-active");
+		slides[moveTo].classList.toggle("slide-work-active");
+		navLinks[moveTo].classList.toggle("slide-nav-active");
+
+		currentSlide = moveTo;
+	}
+</script>
+
+<script>
+	// window.addEventListener("DOMContentLoaded", function () {
+	// 	document.querySelector('.button-indicator').click()
+	// })
+
+	function openTabOrder(evt, tabName) {
+		let i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("content-tab-service");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+		document.getElementById(tabName).style.display = "block";
+	}
+
+	let linkService = document.querySelectorAll(".button-indicator");
+	let tabService = document.querySelectorAll(".content-tab-service");
+	for (let i = 0; i < linkService.length; i++) {
+		let iTab = tabService[i].getAttribute('data-tab')
+		linkService[i].addEventListener("click", function () {
+			openTabOrder("click", iTab)
+		})
+	}
+
+
+	function dynamicClass(grupBtn, dynamicClass) {
+		let buttons = document.querySelectorAll(grupBtn);
+		buttons.forEach(button => {
+			button.addEventListener('click', function () {
+				buttons.forEach(btn => btn.classList.remove(dynamicClass));
+				this.classList.add(dynamicClass);
+			});
+		});
+	}
+
+	dynamicClass('.button-indicator', 'active-btn-service')
+
+	let navLinksService = document.querySelectorAll('.button-indicator')
+	for (let i = 0; i < navLinksService.length; i++) {
+		navLinksService[i].addEventListener("click", function () {
+			let indicatorTop = document.querySelectorAll('.top-indicator-service')
+			let indicatorBottom = document.querySelectorAll('.bottom-indicator-service')
+
+			indicatorTop.forEach(btn => btn.classList.remove('indicator-top-active-service'));
+			indicatorTop[i].classList.add('indicator-top-active-service')
+
+			indicatorBottom.forEach(btn => btn.classList.remove('indicator-bottom-active-service'));
+			indicatorBottom[i].classList.add('indicator-bottom-active-service')
+		})
+	}
+</script>
+
+<script>
+	function openTabOrder(evt, tabName) {
+		let i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("content-tab-service");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+		document.getElementById(tabName).style.display = "block";
+	}
+
+	let linkService2 = document.querySelectorAll(".button-indicator");
+	let tabService2 = document.querySelectorAll(".content-tab-service");
+	for (let i = 0; i < linkService2.length; i++) {
+		let iTab = tabService2[i].getAttribute('data-tab')
+		linkService2[i].addEventListener("click", function () {
+			openTabOrder("click", iTab)
+		})
+	}
+
+
+	function dynamicClass(grupBtn, dynamicClass) {
+		let buttons = document.querySelectorAll(grupBtn);
+		buttons.forEach(button => {
+			button.addEventListener('click', function () {
+				buttons.forEach(btn => btn.classList.remove(dynamicClass));
+				this.classList.add(dynamicClass);
+			});
+		});
+	}
+
+	dynamicClass('.button-indicator', 'active-btn-service')
+
+	let navLinksService2 = document.querySelectorAll('.button-indicator')
+	for (let i = 0; i < navLinksService2.length; i++) {
+		navLinksService2[i].addEventListener("click", function () {
+			let indicatorTop = document.querySelectorAll('.top-indicator-service')
+			let indicatorBottom = document.querySelectorAll('.bottom-indicator-service')
+
+			indicatorTop.forEach(btn => btn.classList.remove('indicator-top-active-service'));
+			indicatorTop[i].classList.add('indicator-top-active-service')
+
+			indicatorBottom.forEach(btn => btn.classList.remove('indicator-bottom-active-service'));
+			indicatorBottom[i].classList.add('indicator-bottom-active-service')
+		})
+	}
+</script>
+
+<script>
+	/**
+	 * CLICK FIRST BUTTON
+	 */
+	window.onload = function () {
+		let firstBtnArticle = document.getElementById('nav-tab-article')
+		let firstBtnService = document.getElementById('nav-tab-service')
+
+		if (firstBtnArticle !== null) {
+			firstBtnArticle.children[0].click()
+		}
+
+		if (firstBtnService !== null) {
+			firstBtnService.children[0].children[0].click()
+		}
+	}
+
+
+	let inputFile = document.getElementById('upload-file-brief')
+	if (inputFile !== null) {
+		inputFile.onchange = function () {
+			document.getElementById('text-file-brief').innerText = this.value.replace(/.*[\/\\]/, '')
+		};
+	}
+</script>
+
+<script>
+	/**
+	 * FUNCTION CHANGE TAB DEFAULT
+	 * @param buttonTabs
+	 * @param contentTabs
+	 */
+	function defaultChangeTab(buttonTabs, contentTabs) {
+		let btnTab = document.querySelectorAll(buttonTabs)
+		let contentTab = document.querySelectorAll(contentTabs)
+
+		if (btnTab !== null && contentTab !== null) {
+			for (let i = 0; i < btnTab.length; i++) {
+				btnTab[i].addEventListener('click', function () {
+					btnTab.forEach(btn => {
+						btn.classList.remove('active-btn-brief')
+					})
+
+					contentTab.forEach(btn => {
+						btn.classList.remove('active-tab-brief')
+					})
+
+					btnTab[i].classList.add('active-btn-brief')
+					contentTab[i].classList.add('active-tab-brief')
+				})
+			}
+		}
+	}
+
+	defaultChangeTab('.btn-tab-brief', '.content-tab-brief')
+</script>
 
 </body>
 </html>

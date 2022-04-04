@@ -13,8 +13,8 @@
  */
 
 get_header(); ?>
-<div class="w-full min-h-screen">
 
-</div>
+<?php get_template_part( 'template-parts/views/content', get_post_type() ) ?>
+
 <?php
 get_footer();
