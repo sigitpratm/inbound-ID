@@ -9,6 +9,7 @@ if ( ! class_exists( 'Redux' ) ) {
 }
 
 
+
 // This is your option name where all the Redux data is stored.
 $opt_name = __TEXT_DOMAIN__;
 
@@ -52,7 +53,7 @@ $args = array(
 	// Choose an priority for the admin bar menu
 	'global_variable'      => $inbound,
 	// Set a different name for your global variable other than the opt_name
-	'dev_mode'             => false,
+	'dev_mode'             => true,
 	// Show the time the page took to load, etc
 	'update_notice'        => true,
 	// If dev_mode is enabled, will notify developer of updated versions available in the GitHub Repo
@@ -246,7 +247,7 @@ Redux::setSection( $opt_name, array(
 			'text-transform' => true,
 			'color'          => false,
 			'default'        => array(
-				'font-family'    => 'Overpass',
+				'font-family' => 'Overpass',
 			)
 		),
 		array(
@@ -340,34 +341,34 @@ Redux::setSection( $opt_name, array(
 			'type'    => 'radio',
 			'title'   => __( 'Select Comment System', __TEXT_DOMAIN__ ),
 			'options' => array(
-				'facebook'       => __( 'Facebook Comment', __TEXT_DOMAIN__ ),
-				'disqus' => __( 'Disqus', __TEXT_DOMAIN__ )
+				'facebook' => __( 'Facebook Comment', __TEXT_DOMAIN__ ),
+				'disqus'   => __( 'Disqus', __TEXT_DOMAIN__ )
 			),
 			'default' => 'disqus',
 		),
 		array(
-			'id'      => 'comment-system-disqus',
-			'title'   => __( 'Disqus ID', __TEXT_DOMAIN__ ),
-			'desc'      => __("Eg. https://<strong>username</strong>.disqus.com dan pilih color scheme dark di menu general",__TEXT_DOMAIN__),
-			'type'    => 'text',
-			'default' => 'jippi-1',
-			'required' => array('comment-system','=','disqus')
+			'id'       => 'comment-system-disqus',
+			'title'    => __( 'Disqus ID', __TEXT_DOMAIN__ ),
+			'desc'     => __( "Eg. https://<strong>username</strong>.disqus.com dan pilih color scheme dark di menu general", __TEXT_DOMAIN__ ),
+			'type'     => 'text',
+			'default'  => 'jippi-1',
+			'required' => array( 'comment-system', '=', 'disqus' )
 		),
 		array(
-			'id'      => 'comment-facebook-app-id',
-			'title'   => __( 'Facebook App ID', __TEXT_DOMAIN__ ),
-			'desc'      => __("Get the facebook app id at https://developers.facebook.com/apps",__TEXT_DOMAIN__),
-			'type'    => 'text',
-			'default' => '177516455919150',
-			'required' => array('comment-system','=','facebook')
+			'id'       => 'comment-facebook-app-id',
+			'title'    => __( 'Facebook App ID', __TEXT_DOMAIN__ ),
+			'desc'     => __( "Get the facebook app id at https://developers.facebook.com/apps", __TEXT_DOMAIN__ ),
+			'type'     => 'text',
+			'default'  => '177516455919150',
+			'required' => array( 'comment-system', '=', 'facebook' )
 		),
 		array(
-			'id'      => 'comment-facebook-showing-comment',
-			'title'   => __( 'Showing Comment', __TEXT_DOMAIN__ ),
-			'desc'      => __("Eg. 5 for showing 5 comments",__TEXT_DOMAIN__),
-			'type'    => 'text',
-			'default' => '5',
-			'required' => array('comment-system','=','facebook')
+			'id'       => 'comment-facebook-showing-comment',
+			'title'    => __( 'Showing Comment', __TEXT_DOMAIN__ ),
+			'desc'     => __( "Eg. 5 for showing 5 comments", __TEXT_DOMAIN__ ),
+			'type'     => 'text',
+			'default'  => '5',
+			'required' => array( 'comment-system', '=', 'facebook' )
 		),
 	)
 ) );
@@ -431,18 +432,6 @@ Redux::setSection( $opt_name, array(
 			'title'   => __( 'Menu - Link Color', __TEXT_DOMAIN__ ),
 			'default' => '#ffffff'
 		),
-		array(
-			'id'      => 'header-menu-hover-color',
-			'type'    => 'color',
-			'title'   => __( 'Menu - Hover Color', __TEXT_DOMAIN__ ),
-			'default' => '#ffffff'
-		),
-		array(
-			'id'      => 'header-menu-background-switch',
-			'type'    => 'color',
-			'title'   => __( 'Menu - Switch Mode', __TEXT_DOMAIN__ ),
-			'default' => '#bcbedc'
-		),
 	)
 ) );
 
@@ -461,140 +450,6 @@ Redux::setSection( $opt_name, array(
 			'title'   => __( 'Display Search Field', __TEXT_DOMAIN__ ),
 			'default' => true
 		),
-		array(
-			'id'      => 'menu-lighting',
-			'type'    => 'switch',
-			'title'   => __( 'Display Lighting Mode', __TEXT_DOMAIN__ ),
-			'default' => true
-		)
-	)
-) );
-
-/**
- * Menu
- */
-Redux::setSection( $opt_name, array(
-	'title'            => __( 'Topbar', __TEXT_DOMAIN__ ),
-	'id'               => 'topbar-menu',
-	'subsection'       => true,
-	'customizer_width' => '450px',
-	'fields'           => array(
-		array(
-			'id'      => 'topbar-menu-top',
-			'type'    => 'switch',
-			'title'   => __( 'Menu Top', __TEXT_DOMAIN__ ),
-			'default' => false
-		),
-		array(
-			'id'       => 'topbar-menu-top-color',
-			'type'     => 'color',
-			'title'    => __( 'Menu Top - Background Color' ),
-			'required' => array( 'topbar-menu-top', '=', 1 ),
-			'default'  => "#474A65",
-		),
-		array(
-			'id'       => 'topbar-menu-top-color-text',
-			'type'     => 'color',
-			'title'    => __( 'Menu Top - Text Color' ),
-			'required' => array( 'topbar-menu-top', '=', 1 ),
-			'default'  => "#fff",
-		),
-		array(
-			'id'       => 'topbar-menu-top-color-hover',
-			'type'     => 'color',
-			'title'    => __( 'Menu Top - Hover Color' ),
-			'required' => array( 'topbar-menu-top', '=', 1 ),
-			'default'  => "#6dc6f5",
-		),
-		array(
-			'id'         => 'topbar-menu-top-size',
-			'type'       => 'slider',
-			'title'      => __( 'Menu Top - Font Size', __TEXT_DOMAIN__ ),
-			'step'       => 0.1,
-			'resolution' => 0.1,
-			'min'        => 0.5,
-			'max'        => 4,
-			'default'    => 1.5,
-			'required'   => array( 'topbar-menu-top', '=', 1 ),
-		),
-		array(
-			'id'       => 'topbar-menu-top-float',
-			'type'     => 'radio',
-			'title'    => __( 'Menu Top - Menu Float ?' ),
-			'options'  => array(
-				'left'  => __( 'Left', __TEXT_DOMAIN__ ),
-				'right' => __( 'Right', __TEXT_DOMAIN__ ),
-			),
-			'required' => array( 'topbar-menu-top', '=', 1 ),
-			'default'  => "left",
-		),
-		array(
-			'id'       => 'topbar-menu-top-social-float',
-			'type'     => 'radio',
-			'title'    => __( 'Menu Top - Social Float ?' ),
-			'options'  => array(
-				'left'  => __( 'Left', __TEXT_DOMAIN__ ),
-				'right' => __( 'Right', __TEXT_DOMAIN__ ),
-			),
-			'required' => array( 'topbar-menu-top', '=', 1 ),
-			'default'  => "right",
-		),
-		array(
-			'id'       => 'topbar-menu-top-social-color',
-			'type'     => 'color',
-			'title'    => __( 'Menu Top - Social Float ?' ),
-			'options'  => array(
-				'left'  => __( 'Left', __TEXT_DOMAIN__ ),
-				'right' => __( 'Right', __TEXT_DOMAIN__ ),
-			),
-			'required' => array( 'topbar-menu-top', '=', 1 ),
-			'default'  => "#c4c4c4",
-		),
-		array(
-			'id'       => 'topbar-menu-top-social-color-hover',
-			'type'     => 'color',
-			'title'    => __( 'Menu Top - Social Float ?' ),
-			'required' => array( 'topbar-menu-top', '=', 1 ),
-			'default'  => "#c4c4c4",
-		),
-	)
-) );
-
-/**
- * Blog
- */
-Redux::setSection( $opt_name, array(
-	'title'            => __( 'Blog', __TEXT_DOMAIN__ ),
-	'id'               => 'blog',
-	'customizer_width' => '400px',
-	'icon'             => 'el el-pencil'
-) );
-
-/**
- * Blog Section
- * @since   1.0.0
- */
-Redux::setSection( $opt_name, array(
-	'id'               => 'blog-layout',
-	'title'            => __( 'Layout', __TEXT_DOMAIN__ ),
-	'customizer_width' => 450,
-	'subsection'       => true,
-	'fields'           => array(
-		array(
-			'id'      => 'blog-layout-jumbotron-single',
-			'title'   => __( 'Jumbotron Single Post' ),
-			'type'    => 'switch',
-			'default' => true
-		),
-		array(
-			'id'       => 'blog-layout-single-background',
-			'title'    => __( 'Background Jumbotron Single Post' ),
-			'type'     => 'color',
-			'default'  => '#2b2d42',
-			'required' => array(
-				array( 'blog-layout-jumbotron-single', '=', 1 )
-			)
-		)
 	)
 ) );
 
@@ -602,7 +457,6 @@ Redux::setSection( $opt_name, array(
 /**
  *   HOME PAGE
  */
-
 Redux::setSection( $opt_name, array(
 	'title'            => __( 'Home Page', __TEXT_DOMAIN__ ),
 	'id'               => 'home',
@@ -611,11 +465,11 @@ Redux::setSection( $opt_name, array(
 ) );
 
 /**
- * HOME - SECTION 1
+ * HOME - HERO BANNER
  */
 Redux::setSection( $opt_name, array(
-	'id'               => 'home-general',
-	'title'            => __( 'General', __TEXT_DOMAIN__ ),
+	'id'               => 'home-hero-banner',
+	'title'            => __( 'Hero Banner', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
 	'fields'           => array(
@@ -626,24 +480,28 @@ Redux::setSection( $opt_name, array(
 			'default' => true
 		),
 		array(
-			'id'      => 'home-general-background-jumbotron-status',
-			'type'    => 'switch',
-			'title'   => __( 'Jumbotron - Image Hover in Card Post', __TEXT_DOMAIN__ ),
-			'default' => true,
-			'required'  => array('home-general-background-jumbotron-set','=',1)
+			'id'       => 'home-general-background-jumbotron-status',
+			'type'     => 'switch',
+			'title'    => __( 'Jumbotron - Image Hover in Card Post', __TEXT_DOMAIN__ ),
+			'default'  => true,
+			'required' => array( 'home-general-background-jumbotron-set', '=', 1 )
 		),
 		array(
-			'id'      => 'home-general-background-jumbotron-color',
-			'type'    => 'color',
-			'title'   => __( 'Jumbotron - Background Color', __TEXT_DOMAIN__ ),
-			'default' => '#2b2d42',
-			'required'  => array('home-general-background-jumbotron-set','=',1)
+			'id'       => 'home-general-background-jumbotron-color',
+			'type'     => 'color',
+			'title'    => __( 'Jumbotron - Background Color', __TEXT_DOMAIN__ ),
+			'default'  => '#2b2d42',
+			'required' => array( 'home-general-background-jumbotron-set', '=', 1 )
 		),
 	)
-));
+) );
+
+/**
+ * HOME - SERVICES
+ */
 Redux::setSection( $opt_name, array(
-	'id'               => 'home-section-1',
-	'title'            => __( 'Section 1', __TEXT_DOMAIN__ ),
+	'id'               => 'home-services',
+	'title'            => __( 'Our Services', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
 	'fields'           => array(
@@ -704,11 +562,11 @@ Redux::setSection( $opt_name, array(
 ) );
 
 /**
- * HOME - SECTION 2
+ * HOME - OUR WORKS
  */
 Redux::setSection( $opt_name, array(
-	'id'               => 'home-section-2',
-	'title'            => __( 'Section 2', __TEXT_DOMAIN__ ),
+	'id'               => 'home-works',
+	'title'            => __( 'Our Works', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
 	'fields'           => array(
@@ -769,11 +627,11 @@ Redux::setSection( $opt_name, array(
 ) );
 
 /**
- * HOME - SECTION 3
+ * HOME - LATEST ARTICLE
  */
 Redux::setSection( $opt_name, array(
-	'id'               => 'home-section-3',
-	'title'            => __( 'Section 3', __TEXT_DOMAIN__ ),
+	'id'               => 'home-latest-article',
+	'title'            => __( 'Latest Article', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
 	'fields'           => array(
@@ -834,11 +692,11 @@ Redux::setSection( $opt_name, array(
 ) );
 
 /**
- * HOME - SECTION 4
+ * HOME - OUR CLIENT
  */
 Redux::setSection( $opt_name, array(
-	'id'               => 'home-section-4',
-	'title'            => __( 'Section 4', __TEXT_DOMAIN__ ),
+	'id'               => 'home-clients',
+	'title'            => __( 'Our Clients', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
 	'fields'           => array(
@@ -889,11 +747,11 @@ Redux::setSection( $opt_name, array(
 ) );
 
 /**
- * HOME - SECTION 5
+ * HOME - AWARDS
  */
 Redux::setSection( $opt_name, array(
-	'id'               => 'home-section-5',
-	'title'            => __( 'Section 5', __TEXT_DOMAIN__ ),
+	'id'               => 'home-awards',
+	'title'            => __( 'Awards', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
 	'fields'           => array(
@@ -943,93 +801,35 @@ Redux::setSection( $opt_name, array(
 	)
 ) );
 
-
 /**
- * CARD
+ * HOME - LAST SECTION
  */
 Redux::setSection( $opt_name, array(
-	'title'            => __( 'Card', __TEXT_DOMAIN__ ),
-	'id'               => 'card',
-	'customizer_width' => '400px',
-	'icon'             => 'el el-credit-card'
-) );
-/**
- * CARD - SERIES
- */
-Redux::setSection( $opt_name, array(
-	'id'               => 'card-series',
-	'title'            => __( 'Series', __TEXT_DOMAIN__ ),
+	'id'               => 'home-last-section',
+	'title'            => __( 'Last Section', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
-	'icon'             => 'el el-credit-card',
 	'fields'           => array(
-
 		array(
-			'id'      => 'card-series-color-title',
-			'title'   => __( 'Color - Title' ),
-			'type'    => 'color',
-			'default' => '#fff'
-		),
-		array(
-			'id'      => 'card-series-color-studio',
-			'title'   => __( 'Color - Subtitle' ),
-			'type'    => 'color',
-			'default' => '#75b5f0'
-		),
-		array(
-			'id'      => 'card-series-color-header',
-			'title'   => __( 'Color - Header' ),
-			'type'    => 'color',
-			'default' => '#585da8'
-		),
-		array(
-			'id'      => 'card-series-color-header-hastags',
-			'title'   => __( 'Color - Header Hastag' ),
-			'type'    => 'color',
-			'default' => '#4169e1'
-		),
-		array(
-			'id'      => 'card-series-color-header-hastags-hover',
-			'title'   => __( 'Color - Header Hastag Hover' ),
-			'type'    => 'color',
-			'default' => '#6485E8'
+			'id'       => 'home-last-section-image',
+			'type'     => 'media',
+			'url'      => true,
+			'title'    => __( 'image', 'default' ),
+			'compiler' => 'false',
+			'subtitle' => __( 'Upload your logo', 'default' ),
+			'default'  => array( 'url' => jpp_assets( '/img/png/img-footer.png' ) ),
 		),
 
 		array(
-			'id'      => 'card-series-color-footer',
-			'title'   => __( 'Color - Footer Icon Tags' ),
-			'type'    => 'color',
-			'default' => '#75badc'
+			'id'      => 'home-last-section-text',
+			'title'   => __( 'Copy last section', __TEXT_DOMAIN__ ),
+			'type'    => 'textarea',
+			'default' => 'Have any other question? Feel free to contact us',
 		),
-		array(
-			'id'      => 'card-series-color-footer-text',
-			'title'   => __( 'Color - Footer more hastag text ', __TEXT_DOMAIN__ ),
-			'type'    => 'color',
-			'default' => '#7c7c7c'
-		),
-		array(
-			'id'      => 'card-series-background',
-			'title'   => __( 'Background' ),
-			'type'    => 'color',
-			'default' => '#fff'
-		),
-		array(
-			'id'      => 'card-series-background-footer',
-			'title'   => __( 'Background - Footer' ),
-			'type'    => 'color',
-			'default' => '#eff7fb'
-		),
-		array(
-			'id'      => 'card-series-background-moretags',
-			'title'   => __( 'Background - More Tags' ),
-			'type'    => 'color',
-			'default' => '#f00'
-		),
-
 	)
 ) );
 
-// -> START Basic Fields
+
 Redux::setSection( $opt_name, array(
 	'title'            => __( 'Footer', __TEXT_DOMAIN__ ),
 	'id'               => 'footer',
@@ -1061,52 +861,52 @@ Redux::setSection( $opt_name, array(
 			'id'      => 'footer-website-description',
 			'title'   => __( 'Website Description', __TEXT_DOMAIN__ ),
 			'type'    => 'textarea',
-			'desc'     => __( 'input description website....', __TEXT_DOMAIN__ ),
-			'default'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu condimentum ligula. In pretium congue risus eu tincidunt. Nullam in venenatis erat. Sed eget tristique leo. Maecenas bibendum dapibus urna quis mattis. Ut feugiat dignissim consequat. Suspendisse potenti. Donec metus erat, varius ut metus id, hendrerit mattis sem. Nulla quis sem convallis tortor luctus malesuada. Cras ut lacus quis metus laoreet tristique id quis ex. Integer sagittis tempor sem, a aliquam nisi tristique eget.'
+			'desc'    => __( 'input description website....', __TEXT_DOMAIN__ ),
+			'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu condimentum ligula. In pretium congue risus eu tincidunt. Nullam in venenatis erat. Sed eget tristique leo. Maecenas bibendum dapibus urna quis mattis. Ut feugiat dignissim consequat. Suspendisse potenti. Donec metus erat, varius ut metus id, hendrerit mattis sem. Nulla quis sem convallis tortor luctus malesuada. Cras ut lacus quis metus laoreet tristique id quis ex. Integer sagittis tempor sem, a aliquam nisi tristique eget.'
 		),
 		array(
-			'id'      => 'footer-website-description-btn',
-			'title'   => __( 'Button After Description ?', __TEXT_DOMAIN__ ),
-			'type'    => 'switch',
-			'default' => true,
-			'required'=> array( 'footer-website-description-style','=','true' )
+			'id'       => 'footer-website-description-btn',
+			'title'    => __( 'Button After Description ?', __TEXT_DOMAIN__ ),
+			'type'     => 'switch',
+			'default'  => true,
+			'required' => array( 'footer-website-description-style', '=', 'true' )
 		),
 		array(
-			'id'      => 'footer-website-description-btn-background',
-			'title'   => __( 'Button - Background', __TEXT_DOMAIN__ ),
-			'type'    => 'color',
-			'default' => '#2D3153',
-			'required' => array('footer-website-description-btn','=','1')
+			'id'       => 'footer-website-description-btn-background',
+			'title'    => __( 'Button - Background', __TEXT_DOMAIN__ ),
+			'type'     => 'color',
+			'default'  => '#2D3153',
+			'required' => array( 'footer-website-description-btn', '=', '1' )
 		),
 		array(
-			'id'      => 'footer-website-description-btn-Hover',
-			'title'   => __( 'Button - Hover', __TEXT_DOMAIN__ ),
-			'type'    => 'color',
-			'default' => '#3db4f2',
-			'required' => array('footer-website-description-btn','=','1')
+			'id'       => 'footer-website-description-btn-Hover',
+			'title'    => __( 'Button - Hover', __TEXT_DOMAIN__ ),
+			'type'     => 'color',
+			'default'  => '#3db4f2',
+			'required' => array( 'footer-website-description-btn', '=', '1' )
 		),
 		array(
-			'id'      => 'footer-website-description-btn-color',
-			'title'   => __( 'Button - Color Text', __TEXT_DOMAIN__ ),
-			'type'    => 'color',
-			'default' => '#3db4f2',
-			'required' => array('footer-website-description-btn','=','1')
+			'id'       => 'footer-website-description-btn-color',
+			'title'    => __( 'Button - Color Text', __TEXT_DOMAIN__ ),
+			'type'     => 'color',
+			'default'  => '#3db4f2',
+			'required' => array( 'footer-website-description-btn', '=', '1' )
 		),
 		array(
-			'id'      => 'footer-website-description-btn-link',
-			'title'   => __( 'Button - Url', __TEXT_DOMAIN__ ),
-			'desc'      => __('Enter your url',__TEXT_DOMAIN__),
-			'type'    => 'text',
-			'default' => '/',
-			'required' => array('footer-website-description-btn','=','1')
+			'id'       => 'footer-website-description-btn-link',
+			'title'    => __( 'Button - Url', __TEXT_DOMAIN__ ),
+			'desc'     => __( 'Enter your url', __TEXT_DOMAIN__ ),
+			'type'     => 'text',
+			'default'  => '/',
+			'required' => array( 'footer-website-description-btn', '=', '1' )
 		),
 		array(
-			'id'      => 'footer-website-description-btn-text',
-			'title'   => __( 'Button - Text', __TEXT_DOMAIN__ ),
-			'desc'      => __('adjust the text inside the button',__TEXT_DOMAIN__),
-			'type'    => 'text',
-			'required' => array('footer-website-description-btn','=','1'),
-			'default'   => 'View More...'
+			'id'       => 'footer-website-description-btn-text',
+			'title'    => __( 'Button - Text', __TEXT_DOMAIN__ ),
+			'desc'     => __( 'adjust the text inside the button', __TEXT_DOMAIN__ ),
+			'type'     => 'text',
+			'required' => array( 'footer-website-description-btn', '=', '1' ),
+			'default'  => 'View More...'
 		),
 		array(
 			'id'      => 'footer-column',
@@ -1121,7 +921,7 @@ Redux::setSection( $opt_name, array(
 		),
 		array(
 			'id'       => 'footer-title-column-1',
-			'title'   => __( 'Footer Column 1 - Title', __TEXT_DOMAIN__ ),
+			'title'    => __( 'Footer Column 1 - Title', __TEXT_DOMAIN__ ),
 			'type'     => 'textarea',
 			'default'  => 'Title Footer 1',
 			'required' => array(
@@ -1131,12 +931,12 @@ Redux::setSection( $opt_name, array(
 					0
 				),
 			),
-			'desc'    => __( 'just leave it blank if you don\'t want it to be displayed...', __TEXT_DOMAIN__ ),
+			'desc'     => __( 'just leave it blank if you don\'t want it to be displayed...', __TEXT_DOMAIN__ ),
 		),
 		array(
-			'id'      => 'footer-title-column-2',
-			'title'   => __( 'Footer Column 2 - Title', __TEXT_DOMAIN__ ),
-			'type'    => 'textarea',
+			'id'       => 'footer-title-column-2',
+			'title'    => __( 'Footer Column 2 - Title', __TEXT_DOMAIN__ ),
+			'type'     => 'textarea',
 			'default'  => 'Title Footer 2',
 			'required' => array(
 				array(
@@ -1145,12 +945,12 @@ Redux::setSection( $opt_name, array(
 					1
 				)
 			),
-			'desc'    => __( 'just leave it blank if you don\'t want it to be displayed...', __TEXT_DOMAIN__ ),
+			'desc'     => __( 'just leave it blank if you don\'t want it to be displayed...', __TEXT_DOMAIN__ ),
 		),
 		array(
-			'id'      => 'footer-title-column-3',
-			'title'   => __( 'Footer Column 3 - Title', __TEXT_DOMAIN__ ),
-			'type'    => 'textarea',
+			'id'       => 'footer-title-column-3',
+			'title'    => __( 'Footer Column 3 - Title', __TEXT_DOMAIN__ ),
+			'type'     => 'textarea',
 			'default'  => 'Title Footer 3',
 			'required' => array(
 				array(
@@ -1159,7 +959,7 @@ Redux::setSection( $opt_name, array(
 					2
 				)
 			),
-			'desc'    => __( 'just leave it blank if you don\'t want it to be displayed...', __TEXT_DOMAIN__ ),
+			'desc'     => __( 'just leave it blank if you don\'t want it to be displayed...', __TEXT_DOMAIN__ ),
 		),
 		array(
 			'id'      => 'footer-copyright',
@@ -1187,10 +987,10 @@ Redux::setSection( $opt_name, array(
 			'default' => '#171823'
 		),
 		array(
-			'id'       => 'footer-title-color',
+			'id'      => 'footer-title-color',
 			'title'   => __( 'Footer Color Title', __TEXT_DOMAIN__ ),
-			'type'     => 'color',
-			'default'  => '#ffffff'
+			'type'    => 'color',
+			'default' => '#ffffff'
 		),
 		array(
 			'id'      => 'footer-description-color',
@@ -1244,29 +1044,29 @@ Redux::setSection( $opt_name, array(
 	'icon'             => 'el el-icon-link',
 	'fields'           => array(
 		array(
-			'id'               => 'socials-facebook',
-			'title'   => __( 'Social - Facebook', __TEXT_DOMAIN__ ),
-			'type'    => 'text'
+			'id'    => 'socials-facebook',
+			'title' => __( 'Social - Facebook', __TEXT_DOMAIN__ ),
+			'type'  => 'text'
 		),
 		array(
-			'id'               => 'socials-instagram',
-			'title'   => __( 'Social - Instagram', __TEXT_DOMAIN__ ),
-			'type'    => 'text'
+			'id'    => 'socials-instagram',
+			'title' => __( 'Social - Instagram', __TEXT_DOMAIN__ ),
+			'type'  => 'text'
 		),
 		array(
-			'id'               => 'socials-twitter',
-			'title'   => __( 'Social - Twitter', __TEXT_DOMAIN__ ),
-			'type'    => 'text'
+			'id'    => 'socials-twitter',
+			'title' => __( 'Social - Twitter', __TEXT_DOMAIN__ ),
+			'type'  => 'text'
 		),
 		array(
-			'id'               => 'socials-youtube',
-			'title'   => __( 'Social - Youtube ', __TEXT_DOMAIN__ ),
-			'type'    => 'text'
+			'id'    => 'socials-youtube',
+			'title' => __( 'Social - Youtube ', __TEXT_DOMAIN__ ),
+			'type'  => 'text'
 		),
 		array(
-			'id'               => 'socials-other',
-			'title'   => __( 'Social - Other', __TEXT_DOMAIN__ ),
-			'type'    => 'text'
+			'id'    => 'socials-other',
+			'title' => __( 'Social - Other', __TEXT_DOMAIN__ ),
+			'type'  => 'text'
 		)
 	)
 ) );
@@ -1286,11 +1086,11 @@ Redux::setSection( $opt_name, array(
 			'default' => false
 		),
 		array(
-			'id'      => 'advanced-author-box-count',
-			'title'   => __( 'Author Box - Count Posts ', __TEXT_DOMAIN__ ),
-			'type'    => 'switch',
-			'default' => false,
-			'required'=> array('advanced-author-box','=',1)
+			'id'       => 'advanced-author-box-count',
+			'title'    => __( 'Author Box - Count Posts ', __TEXT_DOMAIN__ ),
+			'type'     => 'switch',
+			'default'  => false,
+			'required' => array( 'advanced-author-box', '=', 1 )
 		),
 
 		array(

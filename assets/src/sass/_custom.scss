@@ -1,0 +1,107 @@
+.header-active {
+	background: #0e7b17;
+}
+
+
+.menu-default-menu-container {
+	.menu {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+
+		.menu-item :hover {
+			color: #ffff;
+			transition: all 200ms ease-in-out;
+		}
+	}
+}
+
+
+.small-nav {
+	transition: all 300ms cubic-bezier(0.4, 0.01, 0.165, 0.99);
+}
+
+.small-nav-active {
+	left: 0 !important;
+	transition: all 500ms cubic-bezier(0.4, 0.01, 0.165, 0.99);;
+}
+
+.active-nav {
+	color: green;
+	background: rgba(0, 128, 0, 0.11);
+}
+
+.active-slider, .active-slider-client, .active-btn-hero, .active-btn-client {
+	background: green !important;
+	border: 2px solid black;
+}
+
+.card-slider {
+	transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes fadeEffect {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.content-tab {
+	-webkit-animation: fadeEffect 1s;
+	animation: fadeEffect 1s;
+}
+
+.active-indicator-article {
+	background: #48A835 !important;
+}
+
+.active-tab-article {
+	display: grid !important;
+}
+
+.slide-work-active, .slide-nav-active {
+	opacity: 1 !important;
+}
+
+.ease-in-out {
+	transition: all 500ms ease-in-out;
+}
+
+/** CONTENT OUR SERVICE **/
+.indicator-top-active-service,
+.indicator-bottom-active-service,
+.active-btn-service {
+	transition: all 0.5s ease-in-out;
+}
+
+.indicator-top-active-service {
+	opacity: 1 !important;
+}
+
+.indicator-bottom-active-service {
+	opacity: 1 !important;
+	background: rgb(17, 150, 17) !important;
+}
+
+.active-service-tab {
+	display: block;
+}
+
+.active-btn-service, .active-btn-article {
+	background: #1F5D11 !important;
+	transition: all 200ms ease-in-out;
+}
+
+.tabs {
+	-webkit-animation: fadeEffect 1s;
+	animation: fadeEffect 1s;
+}
+
+.active-tab-brief, .active-tab-article {
+	display: grid !important;
+	animation: fadeEffect 1s;
+}

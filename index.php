@@ -12,13 +12,7 @@
  * @package awps
  */
 
-get_header();
-
-var_dump(emk_options("general-layout"));
-die;
-?>
-<div class="w-full min-h-screen">
-
-</div>
+get_header(); ?>
+<?php get_template_part( 'template-parts/views/content', get_post_type() ) ?>
 <?php
 get_footer();

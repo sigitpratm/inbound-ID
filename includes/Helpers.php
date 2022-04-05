@@ -15,6 +15,7 @@ if ( ! function_exists( 'emk_options' ) ) {
 	 *
 	 * @return false|mixed|null
 	 */
+
 	function emk_options( $opt_name, $opt_name_2 = null ) {
 		global $emkalab;
 		if ( ! empty( $opt_name ) ) {
@@ -201,8 +202,8 @@ if ( ! function_exists( 'jpp_lottie' ) ) {
 		if ( ! empty( $filename ) ):
 			?>
 			<div style="width:50px;height:50px" class="lottie"
-				 data-animation-path="<?= get_template_directory_uri() . '/assets/dist/json/' . $filename . '.json' ?>"
-				 data-anim-loop="true" data-name="loading"></div>
+			     data-animation-path="<?= get_template_directory_uri() . '/assets/dist/json/' . $filename . '.json' ?>"
+			     data-anim-loop="true" data-name="loading"></div>
 		<?php
 		endif;
 	}
@@ -212,7 +213,7 @@ if ( ! function_exists( 'jpp_lottie' ) ) {
 
 
 if ( ! function_exists( 'jpp_radiant_component' ) ) {
-	function jpp_radiant_component(Array  $args ) {
+	function jpp_radiant_component( array $args ) {
 		if ( ! empty( $args ) ) {
 			$type = $args['type'];
 			$name = $args['name'];
@@ -237,15 +238,15 @@ if ( ! function_exists( 'jpp_radiant_section' ) ) {
 			$name = $args['name'];
 			if ( ! empty( $type ) && ! empty( $name ) ) {
 				if ( ! empty( $args['args'] ) ) {
-					get_template_part(__JPP_COMPONENT__ . '/section/section','default',
-						[
-								'class'            => 'uk-section-default',
-								'fullwidth'        => false,
-								'container_class'  => '',
-								'heading'          => 'Hello Worlds',
-								'subheading'       => '',
-								'content_template' => get_template_part( __JPP_COMPONENT__ . "/$type/$name", null, $args['args'] )
-						]
+					get_template_part( __JPP_COMPONENT__ . '/section/section', 'default',
+							[
+									'class'            => 'uk-section-default',
+									'fullwidth'        => false,
+									'container_class'  => '',
+									'heading'          => 'Hello Worlds',
+									'subheading'       => '',
+									'content_template' => get_template_part( __JPP_COMPONENT__ . "/$type/$name", null, $args['args'] )
+							]
 					);
 
 				} else {
@@ -311,10 +312,10 @@ if ( ! function_exists( 'jpp_radiant_section' ) ) {
 ////	add_filter( 'style_loader_src', 'roots_clean_plugins' );
 //}
 
-	if (!function_exists('jpp_assets')) {
-		function jpp_assets($filename){
-			if (!empty($filename)) {
-				return get_template_directory_uri() . "/assets/dist/$filename";
-			}
+if ( ! function_exists( 'jpp_assets' ) ) {
+	function jpp_assets( $filename ) {
+		if ( ! empty( $filename ) ) {
+			return get_template_directory_uri() . "/assets/dist/$filename";
 		}
 	}
+}

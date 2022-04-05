@@ -89,7 +89,7 @@ require("tailwindcss"),
 // mix.extract(['jquery'])
 
 // mix.tailwind('./tailwind.config.js');
-// mix.postCss('assets/src/sass/style.css', 'assets/dist/css')
+// mix.postCss('assets/src/sass/style.scss', 'assets/dist/css')
 // 	.postCssConfig();
 // Add source map and versioning to assets in production environment.
 if ( mix.inProduction() ) {

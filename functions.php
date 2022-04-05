@@ -12,6 +12,31 @@ if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) :
 	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 endif;
 
+/**
+ * @define [ REDUX ]
+ */
+if (
+	! class_exists( 'ReduxFramework' ) &&
+	file_exists( get_template_directory() . '/includes/Plugins/redux-core/framework.php' )
+) {
+	require_once( get_template_directory() . '/includes/Plugins/redux-core/framework.php' );
+}
+
+if ( class_exists( 'ReduxFramework' ) ) {
+	require_once( get_template_directory() . '/includes/Plugins/redux-options.php' );
+}
+
+//if ( class_exists( 'ReduxFramework' ) ) {
+//	require_once( get_template_directory() . '/includes/Plugins/redux-options.php' );
+//}
+//
+//if ( file_exists( dirname( __FILE__ ) . '/includes/Plugins/redux-options.php' ) ) {
+//	require_once dirname( __FILE__ ) . '/includes/Plugins/redux-options.php';
+//}
+//
+//require dirname( __FILE__ ) . '/includes/Plugins/redux-options.php';
+
+
 if ( class_exists( 'EmkalabTheme\\Init' ) ) :
 	EmkalabTheme\Init::register_services();
 endif;
@@ -111,3 +136,7 @@ add_filter( 'get_search_form', 'jpp_search_form' );
 //		remove_all_actions('sejoli_header');
 //	}
 //}
+//require dirname(FILE) .'/includes/Plugins/redux-options.php';
+
+//var_dump(dirname( __FILE__ ));
+//die;
