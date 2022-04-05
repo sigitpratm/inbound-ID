@@ -6,7 +6,7 @@ if ( ! function_exists( 'get_comment_system' ) ) {
 
 //		$comment_system = anioptions( 'comment-system' );
 		if ( $comment_system === 'disqus' && !$is_head) {
-			$disqus = jippi_options( 'comment-system-disqus' );
+			$disqus = emk_options( 'comment-system-disqus' );
 			?>
 			<div id="disqus_thread"></div>
 			<script>
@@ -38,7 +38,7 @@ if ( ! function_exists( 'get_comment_system' ) ) {
 		if ($comment_system === 'facebook' && $is_head){?>
 			<div id="fb-root"></div>
 			<script async defer crossorigin="anonymous"
-			        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0&appId=<?= jippi_options( 'comment-facebook-app-id' )?>&autoLogAppEvents=1"
+			        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0&appId=<?= emk_options( 'comment-facebook-app-id' )?>&autoLogAppEvents=1"
 			        nonce="mw5oDJnC"></script>
 			<?php
 		}
@@ -46,7 +46,7 @@ if ( ! function_exists( 'get_comment_system' ) ) {
 		if ($comment_system === 'facebook' && !$is_head){?>
 			<div class="fb-comments" data-href="<?= home_url( $wp->request ) ?>"
 			     data-colorscheme="<?= is_darkmode() ? 'dark' : 'light'?>"
-			     data-width="100%" data-numposts="<?= jippi_options( 'comment-facebook-showing-comment' )?>"></div>
+			     data-width="100%" data-numposts="<?= emk_options( 'comment-facebook-showing-comment' )?>"></div>
 			<?php
 		}
 	}

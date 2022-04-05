@@ -2,9 +2,6 @@
 	background: #0e7b17;
 }
 
-.header-active-2 {
-	background: #FFFFFF;
-}
 
 .menu-default-menu-container {
 	.menu {
@@ -35,7 +32,7 @@
 	background: rgba(0, 128, 0, 0.11);
 }
 
-.active-slider, .active-slider-client {
+.active-slider, .active-slider-client, .active-btn-hero, .active-btn-client {
 	background: green !important;
 	border: 2px solid black;
 }
@@ -94,8 +91,9 @@
 	display: block;
 }
 
-.active-btn-service {
-	background: rgb(17, 150, 17) !important;
+.active-btn-service, .active-btn-article {
+	background: #1F5D11 !important;
+	transition: all 200ms ease-in-out;
 }
 
 .tabs {
@@ -103,12 +101,7 @@
 	animation: fadeEffect 1s;
 }
 
-.active-btn-brief {
-	background: #1F5D11;
-	-webkit-animation: fadeEffect 1s;
-}
-
-.active-tab-brief {
+.active-tab-brief, .active-tab-article {
 	display: grid !important;
 	animation: fadeEffect 1s;
 }

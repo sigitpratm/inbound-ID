@@ -12,12 +12,37 @@ if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) :
 	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 endif;
 
+/**
+ * @define [ REDUX ]
+ */
+if (
+	! class_exists( 'ReduxFramework' ) &&
+	file_exists( get_template_directory() . '/includes/Plugins/redux-core/framework.php' )
+) {
+	require_once( get_template_directory() . '/includes/Plugins/redux-core/framework.php' );
+}
+
+if ( class_exists( 'ReduxFramework' ) ) {
+	require_once( get_template_directory() . '/includes/Plugins/redux-options.php' );
+}
+
+//if ( class_exists( 'ReduxFramework' ) ) {
+//	require_once( get_template_directory() . '/includes/Plugins/redux-options.php' );
+//}
+//
+//if ( file_exists( dirname( __FILE__ ) . '/includes/Plugins/redux-options.php' ) ) {
+//	require_once dirname( __FILE__ ) . '/includes/Plugins/redux-options.php';
+//}
+//
+//require dirname( __FILE__ ) . '/includes/Plugins/redux-options.php';
+
+
 if ( class_exists( 'EmkalabTheme\\Init' ) ) :
 	EmkalabTheme\Init::register_services();
 endif;
 
 
-function jpp_search_form(  ) {
+function jpp_search_form() {
 	$form = '<form role="search" method="get" id="searchform" class="jpp-search-form" action="' . home_url( '/' ) . '" >
     <input class="search-field" type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="search product" />
     <button type="submit" id="searchsubmit" class="search-submit">
@@ -29,6 +54,7 @@ function jpp_search_form(  ) {
 
 	return $form;
 }
+
 add_filter( 'get_search_form', 'jpp_search_form' );
 //function delete_post_type(){
 //	unregister_post_type( 'sejoli-product' );
@@ -95,3 +121,7 @@ add_filter( 'get_search_form', 'jpp_search_form' );
 //		remove_all_actions('sejoli_header');
 //	}
 //}
+//require dirname(FILE) .'/includes/Plugins/redux-options.php';
+
+//var_dump(dirname( __FILE__ ));
+//die;

@@ -1,53 +1,174 @@
-<?php
-$arguments  = [
-	// card-default
-	'class'     => 'card-default',
-	'position' => 'top',
-	'author_image' => 'top',
-	'author_name' => 'Jhon Doe',
-	'post_date' => date("d M, Y"),
-	'thumbnail' => 'https://getuikit.com/docs/images/light.jpg',
-	'title'     => 'Default Title',
-	'excerpt'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-	'url'   => '#',
-];
+<div class="relative">
+	<div class="w-full overflow-x-hidden flex flex-row">
 
-/** @var $args */
-$args = wp_parse_args( $args, $arguments  );
-?>
-<!-- This example requires Tailwind CSS v2.0+ -->
-<div class="relative bg-white overflow-hidden pt-24 pb-16 bg-cover bg-no-repeat bg-center" style="background-image: url('<?= get_template_directory_uri() . '/assets/dist/img/bg-default.jpg'?>')">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 mx-auto lg:py-20 z-30">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-			<div class=" my-auto mx-auto max-w-7xl px-4 sm:mt-12 md:my-auto sm:px-6 lg:px-8 ">
-				<div class="sm:text-center lg:text-left">
-					<h1 class="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl md:text-5xl">
-						<span class="block mb-5">Wordpress Theme</span>
-						<span class="block mb-5">untuk kebutuhan</span>
-						<span class="block text-green-600 xl:inline">project anda</span>
-					</h1>
-					<p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-md sm:max-w-xl sm:mx-auto md:mt-5 md:text-md lg:mx-0">
-						Tidak perlu susah payah untuk membuat sebuah website untuk kebutuhan project anda. Hanya upload dan setting, website siap untuk dipromosikan!
+		<div class="card-slider w-full flex-none xl:h-[38rem] 2xl:h-[50rem] first-slider-hero overflow-hidden">
+			<div class="grid grid-cols-12 w-full h-full gap-6 lg:gap-0">
+				<!-- CONTENT LEFT -->
+				<div class="col-span-12 lg:col-span-5 space-y-8 flex justify-center flex-col text-center lg:text-left">
+					<h1 class="text-3xl lg:text-4xl xl:text-6xl 2xl:text-8xl font-bold">CONSULT & COLAB</h1>
+					<p class="text-base lg:text-sm xl:text-base 2xl:text-lg w-full lg:w-4/5">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis debitis dolorum et minima
+						modi rerum suscipit tempora voluptatum! Ab alias aut autem, consequuntur culpa debitis
+						deleniti earum labore minima molestias neque, perspiciatis quasi qui voluptatibus.
 					</p>
-					<div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-						<div class="rounded-md shadow">
-							<a href="<?= home_url('/product')?>" class="w-full flex items-center justify-center px-8 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-2 md:text-md md:px-10">
-								Lihat Produk
-							</a>
-						</div>
-						<div class="mt-3 sm:mt-0 sm:ml-3">
-							<a target="_blank" href="https://demo.jippi.co.id" class="w-full flex items-center justify-center px-8 py-2 border border-transparent text-base font-medium rounded-md text-gray-100 bg-gray-800 hover:bg-gray-700 md:py-2 md:text-md md:px-10">
-								Live demo
-							</a>
-						</div>
+
+					<div class="text-lg flex flex-col items-start justify-start gap-4 text-scheme-green">
+						<a href="<?php echo esc_url( get_page_link( 40 ) ); ?>" target="_blank"
+						   class="w-full lg:w-auto min-w-[20rem] py-4 lg:py-4 xl:py-6 bg-white text-scheme-green  lg:text-lg xl:text-xl font-bold rounded-full text-center transition duration-200 hover:text-white hover:bg-scheme-green">
+							<?php esc_html_e( 'Create Brief', 'create-brief' ); ?>
+						</a>
+
+						<a href="<?php echo esc_url( get_page_link( 43 ) ); ?>" target="_blank"
+						   class="w-full lg:w-auto min-w-[20rem] py-4 lg:py-4 xl:py-6 bg-white text-scheme-green  lg:text-lg xl:text-xl font-bold rounded-full text-center transition duration-200 hover:text-white hover:bg-scheme-green">
+							<?php esc_html_e( "Let's Discuss !", 'create-meet' ); ?>
+						</a>
 					</div>
 				</div>
-			</div>
 
-			<div class="max-w-7xl mx-auto my-auto shadow-lg">
-				<img class="" src="https://material.local/wp-content/uploads/2021/06/suaraku-mockup.png" alt="">
+				<!-- CONTENT RIGHT-->
+				<div class="col-span-12 lg:col-span-7 flex items-center">
+					<img src="<?= jpp_assets( '/img/png/banner-image1.png' ) ?>" alt=""
+					     class="xl:h-[38rem] 2xl:h-[50rem] object-cover">
+				</div>
 			</div>
 		</div>
+
+		<div class="card-slider w-full flex-none xl:h-[38rem] 2xl:h-[50rem] overflow-hidden">
+			<div class="grid grid-cols-12 w-full h-full gap-6 lg:gap-0">
+				<!-- CONTENT LEFT -->
+				<div class="col-span-12 lg:col-span-5 space-y-8 flex justify-center flex-col text-center lg:text-left">
+					<h1 class="text-3xl lg:text-4xl xl:text-6xl 2xl:text-8xl font-bold">CONSULT & COLAB</h1>
+					<p class="text-base lg:text-sm xl:text-base 2xl:text-lg w-full lg:w-4/5">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis debitis dolorum et minima
+						modi rerum suscipit tempora voluptatum! Ab alias aut autem, consequuntur culpa debitis
+						deleniti earum labore minima molestias neque, perspiciatis quasi qui voluptatibus.
+					</p>
+
+					<div class="text-lg flex flex-col items-start justify-start gap-4 text-scheme-green">
+						<a href="<?php echo esc_url( get_page_link( 40 ) ); ?>" target="_blank"
+						   class="w-full lg:w-auto min-w-[20rem] py-4 lg:py-4 xl:py-6 bg-white text-scheme-green  lg:text-lg xl:text-xl font-bold rounded-full text-center transition duration-200 hover:text-white hover:bg-scheme-green">
+							<?php esc_html_e( 'Create Brief', 'create-brief' ); ?>
+						</a>
+
+						<a href="<?php echo esc_url( get_page_link( 43 ) ); ?>" target="_blank"
+						   class="w-full lg:w-auto min-w-[20rem] py-4 lg:py-4 xl:py-6 bg-white text-scheme-green  lg:text-lg xl:text-xl font-bold rounded-full text-center transition duration-200 hover:text-white hover:bg-scheme-green">
+							<?php esc_html_e( "Let's Discuss !", 'create-meet' ); ?>
+						</a>
+					</div>
+				</div>
+
+				<!-- CONTENT RIGHT-->
+				<div class="col-span-12 lg:col-span-7 flex items-center">
+					<img src="<?= jpp_assets( '/img/png/banner-image2.png' ) ?>" alt=""
+					     class="xl:h-[38rem] 2xl:h-[50rem] object-cover">
+				</div>
+			</div>
+		</div>
+
+		<div class="card-slider w-full flex-none xl:h-[38rem] 2xl:h-[50rem] overflow-hidden">
+			<div class="grid grid-cols-12 w-full h-full gap-6 lg:gap-0">
+				<!-- CONTENT LEFT -->
+				<div class="col-span-12 lg:col-span-5 space-y-8 flex justify-center flex-col text-center lg:text-left">
+					<h1 class="text-3xl lg:text-4xl xl:text-6xl 2xl:text-8xl font-bold">CONSULT & COLAB</h1>
+					<p class="text-base lg:text-sm xl:text-base 2xl:text-lg w-full lg:w-4/5">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis debitis dolorum et minima
+						modi rerum suscipit tempora voluptatum! Ab alias aut autem, consequuntur culpa debitis
+						deleniti earum labore minima molestias neque, perspiciatis quasi qui voluptatibus.
+					</p>
+
+					<div class="text-lg flex flex-col items-start justify-start gap-4 text-scheme-green">
+						<a href="<?php echo esc_url( get_page_link( 40 ) ); ?>" target="_blank"
+						   class="w-full lg:w-auto min-w-[20rem] py-4 lg:py-4 xl:py-6 bg-white text-scheme-green  lg:text-lg xl:text-xl font-bold rounded-full text-center transition duration-200 hover:text-white hover:bg-scheme-green">
+							<?php esc_html_e( 'Create Brief', 'create-brief' ); ?>
+						</a>
+
+						<a href="<?php echo esc_url( get_page_link( 43 ) ); ?>" target="_blank"
+						   class="w-full lg:w-auto min-w-[20rem] py-4 lg:py-4 xl:py-6 bg-white text-scheme-green  lg:text-lg xl:text-xl font-bold rounded-full text-center transition duration-200 hover:text-white hover:bg-scheme-green">
+							<?php esc_html_e( "Let's Discuss !", 'create-meet' ); ?>
+						</a>
+					</div>
+				</div>
+
+				<!-- CONTENT RIGHT-->
+				<div class="col-span-12 lg:col-span-7 flex items-center">
+					<img src="<?= jpp_assets( '/img/png/banner-image3.png' ) ?>" alt=""
+					     class="xl:h-[38rem] 2xl:h-[50rem] object-cover">
+				</div>
+			</div>
+		</div>
+
+		<div class="card-slider w-full flex-none xl:h-[38rem] 2xl:h-[50rem] overflow-hidden">
+			<div class="grid grid-cols-12 w-full h-full gap-6 lg:gap-0">
+				<!-- CONTENT LEFT -->
+				<div class="col-span-12 lg:col-span-5 space-y-8 flex justify-center flex-col text-center lg:text-left">
+					<h1 class="text-3xl lg:text-4xl xl:text-6xl 2xl:text-8xl font-bold">CONSULT & COLAB</h1>
+					<p class="text-base lg:text-sm xl:text-base 2xl:text-lg w-full lg:w-4/5">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis debitis dolorum et minima
+						modi rerum suscipit tempora voluptatum! Ab alias aut autem, consequuntur culpa debitis
+						deleniti earum labore minima molestias neque, perspiciatis quasi qui voluptatibus.
+					</p>
+
+					<div class="text-lg flex flex-col items-start justify-start gap-4 text-scheme-green">
+						<a href="<?php echo esc_url( get_page_link( 40 ) ); ?>" target="_blank"
+						   class="w-full lg:w-auto min-w-[20rem] py-4 lg:py-4 xl:py-6 bg-white text-scheme-green  lg:text-lg xl:text-xl font-bold rounded-full text-center transition duration-200 hover:text-white hover:bg-scheme-green">
+							<?php esc_html_e( 'Create Brief', 'create-brief' ); ?>
+						</a>
+
+						<a href="<?php echo esc_url( get_page_link( 43 ) ); ?>" target="_blank"
+						   class="w-full lg:w-auto min-w-[20rem] py-4 lg:py-4 xl:py-6 bg-white text-scheme-green  lg:text-lg xl:text-xl font-bold rounded-full text-center transition duration-200 hover:text-white hover:bg-scheme-green">
+							<?php esc_html_e( "Let's Discuss !", 'create-meet' ); ?>
+						</a>
+					</div>
+				</div>
+
+				<!-- CONTENT RIGHT-->
+				<div class="col-span-12 lg:col-span-7 flex items-center">
+					<img src="<?= jpp_assets( '/img/png/banner-image3.png' ) ?>" alt=""
+					     class="xl:h-[38rem] 2xl:h-[50rem] object-cover">
+				</div>
+			</div>
+		</div>
+
+		<div class="card-slider w-full flex-none xl:h-[38rem] 2xl:h-[50rem] overflow-hidden">
+			<div class="grid grid-cols-12 w-full h-full gap-6 lg:gap-0">
+				<!-- CONTENT LEFT -->
+				<div class="col-span-12 lg:col-span-5 space-y-8 flex justify-center flex-col text-center lg:text-left">
+					<h1 class="text-3xl lg:text-4xl xl:text-6xl 2xl:text-8xl font-bold">CONSULT & COLAB</h1>
+					<p class="text-base lg:text-sm xl:text-base 2xl:text-lg w-full lg:w-4/5">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis debitis dolorum et minima
+						modi rerum suscipit tempora voluptatum! Ab alias aut autem, consequuntur culpa debitis
+						deleniti earum labore minima molestias neque, perspiciatis quasi qui voluptatibus.
+					</p>
+
+					<div class="text-lg flex flex-col items-start justify-start gap-4 text-scheme-green">
+						<a href="<?php echo esc_url( get_page_link( 40 ) ); ?>" target="_blank"
+						   class="w-full lg:w-auto min-w-[20rem] py-4 lg:py-4 xl:py-6 bg-white text-scheme-green  lg:text-lg xl:text-xl font-bold rounded-full text-center transition duration-200 hover:text-white hover:bg-scheme-green">
+							<?php esc_html_e( 'Create Brief', 'create-brief' ); ?>
+						</a>
+
+						<a href="<?php echo esc_url( get_page_link( 43 ) ); ?>" target="_blank"
+						   class="w-full lg:w-auto min-w-[20rem] py-4 lg:py-4 xl:py-6 bg-white text-scheme-green  lg:text-lg xl:text-xl font-bold rounded-full text-center transition duration-200 hover:text-white hover:bg-scheme-green">
+							<?php esc_html_e( "Let's Discuss !", 'create-meet' ); ?>
+						</a>
+					</div>
+				</div>
+
+				<!-- CONTENT RIGHT-->
+				<div class="col-span-12 lg:col-span-7 flex items-center">
+					<img src="<?= jpp_assets( '/img/png/banner-image3.png' ) ?>" alt=""
+					     class="xl:h-[38rem] 2xl:h-[50rem] object-cover">
+				</div>
+			</div>
+		</div>
+
 	</div>
 
+
+	<div id="nav-slider" class="flex items-center justify-center gap-6 py-6">
+		<button class="btn-slider-hero w-4 h-4 rounded-full bg-gray-300 active-btn-hero"></button>
+		<button class="btn-slider-hero w-4 h-4 rounded-full bg-gray-300"></button>
+		<button class="btn-slider-hero w-4 h-4 rounded-full bg-gray-300"></button>
+		<button class="btn-slider-hero w-4 h-4 rounded-full bg-gray-300"></button>
+		<button class="btn-slider-hero w-4 h-4 rounded-full bg-gray-300"></button>
+	</div>
 </div>

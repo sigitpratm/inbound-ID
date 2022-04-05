@@ -5,7 +5,7 @@ const colors = {
 		"scheme": {
 			"green": "#48A835",
 			"dark-green": "#2D8D29",
-			"gray": "#C3C3C3",
+			"gray": "#D4D5D5",
 			"dark-gray": "#bbbbbb",
 			"light-gray": "#EDEEEF",
 		}

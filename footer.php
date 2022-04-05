@@ -127,58 +127,45 @@
 
 	/**
 	 * CHANGE CONTENT SLIDES
-	 * @param btnSlides
-	 * @param firstSlide
 	 */
-	function jpSlider(btnSlides, firstSlide) {
+	function jpSlider(btnSlides, firstSlide, activeClassBtn) {
 		let indicatorSlider = document.querySelectorAll(btnSlides)
-		for (let i = 0; i < indicatorSlider.length; i++) {
-			let firstSlider = document.querySelector(firstSlide)
-			indicatorSlider[i].addEventListener("click", function () {
-				if (i === 0) {
-					firstSlider.style.marginLeft = "0%"
-				} else if (i === 1) {
-					firstSlider.style.marginLeft = "-100%"
-				} else if (i === 2) {
-					firstSlider.style.marginLeft = "-200%"
-				} else if (i === 3) {
-					firstSlider.style.marginLeft = "-300%"
-				} else if (i === 4) {
-					firstSlider.style.marginLeft = "-400%"
-				}
-			})
+
+		if (indicatorSlider !== null) {
+
+			for (let i = 0; i < indicatorSlider.length; i++) {
+				let firstSlider = document.querySelector(firstSlide)
+				indicatorSlider[i].addEventListener("click", function () {
+					if (i === 0) {
+						firstSlider.style.marginLeft = "0%"
+					} else if (i === 1) {
+						firstSlider.style.marginLeft = "-100%"
+					} else if (i === 2) {
+						firstSlider.style.marginLeft = "-200%"
+					} else if (i === 3) {
+						firstSlider.style.marginLeft = "-300%"
+					} else if (i === 4) {
+						firstSlider.style.marginLeft = "-400%"
+					}
+				})
+			}
+
+			for (let i = 0; i < indicatorSlider.length; i++) {
+				indicatorSlider[i].addEventListener("click", function () {
+					indicatorSlider.forEach(btn => {
+						btn.classList.remove(activeClassBtn)
+					})
+
+					indicatorSlider[i].classList.add(activeClassBtn)
+				})
+			}
 		}
+
 	}
 
-	jpSlider(".btn-slider", ".first-slider")
-	jpSlider(".indicator-client-slider", ".first-slider-client")
 
-
-	/**
-	 * CHANGE TAB ARTICLE
-	 */
-	let tabLinksArticle = document.querySelectorAll('.indicator-tab-article')
-	let tabContentArticle = document.querySelectorAll('.content-tab-article')
-
-	tabLinksArticle.forEach(function (el) {
-		el.addEventListener("click", openTabs);
-	});
-
-
-	function openTabs(el) {
-		let btnTarget = el.currentTarget;
-		let article = btnTarget.dataset.target;
-
-		tabContentArticle.forEach(function (el) {
-			el.classList.remove("active-tab-article");
-		});
-
-		tabLinksArticle.forEach(function (el) {
-			el.classList.remove("active-tab-article");
-		});
-		document.querySelector("#" + article).classList.add("active-tab-article");
-	}
-
+	jpSlider(".btn-slider-hero", ".first-slider-hero", "active-btn-hero")
+	jpSlider(".btn-slider-client", ".first-slider-client", "active-btn-client")
 </script>
 
 <script>
@@ -218,12 +205,8 @@
 </script>
 
 <script>
-	// window.addEventListener("DOMContentLoaded", function () {
-	// 	document.querySelector('.button-indicator').click()
-	// })
-
 	function openTabOrder(evt, tabName) {
-		let i, tabcontent, tablinks;
+		let i, tabcontent;
 		tabcontent = document.getElementsByClassName("content-tab-service");
 		for (i = 0; i < tabcontent.length; i++) {
 			tabcontent[i].style.display = "none";
@@ -231,8 +214,8 @@
 		document.getElementById(tabName).style.display = "block";
 	}
 
-	let linkService = document.querySelectorAll(".button-indicator");
-	let tabService = document.querySelectorAll(".content-tab-service");
+	let linkService = document.querySelectorAll(`.button-indicator`);
+	let tabService = document.querySelectorAll(`.content-tab-service`);
 	for (let i = 0; i < linkService.length; i++) {
 		let iTab = tabService[i].getAttribute('data-tab')
 		linkService[i].addEventListener("click", function () {
@@ -270,7 +253,7 @@
 
 <script>
 	function openTabOrder(evt, tabName) {
-		let i, tabcontent, tablinks;
+		let i, tabcontent;
 		tabcontent = document.getElementsByClassName("content-tab-service");
 		for (i = 0; i < tabcontent.length; i++) {
 			tabcontent[i].style.display = "none";
@@ -317,22 +300,18 @@
 
 <script>
 	/**
-	 * CLICK FIRST BUTTON
+	 * WINDOWS ONLOAD CLICK FIRST BUTTON
 	 */
 	window.onload = function () {
-		let firstBtnArticle = document.getElementById('nav-tab-article')
-		let firstBtnService = document.getElementById('nav-tab-service')
-
-		if (firstBtnArticle !== null) {
-			firstBtnArticle.children[0].click()
-		}
-
+		let firstBtnService = document.getElementById('nav-btn-service')
 		if (firstBtnService !== null) {
-			firstBtnService.children[0].children[0].click()
+			firstBtnService.children[0].children[0].children[0].click()
 		}
 	}
 
-
+	/**
+	 * REPLACE PATH UPLOAD FILE
+	 */
 	let inputFile = document.getElementById('upload-file-brief')
 	if (inputFile !== null) {
 		inputFile.onchange = function () {
@@ -346,8 +325,10 @@
 	 * FUNCTION CHANGE TAB DEFAULT
 	 * @param buttonTabs
 	 * @param contentTabs
+	 * @param activeBtns
+	 * @param activeTabs
 	 */
-	function defaultChangeTab(buttonTabs, contentTabs) {
+	function defaultChangeTab(buttonTabs, contentTabs, activeBtns, activeTabs) {
 		let btnTab = document.querySelectorAll(buttonTabs)
 		let contentTab = document.querySelectorAll(contentTabs)
 
@@ -355,21 +336,22 @@
 			for (let i = 0; i < btnTab.length; i++) {
 				btnTab[i].addEventListener('click', function () {
 					btnTab.forEach(btn => {
-						btn.classList.remove('active-btn-brief')
+						btn.classList.remove(activeBtns)
 					})
 
 					contentTab.forEach(btn => {
-						btn.classList.remove('active-tab-brief')
+						btn.classList.remove(activeTabs)
 					})
 
-					btnTab[i].classList.add('active-btn-brief')
-					contentTab[i].classList.add('active-tab-brief')
+					btnTab[i].classList.add(activeBtns)
+					contentTab[i].classList.add(activeTabs)
 				})
 			}
 		}
 	}
 
-	defaultChangeTab('.btn-tab-brief', '.content-tab-brief')
+	defaultChangeTab('.btn-tab-brief', '.content-tab-brief', 'active-btn-brief', 'active-tab-brief')
+	defaultChangeTab('.btn-tab-article', '.content-tab-article', 'active-btn-article', 'active-tab-article')
 </script>
 
 </body>
