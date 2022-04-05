@@ -17,6 +17,21 @@ if ( class_exists( 'EmkalabTheme\\Init' ) ) :
 endif;
 
 
+/**
+ * @define [ REDUX ]
+ */
+if (
+	!class_exists('ReduxFramework') &&
+	file_exists(get_template_directory() . '/includes/Plugins/redux-core/framework.php')
+) {
+	require_once(get_template_directory() . '/includes/Plugins/redux-core/framework.php');
+}
+
+if (class_exists('ReduxFramework')) {
+	require_once(get_template_directory() . '/includes/Plugins/redux-options.php');
+}
+
+
 function jpp_search_form(  ) {
 	$form = '<form role="search" method="get" id="searchform" class="jpp-search-form" action="' . home_url( '/' ) . '" >
     <input class="search-field" type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="search product" />
@@ -29,6 +44,7 @@ function jpp_search_form(  ) {
 
 	return $form;
 }
+
 add_filter( 'get_search_form', 'jpp_search_form' );
 //function delete_post_type(){
 //	unregister_post_type( 'sejoli-product' );

@@ -20,6 +20,7 @@ $opt_name = __TEXT_DOMAIN__;
 
 $theme = wp_get_theme(); // For use with some settings. Not necessary.
 
+$inbound = null;
 $args = array(
 	// TYPICAL -> Change these values as you need/desire
 	'opt_name'             => $opt_name,
@@ -49,7 +50,7 @@ $args = array(
 	// Choose an icon for the admin bar menu
 	'admin_bar_priority'   => 50,
 	// Choose an priority for the admin bar menu
-	'global_variable'      => '',
+	'global_variable'      => $inbound,
 	// Set a different name for your global variable other than the opt_name
 	'dev_mode'             => false,
 	// Show the time the page took to load, etc
@@ -77,7 +78,7 @@ $args = array(
 	// Page slug used to denote the panel, will be based off page title then menu title then opt_name if not provided
 	'save_defaults'        => true,
 	// On load save the defaults to DB before user clicks save or not
-	'default_show'         => false,
+	'default_show'         => true,
 	// If true, shows the default value next to each field that is not the default value.
 	'default_mark'         => '',
 	// What to print by the field's title if the value shown is default. Suggested: *

@@ -8,20 +8,20 @@ define( '__CSS_FRAMEWORK__', getenv( 'STYLE_FRAMEWORK' ) );
 define( '__JS_FRAMEWORK__', getenv( 'JS_FRAMEWORK' ) );
 define( 'JIPPI_ACF_DIR', get_template_directory() . '/includes/Plugins/advanced-custom-fields-pro' );
 define( '__POST_TYPE__', [ 'post', 'page', 'artist', 'manga' ] );
-if ( ! function_exists( 'jippi_options' ) ) {
+if ( ! function_exists( 'emk_options' ) ) {
 	/**
 	 * @param $opt_name
 	 * @param null $opt_name_2
 	 *
 	 * @return false|mixed|null
 	 */
-	function jippi_options( $opt_name, $opt_name_2 = null ) {
-		global $animanga;
+	function emk_options( $opt_name, $opt_name_2 = null ) {
+		global $emkalab;
 		if ( ! empty( $opt_name ) ) {
 			if ( ! empty( $opt_name_2 ) ) {
-				return ! empty( $animanga[ $opt_name ][ $opt_name_2 ] ) ? $animanga[ $opt_name ][ $opt_name_2 ] : null;
+				return ! empty( $emkalab[ $opt_name ][ $opt_name_2 ] ) ? $emkalab[ $opt_name ][ $opt_name_2 ] : null;
 			} else {
-				return ! empty( $animanga[ $opt_name ] ) ? $animanga[ $opt_name ] : null;
+				return ! empty( $emkalab[ $opt_name ] ) ? $emkalab[ $opt_name ] : null;
 			}
 		}
 
@@ -261,6 +261,7 @@ if ( ! function_exists( 'jpp_radiant_section' ) ) {
 	add_action( 'jpp_radiant_section', 'jpp_radiant_section', 10, 1 );
 }
 
+//var_dump();
 //
 //function roots_flush_rewrites() {
 //	global $wp_rewrite;

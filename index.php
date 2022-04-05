@@ -12,7 +12,11 @@
  * @package awps
  */
 
-get_header(); ?>
+get_header();
+
+var_dump(emk_options("general-layout"));
+die;
+?>
 <div class="w-full min-h-screen">
 
 </div>

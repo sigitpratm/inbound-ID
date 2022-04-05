@@ -33,6 +33,7 @@ final class Init
 			Api\Acf::class,
 			Api\Gutenberg::class,
 			Api\Widgets\TextWidget::class,
+//			Plugins\
 			Plugins\ThemeJetpack::class,
 			Plugins\Acf::class
 		];
