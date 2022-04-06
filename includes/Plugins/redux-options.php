@@ -9,7 +9,6 @@ if ( ! class_exists( 'Redux' ) ) {
 }
 
 
-
 // This is your option name where all the Redux data is stored.
 $opt_name = __TEXT_DOMAIN__;
 
@@ -22,7 +21,7 @@ $opt_name = __TEXT_DOMAIN__;
 $theme = wp_get_theme(); // For use with some settings. Not necessary.
 
 $inbound = null;
-$args = array(
+$args    = array(
 	// TYPICAL -> Change these values as you need/desire
 	'opt_name'             => $opt_name,
 	// This is where your data is stored in the database and also becomes your global variable name.
@@ -164,66 +163,67 @@ Redux::setSection( $opt_name, array(
 	'id'               => 'layout',
 	'subsection'       => true,
 	'customizer_width' => '450px',
-	'fields'           => array(
-		array(
-			'id'      => 'general-layout',
-			'type'    => 'radio',
-			'title'   => __( 'General Layout', __TEXT_DOMAIN__ ),
-			'options' => array(
-				'boxed'      => __( 'Box layout', __TEXT_DOMAIN__ ),
-				'full-width' => __( 'Fluid layout', __TEXT_DOMAIN__ )
-			),
-			'default' => 'boxed',
-		),
-		array(
-			'id'      => 'lighting-mode',
-			'type'    => 'radio',
-			'title'   => __( 'Lighting Mode', __TEXT_DOMAIN__ ),
-			'options' => array(
-				'light-mode' => __( 'Light', __TEXT_DOMAIN__ ),
-				'dark-mode'  => __( 'Dark', __TEXT_DOMAIN__ )
-			),
-			'default' => 'light-mode',
-		)
-	)
+//	'fields'           => array(
+//		array(
+//			'id'      => 'general-layout',
+//			'type'    => 'radio',
+//			'title'   => __( 'General Layout', __TEXT_DOMAIN__ ),
+//			'options' => array(
+//				'boxed'      => __( 'Box layout', __TEXT_DOMAIN__ ),
+//				'full-width' => __( 'Fluid layout', __TEXT_DOMAIN__ )
+//			),
+//			'default' => 'boxed',
+//		),
+//		array(
+//			'id'      => 'lighting-mode',
+//			'type'    => 'radio',
+//			'title'   => __( 'Lighting Mode', __TEXT_DOMAIN__ ),
+//			'options' => array(
+//				'light-mode' => __( 'Light', __TEXT_DOMAIN__ ),
+//				'dark-mode'  => __( 'Dark', __TEXT_DOMAIN__ )
+//			),
+//			'default' => 'light-mode',
+//		)
+//	)
 ) );
+
 Redux::setSection( $opt_name, array(
 	'title'            => __( 'General Color', __TEXT_DOMAIN__ ),
 	'id'               => 'general-color',
 	'subsection'       => true,
 	'customizer_width' => '450px',
-	'fields'           => array(
-		array(
-			'id'      => 'general-color-background',
-			'type'    => 'color',
-			'title'   => __( 'Background Color', __TEXT_DOMAIN__ ),
-			'default' => '#edf1f5'
-		),
-		array(
-			'id'      => 'general-color-font-color',
-			'type'    => 'color',
-			'title'   => __( 'Font Color', __TEXT_DOMAIN__ ),
-			'default' => '#404040'
-		),
-		array(
-			'id'      => 'general-color-link-color',
-			'type'    => 'color',
-			'title'   => __( 'Link Color', __TEXT_DOMAIN__ ),
-			'default' => '#4169e1'
-		),
-		array(
-			'id'      => 'general-color-visited-link-color',
-			'type'    => 'color',
-			'title'   => __( 'Visited Link Color', __TEXT_DOMAIN__ ),
-			'default' => '#BE3636'
-		),
-		array(
-			'id'      => 'general-color-hover-link-color',
-			'type'    => 'color',
-			'title'   => __( 'Hover Link Color', __TEXT_DOMAIN__ ),
-			'default' => '#4169e1'
-		)
-	)
+//	'fields'           => array(
+//		array(
+//			'id'      => 'general-color-background',
+//			'type'    => 'color',
+//			'title'   => __( 'Background Color', __TEXT_DOMAIN__ ),
+//			'default' => '#edf1f5'
+//		),
+//		array(
+//			'id'      => 'general-color-font-color',
+//			'type'    => 'color',
+//			'title'   => __( 'Font Color', __TEXT_DOMAIN__ ),
+//			'default' => '#404040'
+//		),
+//		array(
+//			'id'      => 'general-color-link-color',
+//			'type'    => 'color',
+//			'title'   => __( 'Link Color', __TEXT_DOMAIN__ ),
+//			'default' => '#4169e1'
+//		),
+//		array(
+//			'id'      => 'general-color-visited-link-color',
+//			'type'    => 'color',
+//			'title'   => __( 'Visited Link Color', __TEXT_DOMAIN__ ),
+//			'default' => '#BE3636'
+//		),
+//		array(
+//			'id'      => 'general-color-hover-link-color',
+//			'type'    => 'color',
+//			'title'   => __( 'Hover Link Color', __TEXT_DOMAIN__ ),
+//			'default' => '#4169e1'
+//		)
+//	)
 ) );
 
 /**
@@ -234,144 +234,100 @@ Redux::setSection( $opt_name, array(
 	'id'               => 'typography',
 	'subsection'       => true,
 	'customizer_width' => '450px',
-	'fields'           => array(
-		array(
-			'id'             => 'typography-heading-font',
-			'type'           => 'typography',
-			'title'          => __( 'Heading Font', __TEXT_DOMAIN__ ),
-			'font-style'     => false,
-			'font-weight'    => false,
-			'font-size'      => false,
-			'text-align'     => false,
-			'line-height'    => false,
-			'text-transform' => true,
-			'color'          => false,
-			'default'        => array(
-				'font-family' => 'Overpass',
-			)
-		),
-		array(
-			'id'             => 'typography-body-font',
-			'type'           => 'typography',
-			'title'          => __( 'Body Font', __TEXT_DOMAIN__ ),
-			'text-align'     => false,
-			'text-transform' => false,
-			'color'          => false,
-			'default'        => array(
-				'font-family' => 'Open Sans',
-				'font-size'   => 16,
-				'font-style'  => 'normal',
-				'font-weight' => 'normal',
-				'line-height' => 21
-			)
-		),
-		array(
-			'id'         => 'typography-h1-font-size',
-			'type'       => 'slider',
-			'title'      => __( 'H1 Font Size (EM)', __TEXT_DOMAIN__ ),
-			'step'       => 0.1,
-			'resolution' => 0.1,
-			'min'        => 0.5,
-			'max'        => 4,
-			'default'    => 2
-		),
-		array(
-			'id'         => 'typography-h2-font-size',
-			'type'       => 'slider',
-			'title'      => __( 'H2 Font Size (EM)', __TEXT_DOMAIN__ ),
-			'step'       => 0.1,
-			'resolution' => 0.1,
-			'min'        => 0.5,
-			'max'        => 4,
-			'default'    => 1.5
-		),
-		array(
-			'id'         => 'typography-h3-font-size',
-			'type'       => 'slider',
-			'title'      => __( 'H3 Font Size (EM)', __TEXT_DOMAIN__ ),
-			'step'       => 0.1,
-			'resolution' => 0.1,
-			'min'        => 0.5,
-			'max'        => 4,
-			'default'    => 1.2
-		),
-		array(
-			'id'         => 'typography-h4-font-size',
-			'type'       => 'slider',
-			'title'      => __( 'H4 Font Size (EM)', __TEXT_DOMAIN__ ),
-			'step'       => 0.1,
-			'resolution' => 0.1,
-			'min'        => 0.5,
-			'max'        => 4,
-			'default'    => 1
-		),
-		array(
-			'id'         => 'typography-h5-font-size',
-			'type'       => 'slider',
-			'title'      => __( 'H5 Font Size (EM)', __TEXT_DOMAIN__ ),
-			'step'       => 0.1,
-			'resolution' => 0.1,
-			'min'        => 0.5,
-			'max'        => 4,
-			'default'    => 0.8
-		),
-		array(
-			'id'         => 'typography-h6-font-size',
-			'type'       => 'slider',
-			'title'      => __( 'H6 Font Size (EM)', __TEXT_DOMAIN__ ),
-			'step'       => 0.1,
-			'resolution' => 0.1,
-			'min'        => 0.5,
-			'max'        => 4,
-			'default'    => 0.6
-		)
-	)
+//	'fields'           => array(
+//		array(
+//			'id'             => 'typography-heading-font',
+//			'type'           => 'typography',
+//			'title'          => __( 'Heading Font', __TEXT_DOMAIN__ ),
+//			'font-style'     => false,
+//			'font-weight'    => false,
+//			'font-size'      => false,
+//			'text-align'     => false,
+//			'line-height'    => false,
+//			'text-transform' => true,
+//			'color'          => false,
+//			'default'        => array(
+//				'font-family' => 'Overpass',
+//			)
+//		),
+//		array(
+//			'id'             => 'typography-body-font',
+//			'type'           => 'typography',
+//			'title'          => __( 'Body Font', __TEXT_DOMAIN__ ),
+//			'text-align'     => false,
+//			'text-transform' => false,
+//			'color'          => false,
+//			'default'        => array(
+//				'font-family' => 'Open Sans',
+//				'font-size'   => 16,
+//				'font-style'  => 'normal',
+//				'font-weight' => 'normal',
+//				'line-height' => 21
+//			)
+//		),
+//		array(
+//			'id'         => 'typography-h1-font-size',
+//			'type'       => 'slider',
+//			'title'      => __( 'H1 Font Size (EM)', __TEXT_DOMAIN__ ),
+//			'step'       => 0.1,
+//			'resolution' => 0.1,
+//			'min'        => 0.5,
+//			'max'        => 4,
+//			'default'    => 2
+//		),
+//		array(
+//			'id'         => 'typography-h2-font-size',
+//			'type'       => 'slider',
+//			'title'      => __( 'H2 Font Size (EM)', __TEXT_DOMAIN__ ),
+//			'step'       => 0.1,
+//			'resolution' => 0.1,
+//			'min'        => 0.5,
+//			'max'        => 4,
+//			'default'    => 1.5
+//		),
+//		array(
+//			'id'         => 'typography-h3-font-size',
+//			'type'       => 'slider',
+//			'title'      => __( 'H3 Font Size (EM)', __TEXT_DOMAIN__ ),
+//			'step'       => 0.1,
+//			'resolution' => 0.1,
+//			'min'        => 0.5,
+//			'max'        => 4,
+//			'default'    => 1.2
+//		),
+//		array(
+//			'id'         => 'typography-h4-font-size',
+//			'type'       => 'slider',
+//			'title'      => __( 'H4 Font Size (EM)', __TEXT_DOMAIN__ ),
+//			'step'       => 0.1,
+//			'resolution' => 0.1,
+//			'min'        => 0.5,
+//			'max'        => 4,
+//			'default'    => 1
+//		),
+//		array(
+//			'id'         => 'typography-h5-font-size',
+//			'type'       => 'slider',
+//			'title'      => __( 'H5 Font Size (EM)', __TEXT_DOMAIN__ ),
+//			'step'       => 0.1,
+//			'resolution' => 0.1,
+//			'min'        => 0.5,
+//			'max'        => 4,
+//			'default'    => 0.8
+//		),
+//		array(
+//			'id'         => 'typography-h6-font-size',
+//			'type'       => 'slider',
+//			'title'      => __( 'H6 Font Size (EM)', __TEXT_DOMAIN__ ),
+//			'step'       => 0.1,
+//			'resolution' => 0.1,
+//			'min'        => 0.5,
+//			'max'        => 4,
+//			'default'    => 0.6
+//		)
+//	)
 ) );
-/**
- * Typography
- */
-Redux::setSection( $opt_name, array(
-	'title'            => __( 'Comment', __TEXT_DOMAIN__ ),
-	'id'               => 'comment',
-	'subsection'       => true,
-	'customizer_width' => '450px',
-	'fields'           => array(
-		array(
-			'id'      => 'comment-system',
-			'type'    => 'radio',
-			'title'   => __( 'Select Comment System', __TEXT_DOMAIN__ ),
-			'options' => array(
-				'facebook' => __( 'Facebook Comment', __TEXT_DOMAIN__ ),
-				'disqus'   => __( 'Disqus', __TEXT_DOMAIN__ )
-			),
-			'default' => 'disqus',
-		),
-		array(
-			'id'       => 'comment-system-disqus',
-			'title'    => __( 'Disqus ID', __TEXT_DOMAIN__ ),
-			'desc'     => __( "Eg. https://<strong>username</strong>.disqus.com dan pilih color scheme dark di menu general", __TEXT_DOMAIN__ ),
-			'type'     => 'text',
-			'default'  => 'jippi-1',
-			'required' => array( 'comment-system', '=', 'disqus' )
-		),
-		array(
-			'id'       => 'comment-facebook-app-id',
-			'title'    => __( 'Facebook App ID', __TEXT_DOMAIN__ ),
-			'desc'     => __( "Get the facebook app id at https://developers.facebook.com/apps", __TEXT_DOMAIN__ ),
-			'type'     => 'text',
-			'default'  => '177516455919150',
-			'required' => array( 'comment-system', '=', 'facebook' )
-		),
-		array(
-			'id'       => 'comment-facebook-showing-comment',
-			'title'    => __( 'Showing Comment', __TEXT_DOMAIN__ ),
-			'desc'     => __( "Eg. 5 for showing 5 comments", __TEXT_DOMAIN__ ),
-			'type'     => 'text',
-			'default'  => '5',
-			'required' => array( 'comment-system', '=', 'facebook' )
-		),
-	)
-) );
+
 
 /**
  * Header setup
@@ -472,28 +428,28 @@ Redux::setSection( $opt_name, array(
 	'title'            => __( 'Hero Banner', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
-	'fields'           => array(
-		array(
-			'id'      => 'home-general-background-jumbotron-set',
-			'type'    => 'switch',
-			'title'   => __( 'Jumbotron - Display', __TEXT_DOMAIN__ ),
-			'default' => true
-		),
-		array(
-			'id'       => 'home-general-background-jumbotron-status',
-			'type'     => 'switch',
-			'title'    => __( 'Jumbotron - Image Hover in Card Post', __TEXT_DOMAIN__ ),
-			'default'  => true,
-			'required' => array( 'home-general-background-jumbotron-set', '=', 1 )
-		),
-		array(
-			'id'       => 'home-general-background-jumbotron-color',
-			'type'     => 'color',
-			'title'    => __( 'Jumbotron - Background Color', __TEXT_DOMAIN__ ),
-			'default'  => '#2b2d42',
-			'required' => array( 'home-general-background-jumbotron-set', '=', 1 )
-		),
-	)
+//	'fields'           => array(
+//		array(
+//			'id'      => 'home-general-background-jumbotron-set',
+//			'type'    => 'switch',
+//			'title'   => __( 'Jumbotron - Display', __TEXT_DOMAIN__ ),
+//			'default' => true
+//		),
+//		array(
+//			'id'       => 'home-general-background-jumbotron-status',
+//			'type'     => 'switch',
+//			'title'    => __( 'Jumbotron - Image Hover in Card Post', __TEXT_DOMAIN__ ),
+//			'default'  => true,
+//			'required' => array( 'home-general-background-jumbotron-set', '=', 1 )
+//		),
+//		array(
+//			'id'       => 'home-general-background-jumbotron-color',
+//			'type'     => 'color',
+//			'title'    => __( 'Jumbotron - Background Color', __TEXT_DOMAIN__ ),
+//			'default'  => '#2b2d42',
+//			'required' => array( 'home-general-background-jumbotron-set', '=', 1 )
+//		),
+//	)
 ) );
 
 /**
@@ -504,61 +460,61 @@ Redux::setSection( $opt_name, array(
 	'title'            => __( 'Our Services', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
-	'fields'           => array(
-		array(
-			'id'      => 'home-section-1-status',
-			'title'   => __( 'Section Show', __TEXT_DOMAIN__ ),
-			'type'    => 'switch',
-			'default' => true
-		),
-		array(
-			'id'      => 'home-section-1-options',
-			'title'   => __( 'Format', __TEXT_DOMAIN__ ),
-			'type'    => 'select',
-			'options' => array(
-				'TV'        => 'TV',
-				'TV Short'  => 'TV Short',
-				'Movie'     => 'Movie',
-				'Leftovers' => 'Leftovers',
-				'Special'   => 'OVA / ONA / SPECIALS'
-			),
-			'default' => 'TV'
-		),
-		array(
-			'id'      => 'home-section-1-post',
-			'title'   => __( 'Post Length', __TEXT_DOMAIN__ ),
-			'type'    => 'slider',
-			'default' => 10,
-			'min'     => 1,
-			'max'     => 50
-		),
-		array(
-			'id'      => 'home-section-1-card',
-			'title'   => __( 'Card Row' ),
-			'type'    => 'radio',
-			'options' => array(
-				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
-				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
-			),
-			'default' => 'card--home-3'
-		),
-		array(
-			'id'      => 'home-section-1-color-title',
-			'title'   => __( 'Color Title' ),
-			'type'    => 'color',
-			'default' => '#fff'
-		),
-		array(
-			'id'      => 'home-section-1-card',
-			'title'   => __( 'Card Row' ),
-			'type'    => 'radio',
-			'options' => array(
-				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
-				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
-			),
-			'default' => 'card--home-3'
-		),
-	)
+//	'fields'           => array(
+//		array(
+//			'id'      => 'home-section-1-status',
+//			'title'   => __( 'Section Show', __TEXT_DOMAIN__ ),
+//			'type'    => 'switch',
+//			'default' => true
+//		),
+//		array(
+//			'id'      => 'home-section-1-options',
+//			'title'   => __( 'Format', __TEXT_DOMAIN__ ),
+//			'type'    => 'select',
+//			'options' => array(
+//				'TV'        => 'TV',
+//				'TV Short'  => 'TV Short',
+//				'Movie'     => 'Movie',
+//				'Leftovers' => 'Leftovers',
+//				'Special'   => 'OVA / ONA / SPECIALS'
+//			),
+//			'default' => 'TV'
+//		),
+//		array(
+//			'id'      => 'home-section-1-post',
+//			'title'   => __( 'Post Length', __TEXT_DOMAIN__ ),
+//			'type'    => 'slider',
+//			'default' => 10,
+//			'min'     => 1,
+//			'max'     => 50
+//		),
+//		array(
+//			'id'      => 'home-section-1-card',
+//			'title'   => __( 'Card Row' ),
+//			'type'    => 'radio',
+//			'options' => array(
+//				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
+//				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
+//			),
+//			'default' => 'card--home-3'
+//		),
+//		array(
+//			'id'      => 'home-section-1-color-title',
+//			'title'   => __( 'Color Title' ),
+//			'type'    => 'color',
+//			'default' => '#fff'
+//		),
+//		array(
+//			'id'      => 'home-section-1-card',
+//			'title'   => __( 'Card Row' ),
+//			'type'    => 'radio',
+//			'options' => array(
+//				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
+//				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
+//			),
+//			'default' => 'card--home-3'
+//		),
+//	)
 ) );
 
 /**
@@ -569,61 +525,61 @@ Redux::setSection( $opt_name, array(
 	'title'            => __( 'Our Works', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
-	'fields'           => array(
-		array(
-			'id'      => 'home-section-2-status',
-			'title'   => __( 'Section Show', __TEXT_DOMAIN__ ),
-			'type'    => 'switch',
-			'default' => true
-		),
-		array(
-			'id'      => 'home-section-2-options',
-			'title'   => __( 'Format', __TEXT_DOMAIN__ ),
-			'type'    => 'select',
-			'options' => array(
-				'TV'        => 'TV',
-				'TV Short'  => 'TV Short',
-				'Movie'     => 'Movie',
-				'Leftovers' => 'Leftovers',
-				'Special'   => 'OVA / ONA / SPECIALS'
-			),
-			'default' => 'TV Short'
-		),
-		array(
-			'id'      => 'home-section-2-post',
-			'title'   => __( 'Post Length', __TEXT_DOMAIN__ ),
-			'type'    => 'slider',
-			'default' => 10,
-			'min'     => 1,
-			'max'     => 50
-		),
-		array(
-			'id'      => 'home-section-2-card',
-			'title'   => __( 'Card Row' ),
-			'type'    => 'radio',
-			'options' => array(
-				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
-				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
-			),
-			'default' => 'card--home-3'
-		),
-		array(
-			'id'      => 'home-section-2-color-title',
-			'title'   => __( 'Color Title' ),
-			'type'    => 'color',
-			'default' => '#494949'
-		),
-		array(
-			'id'      => 'home-section-2-card',
-			'title'   => __( 'Card Row' ),
-			'type'    => 'radio',
-			'options' => array(
-				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
-				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
-			),
-			'default' => 'card--home-3'
-		)
-	)
+//	'fields'           => array(
+//		array(
+//			'id'      => 'home-section-2-status',
+//			'title'   => __( 'Section Show', __TEXT_DOMAIN__ ),
+//			'type'    => 'switch',
+//			'default' => true
+//		),
+//		array(
+//			'id'      => 'home-section-2-options',
+//			'title'   => __( 'Format', __TEXT_DOMAIN__ ),
+//			'type'    => 'select',
+//			'options' => array(
+//				'TV'        => 'TV',
+//				'TV Short'  => 'TV Short',
+//				'Movie'     => 'Movie',
+//				'Leftovers' => 'Leftovers',
+//				'Special'   => 'OVA / ONA / SPECIALS'
+//			),
+//			'default' => 'TV Short'
+//		),
+//		array(
+//			'id'      => 'home-section-2-post',
+//			'title'   => __( 'Post Length', __TEXT_DOMAIN__ ),
+//			'type'    => 'slider',
+//			'default' => 10,
+//			'min'     => 1,
+//			'max'     => 50
+//		),
+//		array(
+//			'id'      => 'home-section-2-card',
+//			'title'   => __( 'Card Row' ),
+//			'type'    => 'radio',
+//			'options' => array(
+//				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
+//				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
+//			),
+//			'default' => 'card--home-3'
+//		),
+//		array(
+//			'id'      => 'home-section-2-color-title',
+//			'title'   => __( 'Color Title' ),
+//			'type'    => 'color',
+//			'default' => '#494949'
+//		),
+//		array(
+//			'id'      => 'home-section-2-card',
+//			'title'   => __( 'Card Row' ),
+//			'type'    => 'radio',
+//			'options' => array(
+//				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
+//				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
+//			),
+//			'default' => 'card--home-3'
+//		)
+//	)
 ) );
 
 /**
@@ -634,117 +590,88 @@ Redux::setSection( $opt_name, array(
 	'title'            => __( 'Latest Article', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
-	'fields'           => array(
-		array(
-			'id'      => 'home-section-3-status',
-			'title'   => __( 'Section Show', __TEXT_DOMAIN__ ),
-			'type'    => 'switch',
-			'default' => true
-		),
-		array(
-			'id'      => 'home-section-3-options',
-			'title'   => __( 'Format', __TEXT_DOMAIN__ ),
-			'type'    => 'select',
-			'options' => array(
-				'TV'        => 'TV',
-				'TV Short'  => 'TV Short',
-				'Movie'     => 'Movie',
-				'Leftovers' => 'Leftovers',
-				'Special'   => 'OVA / ONA / SPECIALS'
-			),
-			'default' => 'Movie'
-		),
-		array(
-			'id'      => 'home-section-3-post',
-			'title'   => __( 'Post Length', __TEXT_DOMAIN__ ),
-			'type'    => 'slider',
-			'default' => 10,
-			'min'     => 1,
-			'max'     => 50
-		),
-		array(
-			'id'      => 'home-section-3-card',
-			'title'   => __( 'Card Row' ),
-			'type'    => 'radio',
-			'options' => array(
-				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
-				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
-			),
-			'default' => 'card--home-3'
-		),
-		array(
-			'id'      => 'home-section-3-color-title',
-			'title'   => __( 'Color Title' ),
-			'type'    => 'color',
-			'default' => '#494949'
-		),
-		array(
-			'id'      => 'home-section-3-card',
-			'title'   => __( 'Card Row' ),
-			'type'    => 'radio',
-			'options' => array(
-				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
-				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
-			),
-			'default' => 'card--home-3'
-		),
-	)
+//	'fields'           => array(
+//		array(
+//			'id'      => 'home-section-3-status',
+//			'title'   => __( 'Section Show', __TEXT_DOMAIN__ ),
+//			'type'    => 'switch',
+//			'default' => true
+//		),
+//		array(
+//			'id'      => 'home-section-3-options',
+//			'title'   => __( 'Format', __TEXT_DOMAIN__ ),
+//			'type'    => 'select',
+//			'options' => array(
+//				'TV'        => 'TV',
+//				'TV Short'  => 'TV Short',
+//				'Movie'     => 'Movie',
+//				'Leftovers' => 'Leftovers',
+//				'Special'   => 'OVA / ONA / SPECIALS'
+//			),
+//			'default' => 'Movie'
+//		),
+//		array(
+//			'id'      => 'home-section-3-post',
+//			'title'   => __( 'Post Length', __TEXT_DOMAIN__ ),
+//			'type'    => 'slider',
+//			'default' => 10,
+//			'min'     => 1,
+//			'max'     => 50
+//		),
+//		array(
+//			'id'      => 'home-section-3-card',
+//			'title'   => __( 'Card Row' ),
+//			'type'    => 'radio',
+//			'options' => array(
+//				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
+//				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
+//			),
+//			'default' => 'card--home-3'
+//		),
+//		array(
+//			'id'      => 'home-section-3-color-title',
+//			'title'   => __( 'Color Title' ),
+//			'type'    => 'color',
+//			'default' => '#494949'
+//		),
+//		array(
+//			'id'      => 'home-section-3-card',
+//			'title'   => __( 'Card Row' ),
+//			'type'    => 'radio',
+//			'options' => array(
+//				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
+//				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
+//			),
+//			'default' => 'card--home-3'
+//		),
+//	)
 ) );
 
 /**
  * HOME - OUR CLIENT
  */
 Redux::setSection( $opt_name, array(
-	'id'               => 'home-clients',
-	'title'            => __( 'Our Clients', __TEXT_DOMAIN__ ),
-	'subsection'       => true,
-	'customizer_width' => 450,
-	'fields'           => array(
-		array(
-			'id'      => 'home-section-4-status',
-			'title'   => __( 'Section Show', __TEXT_DOMAIN__ ),
-			'type'    => 'switch',
-			'default' => true
-		),
-		array(
-			'id'      => 'home-section-4-options',
-			'title'   => __( 'Format', __TEXT_DOMAIN__ ),
-			'type'    => 'select',
-			'options' => array(
-				'TV'        => 'TV',
-				'TV Short'  => 'TV Short',
-				'Movie'     => 'Movie',
-				'Leftovers' => 'Leftovers',
-				'Special'   => 'OVA / ONA / SPECIALS'
+		'id'               => 'home-clients',
+		'title'            => __( 'Our Clients', __TEXT_DOMAIN__ ),
+		'subsection'       => true,
+		'customizer_width' => 450,
+		'fields'           => array(
+			array(
+				'id'      => 'client-select-slide',
+				'type'    => 'select',
+				'title'   => esc_html__( 'Select Option', __TEXT_DOMAIN__ ),
+				'options' => array(
+					'1' => '1 Slide',
+					'2' => '2 Slide',
+					'3' => '3 Slide',
+					'4' => '4 Slide',
+					'5' => '5 Slide'
+				),
+				'default' => '2',
 			),
-			'default' => 'Leftovers'
-		),
-		array(
-			'id'      => 'home-section-4-post',
-			'title'   => __( 'Post Length', __TEXT_DOMAIN__ ),
-			'type'    => 'slider',
-			'default' => 10,
-			'min'     => 1,
-			'max'     => 50
-		),
-		array(
-			'id'      => 'home-section-4-card',
-			'title'   => __( 'Card Row', __TEXT_DOMAIN__ ),
-			'type'    => 'radio',
-			'options' => array(
-				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
-				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
-			),
-			'default' => 'card--home-3'
-		),
-		array(
-			'id'      => 'home-section-4-color-title',
-			'title'   => __( 'Color Title' ),
-			'type'    => 'color',
-			'default' => '#494949'
 		)
 	)
-) );
+);
 
 /**
  * HOME - AWARDS
@@ -754,51 +681,51 @@ Redux::setSection( $opt_name, array(
 	'title'            => __( 'Awards', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
-	'fields'           => array(
-		array(
-			'id'      => 'home-section-5-status',
-			'title'   => __( 'Section Show', __TEXT_DOMAIN__ ),
-			'type'    => 'switch',
-			'default' => true
-		),
-		array(
-			'id'      => 'home-section-5-options',
-			'title'   => __( 'Format', __TEXT_DOMAIN__ ),
-			'type'    => 'select',
-			'options' => array(
-				'TV'        => 'TV',
-				'TV Short'  => 'TV Short',
-				'Movie'     => 'Movie',
-				'Leftovers' => 'Leftovers',
-				'Special'   => 'OVA / ONA / SPECIALS'
-			),
-			'default' => 'Special'
-		),
-		array(
-			'id'      => 'home-section-5-post',
-			'title'   => __( 'Post Length', __TEXT_DOMAIN__ ),
-			'type'    => 'slider',
-			'default' => 10,
-			'min'     => 1,
-			'max'     => 50
-		),
-		array(
-			'id'      => 'home-section-5-card',
-			'title'   => __( 'Card Row', __TEXT_DOMAIN__ ),
-			'type'    => 'radio',
-			'options' => array(
-				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
-				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
-			),
-			'default' => 'card--home-3'
-		),
-		array(
-			'id'      => 'home-section-5-color-title',
-			'title'   => __( 'Color Title' ),
-			'type'    => 'color',
-			'default' => '#494949'
-		)
-	)
+//	'fields'           => array(
+//		array(
+//			'id'      => 'home-section-5-status',
+//			'title'   => __( 'Section Show', __TEXT_DOMAIN__ ),
+//			'type'    => 'switch',
+//			'default' => true
+//		),
+//		array(
+//			'id'      => 'home-section-5-options',
+//			'title'   => __( 'Format', __TEXT_DOMAIN__ ),
+//			'type'    => 'select',
+//			'options' => array(
+//				'TV'        => 'TV',
+//				'TV Short'  => 'TV Short',
+//				'Movie'     => 'Movie',
+//				'Leftovers' => 'Leftovers',
+//				'Special'   => 'OVA / ONA / SPECIALS'
+//			),
+//			'default' => 'Special'
+//		),
+//		array(
+//			'id'      => 'home-section-5-post',
+//			'title'   => __( 'Post Length', __TEXT_DOMAIN__ ),
+//			'type'    => 'slider',
+//			'default' => 10,
+//			'min'     => 1,
+//			'max'     => 50
+//		),
+//		array(
+//			'id'      => 'home-section-5-card',
+//			'title'   => __( 'Card Row', __TEXT_DOMAIN__ ),
+//			'type'    => 'radio',
+//			'options' => array(
+//				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
+//				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
+//			),
+//			'default' => 'card--home-3'
+//		),
+//		array(
+//			'id'      => 'home-section-5-color-title',
+//			'title'   => __( 'Color Title' ),
+//			'type'    => 'color',
+//			'default' => '#494949'
+//		)
+//	)
 ) );
 
 /**
