@@ -6,12 +6,11 @@
  *
  * @package awps
  */
-
-get_header(); ?>
+?>
 	<section class="relative bg-white overflow-hidden md:pt-24 md:pb-4 bg-cover bg-no-repeat bg-center "
-	         x-bind:class="{'shadow-md' : atTop}"
-	         style="background-image: url('<?= jpp_assets( 'img/bg-green.jpg' ) ?>')"
-	         xmlns:x-transition="http://www.w3.org/1999/xhtml" xmlns:x-transition="http://www.w3.org/1999/xhtml">
+			 x-bind:class="{'shadow-md' : atTop}"
+			 style="background-image: url('<?= jpp_assets( 'img/bg-green.jpg' ) ?>')"
+			 xmlns:x-transition="http://www.w3.org/1999/xhtml" xmlns:x-transition="http://www.w3.org/1999/xhtml">
 		<div class="max-w-7xl mx-auto mx-auto z-30">
 			<div class="grid grid-cols-2 gap-4">
 				<div class=" my-auto max-w-7xl sm:mt-12 md:my-auto sm:px-6 lg:px-8 ">
@@ -116,7 +115,3 @@ get_header(); ?>
 
 		</div>
 	</section>
-
-
-<?php
-get_footer();

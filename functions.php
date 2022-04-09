@@ -12,6 +12,12 @@ if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) :
 	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 endif;
 
+
+if ( class_exists( 'EmkalabTheme\\Init' ) ) :
+	EmkalabTheme\Init::register_services();
+endif;
+
+
 /**
  * @define [ REDUX ]
  */
@@ -37,9 +43,6 @@ if ( class_exists( 'ReduxFramework' ) ) {
 //require dirname( __FILE__ ) . '/includes/Plugins/redux-options.php';
 
 
-if ( class_exists( 'EmkalabTheme\\Init' ) ) :
-	EmkalabTheme\Init::register_services();
-endif;
 
 
 /**
