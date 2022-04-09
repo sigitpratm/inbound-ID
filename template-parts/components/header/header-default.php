@@ -6,7 +6,7 @@
 
 		<!-- lg nav -->
 		<div id="large-nav" class="hidden xl:flex items-center gap-6">
-			<nav class="md:ml-auto flex flex-wrap items-center text-base justify-center font-bold">
+			<nav class="md:ml-auto flex flex-wrap items-center text-base justify-center font-bold border border-red-500">
 				<?php
 				wp_nav_menu(
 						array(

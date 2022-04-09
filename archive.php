@@ -14,6 +14,8 @@ if (is_post_type_archive("podcast")):
 	get_template_part('template-parts/views/archive/content','podcast');
 elseif (is_post_type_archive("brief")):
 	get_template_part('template-parts/views/archive/content','brief');
+elseif (is_post_type_archive("meeting")):
+	get_template_part('template-parts/views/archive/content','meeting');
 elseif (is_post_type_archive("tags")):
 	get_template_part('template-parts/views/archive/content','tags');
 else:
