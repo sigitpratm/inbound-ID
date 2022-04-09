@@ -1,7 +1,9 @@
 <div class="py-16 md:py-28 relative block space-y-8 md:space-y-12">
 	<!-- heading -->
 	<div>
-		<p class="font-bold text-center text-4xl md:text-5xl text-scheme-green">LATEST ARTICLE</p>
+		<p class="font-bold text-center text-4xl md:text-5xl text-scheme-green">
+			<?= emk_options( 'home-last-article-title' ) ?>
+		</p>
 	</div>
 
 	<!-- body -->
@@ -169,31 +171,36 @@
 				</div>
 			</div>
 
-			<div id="tab-article-analytic" class="hidden content-tab-article grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+			<div id="tab-article-analytic"
+			     class="hidden content-tab-article grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
 				<div class="col-span-12">
 					<p class="text-2xl text-center py-56 text-scheme-gray">Article not found</p>
 				</div>
 			</div>
 
-			<div id="tab-article-marketing" class="hidden content-tab-article grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+			<div id="tab-article-marketing"
+			     class="hidden content-tab-article grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
 				<div class="col-span-12">
 					<p class="text-2xl text-center py-56 text-scheme-gray">Article not found</p>
 				</div>
 			</div>
 
-			<div id="tab-article-socmed" class="hidden content-tab-article grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+			<div id="tab-article-socmed"
+			     class="hidden content-tab-article grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
 				<div class="col-span-12">
 					<p class="text-2xl text-center py-56 text-scheme-gray">Article not found</p>
 				</div>
 			</div>
 
-			<div id="tab-article-strategy" class="hidden content-tab-article grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+			<div id="tab-article-strategy"
+			     class="hidden content-tab-article grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
 				<div class="col-span-12">
 					<p class="text-2xl text-center py-56 text-scheme-gray">Article not found</p>
 				</div>
 			</div>
 
-			<div id="tab-article-news" class="hidden content-tab-article grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+			<div id="tab-article-news"
+			     class="hidden content-tab-article grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
 				<div class="col-span-12">
 					<p class="text-2xl text-center py-56 text-scheme-gray">Article not found</p>
 				</div>

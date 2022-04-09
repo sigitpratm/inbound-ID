@@ -22,39 +22,39 @@
 				<p class="font-bold text-4xl xl:text-5xl">INBOUNDID</p>
 			</a>
 			<p class="w-full xl:w-2/3">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ea labore perferendis
+				<?= emk_options( 'address-footer' ) ?>
 			</p>
 		</div>
 
 		<div class="w-full text-center ">
-			<p>+628123123123</p>
-			<p>admin@inboun.com</p>
+			<p> <?= emk_options( 'phone-footer' ) ?> </p>
+			<p> <?= emk_options( 'email-footer' ) ?> </p>
 		</div>
 
 		<div class="w-full space-y-4">
-			<p class="font-bold text-2xl md:text-4xl text-center">Catch us on</p>
+			<p class="font-bold text-2xl md:text-4xl text-center"><?= emk_options( 'footer-social-title' ) ?></p>
 			<div class="flex items-center justify-center gap-8">
-				<a href="#">
+				<a href="<?= emk_options( 'footer-social-instagram' ) ?>" target="_blank">
 					<img src="<?php echo jpp_assets( 'img/png/icIg.png' ) ?>" alt=""
 					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
 				</a>
 
-				<a href="#">
+				<a href="<?= emk_options( 'footer-social-twitter' ) ?>" target="_blank">
 					<img src="<?php echo jpp_assets( 'img/png/icTw.png' ) ?>" alt=""
 					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
 				</a>
 
-				<a href="#">
+				<a href="<?= emk_options( 'footer-social-facebook' ) ?>" target="_blank">
 					<img src="<?php echo jpp_assets( 'img/png/icFb.png' ) ?>" alt=""
 					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
 				</a>
 
-				<a href="#">
+				<a href="<?= emk_options( 'footer-social-linkedin' ) ?>" target="_blank">
 					<img src="<?php echo jpp_assets( 'img/png/icLinked.png' ) ?>" alt=""
 					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
 				</a>
 
-				<a href="#">
+				<a href="<?= emk_options( 'footer-social-youtube' ) ?>" target="_blank">
 					<img src="<?php echo jpp_assets( 'img/png/icYt.png' ) ?>" alt=""
 					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
 				</a>
@@ -63,7 +63,7 @@
 	</div>
 
 	<div class="h-48 bg-gray-700 flex items-center justify-center">
-		<p class="text-center text-white">Lorem ipsum dolor sit amet, consectetur.</p>
+		<p class="text-center text-white"><?= emk_options( 'copyright-footer' ) ?></p>
 	</div>
 </footer>
 
