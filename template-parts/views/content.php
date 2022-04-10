@@ -10,7 +10,7 @@
 ?>
 
 <div class="hidden fixed xl:right-6 2xl:right-12 xl:top-52 2xl:top-64 z-20">
-	<div class="flex flex-col items-center justify-center gap-12">
+	<div class="flex flex-col items-center justify-center gap-4">
 		<a href="#">
 			<svg xmlns="http://www.w3.org/2000/svg" baseProfile="tiny" version="1.2" viewBox="0 0 24 24"
 			     fill="currentColor" class="h-8 text-gray-400 transition duration-300 hover:text-scheme-green"

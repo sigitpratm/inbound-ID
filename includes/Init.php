@@ -29,6 +29,7 @@ final class Init
 //			Custom\Admin::class,
 //			Custom\Extras::class,
 			Api\Customizer::class,
+			Api\Posts::class,
 			Api\Product::class,
 			Api\Acf::class,
 			Api\Gutenberg::class,

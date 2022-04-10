@@ -9,7 +9,7 @@ class Api {
 		add_action( 'rest_api_init', [ $this, 'createAcfMetaInRest' ] );
 		add_action( 'rest_api_init', function () {
 			//Path to meta query route
-			register_rest_route( 'jippi/v1', '/product/', array(
+			register_rest_route( 'emkalab/v1', '/post/', array(
 				'methods'  => 'GET',
 				'callback' => [ $this, 'metaQuery' ]
 			) );
@@ -47,10 +47,10 @@ class Api {
 			$paged    = ( ! empty( $_GET['paged'] ) ) ? $_GET['paged'] : 1;
 			$per_page = $_GET['limit'] ?? 10;
 			$args     = array(
-				'post_type'      => 'product',
-				'post_status'    => 'publish',
-				'orderby'        => 'date',
-				'order'          => 'DESC',
+				'post_type'      => $_GET['post_type'] ?? 'product',
+				'post_status'    => $_GET['post_status']?? 'publish',
+				'orderby'        => $_GET['orderby']?? 'date',
+				'order'          => $_GET['order']?? 'DESC',
 				'paged'          => $paged,
 				'posts_per_page' => $per_page,
 				'meta_query'     => array(

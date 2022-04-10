@@ -10,7 +10,9 @@ $arguments = [
 		"data" => [
 				"with_icon" => false,
 				"images" => "http://localhost/core-wordpress/wp-content/uploads/2022/04/Screenshot_332-300x201.png",
+				"images_classes"=> "w-full h-full rounded-xl relative overflow-hidden",
 				"icon" => null,
+				"icon_classes" => "object-contain w-full h-full",
 				"title" => null,
 				"title_classes" => "",
 				"description_classes" => "xl:w-3/4",
@@ -29,7 +31,7 @@ $args = wp_parse_args($args, $arguments);
 	if ($args["position"] === "left"):
 		?>
 		<div class="<?= $args["classes"]["section-1"]?>">
-			<div class="w-full h-full rounded-xl relative overflow-hidden">
+			<div class="<?=$args["data"]["images_classes"] ?? "w-full h-full rounded-xl relative overflow-hidden"; ?>">
 				<?php if (!empty($args["data"]["images"])): ?>
 					<img src="<?= $args["data"]["images"]; ?>"
 						 alt="image-our-program"
@@ -41,13 +43,13 @@ $args = wp_parse_args($args, $arguments);
 			<div class="w-full flex flex-col space-y-12">
 				<?php if (!empty($args["data"]["with_icon"])): ?>
 					<?php if ($args["data"]["with_icon"] && !empty($args["data"]["icon"])): ?>
-						<div class="w-full rounded-xl bg-gray-300">
+						<div class="w-full rounded-xl">
 							<img src="<?= $args["data"]["icon"]; ?>" alt="with-icon"
-								 class="object-contain w-full h-full">
+								 class="<?= $args["data"]["icon_classes"]?>">
 						</div>
 					<?php else: ?>
 						<div class="w-full block relative">
-							<h3 class="<?= $args["data"]["title_classes"] ?>"><?= $args["data"]["title"]; ?></h3>
+							<h3 class="<?= $args["data"]["title_classes"] ?>"><?=str_replace(array('\r\n', '\n\r', '\n', '\r'), '<br>', $args["data"]["title"]); ?></h3>
 						</div>
 					<?php endif; ?>
 				<?php else: ?>
@@ -58,7 +60,7 @@ $args = wp_parse_args($args, $arguments);
 
 				<?php if (!empty($args["data"]["description"])): ?>
 					<div class="<?= $args["data"]["description_classes"]?>">
-						<p><?= $args["data"]["description"]; ?></p>
+						<p class="text-sm md:text-base lg:text-lg"><?= $args["data"]["description"]; ?></p>
 					</div>
 				<?php endif; ?>
 
@@ -78,13 +80,13 @@ $args = wp_parse_args($args, $arguments);
 			<div class="w-full flex flex-col space-y-12">
 				<?php if (!empty($args["data"]["with_icon"])): ?>
 					<?php if ($args["data"]["with_icon"] === true && !empty($args["data"]["icon"])): ?>
-						<div class="w-full rounded-xl bg-gray-300">
+						<div class="w-full rounded-xl">
 							<img src="<?= $args["data"]["icon"]; ?>" alt="with-icon"
-								 class="object-contain w-full h-full">
+								 class="<?= $args["data"]["icon_classes"]?>">
 						</div>
 					<?php else: ?>
 						<div class="w-full block relative">
-							<h3 class="<?= $args["data"]["title_classes"] ?>"><?= $args["data"]["title"]; ?></h3>
+							<h3 class="<?= $args["data"]["title_classes"] ?>"><?=preg_replace("\n", '<br/>', $args["data"]["title"]); ?></h3>
 						</div>
 					<?php endif; ?>
 				<?php else: ?>
@@ -95,7 +97,7 @@ $args = wp_parse_args($args, $arguments);
 
 				<?php if (!empty($args["data"]["description"])): ?>
 					<div class="<?= $args["data"]["description_classes"]?>">
-						<p><?= $args["data"]["description"]; ?></p>
+						<p class="text-sm md:text-base lg:text-lg"><?= $args["data"]["description"]; ?></p>
 					</div>
 				<?php endif; ?>
 
@@ -109,7 +111,7 @@ $args = wp_parse_args($args, $arguments);
 			</div>
 		</div>
 		<div class="<?= $args["classes"]["section-1"]?>">
-			<div class="w-full h-full rounded-xl relative overflow-hidden">
+			<div class="<?= $args["data"]["images_classes"] ?? "w-full h-full rounded-xl relative overflow-hidden"?>">
 				<?php if (!empty($args["data"]["images"])): ?>
 					<img src="<?= $args["data"]["images"]; ?>"
 						 alt="image-our-program"

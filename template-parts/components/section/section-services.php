@@ -4,7 +4,7 @@
 		<p class="text-center text-lg">Find the perfect-fit digital marketing solution that suits your business.</p>
 	</div>
 
-	<div>
+	<div class="w-full">
 		<!-- INDICATOR TOP  -->
 		<div class=" flex flex-row items-center justify-center relative">
 			<!-- indicator top  -->
@@ -15,16 +15,16 @@
 			<div class="top-indicator-service w-full h-2 bg-gray-700 rounded-full opacity-0"></div>
 
 			<!-- line -->
-			<div class="w-4/5 h-1 bg-gray-700 mx-auto absolute top-1/4 left-1/5 rounded-full"></div>
+			<div class="w-full max-w-6xl h-1 bg-gray-700 mx-auto absolute top-1/4 left-1/5 rounded-full"></div>
 		</div>
 
 		<!-- NAV BUTTON -->
 		<div id="nav-btn-service" class="pt-8 flex overflow-x-auto relative gap-8">
 
-			<div class="xl:w-[210px] 2xl:w-[275px] relative flex-none">
+			<div class="xl:w-[210px] 2xl:w-[240px] relative flex-none">
 				<div class="flex items-center flex-col">
 					<button
-							class="active-btn-service button-indicator w-full h-auto min-h-[80px] md:min-h-auto py-2 px-4 xl:px-8 2xl:px-12 bg-scheme-gray rounded-full text-white text-base xl:text-sm 2xl:text-lg font-bold">
+							class="active-btn-service button-indicator w-full h-auto min-h-[80px] md:min-h-auto py-2 px-4 xl:px-8 2xl:px-8 bg-scheme-gray rounded-full text-white text-base xl:text-sm 2xl:text-lg font-bold">
 						Strategic & Analytic
 					</button>
 					<div class="bottom-indicator-service h-12 w-1 bg-gray-400 opacity-0 indicator-bottom-active-service font-bold">
@@ -32,36 +32,36 @@
 				</div>
 			</div>
 
-			<div class="xl:w-[210px] 2xl:w-[275px] relative flex-none">
+			<div class="xl:w-[210px] 2xl:w-[240px] relative flex-none">
 				<div class="flex items-center flex-col">
-					<button class="button-indicator w-full h-auto min-h-[80px] md:min-h-auto py-2 px-4 xl:px-8 2xl:px-12 bg-scheme-gray rounded-full text-white text-base xl:text-sm 2xl:text-lg font-bold">
+					<button class="button-indicator w-full h-auto min-h-[80px] md:min-h-auto py-2 px-4 xl:px-8 2xl:px-8 bg-scheme-gray rounded-full text-white text-base xl:text-sm 2xl:text-lg font-bold">
 						Digital Asset Management
 					</button>
 					<div class="bottom-indicator-service h-12 w-1 bg-gray-400 opacity-0 "></div>
 				</div>
 			</div>
 
-			<div class="xl:w-[210px] 2xl:w-[275px] relative flex-none">
+			<div class="xl:w-[210px] 2xl:w-[240px] relative flex-none">
 				<div class="flex items-center flex-col">
-					<button class="button-indicator w-full h-auto min-h-[80px] md:min-h-auto py-2 px-4 xl:px-8 2xl:px-12 bg-scheme-gray rounded-full text-white text-base xl:text-sm 2xl:text-lg font-bold">
+					<button class="button-indicator w-full h-auto min-h-[80px] md:min-h-auto py-2 px-4 xl:px-8 2xl:px-8 bg-scheme-gray rounded-full text-white text-base xl:text-sm 2xl:text-lg font-bold">
 						Creative Content Production
 					</button>
 					<div class="bottom-indicator-service h-12 w-1 bg-gray-400 opacity-0 "></div>
 				</div>
 			</div>
 
-			<div class="xl:w-[210px] 2xl:w-[275px] relative flex-none">
+			<div class="xl:w-[210px] 2xl:w-[240px] relative flex-none">
 				<div class="flex items-center flex-col">
-					<button class="button-indicator w-full h-auto min-h-[80px] md:min-h-auto py-2 px-4 xl:px-8 2xl:px-12 bg-scheme-gray rounded-full text-white text-base xl:text-sm 2xl:text-lg font-bold">
+					<button class="button-indicator w-full h-auto min-h-[80px] md:min-h-auto py-2 px-4 xl:px-8 2xl:px-8 bg-scheme-gray rounded-full text-white text-base xl:text-sm 2xl:text-lg font-bold">
 						Social Media Management
 					</button>
 					<div class="bottom-indicator-service h-12 w-1 bg-gray-400 opacity-0 "></div>
 				</div>
 			</div>
 
-			<div class="xl:w-[210px] 2xl:w-[275px] relative flex-none">
+			<div class="xl:w-[210px] 2xl:w-[240px] relative flex-none">
 				<div class="flex items-center flex-col">
-					<button class="button-indicator w-full h-auto min-h-[80px] md:min-h-auto py-2 px-4 xl:px-8 2xl:px-12 bg-scheme-gray rounded-full text-white text-base xl:text-sm 2xl:text-lg font-bold">
+					<button class="button-indicator w-full h-auto min-h-[80px] md:min-h-auto py-2 px-4 xl:px-8 2xl:px-8 bg-scheme-gray rounded-full text-white text-base xl:text-sm 2xl:text-lg font-bold">
 						Digital Event Management
 					</button>
 					<div class="bottom-indicator-service h-12 w-1 bg-gray-400 opacity-0 "></div>

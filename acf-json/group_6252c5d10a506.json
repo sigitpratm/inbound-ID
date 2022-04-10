@@ -1,0 +1,130 @@
+{
+    "key": "group_6252c5d10a506",
+    "title": "Option Podcast",
+    "fields": [
+        {
+            "key": "field_6252c5d836ae4",
+            "label": "Social",
+            "name": "social",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "spotify": "Spotify",
+                "youtube": "Youtube"
+            },
+            "default_value": "spotify",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6252c66c36ae5",
+            "label": "Spotify URL",
+            "name": "spotify_url",
+            "type": "url",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6252c5d836ae4",
+                        "operator": "==",
+                        "value": "spotify"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Masukkan URL Spotify agar dapat di redirect ke website tersebut."
+        },
+        {
+            "key": "field_6252c8a6ff8c0",
+            "label": "Youtube URL",
+            "name": "youtube_url",
+            "type": "url",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6252c5d836ae4",
+                        "operator": "==",
+                        "value": "youtube"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Masukkan URL Spotify agar dapat di redirect ke website tersebut."
+        },
+        {
+            "key": "field_6252c6c336ae7",
+            "label": "Content Type",
+            "name": "content_type",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6252c5d836ae4",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "listened": "Listened Podcast",
+                "watched": "Watched Sessions",
+                "classes": "Previous Class"
+            },
+            "default_value": "listened",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "podcast"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1649592520
+}

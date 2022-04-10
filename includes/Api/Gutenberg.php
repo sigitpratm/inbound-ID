@@ -91,6 +91,6 @@ class Gutenberg
 	 */
 	public function gutenberg_assets()
 	{
-		wp_enqueue_style( 'gutenberg-EmkalabTheme-cta', get_template_directory_uri() . '/assets/dist/css/gutenberg.css', null );
+//		wp_enqueue_style( 'gutenberg-EmkalabTheme-cta', get_template_directory_uri() . '/assets/dist/css/gutenberg.css', null );
 	}
 }
