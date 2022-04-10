@@ -1,12 +1,12 @@
 <header id="header" class="ease-in-out z-50 fixed top-0 w-full bg-transparent">
-	<div class="container mx-auto flex flex-row justify-between py-8 px-4 xl:px-0 relative">
+	<div class="w-full max-w-[1360px] mx-auto flex flex-row justify-between py-8 px-4 xl:px-0 relative">
 		<a href="<?= home_url() ?>" class="flex items-center">
 			<img src="<?= jpp_assets( '/img/png/img-nav-logo.png' ) ?>" alt="" class="h-auto w-52">
 		</a>
 
 		<!-- lg nav -->
-		<div id="large-nav" class="hidden xl:flex items-center gap-6">
-			<nav class="md:ml-auto flex flex-wrap items-center text-base justify-center font-bold border border-red-500">
+		<div id="large-nav" class="hidden xl:flex items-center gap-6 emk-topbar header">
+			<nav class="md:ml-auto flex flex-wrap items-center text-base justify-center font-bold">
 				<?php
 				wp_nav_menu(
 						array(

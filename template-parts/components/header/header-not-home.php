@@ -1,5 +1,5 @@
 <header id="header" class="ease-in-out z-50 fixed top-0 w-full bg-transparent">
-	<div class="container mx-auto flex flex-row justify-between py-8 px-4 xl:px-0 relative">
+	<div class="w-full max-w-[1360px] mx-auto flex flex-row justify-between py-8 px-4 xl:px-0 relative">
 		<a href="<?= home_url() ?>" class="flex items-center">
 			<img src="<?= jpp_assets( '/img/png/img-nav-logo-2.png' ) ?>" alt="" class="h-auto w-52">
 		</a>

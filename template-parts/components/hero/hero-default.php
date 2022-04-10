@@ -27,8 +27,11 @@
 
 				<!-- CONTENT RIGHT-->
 				<div class="col-span-12 lg:col-span-7 flex items-center">
-					<img src="<?= jpp_assets( '/img/png/banner-image1.png' ) ?>" alt=""
-					     class="xl:h-[38rem] 2xl:h-[50rem] object-cover">
+					<img src="<?= jpp_assets( '/img/png/banner-image1.png' ) ?>" alt="image-hero"
+					     class="h-full min-w-full object-contain">
+<!--					<img src="" alt=""-->
+<!--					     class="xl:h-[38rem] 2xl:h-[50rem] object-cover">-->
+
 				</div>
 			</div>
 		</div>

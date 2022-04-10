@@ -69,7 +69,7 @@
 <!--<img src="--><? //= jpp_assets( '/img/png/img-bg-01.png' ) ?><!--" alt=""-->
 <!--     class="hidden lg:block absolute left-0 top-[95rem] z-10">-->
 
-<div class="py-[6.5rem] container px-4 lg:px-16 xl:px-12 2xl:px-0 mx-auto z-30 relative">
+<div class="py-[6.5rem] w-full max-w-[1360px] px-4 lg:px-16 xl:px-12 2xl:px-0 mx-auto z-30 relative">
 
 	<!-- hero banner -->
 	<?php get_template_part( 'template-parts/components/hero/hero-default', get_post_type() ) ?>

@@ -15,7 +15,7 @@
 </main><!-- #content -->
 
 <footer class="bg-scheme-green relative z-30">
-	<div class="flex md:flex-row flex-col items-center justify-between container mx-auto py-16 text-white md:text-base xl:text-lg gap-16 xl:gap-0 px-4 xl:px-0">
+	<div class="flex md:flex-row flex-col items-center justify-between w-full max-w-[1360px] mx-auto py-16 text-white md:text-base xl:text-lg gap-16 xl:gap-0 px-4 xl:px-0">
 
 		<div class="w-full space-y-4 md:text-left text-center">
 			<a href="">
@@ -62,7 +62,7 @@
 		</div>
 	</div>
 
-	<div class="h-48 bg-gray-700 flex items-center justify-center">
+	<div class="py-16 bg-[#474646] flex items-center justify-center">
 		<p class="text-center text-white"><?= emk_options( 'copyright-footer' ) ?></p>
 	</div>
 </footer>

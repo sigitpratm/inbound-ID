@@ -12,7 +12,11 @@
  * @package awps
  */
 
-get_header(); ?>
+get_header();
+
+//var_dump(get_post_type());
+//die;
+?>
 <?php get_template_part( 'template-parts/views/content', get_post_type() ) ?>
 <?php
 get_footer();
