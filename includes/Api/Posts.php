@@ -87,10 +87,14 @@ class Posts
 					'post_content'  => $post->post_content,
 					'guid'          => $post->guid,
 					'url'           => get_permalink( get_the_ID() ),
+					'thumbnail'		=> [
+						"url"=>get_the_post_thumbnail_url(get_the_ID()),
+					],
 					'fields'		=> [
 						'podcast'=> [
 							"social"=>[
 								"type"=> get_field( 'social',$post->ID ),
+								"url"=> !empty(get_field('youtube_url', $post->ID)) ? get_field('youtube_url', $post->ID) : (!empty(get_field('spotify_url', $post->ID)) ? get_field('spotify_url', $post->ID) : null),
 								"youtube" => get_field( 'youtube_url',$post->ID ),
 								"spotify" => get_field( 'spotify_url',$post->ID )
 							],
@@ -129,7 +133,12 @@ class Posts
 			// If there is no post
 			return [
 				'status'  => 'error',
-				'message' => "No post found"
+				'message' => "No post found",
+				'total'          => $meta_query->found_posts,
+				'total_page'     => ceil( $meta_query->found_posts / $per_page ),
+				'current_page'   => intval( $paged ),
+				'posts_per_page' => intval( $per_page ),
+				"results"=> []
 			];
 		}
 //		}

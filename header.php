@@ -23,6 +23,9 @@
 	<?php wp_head(); ?>
 	<script src="https://cdn.tailwindcss.com"></script>
 
+	<script>
+		let SITE_URL = "<?= get_site_url() ?>"
+	</script>
 	<style>
 		* {
 			font-family: 'Montserrat', sans-serif;
@@ -30,6 +33,39 @@
 
 	</style>
 	<link rel="stylesheet" href="<?= mix( "/css/style.css" ) ?>" type="text/css"/>
+
+	<?php if (is_home()):?>
+
+
+	<?php elseif (is_archive()): ?>
+
+		<meta name="twitter:card" content="summary_large_image"/>
+		<meta name="twitter:site" content="<?= get_site_url()?>"/>
+		<meta name="twitter:title" content="<?= get_post_type();?>"/>
+		<meta name="twitter:description" content="Lorem ipsum dolor sit amet"/>
+		<meta name="twitter:creator" content="creator"/>
+		<meta name="twitter:image" content="<?= get_site_icon_url();?>"/>
+		<meta name="twitter:image:width" content="400"/>
+		<meta name="twitter:image:height" content="400"/>
+		<meta name="twitter:image:type" content="image/jpg"/>
+
+		<link rel="canonical" href="<?= get_site_url(); ?>"/>
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="<?= get_post_type(); ?>" />
+		<meta property="og:description" content="<?= get_the_archive_description();?>" />
+		<meta property="og:url" content="<?= get_site_url();?>" />
+		<meta property="og:image" content="<?= get_site_icon_url()?>" />
+		<meta property="og:image:width" content="400" />
+		<meta property="og:image:height" content="400" />
+		<meta property="og:image:type" content="image/jpeg"/>
+	<?php elseif (is_single()): ?>
+
+
+	<?php else: ?>
+
+	<?php endif; ?>
+
+
 </head>
 <body <?php body_class( 'font-display' ); ?> x-data="{atTop: true, isArchive: false}"
                                              x-on:scroll.window="atTop = (window.pageYOffset > 60) ? false : true; ">

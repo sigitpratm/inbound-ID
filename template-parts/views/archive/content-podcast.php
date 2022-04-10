@@ -34,20 +34,8 @@
 			<div class="w-full">
 				<h2 class="lg:text-3xl text-[#3D9E26] font-extrabold text-center">OUR MOST LISTENED PODCASTS</h2>
 			</div>
-			<div class="w-full grid grid-cols-4 xl:gap-6 emk-podcast" data-podcast="listened">
-				<?php
-				for($i = 0; $i < 4; $i++):
-				?>
-					<div class="col-span-1 w-full min-h-[320px] rounded-xl space-y-6">
-						<div class="w-full min-h-[280px] bg-red-500 rounded-xl overflow-hidden relative">
-							<img src="http://localhost/core-wordpress/wp-content/uploads/2022/04/Screenshot_331-150x150.png" alt="img-list-podcast"
-							class="w-full h-full absolute top-1/2 left-1/2 transform -translate-x-2/4 -translate-y-2/4 object-cover">
-						</div>
-						<div class="w-full flex items-center justify-center relative px-6">
-							<button class="w-full py-4 bg-[#3D9E26] shadow-lg rounded-full text-white font-semibold">Listen on Spotify</button>
-						</div>
-					</div>
-				<?php endfor; ?>
+			<div class="w-full grid grid-cols-4 xl:gap-6 emk-podcast" data-podcast="listened" data-podcast-empty="Belum ada item">
+				<?php // ini biarin kosong udah di handle sama js ?>
 			</div>
 		</div>
 
@@ -80,20 +68,10 @@
 			<div class="w-full">
 				<h2 class="lg:text-3xl text-[#3D9E26] font-extrabold text-center">THE MOST WATCHED SESSIONS</h2>
 			</div>
-			<div class="w-full grid grid-cols-4 xl:gap-6">
+			<div class="w-full grid grid-cols-4 xl:gap-6" data-podcast="watched" data-podcast-empty="Belum ada item">
 				<?php
-				for($i = 0; $i < 4; $i++):
-					?>
-					<div class="col-span-1 w-full min-h-[320px] rounded-xl space-y-6">
-						<div class="w-full min-h-[280px] bg-red-500 rounded-xl overflow-hidden relative">
-							<img src="http://localhost/core-wordpress/wp-content/uploads/2022/04/Screenshot_331-150x150.png" alt="img-list-podcast"
-								 class="w-full h-full absolute top-1/2 left-1/2 transform -translate-x-2/4 -translate-y-2/4 object-cover">
-						</div>
-						<div class="w-full flex items-center justify-center relative px-6">
-							<button class="w-full py-4 bg-[#3D9E26] shadow-lg rounded-full text-white font-semibold">Watch on Youtube</button>
-						</div>
-					</div>
-				<?php endfor; ?>
+				// ini biarin kosong udah di handle sama js
+				?>
 			</div>
 		</div>
 
@@ -175,20 +153,10 @@
 			<div class="w-full">
 				<h2 class="lg:text-3xl text-[#3D9E26] font-extrabold text-center">PREVIOUS CLASSES:</h2>
 			</div>
-			<div class="w-full grid grid-cols-4 xl:gap-6">
+			<div class="w-full grid grid-cols-4 xl:gap-6" data-podcast="classes" data-podcast-empty="Belum ada item">
 				<?php
-				for($i = 0; $i < 4; $i++):
-					?>
-					<div class="col-span-1 w-full min-h-[320px] rounded-xl space-y-6">
-						<div class="w-full min-h-[280px] bg-red-500 rounded-xl overflow-hidden relative">
-							<img src="http://localhost/core-wordpress/wp-content/uploads/2022/04/Screenshot_331-150x150.png" alt="img-list-podcast"
-								 class="w-full h-full absolute top-1/2 left-1/2 transform -translate-x-2/4 -translate-y-2/4 object-cover">
-						</div>
-						<div class="w-full flex items-center justify-center relative px-6">
-							<button class="w-full py-4 bg-[#3D9E26] shadow-lg rounded-full text-white font-semibold">Watch on Youtube</button>
-						</div>
-					</div>
-				<?php endfor; ?>
+				// ini biarin kosong udah di handle sama js
+				?>
 			</div>
 		</div>
 
