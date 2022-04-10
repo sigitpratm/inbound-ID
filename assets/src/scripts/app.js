@@ -118,6 +118,7 @@ const PodcastCard = function (attr) {
 								el.append(EmptyLayout(el.getAttribute("data-podcast-empty") ?? "Belum Ada Postingan"))
 							}
 						}
+						ChangeImageOnError()
 					})
 					.catch((err) => {
 						console.error(err, err.message)
@@ -131,6 +132,7 @@ window.PodcastCard = PodcastCard
 
 window.addEventListener('DOMContentLoaded', function () {
 	PodcastCard('listened')
+
 })
 
 
@@ -182,3 +184,25 @@ function EmptyLayout(txt, classes = "col-span-4 h-[240px] flex items-center just
 	elem.innerText = txt
 	return elem
 }
+
+
+/**
+ * IMAGE ERROR
+ */
+
+function ChangeImageOnError(){
+	let images = document.querySelectorAll('img')
+	if(typeof(images) !== "undefined"){
+		console.log(images)
+
+		if(images.length > 0 ){
+			images.forEach((el)=> {
+				el.addEventListener('error',function(){
+					el.setAttribute("src", TEMPLATE_URL +"/assets/dist/img/post-notfound.png")
+					return true;
+				})
+			})
+		}
+	}
+}
+ChangeImageOnError()

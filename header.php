@@ -25,6 +25,7 @@
 
 	<script>
 		let SITE_URL = "<?= get_site_url() ?>"
+		let TEMPLATE_URL = "<?= get_template_directory_uri(); ?>"
 	</script>
 	<style>
 		* {
