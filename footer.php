@@ -328,30 +328,30 @@
 	 * @param activeBtns
 	 * @param activeTabs
 	 */
-	function defaultChangeTab(buttonTabs, contentTabs, activeBtns, activeTabs) {
-		let btnTab = document.querySelectorAll(buttonTabs)
-		let contentTab = document.querySelectorAll(contentTabs)
-
-		if (btnTab !== null && contentTab !== null) {
-			for (let i = 0; i < btnTab.length; i++) {
-				btnTab[i].addEventListener('click', function () {
-					btnTab.forEach(btn => {
-						btn.classList.remove(activeBtns)
-					})
-
-					contentTab.forEach(btn => {
-						btn.classList.remove(activeTabs)
-					})
-
-					btnTab[i].classList.add(activeBtns)
-					contentTab[i].classList.add(activeTabs)
-				})
-			}
-		}
-	}
-
-	defaultChangeTab('.btn-tab-brief', '.content-tab-brief', 'active-btn-brief', 'active-tab-brief')
-	defaultChangeTab('.btn-tab-article', '.content-tab-article', 'active-btn-article', 'active-tab-article')
+	// function defaultChangeTab(buttonTabs, contentTabs, activeBtns, activeTabs) {
+	// 	let btnTab = document.querySelectorAll(buttonTabs)
+	// 	let contentTab = document.querySelectorAll(contentTabs)
+	//
+	// 	if (btnTab !== null && contentTab !== null) {
+	// 		for (let i = 0; i < btnTab.length; i++) {
+	// 			btnTab[i].addEventListener('click', function () {
+	// 				btnTab.forEach(btn => {
+	// 					btn.classList.remove(activeBtns)
+	// 				})
+	//
+	// 				contentTab.forEach(btn => {
+	// 					btn.classList.remove(activeTabs)
+	// 				})
+	//
+	// 				btnTab[i].classList.add(activeBtns)
+	// 				contentTab[i].classList.add(activeTabs)
+	// 			})
+	// 		}
+	// 	}
+	// }
+	//
+	// defaultChangeTab('.btn-tab-brief', '.content-tab-brief', 'active-btn-brief', 'active-tab-brief')
+	// defaultChangeTab('.btn-tab-article', '.content-tab-article', 'active-btn-article', 'active-tab-article')
 </script>
 
 </body>

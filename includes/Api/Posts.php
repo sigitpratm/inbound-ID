@@ -43,9 +43,31 @@ class Posts
 	public static function metaQuery() {
 //		if ( ! empty( $_GET['meta_query'] ) ) {
 		$query = $_GET['meta_query'];
+		$tax_query= $_GET['tax_query'];
 		// Set the arguments based on our get parameters
 		$paged    = ( ! empty( $_GET['paged'] ) ) ? $_GET['paged'] : 1;
 		$per_page = $_GET['limit'] ?? 10;
+		$taxQuery = [];
+
+		if (!empty($tax_query)){
+			$terms = explode(',',$tax_query["terms"]);
+
+			if (!empty($terms) && count($terms) > 0 ){
+				$taxQuery[] = [
+					'taxonomy' => $tax_query["taxonomy"],
+					'field' => $tax_query["field"] ?? "slug",
+					'terms' => $terms  ?? [], //excluding the term you dont want.
+					'operator' => 'IN',
+				];
+//				for($i = 0 ; $i < count($terms); $i++){
+//
+//				}
+			}
+
+		}
+
+
+
 		$args     = array(
 			'post_type'      => $_GET['post_type'] ?? 'product',
 			'post_status'    => $_GET['post_status']?? 'publish',
@@ -61,6 +83,7 @@ class Posts
 					'compare' => '=',
 				),
 			),
+			"tax_query" 	 => $taxQuery
 
 		);
 
@@ -77,6 +100,7 @@ class Posts
 				$meta_query->the_post();
 				$postItems = get_post_meta( get_the_ID() );
 				$post      = get_post();
+				$category = get_the_category(get_the_ID());
 
 				$data[] = [
 					'ID'            => get_the_ID(),
@@ -98,9 +122,19 @@ class Posts
 								"youtube" => get_field( 'youtube_url',$post->ID ),
 								"spotify" => get_field( 'spotify_url',$post->ID )
 							],
-							"content_type"=> get_field("content_type", $post->ID)
-						]
+							"content_type"=> get_field("content_type", $post->ID) ?? null,
+						],
+						"content_type"=> get_field("content_type", $post->ID) ?? null,
+						"item_type"=> get_field("item_type", $post->ID) ?? null,
+						"case_studies"=> get_field("case_studies", $post->ID) ?? null,
+						"awards"=> [
+							"images"=>get_field("awards_images", $post->ID) ?? null,
+							"description" => get_field("awards_description", $post->ID) ?? null
+						],
+						"media"=> get_field("media", $post->ID) ?? null,
+						"icon"=> get_field("icon", $post->ID) ?? null,
 					],
+					"category" => $category,
 //					'jippi_field'   => [
 //						'name'        => get_field( 'name', $post->ID ),
 //						'currency'    => get_field( 'currency', $post->ID ),
@@ -122,6 +156,9 @@ class Posts
 
 			// Return the data
 			return [
+				"params"		=> [
+					'tax_query'=> $taxQuery,
+				],
 				'status'         => 'success',
 				'total'          => $meta_query->found_posts,
 				'total_page'     => ceil( $meta_query->found_posts / $per_page ),

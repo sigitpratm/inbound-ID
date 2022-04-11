@@ -63,7 +63,7 @@
 				<!-- CONTENT RIGHT-->
 				<div class="col-span-12 lg:col-span-7 flex items-center">
 					<img src="<?= jpp_assets( '/img/png/banner-image2.png' ) ?>" alt=""
-					     class="xl:h-[38rem] 2xl:h-[50rem] object-cover">
+					     class="h-full min-w-full object-contain">
 				</div>
 			</div>
 		</div>
@@ -95,7 +95,7 @@
 				<!-- CONTENT RIGHT-->
 				<div class="col-span-12 lg:col-span-7 flex items-center">
 					<img src="<?= jpp_assets( '/img/png/banner-image3.png' ) ?>" alt=""
-					     class="xl:h-[38rem] 2xl:h-[50rem] object-cover">
+					     class="h-full min-w-full object-contain">
 				</div>
 			</div>
 		</div>
@@ -127,7 +127,7 @@
 				<!-- CONTENT RIGHT-->
 				<div class="col-span-12 lg:col-span-7 flex items-center">
 					<img src="<?= jpp_assets( '/img/png/banner-image3.png' ) ?>" alt=""
-					     class="xl:h-[38rem] 2xl:h-[50rem] object-cover">
+					     class="h-full min-w-full object-contain">
 				</div>
 			</div>
 		</div>
@@ -159,7 +159,7 @@
 				<!-- CONTENT RIGHT-->
 				<div class="col-span-12 lg:col-span-7 flex items-center">
 					<img src="<?= jpp_assets( '/img/png/banner-image3.png' ) ?>" alt=""
-					     class="xl:h-[38rem] 2xl:h-[50rem] object-cover">
+					     class="h-full min-w-full object-contain">
 				</div>
 			</div>
 		</div>

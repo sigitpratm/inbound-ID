@@ -114,7 +114,7 @@ const PodcastCard = function (attr) {
 									let data = response?.data?.results[i]
 									el.append(cardPodcast(data))
 								}
-							}else{
+							} else {
 								el.append(EmptyLayout(el.getAttribute("data-podcast-empty") ?? "Belum Ada Postingan"))
 							}
 						}
@@ -164,7 +164,7 @@ function cardPodcast(data = {}) {
 			a.innerText = "Listen on Spotify"
 		} else if (data?.fields?.podcast?.content_type === "watched") {
 			a.innerText = "Watch on Youtube"
-		}else if (data?.fields?.podcast?.content_type === "classes"){
+		} else if (data?.fields?.podcast?.content_type === "classes") {
 			a.innerText = "See More"
 		}
 	}
@@ -178,7 +178,7 @@ function cardPodcast(data = {}) {
 }
 
 
-function EmptyLayout(txt, classes = "col-span-4 h-[240px] flex items-center justify-center"){
+function EmptyLayout(txt, classes = "col-span-4 h-[240px] flex items-center justify-center") {
 	let elem = document.createElement('div')
 	elem.className = `${classes}`
 	elem.innerText = txt
@@ -190,19 +190,175 @@ function EmptyLayout(txt, classes = "col-span-4 h-[240px] flex items-center just
  * IMAGE ERROR
  */
 
-function ChangeImageOnError(){
+function ChangeImageOnError() {
 	let images = document.querySelectorAll('img')
-	if(typeof(images) !== "undefined"){
+	if (typeof (images) !== "undefined") {
 		console.log(images)
 
-		if(images.length > 0 ){
-			images.forEach((el)=> {
-				el.addEventListener('error',function(){
-					el.setAttribute("src", TEMPLATE_URL +"/assets/dist/img/post-notfound.png")
+		if (images.length > 0) {
+			images.forEach((el) => {
+				el.addEventListener('error', function () {
+					el.setAttribute("src", TEMPLATE_URL + "/assets/dist/img/post-notfound.png")
 					return true;
 				})
 			})
 		}
 	}
 }
+
 ChangeImageOnError()
+
+
+function ContentArticleTabByCategory(attr = "last-article", field = "slug", terms = null) {
+	let elements = document.querySelectorAll(`[data-tab-content="${attr}"]`)
+
+
+	if (typeof (elements) !== "undefined" && elements) {
+		if (elements.length > 0) {
+			elements.forEach((el) => {
+				console.log(el, "CONTENT ARTICLE TAB BY CTAEGORY")
+				el.innerHTML = `<div class="animate-pulse col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"><div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-gray-200"></div><div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"><div class="w-full h-4 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="px-6 py-2 bg-gray-200 rounded-full"></div></div></div>`
+				el.innerHTML += `<div class="animate-pulse col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"><div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-gray-200"></div><div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"><div class="w-full h-4 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="px-6 py-2 bg-gray-200 rounded-full"></div></div></div>`
+				el.innerHTML += `<div class="animate-pulse col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"><div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-gray-200"></div><div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"><div class="w-full h-4 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="px-6 py-2 bg-gray-200 rounded-full"></div></div></div>`
+				axios.get(`${SITE_URL}/wp-json/emkalab/v1/post/`, {
+					params: {
+						limit: 10,
+						paged: 1,
+						post_type: "post",
+						post_status: "publish",
+						orderby: "date",
+						order: "DESC",
+						// "meta_query[key]": "content_type",
+						// "meta_query[value]": el.getAttribute("data-podcast") ?? "watched",
+						// "meta_query[relation]": "OR",
+						"tax_query[taxonomy]": "category",
+						"tax_query[field]": field,
+						"tax_query[terms]": terms
+					}
+				})
+					.then((response) => {
+						el.innerHTML = ""
+						if (typeof (response?.data?.results) !== "undefined" && Array.isArray(response?.data?.results)) {
+							if (response?.data?.results.length > 0) {
+								for (let i = 0; i < response?.data?.results.length; i++) {
+									let data = response?.data?.results[i]
+									el.append(CardArticleDefault(data))
+								}
+							} else {
+								el.append(EmptyLayout(el.getAttribute("data-podcast-empty") ?? "Belum Ada Postingan"))
+							}
+						}
+						ChangeImageOnError()
+					})
+					.catch((err) => {
+						console.error(err, err.message)
+					})
+				// window.fetchingData({
+				// 	params: {
+				//
+				// 	}
+				// })
+			})
+		}
+	}
+}
+
+
+function CardArticleDefault(data = {}) {
+	let div = document.createElement('div')
+	div.className = "col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"
+	let divImg = document.createElement('div')
+	divImg.className = "h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-black"
+	let img = document.createElement("img")
+	img.src = data?.thumbnail?.url
+	img.className = "object-cover w-full h-full xl:h-52 2xl:h-72 transition duration-300 ease-in-out hover:scale-105 hover:opacity-60"
+	img.alt = "images-card"
+	divImg.append(img)
+	div.append(divImg)
+
+	let div2 = document.createElement("div")
+	div2.className = "p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"
+
+	let aTitle = document.createElement('a')
+	aTitle.className = "text-lg md:text-3xl font-bold text-scheme-green line-clamp-2"
+	aTitle.href= data?.url ?? ""
+	aTitle.innerText = data?.post_title ?? "-"
+
+	div2.append(aTitle)
+
+	let pDesc = document.createElement('p')
+	pDesc.className = "text-sm md:text-base line-clamp-2 text-scheme-gray"
+	pDesc.innerText = data?.post_content ?? ""
+
+	div2.append(pDesc)
+
+	let aBtn = document.createElement('a')
+	aBtn.className = "text-sm md:text-base text-scheme-green font-bold"
+	aBtn.href= data?.url ?? ""
+	aBtn.innerText = "Read More"
+
+	div2.append(aBtn)
+
+	div.append(div2)
+
+
+
+	return div
+}
+
+window.addEventListener('DOMContentLoaded', function(){
+	let NavTabButtons = document.querySelectorAll(`[data-tab="last-article"]`)
+	if(typeof(NavTabButtons) !== "undefined"){
+		if(NavTabButtons.length > 0){
+			let state = [
+				{id:0,active:true},
+				{id:1,active:false},
+				{id:2,active:false},
+			]
+
+			function updateState(id){
+				let NewState = []
+				for(let i =0;i < state.length;i++){
+					let item = state[i]
+					if(item.id === id){
+						NewState.push({
+							id:id,
+							status:true
+						})
+					}else{
+						NewState.push({
+							id:item.id,
+							status:false
+						})
+					}
+				}
+
+				state = NewState
+				return state
+			}
+			NavTabButtons.forEach((el,index)=> {
+				// el.classList.remove("active-btn-article")
+
+				// console.log(index, "INDEX")
+				// if(state[index].status){
+				// 	el.classList.add('active-btn-article')
+				// }else{
+				// 	el.classList.remove("active-btn-article")
+				// }
+				el.addEventListener('click', (e)=> {
+					updateState(index)
+					NavTabButtons.forEach(el=> {
+						el.classList.remove('active-btn-article')
+					})
+					// if(state[index].status){
+						el.classList.add('active-btn-article')
+					// }else{
+					// 	el.classList.remove("active-btn-article")
+					// }
+					console.log('clicked',el.getAttribute("data-target"))
+					ContentArticleTabByCategory('last-article','slug',el.getAttribute("data-target"))
+				})
+			})
+		}
+	}
+})
