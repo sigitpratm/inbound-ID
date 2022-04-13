@@ -24,10 +24,7 @@ get_header(); ?>
 				<div class="space-y-12 pr-24 flex flex-col items-start w-full h-full justify-center">
 					<!-- desc -->
 					<p class="text-2xl">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci, blanditiis cum deleniti
-						distinctio eos exercitationem ipsa, itaque laborum, modi necessitatibus officia repudiandae
-						tempora
-						ullam voluptatum.
+						<?= emk_options( 'desc-contact-us' ) ?>
 					</p>
 
 					<!-- address -->
@@ -40,7 +37,7 @@ get_header(); ?>
 						</svg>
 
 						<p class="text-xl">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dolore
+							<?= emk_options( 'location-contact-us' ) ?>
 						</p>
 					</div>
 
@@ -53,7 +50,7 @@ get_header(); ?>
 						</svg>
 
 						<p class="text-xl">
-							admin@inbound.com
+							<?= emk_options( 'email-contact-us' ) ?>
 						</p>
 					</div>
 
@@ -65,22 +62,28 @@ get_header(); ?>
 						</svg>
 
 						<p class="text-xl">
-							+62 812 3456 7890
+							<?= emk_options( 'phone-contact-us' ) ?>
 						</p>
 					</div>
 
 				</div>
-
 			</div>
 
 			<!-- right -->
 			<div class="col-span-7 relative xl:h-[40rem] 2xl:h-[52rem] overflow-hidden">
 				<div class="relative z-20 flex flex-col items-center justify-center w-full h-full gap-8">
-					<button class="rounded-full px-24 xl:py-8 2xl:py-10 xl:text-2xl 2xl:text-3xl font-bold bg-white text-scheme-green transition duration-300 hover:bg-scheme-green hover:text-white">Create a Brief</button>
+					<a href="<?= emk_options( 'contact-us-btn1-link' ) ?>" target="_blank"
+					   class="rounded-full px-24 xl:py-8 2xl:py-10 xl:text-2xl 2xl:text-3xl font-bold bg-white text-scheme-green transition duration-300 hover:bg-scheme-green hover:text-white">
+						<?= emk_options( 'contact-us-btn1-text' ) ?>
+					</a>
 					<p class="xl:text-2xl 2xl:text-3xl font-bold text-center text-white">or</p>
-					<button class="rounded-full px-24 xl:py-8 2xl:py-10 xl:text-2xl 2xl:text-3xl font-bold bg-white text-scheme-green transition duration-300 hover:bg-scheme-green hover:text-white">Set up Meeting</button>
+					<a href="<?= emk_options( 'contact-us-btn2-link' ) ?>" target="_blank"
+					   class="rounded-full px-24 xl:py-8 2xl:py-10 xl:text-2xl 2xl:text-3xl font-bold bg-white text-scheme-green transition duration-300 hover:bg-scheme-green hover:text-white">
+						<?= emk_options( 'contact-us-btn2-text' ) ?>
+					</a>
 				</div>
-				<img src="<?= jpp_assets( '/img/png/banner-image1.png' ) ?>" alt="" class="absolute top-0 left-0 xl:h-[40rem] 2xl:h-[52rem] z-10">
+				<img src="<?= jpp_assets( '/img/png/banner-image1.png' ) ?>" alt=""
+				     class="absolute top-0 left-0 xl:h-[40rem] 2xl:h-[52rem] z-10">
 			</div>
 		</div>
 	</div>

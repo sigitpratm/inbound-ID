@@ -1,5 +1,9 @@
 .header-active {
-	background: #0e7b17;
+	background: #FFFFFF !important;
+}
+
+.header-home-active {
+	background: #48A835 !important;
 }
 
 
@@ -9,11 +13,6 @@
 		justify-content: center;
 		align-items: center;
 		gap: 2rem;
-
-		.menu-item :hover {
-			color: #ffff;
-			transition: all 200ms ease-in-out;
-		}
 	}
 }
 
@@ -32,7 +31,7 @@
 	background: rgba(0, 128, 0, 0.11);
 }
 
-.active-slider, .active-slider-client, .active-btn-hero, .active-btn-client {
+.active-slider, .active-slider-client, .active-btn-hero, .active-btn-client, .active-btn-milestone {
 	background: green !important;
 	border: 2px solid black;
 }
@@ -104,4 +103,27 @@
 .active-tab-brief, .active-tab-article {
 	display: grid !important;
 	animation: fadeEffect 1s;
+}
+
+
+.progression-first li:after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 0.5rem;
+	background: #48A835;
+	top: 50%;
+	left: 10%;
+	z-index: -1;
+}
+
+.progression-second li:after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 0.5rem;
+	background: #48A835;
+	top: 50%;
+	right: 10%;
+	z-index: -1;
 }

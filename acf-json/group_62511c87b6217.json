@@ -17,10 +17,10 @@
             },
             "choices": {
                 "1": "Article",
-                "2": "video",
-                "3": "photo",
+                "2": "Video",
+                "3": "Photo",
                 "4": "Audio",
-                "5": "Item Section ( client, award, work)"
+                "5": "Item Section ( services, client, awards, work, milestones )"
             },
             "default_value": "article",
             "allow_null": 0,
@@ -54,7 +54,8 @@
             "choices": {
                 "1": "Our Client",
                 "2": "Our Work",
-                "3": "Award"
+                "3": "Award",
+                "4": "Milestone"
             },
             "default_value": 1,
             "allow_null": 0,
@@ -70,7 +71,7 @@
             "name": "case_studies",
             "type": "true_false",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": [
                 [
                     {
@@ -185,7 +186,7 @@
         },
         {
             "key": "field_625124779f540",
-            "label": "media",
+            "label": "Media",
             "name": "media",
             "type": "group",
             "instructions": "",
@@ -222,7 +223,7 @@
             "sub_fields": [
                 {
                     "key": "field_625124919f541",
-                    "label": "images",
+                    "label": "Images",
                     "name": "images",
                     "type": "gallery",
                     "instructions": "",
@@ -257,7 +258,7 @@
                 },
                 {
                     "key": "field_625124aa9f542",
-                    "label": "video",
+                    "label": "Video",
                     "name": "video",
                     "type": "file",
                     "instructions": "",
@@ -310,33 +311,6 @@
                     "mime_types": "mp3,mp4,ma4"
                 }
             ]
-        },
-        {
-            "key": "field_625125d3e6020",
-            "label": "Icon",
-            "name": "icon",
-            "type": "gallery",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url",
-            "preview_size": "medium",
-            "insert": "append",
-            "library": "all",
-            "min": "",
-            "max": "",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
         }
     ],
     "location": [
@@ -356,5 +330,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1649650771
+    "modified": 1649820659
 }

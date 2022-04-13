@@ -4,8 +4,7 @@ namespace EmkalabTheme\Api;
 
 use WP_Query;
 
-class Posts
-{
+class Posts {
 	public function __construct() {
 		add_action( 'rest_api_init', [ $this, 'createAcfMetaInRest' ] );
 		add_action( 'rest_api_init', function () {
@@ -41,38 +40,32 @@ class Posts
 	}
 
 	public static function metaQuery() {
-//		if ( ! empty( $_GET['meta_query'] ) ) {
-		$query = $_GET['meta_query'];
-		$tax_query= $_GET['tax_query'];
-		// Set the arguments based on our get parameters
-		$paged    = ( ! empty( $_GET['paged'] ) ) ? $_GET['paged'] : 1;
-		$per_page = $_GET['limit'] ?? 10;
-		$taxQuery = [];
+		$query     = $_GET['meta_query'];
+		$tax_query = $_GET['tax_query'];
+		$paged     = ( ! empty( $_GET['paged'] ) ) ? $_GET['paged'] : 1;
+		$per_page  = $_GET['limit'] ?? 10;
+		$taxQuery  = [];
 
-		if (!empty($tax_query)){
-			$terms = explode(',',$tax_query["terms"]);
+		if ( ! empty( $tax_query ) ) {
+			$terms = explode( ',', $tax_query["terms"] );
 
-			if (!empty($terms) && count($terms) > 0 ){
+			if ( ! empty( $terms ) && count( $terms ) > 0 ) {
 				$taxQuery[] = [
 					'taxonomy' => $tax_query["taxonomy"],
-					'field' => $tax_query["field"] ?? "slug",
-					'terms' => $terms  ?? [], //excluding the term you dont want.
+					'field'    => $tax_query["field"] ?? "slug",
+					'terms'    => $terms ?? [], //excluding the term you dont want.
 					'operator' => 'IN',
 				];
-//				for($i = 0 ; $i < count($terms); $i++){
-//
-//				}
 			}
 
 		}
 
 
-
-		$args     = array(
+		$args = array(
 			'post_type'      => $_GET['post_type'] ?? 'product',
-			'post_status'    => $_GET['post_status']?? 'publish',
-			'orderby'        => $_GET['orderby']?? 'date',
-			'order'          => $_GET['order']?? 'DESC',
+			'post_status'    => $_GET['post_status'] ?? 'publish',
+			'orderby'        => $_GET['orderby'] ?? 'date',
+			'order'          => $_GET['order'] ?? 'DESC',
 			'paged'          => $paged,
 			'posts_per_page' => $per_page,
 			'meta_query'     => array(
@@ -83,7 +76,7 @@ class Posts
 					'compare' => '=',
 				),
 			),
-			"tax_query" 	 => $taxQuery
+			"tax_query"      => $taxQuery
 
 		);
 
@@ -100,7 +93,7 @@ class Posts
 				$meta_query->the_post();
 				$postItems = get_post_meta( get_the_ID() );
 				$post      = get_post();
-				$category = get_the_category(get_the_ID());
+				$category  = get_the_category( get_the_ID() );
 
 				$data[] = [
 					'ID'            => get_the_ID(),
@@ -111,30 +104,30 @@ class Posts
 					'post_content'  => $post->post_content,
 					'guid'          => $post->guid,
 					'url'           => get_permalink( get_the_ID() ),
-					'thumbnail'		=> [
-						"url"=>get_the_post_thumbnail_url(get_the_ID()),
+					'thumbnail'     => [
+						"url" => get_the_post_thumbnail_url( get_the_ID() ),
 					],
-					'fields'		=> [
-						'podcast'=> [
-							"social"=>[
-								"type"=> get_field( 'social',$post->ID ),
-								"url"=> !empty(get_field('youtube_url', $post->ID)) ? get_field('youtube_url', $post->ID) : (!empty(get_field('spotify_url', $post->ID)) ? get_field('spotify_url', $post->ID) : null),
-								"youtube" => get_field( 'youtube_url',$post->ID ),
-								"spotify" => get_field( 'spotify_url',$post->ID )
+					'fields'        => [
+						'podcast'      => [
+							"social"       => [
+								"type"    => get_field( 'social', $post->ID ),
+								"url"     => ! empty( get_field( 'youtube_url', $post->ID ) ) ? get_field( 'youtube_url', $post->ID ) : ( ! empty( get_field( 'spotify_url', $post->ID ) ) ? get_field( 'spotify_url', $post->ID ) : null ),
+								"youtube" => get_field( 'youtube_url', $post->ID ),
+								"spotify" => get_field( 'spotify_url', $post->ID )
 							],
-							"content_type"=> get_field("content_type", $post->ID) ?? null,
+							"content_type" => get_field( "content_type", $post->ID ) ?? null,
 						],
-						"content_type"=> get_field("content_type", $post->ID) ?? null,
-						"item_type"=> get_field("item_type", $post->ID) ?? null,
-						"case_studies"=> get_field("case_studies", $post->ID) ?? null,
-						"awards"=> [
-							"images"=>get_field("awards_images", $post->ID) ?? null,
-							"description" => get_field("awards_description", $post->ID) ?? null
+						"content_type" => get_field( "content_type", $post->ID ) ?? null,
+						"item_type"    => get_field( "item_type", $post->ID ) ?? null,
+						"case_studies" => get_field( "case_studies", $post->ID ) ?? null,
+						"awards"       => [
+							"images"      => get_field( "awards_images", $post->ID ) ?? null,
+							"description" => get_field( "awards_description", $post->ID ) ?? null
 						],
-						"media"=> get_field("media", $post->ID) ?? null,
-						"icon"=> get_field("icon", $post->ID) ?? null,
+						"media"        => get_field( "media", $post->ID ) ?? null,
+						"icon"         => get_field( "icon", $post->ID ) ?? null,
 					],
-					"category" => $category,
+					"category"      => $category,
 //					'jippi_field'   => [
 //						'name'        => get_field( 'name', $post->ID ),
 //						'currency'    => get_field( 'currency', $post->ID ),
@@ -156,8 +149,8 @@ class Posts
 
 			// Return the data
 			return [
-				"params"		=> [
-					'tax_query'=> $taxQuery,
+				"params"         => [
+					'tax_query' => $taxQuery,
 				],
 				'status'         => 'success',
 				'total'          => $meta_query->found_posts,
@@ -169,13 +162,13 @@ class Posts
 		} else {
 			// If there is no post
 			return [
-				'status'  => 'error',
-				'message' => "No post found",
+				'status'         => 'error',
+				'message'        => "No post found",
 				'total'          => $meta_query->found_posts,
 				'total_page'     => ceil( $meta_query->found_posts / $per_page ),
 				'current_page'   => intval( $paged ),
 				'posts_per_page' => intval( $per_page ),
-				"results"=> []
+				"results"        => []
 			];
 		}
 //		}

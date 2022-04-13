@@ -32,35 +32,23 @@ if ( class_exists( 'ReduxFramework' ) ) {
 	require_once( get_template_directory() . '/includes/Plugins/redux-options.php' );
 }
 
-//if ( class_exists( 'ReduxFramework' ) ) {
-//	require_once( get_template_directory() . '/includes/Plugins/redux-options.php' );
-//}
-//
-//if ( file_exists( dirname( __FILE__ ) . '/includes/Plugins/redux-options.php' ) ) {
-//	require_once dirname( __FILE__ ) . '/includes/Plugins/redux-options.php';
-//}
-//
-//require dirname( __FILE__ ) . '/includes/Plugins/redux-options.php';
-
-
-
 
 /**
  * @define [ REDUX ]
  */
 if (
-	!class_exists('ReduxFramework') &&
-	file_exists(get_template_directory() . '/includes/Plugins/redux-core/framework.php')
+	! class_exists( 'ReduxFramework' ) &&
+	file_exists( get_template_directory() . '/includes/Plugins/redux-core/framework.php' )
 ) {
-	require_once(get_template_directory() . '/includes/Plugins/redux-core/framework.php');
+	require_once( get_template_directory() . '/includes/Plugins/redux-core/framework.php' );
 }
 
-if (class_exists('ReduxFramework')) {
-	require_once(get_template_directory() . '/includes/Plugins/redux-options.php');
+if ( class_exists( 'ReduxFramework' ) ) {
+	require_once( get_template_directory() . '/includes/Plugins/redux-options.php' );
 }
 
 
-function jpp_search_form(  ) {
+function jpp_search_form() {
 	$form = '<form role="search" method="get" id="searchform" class="jpp-search-form" action="' . home_url( '/' ) . '" >
     <input class="search-field" type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="search product" />
     <button type="submit" id="searchsubmit" class="search-submit">

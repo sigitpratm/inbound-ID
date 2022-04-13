@@ -1,12 +1,12 @@
-<header id="header" class="ease-in-out z-50 fixed top-0 w-full bg-transparent">
-	<div class="w-full max-w-[1360px] mx-auto flex flex-row justify-between py-8 px-4 xl:px-0 relative">
+<header id="header-home" class="ease-in-out z-50 fixed top-0 w-full bg-transparent">
+	<div class="container mx-auto flex flex-row justify-between py-8 px-4 xl:px-0 relative">
 		<a href="<?= home_url() ?>" class="flex items-center">
-			<img src="<?= jpp_assets( '/img/png/img-nav-logo-2.png' ) ?>" alt="" class="h-auto w-52">
+			<img src="<?= jpp_assets( '/img/png/img-nav-logo.png' ) ?>" alt="" class="h-auto w-52">
 		</a>
 
 		<!-- lg nav -->
 		<div id="large-nav" class="hidden xl:flex items-center gap-6">
-			<nav class="md:ml-auto flex flex-wrap items-center text-base justify-center font-bold">
+			<nav class="md:ml-auto flex flex-wrap items-center text-base justify-center font-bold text-white">
 				<?php
 				wp_nav_menu(
 						array(
@@ -16,22 +16,21 @@
 				);
 				?>
 			</nav>
+		</div>
 
-			<div class="relative">
-				<button class="p-2 bg-scheme-green rounded-full absolute top-1 right-1.5 text-white focus:outline-0 focus:ring-0">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-					     stroke="currentColor" stroke-width="2">
-						<path stroke-linecap="round" stroke-linejoin="round"
-						      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-					</svg>
-				</button>
-				<label class="block">
-					<input type="text"
-					       class="text-sm pl-4  pr-12 w-56 border border-gray-300 py-2 h-10 rounded-full bg-white"
-					       placeholder="Search here">
-				</label>
-			</div>
-
+		<div class="relative">
+			<button class="p-2 bg-scheme-green rounded-full absolute top-1 right-1.5 text-white focus:outline-0 focus:ring-0">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+				     stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round"
+					      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+				</svg>
+			</button>
+			<label class="block">
+				<input type="text"
+				       class="text-xs pl-4 pr-12 w-56 border border-gray-300 py-2 h-10 rounded-full bg-white"
+				       placeholder="Search here">
+			</label>
 		</div>
 
 		<!-- sm nav -->

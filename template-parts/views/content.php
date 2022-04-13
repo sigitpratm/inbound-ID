@@ -81,7 +81,7 @@
 	<?php get_template_part( 'template-parts/components/section/section-works', get_post_type() ) ?>
 
 	<!-- latest article-->
-	<?php get_template_part( 'template-parts/components/section/section-latest-article', get_post_type() ) ?>
+	<?php get_template_part( 'template-parts/components/section/section-latest-article-home', get_post_type() ) ?>
 
 	<!-- our clients -->
 	<?php get_template_part( 'template-parts/components/section/section-clients', get_post_type() ) ?>

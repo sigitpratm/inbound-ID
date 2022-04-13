@@ -2,9 +2,6 @@
  * Manage global libraries like jQuery or THREE from the webpack.mix.js file
  */
 require('lottie-web')
-// require("./custom");
-// import "./custom"
-// import custom from './custom'
 import axios from 'axios'
 import Alpine from 'alpinejs'
 
@@ -68,6 +65,7 @@ window.fetchingData = async function fetchingData(props) {
 		return {error: true, message: err.message}
 	}
 }
+
 window.dropdown = () => {
 	Alpine.data('dropdown', () => ({
 		open: false,
@@ -83,16 +81,19 @@ Alpine.store('accordion', {
 })
 Alpine.start()
 
+/**
+ * PODCAST CARD
+ */
 const PodcastCard = function (attr) {
 	let elems = document.querySelectorAll(`[data-podcast]`)
 
 	if (typeof (elems) !== "undefined") {
 		if (elems.length > 0) {
-			console.log(elems, "NEWS")
+			// console.log(elems, "NEWS")
 			elems.forEach((el) => {
 				el.innerHTML = ""
 				el.innerHTML = "<div class='w-full col-span-4 flex items-center justify-center h-[200px]'>Loading...</div>"
-				console.log(el, "ini item nya")
+				// console.log(el, "ini item nya")
 				axios.get(`${SITE_URL}/wp-json/emkalab/v1/post/`, {
 					params: {
 						limit: 10,
@@ -130,12 +131,63 @@ const PodcastCard = function (attr) {
 
 window.PodcastCard = PodcastCard
 
+
+/**
+ * AWARD CARD
+ */
+const AwardCard = function (attr) {
+	let elems = document.querySelectorAll(`[data-award]`)
+
+	if (typeof (elems) !== 'undefined') {
+		if (elems.length > 0) {
+			console.log(elems, "AWARDS")
+			elems.forEach((el) => {
+				el.innerHTML = ""
+				el.innerHTML = "<div class='w-full grid-cols-1 md:col-span-2 space-y-2 h-[200px]'>Loading...</div>"
+				axios.get(`${SITE_URL}/wp-json/emkalab/v1/post/`, {
+					params: {
+						limit: 5,
+						paged: 1,
+						post_type: "post",
+						post_status: "publish",
+						orderby: "date",
+						order: "DESC",
+						"meta_query[key]": "item_type",
+						"meta_query[value]": 3,
+					}
+				})
+					.then((response) => {
+						el.innerHTML = ""
+						if (typeof (response?.data?.results) !== "undefined" && Array.isArray(response?.data?.results)) {
+							if (response?.data?.results.length > 0) {
+								for (let i = 0; i < response?.data?.results.length; i++) {
+									let data = response?.data?.results[i]
+									el.append(cardAward(data))
+								}
+							} else {
+								el.append(EmptyLayout(el.getAttribute("data-award-empty") ?? "Belum Ada Postingan"))
+							}
+						}
+						ChangeImageOnError()
+					})
+					.catch((err) => {
+						console.error("ERROR AWARDS:", err, err.message)
+					})
+			})
+		}
+	}
+}
+
+window.AwardCard = AwardCard
+
 window.addEventListener('DOMContentLoaded', function () {
 	PodcastCard('listened')
-
+	AwardCard('listened')
 })
 
-
+/**
+ * CREATE ELEMENT CARD PODCAST
+ */
 function cardPodcast(data = {}) {
 	let elem = document.createElement("div")
 	elem.className = "col-span-1 w-full min-h-[320px] rounded-xl space-y-6"
@@ -171,12 +223,37 @@ function cardPodcast(data = {}) {
 	el2.append(a)
 	elem.append(el2)
 
-
-	// elem.innerHTML = "testing"
-
 	return elem
 }
 
+/**
+ * CREATE ELEMENT CARD AWARD
+ */
+function cardAward(data = {}) {
+	let mainElem = document.createElement("div")
+	mainElem.className = "grid-cols-1 md:col-span-2 space-y-6"
+
+	let childEl1 = document.createElement("div")
+	childEl1.className = "h-60 flex items-end justify-center"
+
+	let imgChildEl1 = document.createElement("img")
+	imgChildEl1.className = "object-contain max-h-60 h-full w-auto"
+	imgChildEl1.src = data?.thumbnail?.url ?? ""
+	imgChildEl1.alt = "img-card-award"
+
+	let childEl2 = document.createElement("div")
+	let pChildEl2 = document.createElement("p")
+	pChildEl2.className = "text-lg font-bold text-scheme-green text-center"
+	pChildEl2.innerText = data?.post_title ?? "-"
+
+	childEl1.append(imgChildEl1)
+	childEl2.append(pChildEl2)
+
+	mainElem.append(childEl1)
+	mainElem.append(childEl2)
+
+	return mainElem
+}
 
 function EmptyLayout(txt, classes = "col-span-4 h-[240px] flex items-center justify-center") {
 	let elem = document.createElement('div')
@@ -189,11 +266,10 @@ function EmptyLayout(txt, classes = "col-span-4 h-[240px] flex items-center just
 /**
  * IMAGE ERROR
  */
-
 function ChangeImageOnError() {
 	let images = document.querySelectorAll('img')
 	if (typeof (images) !== "undefined") {
-		console.log(images)
+		console.log("ChangeImageOnError : ", images)
 
 		if (images.length > 0) {
 			images.forEach((el) => {
@@ -281,7 +357,7 @@ function CardArticleDefault(data = {}) {
 
 	let aTitle = document.createElement('a')
 	aTitle.className = "text-lg md:text-3xl font-bold text-scheme-green line-clamp-2"
-	aTitle.href= data?.url ?? ""
+	aTitle.href = data?.url ?? ""
 	aTitle.innerText = data?.post_title ?? "-"
 
 	div2.append(aTitle)
@@ -294,41 +370,39 @@ function CardArticleDefault(data = {}) {
 
 	let aBtn = document.createElement('a')
 	aBtn.className = "text-sm md:text-base text-scheme-green font-bold"
-	aBtn.href= data?.url ?? ""
+	aBtn.href = data?.url ?? ""
 	aBtn.innerText = "Read More"
 
 	div2.append(aBtn)
 
 	div.append(div2)
 
-
-
 	return div
 }
 
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', function () {
 	let NavTabButtons = document.querySelectorAll(`[data-tab="last-article"]`)
-	if(typeof(NavTabButtons) !== "undefined"){
-		if(NavTabButtons.length > 0){
+	if (typeof (NavTabButtons) !== "undefined") {
+		if (NavTabButtons.length > 0) {
 			let state = [
-				{id:0,active:true},
-				{id:1,active:false},
-				{id:2,active:false},
+				{id: 0, active: true},
+				{id: 1, active: false},
+				{id: 2, active: false},
 			]
 
-			function updateState(id){
+			function updateState(id) {
 				let NewState = []
-				for(let i =0;i < state.length;i++){
+				for (let i = 0; i < state.length; i++) {
 					let item = state[i]
-					if(item.id === id){
+					if (item.id === id) {
 						NewState.push({
-							id:id,
-							status:true
+							id: id,
+							status: true
 						})
-					}else{
+					} else {
 						NewState.push({
-							id:item.id,
-							status:false
+							id: item.id,
+							status: false
 						})
 					}
 				}
@@ -336,7 +410,8 @@ window.addEventListener('DOMContentLoaded', function(){
 				state = NewState
 				return state
 			}
-			NavTabButtons.forEach((el,index)=> {
+
+			NavTabButtons.forEach((el, index) => {
 				// el.classList.remove("active-btn-article")
 
 				// console.log(index, "INDEX")
@@ -345,20 +420,56 @@ window.addEventListener('DOMContentLoaded', function(){
 				// }else{
 				// 	el.classList.remove("active-btn-article")
 				// }
-				el.addEventListener('click', (e)=> {
+				el.addEventListener('click', (e) => {
 					updateState(index)
-					NavTabButtons.forEach(el=> {
+					NavTabButtons.forEach(el => {
 						el.classList.remove('active-btn-article')
 					})
 					// if(state[index].status){
-						el.classList.add('active-btn-article')
+					el.classList.add('active-btn-article')
 					// }else{
 					// 	el.classList.remove("active-btn-article")
 					// }
-					console.log('clicked',el.getAttribute("data-target"))
-					ContentArticleTabByCategory('last-article','slug',el.getAttribute("data-target"))
+					console.log('clicked', el.getAttribute("data-target"))
+					ContentArticleTabByCategory('last-article', 'slug', el.getAttribute("data-target"))
 				})
 			})
 		}
 	}
 })
+
+
+/**
+ * ==============================================================================================
+ * ALL DOM
+ * ==============================================================================================
+ */
+
+
+/**
+ * HEADER ON SCROLL
+ */
+let headerDefault = document.getElementById("header")
+
+if (headerDefault !== null) {
+	window.onscroll = () => {
+		if (document.body.scrollTop >= 30 || document.documentElement.scrollTop >= 30) {
+			headerDefault.classList.add("header-active")
+		} else {
+			headerDefault.classList.remove("header-active")
+		}
+	}
+}
+
+
+let headerHome = document.getElementById("header-home")
+
+if (headerHome !== null) {
+	window.onscroll = () => {
+		if (document.body.scrollTop >= 30 || document.documentElement.scrollTop >= 30) {
+			headerHome.classList.add("header-home-active")
+		} else {
+			headerHome.classList.remove("header-home-active")
+		}
+	}
+}

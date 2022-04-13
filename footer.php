@@ -68,24 +68,6 @@
 </footer>
 
 <?php wp_footer(); ?>
-
-<script>
-	/**
-	 * Header on scroll
-	 */
-	let headerDefault = document.getElementById("header")
-
-	if (headerDefault !== null) {
-		window.onscroll = () => {
-			if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
-				headerDefault.classList.add("header-active")
-			} else {
-				headerDefault.classList.remove("header-active")
-			}
-		}
-	}
-</script>
-
 <script>
 	function openTabArticle(evt, tabName) {
 		let i, tabcontent, tablinks;
@@ -166,6 +148,8 @@
 
 	jpSlider(".btn-slider-hero", ".first-slider-hero", "active-btn-hero")
 	jpSlider(".btn-slider-client", ".first-slider-client", "active-btn-client")
+	jpSlider(".btn-slider-milestone", ".first-slider-milestone", "active-btn-milestone")
+
 </script>
 
 <script>

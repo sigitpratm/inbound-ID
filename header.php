@@ -35,31 +35,31 @@
 	</style>
 	<link rel="stylesheet" href="<?= mix( "/css/style.css" ) ?>" type="text/css"/>
 
-	<?php if (is_home()):?>
+	<?php if ( is_home() ): ?>
 
 
-	<?php elseif (is_archive()): ?>
+	<?php elseif ( is_archive() ): ?>
 
 		<meta name="twitter:card" content="summary_large_image"/>
-		<meta name="twitter:site" content="<?= get_site_url()?>"/>
-		<meta name="twitter:title" content="<?= get_post_type();?>"/>
+		<meta name="twitter:site" content="<?= get_site_url() ?>"/>
+		<meta name="twitter:title" content="<?= get_post_type(); ?>"/>
 		<meta name="twitter:description" content="Lorem ipsum dolor sit amet"/>
 		<meta name="twitter:creator" content="creator"/>
-		<meta name="twitter:image" content="<?= get_site_icon_url();?>"/>
+		<meta name="twitter:image" content="<?= get_site_icon_url(); ?>"/>
 		<meta name="twitter:image:width" content="400"/>
 		<meta name="twitter:image:height" content="400"/>
 		<meta name="twitter:image:type" content="image/jpg"/>
 
 		<link rel="canonical" href="<?= get_site_url(); ?>"/>
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="<?= get_post_type(); ?>" />
-		<meta property="og:description" content="<?= get_the_archive_description();?>" />
-		<meta property="og:url" content="<?= get_site_url();?>" />
-		<meta property="og:image" content="<?= get_site_icon_url()?>" />
-		<meta property="og:image:width" content="400" />
-		<meta property="og:image:height" content="400" />
+		<meta property="og:type" content="website"/>
+		<meta property="og:title" content="<?= get_post_type(); ?>"/>
+		<meta property="og:description" content="<?= get_the_archive_description(); ?>"/>
+		<meta property="og:url" content="<?= get_site_url(); ?>"/>
+		<meta property="og:image" content="<?= get_site_icon_url() ?>"/>
+		<meta property="og:image:width" content="400"/>
+		<meta property="og:image:height" content="400"/>
 		<meta property="og:image:type" content="image/jpeg"/>
-	<?php elseif (is_single()): ?>
+	<?php elseif ( is_single() ): ?>
 
 
 	<?php else: ?>
@@ -74,9 +74,9 @@
 
 <?php
 if ( is_home() ) {
-	do_action( 'jpp_header', 'default' );
+	do_action( 'jpp_header', 'home' );
 } else {
-	do_action( 'jpp_header', 'not-home' );
+	do_action( 'jpp_header', 'default' );
 }
 ?>
 
