@@ -529,16 +529,14 @@ Redux::setSection( $opt_name, array(
 	'subsection'       => true,
 	'fields'           => array(
 		array(
-			'id'      => 'about-us-desc1',
-			'title'   => "About Us Content Section 1",
-			'type'    => 'textarea',
-			'default' => 'Content Section 1',
+			'id'    => 'about-us-desc1',
+			'type'  => 'ace_editor',
+			'title' => __( 'About Us Content Section 1', __TEXT_DOMAIN__ )
 		),
 		array(
-			'id'      => 'about-us-desc2',
-			'title'   => "About Us Content Section 2",
-			'type'    => 'textarea',
-			'default' => 'Content Section 2',
+			'id'    => 'about-us-desc2',
+			'type'  => 'ace_editor',
+			'title' => __( 'About Us Content Section 2', __TEXT_DOMAIN__ )
 		),
 	)
 ) );
@@ -742,6 +740,25 @@ Redux::setSection( $opt_name, array(
 	'icon'             => 'el el-pencil'
 ) );
 
+/**
+ * INBOUND BLOG - HEROBANNER
+ */
+Redux::setSection( $opt_name, array(
+	'id'               => 'blog-herobanner',
+	'title'            => __( 'Hero Banner Blog', __TEXT_DOMAIN__ ),
+	'subsection'       => true,
+	'customizer_width' => 450,
+	'fields'           => array(
+		array(
+			'id'    => 'blog-herobanner-select-article',
+			'title' => ( 'Select Article By Categories' ),
+			'type'  => 'select',
+			'multi' => true,
+			'data'  => 'categories',
+			'args'  => array( 'post_type' => array( 'post' ), 'numberposts' => - 1 ),
+		)
+	)
+) );
 
 /**
  * INBOUND BLOG - LAST POST

@@ -15,6 +15,10 @@
 
 get_header(); ?>
 
+<?php
+$categories = [ emk_options( 'blog-herobanner-select-article' ) ];
+?>
+
 
 	<div class="pt-[6.5rem] relative">
 
