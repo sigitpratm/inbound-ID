@@ -21,10 +21,10 @@ $data = emk_options( "last-article-categories" );
 <div class="py-16 md:py-28 relative block space-y-8 md:space-y-12">
 	<?php if ( ! empty( emk_options( "last-article-categories" ) ) ): ?>
 		<!-- body -->
-		<div class="overflow-hidden relative space-y-8">
+		<div class="overflow-hidden relative space-y-8 px-4">
 
 			<!-- tab links -->
-			<div id="nav-tab-article" class="relative flex flex-row gap-2 overflow-x-auto">
+			<div id="nav-tab-article" class="relative flex flex-row gap-2 md:items-center md:justify-center overflow-x-auto">
 				<?php
 				for ( $i = 0; $i < count( $data ); $i ++ ):
 					$item = get_term( $data[ $i ] );
@@ -33,7 +33,7 @@ $data = emk_options( "last-article-categories" );
 
 						<button data-target="<?= $item->slug ?>" data-tab="last-article"
 						        data-tab-active="<?= $i === 0 ?>" data-index="<?= $i; ?>"
-						        class="flex-none <?= $i === 0 ? "active-btn-article" : "" ?>  btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-1 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
+						        class="flex-none <?= $i === 0 ? "active-btn-article" : "" ?>  btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-2 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
 							<?= $item->name ?>
 						</button>
 
@@ -80,7 +80,7 @@ $data = emk_options( "last-article-categories" );
 
 							?>
 							<div class="col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block">
-								<div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-black">
+								<div class="h-full w-[80rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-black">
 									<img src="<?= get_the_post_thumbnail_url( get_the_ID() ); ?>" alt=""
 									     class="object-cover w-full h-full xl:h-52 2xl:h-72 transition duration-300 ease-in-out hover:scale-105 hover:opacity-60">
 								</div>

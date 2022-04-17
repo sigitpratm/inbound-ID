@@ -180,6 +180,7 @@ const AwardCard = function (attr) {
 
 window.AwardCard = AwardCard
 
+
 window.addEventListener('DOMContentLoaded', function () {
 	PodcastCard('listened')
 	AwardCard('listened')
@@ -225,6 +226,7 @@ function cardPodcast(data = {}) {
 
 	return elem
 }
+
 
 /**
  * CREATE ELEMENT CARD AWARD
@@ -339,10 +341,102 @@ function ContentArticleTabByCategory(attr = "last-article", field = "slug", term
 	}
 }
 
+function ContentArticleTabByCategoryStudies(attr = "last-article", field = "slug", terms = null) {
+	let elements = document.querySelectorAll(`[data-tab-content="${attr}"]`)
+
+	if (typeof (elements) !== "undefined" && elements) {
+		if (elements.length > 0) {
+			elements.forEach((el) => {
+				console.log(el, "CONTENT ARTICLE TAB BY CTAEGORY")
+				el.innerHTML = `<div class="animate-pulse col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"><div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-gray-200"></div><div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"><div class="w-full h-4 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="px-6 py-2 bg-gray-200 rounded-full"></div></div></div>`
+				el.innerHTML += `<div class="animate-pulse col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"><div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-gray-200"></div><div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"><div class="w-full h-4 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="px-6 py-2 bg-gray-200 rounded-full"></div></div></div>`
+				el.innerHTML += `<div class="animate-pulse col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"><div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-gray-200"></div><div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"><div class="w-full h-4 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="px-6 py-2 bg-gray-200 rounded-full"></div></div></div>`
+				axios.get(`${SITE_URL}/wp-json/emkalab/v1/post/`, {
+					params: {
+						limit: 4,
+						paged: 1,
+						post_type: "post",
+						post_status: "publish",
+						orderby: "date",
+						order: "DESC",
+						"meta_query[key]": "content_type",
+						"meta_query[value]": 1,
+						"meta_query[compare]": "IN",
+						// "tax_query[taxonomy]": "category",
+						// "tax_query[field]": field,
+						// "tax_query[terms]": terms
+					}
+				})
+					.then((response) => {
+						el.innerHTML = ""
+						if (typeof (response?.data?.results) !== "undefined" && Array.isArray(response?.data?.results)) {
+							if (response?.data?.results.length > 0) {
+								for (let i = 0; i < response?.data?.results.length; i++) {
+									let data = response?.data?.results[i]
+									el.append(CardArticleDefaultCaseStudies(data))
+								}
+							} else {
+								el.append(EmptyLayout(el.getAttribute("data-podcast-empty") ?? "Belum Ada Postingan"))
+							}
+						}
+						ChangeImageOnError()
+					})
+					.catch((err) => {
+						console.error(err, err.message)
+					})
+				// window.fetchingData({
+				// 	params: {
+				//
+				// 	}
+				// })
+			})
+		}
+	}
+}
 
 function CardArticleDefault(data = {}) {
 	let div = document.createElement('div')
 	div.className = "col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"
+	let divImg = document.createElement('div')
+	divImg.className = "h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-black"
+	let img = document.createElement("img")
+	img.src = data?.thumbnail?.url
+	img.className = "object-cover w-full h-full xl:h-52 2xl:h-72 transition duration-300 ease-in-out hover:scale-105 hover:opacity-60"
+	img.alt = "images-card"
+	divImg.append(img)
+	div.append(divImg)
+
+	let div2 = document.createElement("div")
+	div2.className = "p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"
+
+	let aTitle = document.createElement('a')
+	aTitle.className = "text-lg md:text-3xl font-bold text-scheme-green line-clamp-2"
+	aTitle.href = data?.url ?? ""
+	aTitle.innerText = data?.post_title ?? "-"
+
+	div2.append(aTitle)
+
+	let pDesc = document.createElement('p')
+	pDesc.className = "text-sm md:text-base line-clamp-2 text-scheme-gray"
+	pDesc.innerText = data?.post_content ?? ""
+
+	div2.append(pDesc)
+
+	let aBtn = document.createElement('a')
+	aBtn.className = "text-sm md:text-base text-scheme-green font-bold"
+	aBtn.href = data?.url ?? ""
+	aBtn.innerText = "Read More"
+
+	div2.append(aBtn)
+
+	div.append(div2)
+
+	return div
+}
+
+function CardArticleDefaultCaseStudies(data = {}) {
+	let div = document.createElement('div')
+	div.className = "col-span-1 bg-red-300 md:col-span-3 rounded-2xl md:rounded-3xl overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"
 	let divImg = document.createElement('div')
 	divImg.className = "h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-black"
 	let img = document.createElement("img")
@@ -432,6 +526,7 @@ window.addEventListener('DOMContentLoaded', function () {
 					// }
 					console.log('clicked', el.getAttribute("data-target"))
 					ContentArticleTabByCategory('last-article', 'slug', el.getAttribute("data-target"))
+					ContentArticleTabByCategoryStudies('last-article-studies', 'slug', el.getAttribute("data-target"))
 				})
 			})
 		}

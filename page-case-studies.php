@@ -12,60 +12,113 @@
  *
  * @package awps
  */
-
 get_header(); ?>
 
+<?php
+$tot_slider = emk_options( 'hero-banner-case-studies-total-slider' );
 
-	<div class="pt-[6.5rem] relative">
+$query_slider = new WP_Query( array(
+		'posts_per_page' => $tot_slider,
+		'post_type'      => 'post',
+		'meta_query'     => array(
+				'relation' => 'AND',
+				array(
+						'key'     => 'content_type',
+						'value'   => 1,
+						'compare' => 'IN',
+				),
+				array(
+						'key'     => 'case_studies',
+						'value'   => '1',
+						'compare' => '=',
+				),
+		),
+) );
+?>
 
-		<div class="container mx-auto">
-			<div class="grid grid-cols-12 xl:py-8 2xl:py-12">
-				<div class="col-span-6 w-full h-full flex flex-col items-start justify-center w-4/5 gap-8">
-					<div class="flex items-center gap-2 text-2xl text-gray-600">
-						<p class="font-bold">Paid Ads</p>
-					</div>
-					<p class="text-8xl font-bold text-scheme-green">
-						TOYOTA
-					</p>
-					<p class="text-xl">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci doloribus ducimus ipsam
-						iusto, laudantium modi sit vero. Commodi delectus ducimus eveniet
-					</p>
-					<div>
-						<a href="#" class="text-xl text-scheme-green font-bold flex flex-row  items-center gap-2">
-							<span>Read More</span>
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-							     stroke="currentColor" stroke-width="2">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-							</svg>
-						</a>
-					</div>
-				</div>
 
-				<div class="col-span-6 xl:h-[36rem] 2xl:h-[44rem]">
-					<img src="<?= jpp_assets( '/img/jpg/blog/blog1.jpg' ) ?>" alt=""
-					     class="xl:h-[36rem] 2xl:h-[44rem] w-full object-cover rounded-3xl">
-				</div>
+	<div class="pt-16 md:pt-[6.5rem] relative">
+
+		<div class="container mx-auto px-4">
+
+			<div id="body-slider-case-studies" class="body-slider-case-studies w-full overflow-x-hidden flex flex-row py-4 md:py-0">
+
+				<?php if ( $query_slider->have_posts() ) : ?>
+
+					<?php while ( $query_slider->have_posts() ) : $query_slider->the_post(); ?>
+
+						<div class="card-slider w-full flex-none overflow-hidden">
+							<div class="grid grid-cols-1 md:grid-cols-12 xl:py-8 2xl:py-12 gap-4 md:gap-0">
+
+								<div class="order-2 md:order-1 col-span-1 md:col-span-6 w-full h-full flex flex-col  items-center md:items-start justify-center w-full md:w-4/5 gap-2 md:gap-8">
+									<div class="flex items-center gap-2 text-lg md:text-2xl text-gray-600 text-center md:text-left">
+										<p class="font-bold">
+											<?php
+											$categories = get_the_category();
+											if ( ! empty( $categories ) ) {
+												echo esc_html( $categories[0]->name );
+											} else {
+												echo esc_html( "Uncategories" );
+											}
+											?>
+										</p>
+									</div>
+									<p class="text-4xl md:text-7xl font-bold text-scheme-green text-center md:text-left">
+										<?= get_the_title() ?>
+									</p>
+									<p class="text-base md:text-xl line-clamp-3 leading-6 md:leading-8 text-center md:text-left">
+										<?= get_the_excerpt() ?>
+									</p>
+									<div>
+										<a href="<?= get_the_permalink() ?>"
+										   class="text-xl text-scheme-green font-bold flex flex-row  items-center gap-2">
+											<span>View more</span>
+											<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+												 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+												<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+											</svg>
+										</a>
+									</div>
+								</div>
+
+								<div class="order-1 md:order-2 col-span-1 md:col-span-6 h-[16rem] lg:h-[20rem] xl:h-[36rem] 2xl:h-[44rem]">
+									<img src="<?= get_the_post_thumbnail_url() ?>" alt=""
+										 class="h-[16rem] lg:h-[20rem] xl:h-[36rem] 2xl:h-[44rem] w-full object-cover rounded-3xl">
+								</div>
+
+							</div>
+						</div>
+
+					<?php endwhile; ?>
+
+					<?php wp_reset_postdata(); ?>
+				<?php else : ?>
+
+					<p><?php __( 'Article Not Found' ); ?></p>
+
+				<?php endif; ?>
+
+
 			</div>
 
-			<div class="flex items-center justify-center gap-6">
-				<button class="btn-slider-milestone w-4 h-4 rounded-full bg-gray-300"></button>
-				<button class="btn-slider-milestone w-4 h-4 rounded-full bg-gray-300"></button>
-				<button class="btn-slider-milestone w-4 h-4 rounded-full bg-gray-300"></button>
-				<button class="btn-slider-milestone w-4 h-4 rounded-full bg-gray-300"></button>
+
+			<div id="body-nav-slider-case-studies" class="flex items-center justify-center gap-6">
+				<?php for ( $i = 0; $i < $tot_slider; $i ++ ) : ?>
+					<button class="btn-slider-case-studies w-4 h-4 rounded-full bg-gray-300"></button>
+				<?php endfor; ?>
 			</div>
 
 		</div>
 
 		<div class="container mx-auto">
-
+			<?php get_template_part( 'template-parts/components/section/section-latest-article-case-studies', get_post_type() ) ?>
 		</div>
 
-		<div class="grid grid-cols-12 relative pt-32 bg-scheme-light-gray relative z-20 relative">
+		<div class="grid grid-cols-12 relative pt-4 md:pt-32 bg-scheme-light-gray relative z-20 relative">
 
 			<div class="col-span-12 md:col-span-6">
 				<img src="<?= emk_options( 'case-studies-last-section-image', 'url' ) ?>" alt=""
-				     class="object-cover w-full">
+					 class="object-cover w-full">
 			</div>
 
 			<div class="col-span-12 md:col-span-6 lg:px-24 xl:px-32 2xl:px-44 relative z-40">
@@ -99,6 +152,11 @@ get_header(); ?>
 		</div>
 
 	</div>
+
+	<script>
+		document.getElementById('body-slider-case-studies').children[0].classList.add('first-slider-case-studies')
+		document.getElementById('body-nav-slider-case-studies').children[0].classList.add('active-btn-case-studies')
+	</script>
 
 <?php
 get_footer();

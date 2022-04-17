@@ -16,50 +16,90 @@
 get_header(); ?>
 
 <?php
-$categories = [ emk_options( 'blog-herobanner-select-article' ) ];
+$categories   = [ emk_options( 'blog-herobanner-select-article' ) ];
+$count_slider = emk_options( 'hero-banner-blog-total-slider' );
+
+$query_slider = new WP_Query( array(
+		'post_type'      => 'post',
+		'meta_key'       => 'content_type',
+		'meta_value'     => 1,
+		'posts_per_page' => $count_slider,
+
+) );
 ?>
+	<div class="pt-16 md:pt-[6.5rem] relative">
+
+		<div class="container mx-auto px-4">
+			<div id="body-slider-inbound-blog" class="body-slider-inbound-blog w-full overflow-x-hidden flex flex-row">
+
+				<?php if ( $query_slider->have_posts() ) : ?>
+
+					<?php while ( $query_slider->have_posts() ) : $query_slider->the_post(); ?>
+
+						<div class="card-slider w-full flex-none overflow-hidden">
+							<div class="grid grid-cols-1 md:grid-cols-12 py-4 xl:py-8 2xl:py-12 gap-4 md:gap-0">
+
+								<div class="order-2 md:order-1 col-span-1 md:col-span-6 w-full h-full flex flex-col items-center md:items-start justify-center w-full md:w-4/5 gap-4 md:gap-8">
+									<div class="flex items-center gap-2 text-sm md:text-xl">
+										<p class="font-bold uppercase">
+											<?php
+											$categories = get_the_category();
+											if ( ! empty( $categories ) ) {
+												echo esc_html( $categories[0]->name );
+											} else {
+												echo esc_html( "Uncategories" );
+											}
+											?>
+										</p>
+										<p>&#9679;</p>
+										<p>
+											<?= get_the_date() ?>
+										</p>
+									</div>
+									<p class="text-3xl md:text-5xl font-bold text-scheme-green line-clamp-3 text-center md:text-left">
+										<?= get_the_title() ?>
+									</p>
+									<p class="text-base md:text-xl line-clamp-4 leading-7 md:leading-8 text-center md:text-left">
+										<?= get_the_excerpt() ?>
+									</p>
+									<div>
+										<a href="<?= get_the_permalink() ?>"
+										   class="text-xl text-scheme-green font-bold flex flex-row  items-center gap-2">
+											<span>Read More</span>
+											<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+												 viewBox="0 0 24 24"
+												 stroke="currentColor" stroke-width="2">
+												<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+											</svg>
+										</a>
+									</div>
+								</div>
+
+								<div class="order-1 md:order-2 col-span-1 md:col-span-6 h-[16rem] xl:h-[36rem] 2xl:h-[44rem]">
+									<img src="<?= get_the_post_thumbnail_url() ?>" alt="img-slider"
+										 class="h-[16rem] xl:h-[36rem] 2xl:h-[44rem] w-full object-cover rounded-3xl">
+								</div>
+
+							</div>
+						</div>
 
 
-	<div class="pt-[6.5rem] relative">
+					<?php endwhile; ?>
 
-		<div class="container mx-auto">
-			<div class="grid grid-cols-12 xl:py-8 2xl:py-12">
-				<div class="col-span-6 w-full h-full flex flex-col items-start justify-center w-4/5 gap-8">
-					<div class="flex items-center gap-2 text-xl">
-						<p class="font-bold">SEO</p>
-						<p>&#9679;</p>
-						<p>22 April, 2022</p>
-					</div>
-					<p class="text-5xl font-bold text-scheme-green">
-						Lorem ipsum dolor sit amet, consectetur.
-					</p>
-					<p class="text-xl">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci doloribus ducimus ipsam
-						iusto, laudantium modi sit vero. Commodi delectus ducimus eveniet magni mollitia non quisquam
-						sunt temporibus voluptatum?
-					</p>
-					<div>
-						<a href="#" class="text-xl text-scheme-green font-bold flex flex-row  items-center gap-2">
-							<span>Read More</span>
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-							     stroke="currentColor" stroke-width="2">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-							</svg>
-						</a>
-					</div>
-				</div>
+					<?php wp_reset_postdata(); ?>
+				<?php else : ?>
 
-				<div class="col-span-6 xl:h-[36rem] 2xl:h-[44rem]">
-					<img src="<?= jpp_assets( '/img/jpg/blog/blog1.jpg' ) ?>" alt=""
-					     class="xl:h-[36rem] 2xl:h-[44rem] w-full object-cover rounded-3xl">
-				</div>
+					<p><?php __( 'Article Not Found' ); ?></p>
+
+				<?php endif; ?>
+
+
 			</div>
 
-			<div class="flex items-center justify-center gap-6">
-				<button class="btn-slider-milestone w-4 h-4 rounded-full bg-gray-300"></button>
-				<button class="btn-slider-milestone w-4 h-4 rounded-full bg-gray-300"></button>
-				<button class="btn-slider-milestone w-4 h-4 rounded-full bg-gray-300"></button>
-				<button class="btn-slider-milestone w-4 h-4 rounded-full bg-gray-300"></button>
+			<div id="body-nav-slider-inbound-blog" class="flex items-center justify-center gap-6">
+				<?php for ( $i = 0; $i < $count_slider; $i ++ ) : ?>
+					<button class="btn-slider-inbound-blog w-4 h-4 rounded-full bg-gray-300"></button>
+				<?php endfor; ?>
 			</div>
 
 		</div>
@@ -68,7 +108,7 @@ $categories = [ emk_options( 'blog-herobanner-select-article' ) ];
 			<?php get_template_part( 'template-parts/components/section/section-latest-article-blog', get_post_type() ) ?>
 		</div>
 
-		<div class="grid grid-cols-12 relative pt-32 bg-scheme-light-gray relative z-20 relative">
+		<div class="grid grid-cols-12 relative pt-4 md:pt-32 bg-scheme-light-gray relative z-20 relative">
 
 			<div class="col-span-12 md:col-span-6">
 				<img src="<?= emk_options( 'blog-last-section-image', 'url' ) ?>" alt="" class="object-cover w-full">
@@ -105,6 +145,11 @@ $categories = [ emk_options( 'blog-herobanner-select-article' ) ];
 		</div>
 
 	</div>
+
+	<script>
+		document.getElementById('body-slider-inbound-blog').children[0].classList.add('first-slider-inbound-blog')
+		document.getElementById('body-nav-slider-inbound-blog').children[0].classList.add('active-btn-inbound-blog')
+	</script>
 
 <?php
 get_footer();

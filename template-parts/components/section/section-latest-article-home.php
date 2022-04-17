@@ -39,8 +39,8 @@ $data = emk_options( "last-article-categories" );
 						?>
 
 						<button data-target="<?= $item->slug ?>" data-tab="last-article"
-						        data-tab-active="<?= $i === 0 ?>" data-index="<?= $i; ?>"
-						        class="flex-none <?= $i === 0 ? "active-btn-article" : "" ?>  btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-1 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
+								data-tab-active="<?= $i === 0 ?>" data-index="<?= $i; ?>"
+								class="flex-none <?= $i === 0 ? "active-btn-article" : "" ?>  btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-1 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
 							<?= $item->name ?>
 						</button>
 
@@ -51,7 +51,7 @@ $data = emk_options( "last-article-categories" );
 			<!-- tab contents -->
 			<div id="panel-article-tab">
 				<div id="tab-article-seo" data-tab-content="last-article"
-				     class="active-tab-article content-tab-article grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+					 class="active-tab-article content-tab-article grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
 
 					<!-- card -->
 					<?php
@@ -89,7 +89,7 @@ $data = emk_options( "last-article-categories" );
 							<div class="col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block">
 								<div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-black">
 									<img src="<?= get_the_post_thumbnail_url( get_the_ID() ); ?>" alt=""
-									     class="object-cover w-full h-full xl:h-52 2xl:h-72 transition duration-300 ease-in-out hover:scale-105 hover:opacity-60">
+										 class="object-cover w-full h-full xl:h-52 2xl:h-72 transition duration-300 ease-in-out hover:scale-105 hover:opacity-60">
 								</div>
 
 								<div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4">
@@ -112,7 +112,7 @@ $data = emk_options( "last-article-categories" );
 			</div>
 
 			<div class="flex items-center justify-center">
-				<a href="<?= esc_url( get_page_link( 34 ) ); ?>" target="_blank"
+				<a href="<?php echo get_permalink( get_page_by_path( 'inbound-blog' ) ) ?>" target="_blank"
 				   class="px-12 py-4 rounded-full border-4 border-scheme-green text-scheme-green transition duration-300 hover:text-white hover:bg-scheme-green font-bold">
 					Read More Our Articles
 				</a>

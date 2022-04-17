@@ -744,18 +744,25 @@ Redux::setSection( $opt_name, array(
  * INBOUND BLOG - HEROBANNER
  */
 Redux::setSection( $opt_name, array(
-	'id'               => 'blog-herobanner',
+	'id'               => 'hero-banner-blog',
 	'title'            => __( 'Hero Banner Blog', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
 	'fields'           => array(
 		array(
-			'id'    => 'blog-herobanner-select-article',
-			'title' => ( 'Select Article By Categories' ),
-			'type'  => 'select',
-			'multi' => true,
-			'data'  => 'categories',
-			'args'  => array( 'post_type' => array( 'post' ), 'numberposts' => - 1 ),
+			'id'          => 'hero-banner-blog-total-slider',
+			'type'        => 'select',
+			'title'       => __( 'Select Number Slider', __TEXT_DOMAIN__ ),
+			'options'     => array(
+				'1' => '1',
+				'2' => '3',
+				'3' => '3',
+				'4' => '4',
+				'5' => '5',
+				'6' => '6'
+			),
+			'default'     => array( '4' ),
+			'placeholder' => __( 'select the number of sliders', __TEXT_DOMAIN__ )
 		)
 	)
 ) );
@@ -849,6 +856,54 @@ Redux::setSection( $opt_name, array(
 	'id'               => 'case-studies',
 	'customizer_width' => '400px',
 	'icon'             => 'el el-pencil'
+) );
+
+
+/**
+ * CASE STUDIES - HEROBANNER
+ */
+Redux::setSection( $opt_name, array(
+	'title'            => __( 'Select Number Slider', __TEXT_DOMAIN__ ),
+	'id'               => 'case-studies-herobanner',
+	'customizer_width' => '450px',
+	'subsection'       => true,
+	'fields'           => array(
+		array(
+			'id'          => 'hero-banner-case-studies-total-slider',
+			'type'        => 'select',
+			'title'       => __( 'Select Number Slider', __TEXT_DOMAIN__ ),
+			'options'     => array(
+				'1' => '1',
+				'2' => '3',
+				'3' => '3',
+				'4' => '4',
+				'5' => '5',
+				'6' => '6'
+			),
+			'default'     => array( '4' ),
+			'placeholder' => __( 'select the number of sliders', __TEXT_DOMAIN__ )
+		)
+	)
+) );
+
+/**
+ * CASE STUDIES - LATEST ARTICLE
+ */
+Redux::setSection( $opt_name, array(
+	'id'               => 'case-studies-last-article',
+	'title'            => __( 'Last Article', __TEXT_DOMAIN__ ),
+	'subsection'       => true,
+	'customizer_width' => 450,
+	'fields'           => array(
+		array(
+			'id'    => 'case-studies-article-categories',
+			'title' => ( 'Last Article' ),
+			'type'  => 'select',
+			'multi' => true,
+			'data'  => 'categories',
+			'args'  => array( 'post_type' => array( 'post' ), 'numberposts' => 4 ),
+		)
+	)
 ) );
 
 

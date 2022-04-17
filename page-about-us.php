@@ -81,7 +81,7 @@ get_header(); ?>
 
 			<div id="body-slider-milestone" class="w-full overflow-x-hidden flex flex-row">
 
-				<div class="pl-[222px] card-slider w-full flex-none overflow-hidden">
+				<div class="pl-[222px] card-slider w-full flex-none overflow-hidden first-slider-inbound-blog">
 					<ul class="flex flex-row progression-first relative overflow-hidden">
 						<!-- items milestone -->
 						<li class="w-full">
@@ -303,7 +303,7 @@ get_header(); ?>
 	</div>
 
 	<!-- last section  -->
-	<div class="grid grid-cols-12 relative pt-32 bg-scheme-light-gray relative z-20 relative">
+	<div class="grid grid-cols-12 relative pt-4 md:pt-32 bg-scheme-light-gray relative z-20 relative">
 
 		<div class="col-span-12 md:col-span-6">
 			<img src="<?= emk_options( 'about-us-last-section-image', 'url' ) ?>" alt="" class="object-cover w-full">

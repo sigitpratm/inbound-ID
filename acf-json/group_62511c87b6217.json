@@ -20,7 +20,7 @@
                 "2": "Video",
                 "3": "Photo",
                 "4": "Audio",
-                "5": "Item Section ( services, client, awards, work, milestones )"
+                "5": "Item Section ( client, award, work)"
             },
             "default_value": "article",
             "allow_null": 0,
@@ -54,8 +54,7 @@
             "choices": {
                 "1": "Our Client",
                 "2": "Our Work",
-                "3": "Award",
-                "4": "Milestone"
+                "3": "Award"
             },
             "default_value": 1,
             "allow_null": 0,
@@ -71,7 +70,7 @@
             "name": "case_studies",
             "type": "true_false",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": [
                 [
                     {
@@ -186,7 +185,7 @@
         },
         {
             "key": "field_625124779f540",
-            "label": "Media",
+            "label": "media",
             "name": "media",
             "type": "group",
             "instructions": "",
@@ -223,7 +222,7 @@
             "sub_fields": [
                 {
                     "key": "field_625124919f541",
-                    "label": "Images",
+                    "label": "images",
                     "name": "images",
                     "type": "gallery",
                     "instructions": "",
@@ -258,7 +257,7 @@
                 },
                 {
                     "key": "field_625124aa9f542",
-                    "label": "Video",
+                    "label": "video",
                     "name": "video",
                     "type": "file",
                     "instructions": "",
@@ -330,5 +329,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1649820659
+    "modified": 1650224142
 }

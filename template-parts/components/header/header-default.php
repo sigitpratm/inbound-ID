@@ -1,7 +1,7 @@
 <header id="header" class="ease-in-out z-50 fixed top-0 w-full bg-transparent">
-	<div class="container mx-auto flex flex-row justify-between py-8 px-4 xl:px-0 relative">
+	<div class="container mx-auto flex flex-row justify-between py-4 md:py-8 px-4 xl:px-0 relative">
 		<a href="<?= home_url() ?>" class="flex items-center">
-			<img src="<?= jpp_assets( '/img/png/img-nav-logo-2.png' ) ?>" alt="" class="h-auto w-52">
+			<img src="<?= jpp_assets( '/img/png/img-nav-logo-2.png' ) ?>" alt="" class="h-4 md:h-8 w-auto">
 		</a>
 
 		<!-- lg nav -->
@@ -18,7 +18,7 @@
 			</nav>
 		</div>
 
-		<div class="relative">
+		<div class="relative hidden md:block">
 			<button class="p-2 bg-scheme-green rounded-full absolute top-1 right-1.5 text-white focus:outline-0 focus:ring-0">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
 				     stroke="currentColor" stroke-width="2">

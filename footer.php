@@ -36,27 +36,27 @@
 			<div class="flex items-center justify-center gap-8">
 				<a href="<?= emk_options( 'footer-social-instagram' ) ?>" target="_blank">
 					<img src="<?php echo jpp_assets( 'img/png/icIg.png' ) ?>" alt=""
-					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
+						 class="icon-footer h-6 xl:h-6 2xl:h-8 transition duration-300 hover:scale-75 hover:opacity-20">
 				</a>
 
 				<a href="<?= emk_options( 'footer-social-twitter' ) ?>" target="_blank">
 					<img src="<?php echo jpp_assets( 'img/png/icTw.png' ) ?>" alt=""
-					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
+						 class="icon-footer h-6 xl:h-6 2xl:h-8 transition duration-300 hover:scale-75 hover:opacity-20">
 				</a>
 
 				<a href="<?= emk_options( 'footer-social-facebook' ) ?>" target="_blank">
 					<img src="<?php echo jpp_assets( 'img/png/icFb.png' ) ?>" alt=""
-					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
+						 class="icon-footer h-6 xl:h-6 2xl:h-8 transition duration-300 hover:scale-75 hover:opacity-20">
 				</a>
 
 				<a href="<?= emk_options( 'footer-social-linkedin' ) ?>" target="_blank">
 					<img src="<?php echo jpp_assets( 'img/png/icLinked.png' ) ?>" alt=""
-					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
+						 class="icon-footer h-6 xl:h-6 2xl:h-8 transition duration-300 hover:scale-75 hover:opacity-20">
 				</a>
 
 				<a href="<?= emk_options( 'footer-social-youtube' ) ?>" target="_blank">
 					<img src="<?php echo jpp_assets( 'img/png/icYt.png' ) ?>" alt=""
-					     class="icon-footer h-8 xl:h-8 2xl:h-10 transition duration-300 hover:scale-75 hover:opacity-20">
+						 class="icon-footer h-6 xl:h-6 2xl:h-8 transition duration-300 hover:scale-75 hover:opacity-20">
 				</a>
 			</div>
 		</div>
@@ -149,6 +149,8 @@
 	jpSlider(".btn-slider-hero", ".first-slider-hero", "active-btn-hero")
 	jpSlider(".btn-slider-client", ".first-slider-client", "active-btn-client")
 	jpSlider(".btn-slider-milestone", ".first-slider-milestone", "active-btn-milestone")
+	jpSlider(".btn-slider-inbound-blog", ".first-slider-inbound-blog", "active-btn-inbound-blog")
+	jpSlider(".btn-slider-case-studies", ".first-slider-case-studies", "active-btn-case-studies")
 
 </script>
 
