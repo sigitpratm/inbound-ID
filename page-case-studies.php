@@ -14,34 +14,34 @@
  */
 get_header(); ?>
 
+
 <?php
 $tot_slider = emk_options( 'hero-banner-case-studies-total-slider' );
 
 $query_slider = new WP_Query( array(
+		'post_type'      => 'case-study',
 		'posts_per_page' => $tot_slider,
-		'post_type'      => 'post',
-		'meta_query'     => array(
-				'relation' => 'AND',
-				array(
-						'key'     => 'content_type',
-						'value'   => 1,
-						'compare' => 'IN',
-				),
-				array(
-						'key'     => 'case_studies',
-						'value'   => '1',
-						'compare' => '=',
-				),
-		),
 ) );
+?>
+
+
+<?php
+
+$terms = get_terms( array(
+		'taxonomy'   => 'case-study-category',
+		'hide_empty' => false,
+) );
+
 ?>
 
 
 	<div class="pt-16 md:pt-[6.5rem] relative">
 
-		<div class="container mx-auto px-4">
+		<!-- slider -->
+		<div class="container mx-auto px-4 pb-8 md:pb-24">
 
-			<div id="body-slider-case-studies" class="body-slider-case-studies w-full overflow-x-hidden flex flex-row py-4 md:py-0">
+			<div id="body-slider-case-studies"
+				 class="body-slider-case-studies w-full overflow-x-hidden flex flex-row py-4 md:py-0">
 
 				<?php if ( $query_slider->have_posts() ) : ?>
 
@@ -54,9 +54,8 @@ $query_slider = new WP_Query( array(
 									<div class="flex items-center gap-2 text-lg md:text-2xl text-gray-600 text-center md:text-left">
 										<p class="font-bold">
 											<?php
-											$categories = get_the_category();
-											if ( ! empty( $categories ) ) {
-												echo esc_html( $categories[0]->name );
+											if ( ! empty( $terms ) ) {
+												echo esc_html( $terms[0]->name );
 											} else {
 												echo esc_html( "Uncategories" );
 											}
@@ -110,11 +109,13 @@ $query_slider = new WP_Query( array(
 
 		</div>
 
-		<div class="container mx-auto">
-			<?php get_template_part( 'template-parts/components/section/section-latest-article-case-studies', get_post_type() ) ?>
-		</div>
+		<!-- last post -->
+		<?php
+		get_template_part( 'template-parts/views/archive/content', 'case-studies' );
+		?>
 
-		<div class="grid grid-cols-12 relative pt-4 md:pt-32 bg-scheme-light-gray relative z-20 relative">
+		<!-- last section -->
+		<div class="grid grid-cols-12 relative pt-4 md:pt-24 bg-scheme-light-gray relative z-20 relative">
 
 			<div class="col-span-12 md:col-span-6">
 				<img src="<?= emk_options( 'case-studies-last-section-image', 'url' ) ?>" alt=""

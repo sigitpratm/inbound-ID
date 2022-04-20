@@ -240,28 +240,46 @@ Redux::setSection( $opt_name, array(
 	'title'            => __( 'Hero Banner', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
-//	'fields'           => array(
-//		array(
-//			'id'      => 'home-general-background-jumbotron-set',
-//			'type'    => 'switch',
-//			'title'   => __( 'Jumbotron - Display', __TEXT_DOMAIN__ ),
-//			'default' => true
-//		),
-//		array(
-//			'id'       => 'home-general-background-jumbotron-status',
-//			'type'     => 'switch',
-//			'title'    => __( 'Jumbotron - Image Hover in Card Post', __TEXT_DOMAIN__ ),
-//			'default'  => true,
-//			'required' => array( 'home-general-background-jumbotron-set', '=', 1 )
-//		),
-//		array(
-//			'id'       => 'home-general-background-jumbotron-color',
-//			'type'     => 'color',
-//			'title'    => __( 'Jumbotron - Background Color', __TEXT_DOMAIN__ ),
-//			'default'  => '#2b2d42',
-//			'required' => array( 'home-general-background-jumbotron-set', '=', 1 )
-//		),
-//	)
+	'fields'           => array(
+		array(
+			'id'       => 'hero-banner-post',
+			'type'     => 'select',
+			'multi'    => true,
+			'data'     => 'posts',
+			'args'     => array( 'post_type' => array( 'post' ), 'numberposts' => - 1 ),
+			'title'    => __( 'Hero banner post' ),
+			'subtitle' => __( 'Selected post will be displayed in hero banner' ),
+			'desc'     => __( 'Page will be marked as front for this post type' ),
+		),
+		array(
+			'id'       => 'hero-banner-button-title-one',
+			'type'     => 'text',
+			'title'    => __( 'Hero Banner Title One - Enter your button title text' ),
+			'subtitle' => __( 'This is button title area' ),
+			'desc'     => __( 'This is button title area' )
+		),
+		array(
+			'id'       => 'hero-banner-button-url-one',
+			'type'     => 'text',
+			'title'    => __( 'Hero Banner Title Two - Enter your button url' ),
+			'subtitle' => __( 'This is button url' ),
+			'desc'     => __( 'This is button url' )
+		),
+		array(
+			'id'       => 'hero-banner-button-title-two',
+			'type'     => 'text',
+			'title'    => __( 'Hero Banner Title Two - Enter your button title text' ),
+			'subtitle' => __( 'This is button title area' ),
+			'desc'     => __( 'This is button title area' )
+		),
+		array(
+			'id'       => 'hero-banner-button-url-two',
+			'type'     => 'text',
+			'title'    => __( 'Hero Banner Url Two - Enter your button url' ),
+			'subtitle' => __( 'This is button url' ),
+			'desc'     => __( 'This is button url' )
+		),
+	)
 ) );
 
 /**
@@ -529,14 +547,24 @@ Redux::setSection( $opt_name, array(
 	'subsection'       => true,
 	'fields'           => array(
 		array(
-			'id'    => 'about-us-desc1',
-			'type'  => 'ace_editor',
-			'title' => __( 'About Us Content Section 1', __TEXT_DOMAIN__ )
+			'id'      => 'about-us-desc1',
+			'type'    => 'ace_editor',
+			'title'   => __( 'About Us Content Section 1', __TEXT_DOMAIN__ ),
+			'desc'    => __( 'Isi dengan tag html dan menggunakan class styling Tailwind CSS', __TEXT_DOMAIN__ ),
+			'default' => "<p>Masih kosong, Silakan isi di edit dashboard admin</p>",
+			'options' => array(
+				'minLines' => 40
+			)
 		),
 		array(
-			'id'    => 'about-us-desc2',
-			'type'  => 'ace_editor',
-			'title' => __( 'About Us Content Section 2', __TEXT_DOMAIN__ )
+			'id'      => 'about-us-desc2',
+			'type'    => 'ace_editor',
+			'title'   => __( 'About Us Content Section 2', __TEXT_DOMAIN__ ),
+			'desc'    => __( 'Isi dengan tag html dan menggunakan class styling Tailwind CSS', __TEXT_DOMAIN__ ),
+			'default' => "<p>Masih kosong, Silakan isi di edit dashboard admin</p>",
+			'options' => array(
+				'minLines' => 40
+			)
 		),
 	)
 ) );
@@ -886,6 +914,23 @@ Redux::setSection( $opt_name, array(
 	)
 ) );
 
+Redux::setSection( $opt_name, array(
+	'id'               => 'case-studies-categories',
+	'title'            => __( 'Select Categories', __TEXT_DOMAIN__ ),
+	'subsection'       => true,
+	'customizer_width' => 450,
+	'fields'           => array(
+		array(
+			'id'    => 'case-studies-select-categories',
+			'title' => ( 'Last Article' ),
+			'type'  => 'select',
+			'multi' => true,
+			'data'  => 'terms',
+			'args'  => array( 'taxonomies' => 'case-study-category', 'args' => array() ),
+		)
+	)
+) );
+
 /**
  * CASE STUDIES - LATEST ARTICLE
  */
@@ -966,6 +1011,313 @@ Redux::setSection( $opt_name, array(
 	)
 ) );
 
+
+/**
+ * PROGRAMS
+ */
+Redux::setSection( $opt_name, array(
+	'title'            => __( 'Programs', '__TEXT_DOMAIN__' ),
+	'id'               => 'programs',
+	'customizer_width' => '400px',
+	'groupname'        => __( 'Group', 'redux-framework-demo' ), // Group name
+) );
+
+
+/**
+ * PROGRAMS - SECTION 1
+ */
+Redux::setSection( $opt_name, array(
+	'title'      => __( 'Section 1' ),
+	'id'         => 'podcast-section1',
+	'subsection' => true,
+	'desc'       => __( 'This is section top area' ),
+	'fields'     => array(
+		array(
+			'id'      => 'podcast-section1-items1-heading',
+			'title'   => __( '(Section 1 - Items 1 ) Heading' ),
+			'type'    => 'text',
+			'default' => 'DEFAULT OUR PROGRAMS'
+		),
+
+		array(
+			'id'      => 'podcast-section1-items1-subheading',
+			'title'   => __( '(Section 1 - Items 1 ) Subheading' ),
+			'type'    => 'textarea',
+			'default' => 'DEFAULT Sharing is caring! While we share our expertise to your brand and business, we also love to share our care, knowledge and story to the community, to the people and neighborhood we live in.'
+		),
+
+		array(
+			'id'      => 'podcast-section1-items2-image1',
+			'type'    => 'media',
+			'title'   => __( '(Section 1 - Item 2) - Image', 'redux_docs_generator' ),
+			'default' => array(
+				'url' => 'https://s.wordpress.org/style/images/codeispoetry.png'
+			)
+		),
+
+		array(
+			'id'      => 'podcast-section1-item2-btn-use-image',
+			'title'   => __( 'Use Title Image for Item 2 ?', __TEXT_DOMAIN__ ),
+			'type'    => 'switch',
+			'default' => false,
+		),
+
+		array(
+			'id'       => 'podcast-section1-items2-image2',
+			'title'    => __( 'Image title section 1', __TEXT_DOMAIN__ ),
+			'type'     => 'media',
+			'url'      => true,
+			'desc'     => esc_html__( '*Please select image with png extension' ),
+			'default'  => array(
+				'url' => 'https://s.wordpress.org/style/images/codeispoetry.png'
+			),
+			'required' => array( 'podcast-section1-item2-btn-use-image', '=', '1' )
+		),
+
+		array(
+			'id'       => 'podcast-section1-item2-heading',
+			'title'    => __( '(Section 1 - Item 2) - Heading', __TEXT_DOMAIN__ ),
+			'type'     => 'text',
+			'default'  => 'DEFAULT REBOUND Podcast by InboundID',
+			'required' => array( 'podcast-section1-item2-btn-use-image', '=', '0' )
+		),
+
+		array(
+			'id'      => 'podcast-section1-item2-subheading',
+			'title'   => __( '(Section 1 - Item 2) - Subheading' ),
+			'type'    => 'textarea',
+			'default' => 'Rebound podcast is Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium at dignissimos expedita maxime nihil officiis placeat praesentium quas voluptatem!'
+		),
+
+		array(
+			'id'      => 'podcast-section1-item2-btn-title',
+			'title'   => __( '(Section 1 - Item 2) - Button Title' ),
+			'type'    => 'text',
+			'default' => 'DEFAULT LISTED NOW'
+		),
+
+		array(
+			'id'      => 'podcast-section1-item2-btn-url',
+			'title'   => __( '(Section 1 - Item 2) - Button URL' ),
+			'type'    => 'text',
+			'url'     => true,
+			'default' => 'www.google.com'
+		),
+
+		array(
+			'id'      => 'podcast-section1-item3-heading',
+			'title'   => __( '(Section 1 - Item 3) - Heading' ),
+			'type'    => 'text',
+			'default' => 'DEFAULT OUR MOST LISTENED PODCASTS'
+		),
+
+	)
+) );
+
+
+/**
+ * PROGRAMS - SECTION 2
+ */
+Redux::setSection( $opt_name, array(
+	'title'      => __( 'Section 2' ),
+	'id'         => 'podcast-section2',
+	'subsection' => true,
+	'desc'       => __( 'This is section top area' ),
+	'fields'     => array(
+		array(
+			'id'      => 'podcast-section2-item1-heading',
+			'type'    => 'text',
+			'title'   => __( '(Section 2 - Item 1) - Heading', __TEXT_DOMAIN__ ),
+			'default' => 'DEFAULT REBOUND TALK'
+		),
+
+		array(
+			'id'      => 'podcast-section2-item1-subheading',
+			'type'    => 'textarea',
+			'title'   => __( '(Section 2 - Item 1) - Subheading', __TEXT_DOMAIN__ ),
+			'default' => 'DEFAULT Get updates about the digital marketing world and the know-how through in-depth discussions with experts.'
+		),
+
+		array(
+			'id'      => 'podcast-section2-item1-btn-title',
+			'type'    => 'text',
+			'title'   => __( '(Section 2 - Item 1) - Button Title', __TEXT_DOMAIN__ ),
+			'default' => 'DEFAULT VISIT NOW'
+		),
+
+		array(
+			'id'      => 'podcast-section2-item1-btn-url',
+			'type'    => 'text',
+			'title'   => __( '(Section 2 - Item 1) - Button URL', __TEXT_DOMAIN__ ),
+			'default' => 'https://www.google.com'
+		),
+
+		array(
+			'id'      => 'podcast-section2-item1-image',
+			'title'   => __( '(Section 2 - Item 1) - Image', __TEXT_DOMAIN__ ),
+			'type'    => 'media',
+			'url'     => true,
+			'desc'    => esc_html__( '*Please select image with png extension' ),
+			'default' => array(
+				'url' => 'https://s.wordpress.org/style/images/codeispoetry.png'
+			)
+		),
+
+		array(
+			'id'      => 'podcast-section2-item2-heading',
+			'type'    => 'text',
+			'title'   => __( '(Section 2 - Item 2) - Heading', __TEXT_DOMAIN__ ),
+			'default' => 'DEFAULT REBOUND TALK'
+		),
+
+		array(
+			'id'      => 'podcast-section2-item3-subheading',
+			'type'    => 'text',
+			'title'   => __( '(Section 2 - Item 3) - subheading', __TEXT_DOMAIN__ ),
+			'default' => 'DEFAULT Miracles in InboundID Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dolor, labore laudantium magni odit quo?'
+		),
+
+		array(
+			'id'      => 'podcast-section2-item3-image1',
+			'title'   => __( '(Section 2 - Item 3) - Image1', __TEXT_DOMAIN__ ),
+			'type'    => 'media',
+			'url'     => true,
+			'desc'    => esc_html__( '*Please select image with png extension' ),
+			'default' => array(
+				'url' => 'https://s.wordpress.org/style/images/codeispoetry.png'
+			)
+		),
+
+		array(
+			'id'      => 'podcast-section2-item3-image2',
+			'title'   => __( '(Section 2 - Item 3) - Image2', __TEXT_DOMAIN__ ),
+			'type'    => 'media',
+			'url'     => true,
+			'desc'    => esc_html__( '*Please select image with png extension' ),
+			'default' => array(
+				'url' => 'https://s.wordpress.org/style/images/codeispoetry.png'
+			)
+		),
+
+	)
+) );
+
+
+/**
+ * PROGRAMS - SECTION 3
+ */
+Redux::setSection( $opt_name, array(
+	'title'      => __( 'Section 3' ),
+	'id'         => 'podcast-section3',
+	'subsection' => true,
+	'desc'       => __( 'This is section top area' ),
+	'fields'     => array(
+		array(
+			'id'      => 'podcast-section3-item1-heading',
+			'type'    => 'text',
+			'title'   => __( '(Section 3 - Item 1) - Heading', __TEXT_DOMAIN__ ),
+			'default' => 'DEFAULT OUR MIRACLES PROGRAM'
+		),
+
+		array(
+			'id'      => 'podcast-section3-item1-subheading',
+			'type'    => 'textarea',
+			'title'   => __( '(Section 3 - Item 1) - Subheading', __TEXT_DOMAIN__ ),
+			'default' => 'DEFAULT Our Collaboration Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, distinctio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, possimus?'
+		),
+
+		array(
+			'id'      => 'podcast-section3-item1-btn-url',
+			'type'    => 'text',
+			'title'   => __( '(Section 3 - Item 1) - Button URL', __TEXT_DOMAIN__ ),
+			'default' => 'https://www.google.com'
+		),
+
+		array(
+			'id'      => 'podcast-section3-item1-btn-title',
+			'type'    => 'text',
+			'title'   => __( '(Section 3 - Item 1) - Button Title', __TEXT_DOMAIN__ ),
+			'default' => 'DEFAULT BTN'
+		),
+
+		array(
+			'id'      => 'podcast-section3-item1-image1',
+			'title'   => __( '(Section 3 - Item 1) - Image1', __TEXT_DOMAIN__ ),
+			'type'    => 'media',
+			'url'     => true,
+			'desc'    => esc_html__( '*Please select image with png extension' ),
+			'default' => array(
+				'url' => 'https://s.wordpress.org/style/images/codeispoetry.png'
+			)
+		),
+
+		array(
+			'id'      => 'podcast-section3-item1-image2',
+			'title'   => __( '(Section 3 - Item 1) - Image2', __TEXT_DOMAIN__ ),
+			'type'    => 'media',
+			'url'     => true,
+			'desc'    => esc_html__( '*Please select image with png extension' ),
+			'default' => array(
+				'url' => 'https://s.wordpress.org/style/images/codeispoetry.png'
+			)
+		),
+
+
+		array(
+			'id'      => 'podcast-section3-item2-image1',
+			'title'   => __( '(Section 3 - Item 2) - Image1', __TEXT_DOMAIN__ ),
+			'type'    => 'media',
+			'url'     => true,
+			'desc'    => esc_html__( '*Please select image with png extension' ),
+			'default' => array(
+				'url' => 'https://s.wordpress.org/style/images/codeispoetry.png'
+			)
+		),
+
+		array(
+			'id'      => 'podcast-section3-item2-image2',
+			'title'   => __( '(Section 3 - Item 2) - Image2', __TEXT_DOMAIN__ ),
+			'type'    => 'media',
+			'url'     => true,
+			'desc'    => esc_html__( '*Please select image with png extension' ),
+			'default' => array(
+				'url' => 'https://s.wordpress.org/style/images/codeispoetry.png'
+			)
+		),
+
+		array(
+			'id'      => 'podcast-section3-item2-subheading',
+			'title'   => __( '(Section 3 - Item 2) - Subheading', __TEXT_DOMAIN__ ),
+			'type'    => 'textarea',
+			'default' => 'DEFAULT Digital marketing academy for professionals who wants to improve their skills in digital marketing, fresh graduates who wants to kickstart their careerr in digital marketing and college students who wants to gain knowledge about digital marketing.'
+		),
+
+		array(
+			'id'      => 'podcast-section3-item2-btn-url',
+			'title'   => __( '(Section 3 - Item 2) - Button Title', __TEXT_DOMAIN__ ),
+			'type'    => 'text',
+			'default' => 'https://www.google.com'
+		),
+
+		array(
+			'id'      => 'podcast-section3-item2-btn-title',
+			'title'   => __( '(Section 3 - Item 2) - Button URL', __TEXT_DOMAIN__ ),
+			'type'    => 'text',
+			'default' => 'DEFAULT Button'
+		),
+
+		array(
+			'id'      => 'podcast-section3-item3-heading',
+			'title'   => __( '(Section 3 - Item 3) - Heading', __TEXT_DOMAIN__ ),
+			'type'    => 'text',
+			'default' => 'DEFAULT PREVIOUS CLASSES'
+		),
+
+
+	)
+) );
+
+
 /**
  * MAIN FOOTER
  */
@@ -1031,6 +1383,7 @@ Redux::setSection( $opt_name, array(
 
 	)
 ) );
+
 
 /**
  * FOOTER - SOCIAL

@@ -28,25 +28,6 @@ class PostTypes
 		 * Add the post types and their details
 		 */
 		$custom_posts = array(
-			array(
-				'slug' => 'product',
-				'singular' => 'Product',
-				'plural' => 'Products',
-				'menu_icon' => 'dashicons-admin-customizer',
-				'menu_position' => 18,
-				'text_domain' => __TEXT_DOMAIN__,
-				'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
-				'description' => 'Product',
-				'public' => true,
-				'publicly_queryable' => true,
-				'show_ui' => true,
-				'show_in_menu' => true,
-				'query_var' => true,
-				'capability_type' => 'post',
-				'has_archive' => true,
-				'hierarchical' => false,
-				'show_in_rest' => true,
-			),
 			[
 				'slug' => 'meeting',
 				'singular' => 'Meeting',
@@ -103,7 +84,26 @@ class PostTypes
 				'has_archive' => true,
 				'hierarchical' => true,
 				'show_in_rest' => true,
-			]
+			],
+			[
+				'slug' => 'case-study',
+				'singular' => 'Case Study',
+				'plural' => 'Case Studies',
+				'menu_icon' => 'dashicons-admin-customizer',
+				'menu_position' => 18,
+				'text_domain' => __TEXT_DOMAIN__,
+				'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+				'description' => 'Podcast',
+				'public' => true,
+				'publicly_queryable' => true,
+				'show_ui' => true,
+				'show_in_menu' => true,
+				'query_var' => true,
+				'capability_type' => 'post',
+				'has_archive' => true,
+				'hierarchical' => true,
+				'show_in_rest' => true,
+			],
 		);
 
 		foreach ($custom_posts as $custom_post) {

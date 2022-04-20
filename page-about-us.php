@@ -19,7 +19,7 @@ get_header(); ?>
 
 		<div class="container mx-auto px-4 md:px-0">
 			<!-- desc 1 -->
-			<div class="text-center text-2xl space-y-8 py-16 md:py-32">
+			<div class="text-center space-y-8 py-16 md:py-32">
 				<?php
 				$data = emk_options( 'about-us-desc1' );
 				echo htmlspecialchars_decode( $data )
@@ -93,7 +93,7 @@ get_header(); ?>
 								<div class="w-full h-full flex flex-col justify-start items-center gap-6 pt-10">
 									<p class="text-lg">Inboundid Founded</p>
 									<img src="<?= jpp_assets( '/img/png/clients/img-client-04.png' ) ?>" alt=""
-									     class="h-auto max-h-32 w-auto">
+										 class="h-auto max-h-32 w-auto">
 								</div>
 							</div>
 						</li>
@@ -103,7 +103,7 @@ get_header(); ?>
 							<div class="inline-block h-64 w-full overflow-hidden">
 								<div class="w-full h-full flex flex-col justify-end items-center gap-6 pb-10">
 									<img src="<?= jpp_assets( '/img/png/clients/img-client-04.png' ) ?>" alt=""
-									     class="w-auto h-auto max-h-32">
+										 class="w-auto h-auto max-h-32">
 									<p class="text-lg">
 										Unilever, Indosat, Qm Financial joined as our first clients
 									</p>
@@ -128,7 +128,7 @@ get_header(); ?>
 										Partner badge
 									</p>
 									<img src="<?= jpp_assets( '/img/png/clients/img-client-04.png' ) ?>" alt=""
-									     class="h-auto max-h-32 w-auto">
+										 class="h-auto max-h-32 w-auto">
 								</div>
 							</div>
 						</li>
@@ -138,7 +138,7 @@ get_header(); ?>
 							<div class="inline-block h-64 w-full overflow-hidden">
 								<div class="w-full h-full flex flex-col justify-end items-center gap-6 pb-10">
 									<img src="<?= jpp_assets( '/img/png/clients/img-client-04.png' ) ?>" alt=""
-									     class="w-auto h-auto max-h-32">
+										 class="w-auto h-auto max-h-32">
 									<p class="text-lg">
 										InboundID won teh Google All Star Challenge 2014
 									</p>
@@ -162,7 +162,7 @@ get_header(); ?>
 										Became part of digital marketing team of Indonesia Ministry of Tourism
 									</p>
 									<img src="<?= jpp_assets( '/img/png/clients/img-client-04.png' ) ?>" alt=""
-									     class="h-auto max-h-32 w-auto">
+										 class="h-auto max-h-32 w-auto">
 								</div>
 							</div>
 						</li>
@@ -196,7 +196,7 @@ get_header(); ?>
 										Managed 100 Billion campaign budget Joined FreakOut Group
 									</p>
 									<img src="<?= jpp_assets( '/img/png/clients/img-client-04.png' ) ?>" alt=""
-									     class="h-auto max-h-32 w-auto">
+										 class="h-auto max-h-32 w-auto">
 								</div>
 							</div>
 						</li>
@@ -206,7 +206,7 @@ get_header(); ?>
 							<div class="inline-block h-64 w-full overflow-hidden">
 								<div class="w-full h-full flex flex-col justify-end items-center gap-6 pb-10">
 									<img src="<?= jpp_assets( '/img/png/clients/img-client-04.png' ) ?>" alt=""
-									     class="w-auto h-auto max-h-32">
+										 class="w-auto h-auto max-h-32">
 									<p class="text-lg">
 										Received Premier Partner Award 2018
 									</p>
@@ -230,7 +230,7 @@ get_header(); ?>
 										Managed 150+ clients from different industries
 									</p>
 									<img src="<?= jpp_assets( '/img/png/clients/img-client-04.png' ) ?>" alt=""
-									     class="h-auto max-h-32 w-auto">
+										 class="h-auto max-h-32 w-auto">
 								</div>
 							</div>
 						</li>
@@ -240,7 +240,7 @@ get_header(); ?>
 							<div class="inline-block h-64 w-full overflow-hidden">
 								<div class="w-full h-full flex flex-col justify-end items-center gap-6 pb-10">
 									<img src="<?= jpp_assets( '/img/png/clients/img-client-04.png' ) ?>" alt=""
-									     class="w-auto h-auto max-h-32">
+										 class="w-auto h-auto max-h-32">
 									<p class="text-lg">
 										#3 Facebook Agency League in Q4 2020
 									</p>
@@ -265,7 +265,7 @@ get_header(); ?>
 										in 2021
 									</p>
 									<img src="<?= jpp_assets( '/img/png/clients/img-client-04.png' ) ?>" alt=""
-									     class="h-auto max-h-32 w-auto">
+										 class="h-auto max-h-32 w-auto">
 								</div>
 							</div>
 						</li>

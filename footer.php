@@ -14,7 +14,7 @@
 </div><!-- #content -->
 </main><!-- #content -->
 
-<footer class="bg-scheme-green relative z-30">
+<footer class="bg-scheme-green relative z-30 relative ">
 	<div class="flex md:flex-row flex-col items-center justify-between w-full max-w-[1360px] mx-auto py-16 text-white md:text-base xl:text-lg gap-16 xl:gap-0 px-4 xl:px-0">
 
 		<div class="w-full space-y-4 md:text-left text-center">

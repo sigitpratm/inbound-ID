@@ -43,7 +43,7 @@ $args = wp_parse_args($args, $arguments);
 			<div class="w-full flex flex-col space-y-12">
 				<?php if (!empty($args["data"]["with_icon"])): ?>
 					<?php if ($args["data"]["with_icon"] && !empty($args["data"]["icon"])): ?>
-						<div class="w-full rounded-xl">
+						<div class="w-1/2 rounded-xl">
 							<img src="<?= $args["data"]["icon"]; ?>" alt="with-icon"
 								 class="<?= $args["data"]["icon_classes"]?>">
 						</div>

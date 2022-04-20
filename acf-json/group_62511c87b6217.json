@@ -3,74 +3,12 @@
     "title": "Post Options",
     "fields": [
         {
-            "key": "field_62511c8fa4050",
-            "label": "Content Type",
-            "name": "content_type",
-            "type": "select",
-            "instructions": "Pilih content type",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33.33",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "1": "Article",
-                "2": "Video",
-                "3": "Photo",
-                "4": "Audio",
-                "5": "Item Section ( client, award, work)"
-            },
-            "default_value": "article",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_62511d89a4051",
-            "label": "Item Type",
-            "name": "item_type",
-            "type": "select",
-            "instructions": "Pilih salah satu item type untuk di terapkan di beberapa sections",
-            "required": 1,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_62511c8fa4050",
-                        "operator": "==",
-                        "value": "5"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "33.33",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "1": "Our Client",
-                "2": "Our Work",
-                "3": "Award"
-            },
-            "default_value": 1,
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
             "key": "field_62511f27a4052",
             "label": "Case Studies",
             "name": "case_studies",
             "type": "true_false",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": [
                 [
                     {
@@ -102,15 +40,92 @@
                 ]
             ],
             "wrapper": {
-                "width": "33.33",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
             "message": "",
-            "default_value": 1,
+            "default_value": 0,
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_62511c8fa4050",
+            "label": "Content Type",
+            "name": "content_type",
+            "type": "select",
+            "instructions": "Pilih content type",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62511f27a4052",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "Article",
+                "2": "video",
+                "3": "photo",
+                "4": "Audio",
+                "5": "Item Section ( client, award, work)"
+            },
+            "default_value": "article",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_62511d89a4051",
+            "label": "Item Type",
+            "name": "item_type",
+            "type": "select",
+            "instructions": "Pilih salah satu item type untuk di terapkan di beberapa sections",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62511c8fa4050",
+                        "operator": "==",
+                        "value": "5"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_62511f27a4052",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "Our Client",
+                "2": "Our Work",
+                "3": "Award"
+            },
+            "default_value": 1,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_625122bfdddd9",
@@ -125,6 +140,11 @@
                         "field": "field_62511c8fa4050",
                         "operator": "==",
                         "value": "5"
+                    },
+                    {
+                        "field": "field_62511f27a4052",
+                        "operator": "!=",
+                        "value": "1"
                     }
                 ]
             ],
@@ -210,6 +230,13 @@
                         "field": "field_62511c8fa4050",
                         "operator": "==",
                         "value": "4"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_62511f27a4052",
+                        "operator": "!=",
+                        "value": "1"
                     }
                 ]
             ],
@@ -310,6 +337,41 @@
                     "mime_types": "mp3,mp4,ma4"
                 }
             ]
+        },
+        {
+            "key": "field_625125d3e6020",
+            "label": "Icon",
+            "name": "icon",
+            "type": "gallery",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62511f27a4052",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -329,5 +391,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1650224142
+    "modified": 1650349475
 }
