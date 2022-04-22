@@ -18,7 +18,7 @@ class Taxonomy {
 
 	/**
 	 * Create Custom Post Types
-	 * @return The registered post type object, or an error object
+	 * @return void registered post type object, or an error object
 	 */
 	public function custom_taxonomy() {
 		/**
@@ -33,7 +33,7 @@ class Taxonomy {
 				'menu_position'      => 18,
 				'text_domain'        => __TEXT_DOMAIN__,
 				'supports'           => array( 'title', /*'editor', 'thumbnail' , 'excerpt', 'author', 'comments'*/ ),
-				'description'        => 'Product',
+				'description'        => 'Case Studies',
 				'public'             => true,
 				'publicly_queryable' => true,
 				'show_ui'            => true,
@@ -82,17 +82,22 @@ class Taxonomy {
 				'show_in_rest'       => $custom_post['show_in_rest'],
 			);
 
-			register_taxonomy(
-				$custom_post['slug'],
-				'case-study',
-				$args
-			);
+			register_taxonomy( $custom_post['slug'], 'case-study', $args );
 		}
+
+
+		$args = array(
+			'label'        => __( 'Service Categories' ),
+			'rewrite'      => array( 'slug' => 'service-categories' ),
+			'hierarchical' => true,
+		);
+
+		register_taxonomy( 'service-categories', 'service', $args );
 	}
 
 	/**
 	 * Flush Rewrite on CPT activation
-	 * @return empty
+	 * @return void
 	 */
 	public function rewrite_flush() {
 		// Flush the rewrite rules only on theme activation

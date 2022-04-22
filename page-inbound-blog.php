@@ -57,7 +57,9 @@ $query_slider = new WP_Query( array(
 										</p>
 									</div>
 									<p class="text-3xl md:text-5xl font-bold text-scheme-green line-clamp-3 text-center md:text-left">
-										<?= get_the_title() ?>
+										<a href="<?= get_the_permalink() ?>">
+											<?= get_the_title() ?>
+										</a>
 									</p>
 									<p class="text-base md:text-xl line-clamp-4 leading-7 md:leading-8 text-center md:text-left">
 										<?= get_the_excerpt() ?>

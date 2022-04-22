@@ -3,54 +3,6 @@
     "title": "Post Options",
     "fields": [
         {
-            "key": "field_62511f27a4052",
-            "label": "Case Studies",
-            "name": "case_studies",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_62511c8fa4050",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_62511c8fa4050",
-                        "operator": "==",
-                        "value": "3"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_62511c8fa4050",
-                        "operator": "==",
-                        "value": "2"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_62511c8fa4050",
-                        "operator": "==",
-                        "value": "5"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
             "key": "field_62511c8fa4050",
             "label": "Content Type",
             "name": "content_type",
@@ -99,13 +51,6 @@
                         "field": "field_62511c8fa4050",
                         "operator": "==",
                         "value": "5"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_62511f27a4052",
-                        "operator": "!=",
-                        "value": "1"
                     }
                 ]
             ],
@@ -209,7 +154,7 @@
             "name": "media",
             "type": "group",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": [
                 [
                     {
@@ -391,5 +336,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1650349475
+    "modified": 1650529337
 }

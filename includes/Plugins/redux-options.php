@@ -242,42 +242,12 @@ Redux::setSection( $opt_name, array(
 	'customizer_width' => 450,
 	'fields'           => array(
 		array(
-			'id'       => 'hero-banner-post',
-			'type'     => 'select',
-			'multi'    => true,
-			'data'     => 'posts',
-			'args'     => array( 'post_type' => array( 'post' ), 'numberposts' => - 1 ),
-			'title'    => __( 'Hero banner post' ),
-			'subtitle' => __( 'Selected post will be displayed in hero banner' ),
-			'desc'     => __( 'Page will be marked as front for this post type' ),
-		),
-		array(
-			'id'       => 'hero-banner-button-title-one',
-			'type'     => 'text',
-			'title'    => __( 'Hero Banner Title One - Enter your button title text' ),
-			'subtitle' => __( 'This is button title area' ),
-			'desc'     => __( 'This is button title area' )
-		),
-		array(
-			'id'       => 'hero-banner-button-url-one',
-			'type'     => 'text',
-			'title'    => __( 'Hero Banner Title Two - Enter your button url' ),
-			'subtitle' => __( 'This is button url' ),
-			'desc'     => __( 'This is button url' )
-		),
-		array(
-			'id'       => 'hero-banner-button-title-two',
-			'type'     => 'text',
-			'title'    => __( 'Hero Banner Title Two - Enter your button title text' ),
-			'subtitle' => __( 'This is button title area' ),
-			'desc'     => __( 'This is button title area' )
-		),
-		array(
-			'id'       => 'hero-banner-button-url-two',
-			'type'     => 'text',
-			'title'    => __( 'Hero Banner Url Two - Enter your button url' ),
-			'subtitle' => __( 'This is button url' ),
-			'desc'     => __( 'This is button url' )
+			'id'    => 'homepage-banner-post',
+			'title' => __( 'Hero banner post' ),
+			'type'  => 'select',
+			'multi' => true,
+			'data'  => 'posts',
+			'args'  => array( 'post_type' => array( 'homepage-banner' ), 'numberposts' => - 1 ),
 		),
 	)
 ) );
@@ -290,61 +260,18 @@ Redux::setSection( $opt_name, array(
 	'title'            => __( 'Our Services', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
-//	'fields'           => array(
-//		array(
-//			'id'      => 'home-section-1-status',
-//			'title'   => __( 'Section Show', __TEXT_DOMAIN__ ),
-//			'type'    => 'switch',
-//			'default' => true
-//		),
-//		array(
-//			'id'      => 'home-section-1-options',
-//			'title'   => __( 'Format', __TEXT_DOMAIN__ ),
-//			'type'    => 'select',
-//			'options' => array(
-//				'TV'        => 'TV',
-//				'TV Short'  => 'TV Short',
-//				'Movie'     => 'Movie',
-//				'Leftovers' => 'Leftovers',
-//				'Special'   => 'OVA / ONA / SPECIALS'
-//			),
-//			'default' => 'TV'
-//		),
-//		array(
-//			'id'      => 'home-section-1-post',
-//			'title'   => __( 'Post Length', __TEXT_DOMAIN__ ),
-//			'type'    => 'slider',
-//			'default' => 10,
-//			'min'     => 1,
-//			'max'     => 50
-//		),
-//		array(
-//			'id'      => 'home-section-1-card',
-//			'title'   => __( 'Card Row' ),
-//			'type'    => 'radio',
-//			'options' => array(
-//				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
-//				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
-//			),
-//			'default' => 'card--home-3'
-//		),
-//		array(
-//			'id'      => 'home-section-1-color-title',
-//			'title'   => __( 'Color Title' ),
-//			'type'    => 'color',
-//			'default' => '#fff'
-//		),
-//		array(
-//			'id'      => 'home-section-1-card',
-//			'title'   => __( 'Card Row' ),
-//			'type'    => 'radio',
-//			'options' => array(
-//				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
-//				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
-//			),
-//			'default' => 'card--home-3'
-//		),
-//	)
+	'fields'           => array(
+		array(
+			'id'       => 'select-category-service',
+			'title'    => __( 'Select Categories', __TEXT_DOMAIN__ ),
+			'desc'     => '*only displays the first 5 categories selected',
+			'type'     => 'select',
+			'multi'    => true,
+			'data'     => 'categories',
+			'args'     => array( 'taxonomy' => array( 'service-categories' ), 'numberposts' => - 1 ),
+		),
+
+	)
 ) );
 
 /**
@@ -914,15 +841,18 @@ Redux::setSection( $opt_name, array(
 	)
 ) );
 
+/**
+ * CASE STUDIES - SELECT CATEGORIES HEROBANNER
+ */
 Redux::setSection( $opt_name, array(
 	'id'               => 'case-studies-categories',
-	'title'            => __( 'Select Categories', __TEXT_DOMAIN__ ),
+	'title'            => __( 'Last Article', __TEXT_DOMAIN__ ),
 	'subsection'       => true,
 	'customizer_width' => 450,
 	'fields'           => array(
 		array(
 			'id'    => 'case-studies-select-categories',
-			'title' => ( 'Last Article' ),
+			'title' => ( 'Select Categories Last Article' ),
 			'type'  => 'select',
 			'multi' => true,
 			'data'  => 'terms',
@@ -930,27 +860,6 @@ Redux::setSection( $opt_name, array(
 		)
 	)
 ) );
-
-/**
- * CASE STUDIES - LATEST ARTICLE
- */
-Redux::setSection( $opt_name, array(
-	'id'               => 'case-studies-last-article',
-	'title'            => __( 'Last Article', __TEXT_DOMAIN__ ),
-	'subsection'       => true,
-	'customizer_width' => 450,
-	'fields'           => array(
-		array(
-			'id'    => 'case-studies-article-categories',
-			'title' => ( 'Last Article' ),
-			'type'  => 'select',
-			'multi' => true,
-			'data'  => 'categories',
-			'args'  => array( 'post_type' => array( 'post' ), 'numberposts' => 4 ),
-		)
-	)
-) );
-
 
 /**
  * CASE STUDIES - LAST SECTION

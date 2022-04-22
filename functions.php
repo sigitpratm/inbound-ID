@@ -49,19 +49,35 @@ if ( class_exists( 'ReduxFramework' ) ) {
 
 
 function jpp_search_form() {
-	$form = '<form role="search" method="get" id="searchform" class="jpp-search-form" action="' . home_url( '/' ) . '" >
-    <input class="search-field" type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="search product" />
-    <button type="submit" id="searchsubmit" class="search-submit">
-	    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-		    <path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
-		</svg>
-    </button>
-    </form>';
+	$form = '<form role="search" method="get" id="searchform" class="my-0 mx-0" action="' . home_url( '/' ) . '" >
+				<div class="relative inline-flex">
+					<button type="submit" id="searchsubmit" class="p-2 bg-green-700 rounded-full absolute top-1 right-1.5 text-white focus:outline-0 focus:ring-0">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+							 stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round"
+								  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+						</svg>
+					</button>
+					<label class="block">
+						<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="search here"
+							   class="text-sm pl-4  pr-12 w-56 border border-gray-300 py-2 h-10 rounded-full bg-white"
+							   placeholder="Search here" required>
+					</label>
+				</div>
+    		</form>';
 
 	return $form;
 }
 
 add_filter( 'get_search_form', 'jpp_search_form' );
+
+
+
+
+
+
+
+
 //function delete_post_type(){
 //	unregister_post_type( 'sejoli-product' );
 //	$labels = [
@@ -131,3 +147,14 @@ add_filter( 'get_search_form', 'jpp_search_form' );
 
 //var_dump(dirname( __FILE__ ));
 //die;
+
+//function search_filter( $query ) {
+//	if ( ! is_admin() && $query->is_main_query() ) {
+//		if ( $query->is_search ) {
+//			$query->set( 'paged', ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1 );
+//			$query->set( 'posts_per_page', 6 );
+//		}
+//	}
+//}
+//
+//add_action( 'init', 'search_filter' );

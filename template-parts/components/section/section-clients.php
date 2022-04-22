@@ -2,9 +2,9 @@
 $query = new WP_Query( array(
 		'post_type'      => 'post',
 		'posts_per_page' => - 1,
-		'category_name'  => 'clients',
+		'meta_key'       => 'item_type',
+		'meta_value'     => 1
 ) );
-
 
 $data = $query->posts;
 
@@ -40,7 +40,7 @@ for ( $i = 0; $i < $maxCount; $i ++ ) {
 
 								<div class="col-span-1 md:col-span-3 h-32 md:h-40 flex items-center justify-center">
 									<img src="<?= get_the_post_thumbnail_url( $item->ID ) ?>" alt=""
-									     class="object-contain max-h-32 md:max-h-40 h-full w-auto">
+										 class="object-contain max-h-32 md:max-h-40 h-full w-auto">
 								</div>
 
 							<?php endfor; ?>

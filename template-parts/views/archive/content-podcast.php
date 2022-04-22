@@ -2,7 +2,7 @@
 	<div class="w-full max-w-[1360px] mx-auto min-h-screen xl:pt-20 space-y-20">
 		<div class="w-full max-w-4xl space-y-10 mx-auto">
 			<h1 class="lg:text-5xl text-[#3D9E26] font-bold text-center"><?= emk_options( 'podcast-section1-items1-heading' ) ?></h1>
-			<p class="text-center text-base">
+			<p class="text-center text-lg">
 				<?= emk_options( 'podcast-section1-items1-subheading' ) ?>
 			</p>
 		</div>

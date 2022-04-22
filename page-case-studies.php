@@ -63,7 +63,9 @@ $terms = get_terms( array(
 										</p>
 									</div>
 									<p class="text-4xl md:text-7xl font-bold text-scheme-green text-center md:text-left">
-										<?= get_the_title() ?>
+										<a href="<?= get_the_permalink() ?>">
+											<?= get_the_title() ?>
+										</a>
 									</p>
 									<p class="text-base md:text-xl line-clamp-3 leading-6 md:leading-8 text-center md:text-left">
 										<?= get_the_excerpt() ?>
