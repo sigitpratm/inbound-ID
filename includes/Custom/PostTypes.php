@@ -9,7 +9,6 @@ namespace EmkalabTheme\Custom;
 class PostTypes {
 	/**
 	 * register default hooks and actions for WordPress
-	 * @return
 	 */
 	public function register() {
 		add_action( 'init', array( $this, 'custom_post_type' ), 10, 4 );
@@ -18,7 +17,7 @@ class PostTypes {
 
 	/**
 	 * Create Custom Post Types
-	 * @return The registered post type object, or an error object
+	 * @return void registered post type object, or an error object
 	 */
 	public function custom_post_type() {
 		/**
@@ -105,6 +104,25 @@ class PostTypes {
 				'slug'               => 'service',
 				'singular'           => 'Service',
 				'plural'             => 'Services',
+				'menu_icon'          => 'dashicons-admin-customizer',
+				'menu_position'      => 22,
+				'text_domain'        => __TEXT_DOMAIN__,
+				'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+				'description'        => 'Podcast',
+				'public'             => true,
+				'publicly_queryable' => true,
+				'show_ui'            => true,
+				'show_in_menu'       => true,
+				'query_var'          => true,
+				'capability_type'    => 'post',
+				'has_archive'        => true,
+				'hierarchical'       => true,
+				'show_in_rest'       => true,
+			],
+			[
+				'slug'               => 'our-work',
+				'singular'           => 'Our Work',
+				'plural'             => 'Our Works',
 				'menu_icon'          => 'dashicons-admin-customizer',
 				'menu_position'      => 22,
 				'text_domain'        => __TEXT_DOMAIN__,

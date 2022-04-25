@@ -1,3 +1,59 @@
+<?php
+$categories = emk_options( 'home-works-select-category' );
+
+if ( $categories !== null ) {
+	$selectCat = array_slice( $categories, 0, 5 );
+}
+if ( $selectCat !== null ) {
+	$countCategories = count( $selectCat );
+}
+
+
+for ( $i = 0; $i < $countCategories; $i ++ ):
+	$args = array(
+			'post_type'      => 'our-work',
+			'posts_per_page' => 4,
+			'order'          => 'ASC',
+			'tax_query'      => array(
+					array(
+							'taxonomy' => 'work-categories',
+							'field'    => 'id',
+							'terms'    => $selectCat[ $i ],
+					),
+			),
+	);
+
+	$the_query = new WP_Query( $args );
+	if ( $the_query->have_posts() ) : ?>
+		<div class="border border-red-400 p-4">
+			<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+				<div class="grid grid-cols-12">
+
+					<div class="col-span-4">
+						<p>
+							<?= get_the_category_by_ID( $selectCat[ $i ] ); ?>
+						</p>
+					</div>
+
+					<div class="col-span-8">
+						<p>
+							<?= get_the_title() ?>
+						</p>
+					</div>
+
+				</div>
+			<?php endwhile; ?>
+		</div>
+
+		<?php wp_reset_postdata();
+	else:
+		echo "null";
+	endif;
+
+endfor;
+?>
+
+
 <div class="py-16 md:py-28 space-y-12">
 	<!-- heading -->
 	<div class="space-y-4">
@@ -12,29 +68,29 @@
 			<div class="col-span-4 bg-scheme-dark-gray flex items-center justify-center h-[40rem] rounded-xl relative overflow-hidden">
 				<img src="<?= jpp_assets( '/img/png/clip-art-top.png' ) ?>" alt="" class="absolute top-0 left-0">
 				<img src="<?= jpp_assets( '/img/png/clip-art-bottom.png' ) ?>" alt=""
-				     class="absolute bottom-0 left-0 w-full">
+					 class="absolute bottom-0 left-0 w-full">
 				<p class="w-2/3 mx-auto text-center text-4xl font-bold text-scheme-green">VIDEO & MOTION</p>
 			</div>
 
 			<div class="col-span-4">
 				<div class="rounded-xl h-[20rem] overflow-hidden">
 					<img src="<?= jpp_assets( '/img/jpg/our-works/img-vid_motion-porto-01.jpg' ) ?>" alt=""
-					     class="w-full h-full object-cover">
+						 class="w-full h-full object-cover">
 				</div>
 				<div class="rounded-xl h-[20rem] overflow-hidden">
 					<img src="<?= jpp_assets( '/img/jpg/our-works/img-vid_motion-porto-02.jpg' ) ?>" alt=""
-					     class="w-full h-full object-cover">
+						 class="w-full h-full object-cover">
 				</div>
 			</div>
 
 			<div class="col-span-4">
 				<div class="rounded-xl h-[20rem] overflow-hidden">
 					<img src="<?= jpp_assets( '/img/jpg/our-works/img-vid_motion-porto-03.jpg' ) ?>" alt=""
-					     class="w-full h-full object-cover">
+						 class="w-full h-full object-cover">
 				</div>
 				<div class="rounded-xl h-[20rem] overflow-hidden">
 					<img src="<?= jpp_assets( '/img/jpg/our-works/img-vid_motion-porto-04.jpg' ) ?>" alt=""
-					     class="w-full h-full object-cover">
+						 class="w-full h-full object-cover">
 				</div>
 			</div>
 		</div>
@@ -44,7 +100,7 @@
 			<div class="col-span-4 bg-scheme-dark-gray flex items-center justify-center h-[40rem] rounded-xl relative overflow-hidden">
 				<img src="<?= jpp_assets( '/img/png/clip-art-top.png' ) ?>" alt="" class="absolute top-0 left-0">
 				<img src="<?= jpp_assets( '/img/png/clip-art-bottom.png' ) ?>" alt=""
-				     class="absolute bottom-0 left-0 w-full">
+					 class="absolute bottom-0 left-0 w-full">
 				<p class="w-2/3 mx-auto text-center text-4xl font-bold text-scheme-green">INFOGRAPHICS</p>
 			</div>
 
@@ -64,7 +120,7 @@
 			<div class="col-span-4 bg-scheme-dark-gray flex items-center justify-center h-[40rem] rounded-xl relative overflow-hidden">
 				<img src="<?= jpp_assets( '/img/png/clip-art-top.png' ) ?>" alt="" class="absolute top-0 left-0">
 				<img src="<?= jpp_assets( '/img/png/clip-art-bottom.png' ) ?>" alt=""
-				     class="absolute bottom-0 left-0 w-full">
+					 class="absolute bottom-0 left-0 w-full">
 				<p class="w-2/3 mx-auto text-center text-4xl font-bold text-scheme-green">INSTAGRAM AR FILTER</p>
 			</div>
 
@@ -84,7 +140,7 @@
 			<div class="col-span-4 bg-scheme-dark-gray flex items-center justify-center h-[40rem] rounded-xl relative overflow-hidden">
 				<img src="<?= jpp_assets( '/img/png/clip-art-top.png' ) ?>" alt="" class="absolute top-0 left-0">
 				<img src="<?= jpp_assets( '/img/png/clip-art-bottom.png' ) ?>" alt=""
-				     class="absolute bottom-0 left-0 w-full">
+					 class="absolute bottom-0 left-0 w-full">
 				<p class="w-2/3 mx-auto text-center text-4xl font-bold text-scheme-green">ARTICLES</p>
 			</div>
 
@@ -103,11 +159,11 @@
 	<!-- footer -->
 	<div class="flex items-center justify-center">
 		<button id="prev-slide-work"
-		        class="w-8 h-8 rounded-full flex items-center justify-center border-4 bg-white border-scheme-green text-scheme-green">
+				class="w-8 h-8 rounded-full flex items-center justify-center border-4 bg-white border-scheme-green text-scheme-green">
 			<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
 				<path fill-rule="evenodd"
-				      d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z"
-				      clip-rule="evenodd"/>
+					  d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z"
+					  clip-rule="evenodd"/>
 			</svg>
 		</button>
 
@@ -119,11 +175,11 @@
 		</div>
 
 		<button id="next-slide-work"
-		        class="w-8 h-8 rounded-full flex items-center justify-center border-4 bg-white border-scheme-green text-scheme-green">
+				class="w-8 h-8 rounded-full flex items-center justify-center border-4 bg-white border-scheme-green text-scheme-green">
 			<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
 				<path fill-rule="evenodd"
-				      d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-				      clip-rule="evenodd"/>
+					  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+					  clip-rule="evenodd"/>
 			</svg>
 		</button>
 	</div>

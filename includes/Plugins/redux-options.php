@@ -262,13 +262,25 @@ Redux::setSection( $opt_name, array(
 	'customizer_width' => 450,
 	'fields'           => array(
 		array(
-			'id'       => 'select-category-service',
-			'title'    => __( 'Select Categories', __TEXT_DOMAIN__ ),
-			'desc'     => '*only displays the first 5 categories selected',
-			'type'     => 'select',
-			'multi'    => true,
-			'data'     => 'categories',
-			'args'     => array( 'taxonomy' => array( 'service-categories' ), 'numberposts' => - 1 ),
+			'id'      => 'service-section-heading',
+			'title'   => __( 'Service Section Heading', __TEXT_DOMAIN__ ),
+			'type'    => 'text',
+			'default' => 'OUR SERVICE'
+		),
+		array(
+			'id'      => 'service-section-subheading',
+			'title'   => __( 'Service Section Subheading', __TEXT_DOMAIN__ ),
+			'type'    => 'text',
+			'default' => 'Find the perfect-fit digital marketing solution that suits your business.'
+		),
+		array(
+			'id'    => 'select-category-service',
+			'title' => __( 'Select Categories', __TEXT_DOMAIN__ ),
+			'desc'  => '*only displays the first 5 categories selected',
+			'type'  => 'select',
+			'multi' => true,
+			'data'  => 'categories',
+			'args'  => array( 'taxonomy' => array( 'service-categories' ), 'numberposts' => - 1 ),
 		),
 
 	)
@@ -278,65 +290,19 @@ Redux::setSection( $opt_name, array(
  * HOME - OUR WORKS
  */
 Redux::setSection( $opt_name, array(
-	'id'               => 'home-works',
-	'title'            => __( 'Our Works', __TEXT_DOMAIN__ ),
-	'subsection'       => true,
-	'customizer_width' => 450,
-//	'fields'           => array(
-//		array(
-//			'id'      => 'home-section-2-status',
-//			'title'   => __( 'Section Show', __TEXT_DOMAIN__ ),
-//			'type'    => 'switch',
-//			'default' => true
-//		),
-//		array(
-//			'id'      => 'home-section-2-options',
-//			'title'   => __( 'Format', __TEXT_DOMAIN__ ),
-//			'type'    => 'select',
-//			'options' => array(
-//				'TV'        => 'TV',
-//				'TV Short'  => 'TV Short',
-//				'Movie'     => 'Movie',
-//				'Leftovers' => 'Leftovers',
-//				'Special'   => 'OVA / ONA / SPECIALS'
-//			),
-//			'default' => 'TV Short'
-//		),
-//		array(
-//			'id'      => 'home-section-2-post',
-//			'title'   => __( 'Post Length', __TEXT_DOMAIN__ ),
-//			'type'    => 'slider',
-//			'default' => 10,
-//			'min'     => 1,
-//			'max'     => 50
-//		),
-//		array(
-//			'id'      => 'home-section-2-card',
-//			'title'   => __( 'Card Row' ),
-//			'type'    => 'radio',
-//			'options' => array(
-//				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
-//				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
-//			),
-//			'default' => 'card--home-3'
-//		),
-//		array(
-//			'id'      => 'home-section-2-color-title',
-//			'title'   => __( 'Color Title' ),
-//			'type'    => 'color',
-//			'default' => '#494949'
-//		),
-//		array(
-//			'id'      => 'home-section-2-card',
-//			'title'   => __( 'Card Row' ),
-//			'type'    => 'radio',
-//			'options' => array(
-//				'card--home-3' => __( '3', __TEXT_DOMAIN__ ),
-//				'card--home-2' => __( '2', __TEXT_DOMAIN__ ),
-//			),
-//			'default' => 'card--home-3'
-//		)
-//	)
+	'id'         => 'home-works',
+	'title'      => __( 'Our Works', __TEXT_DOMAIN__ ),
+	'subsection' => true,
+	'fields'     => array(
+		array(
+			'id'    => 'home-works-select-category',
+			'title' => ( 'Our Works Select Category' ),
+			'type'  => 'select',
+			'multi' => true,
+			'data'  => 'terms',
+			'args'  => array( 'taxonomies' => 'work-categories', 'args' => array() ),
+		)
+	)
 ) );
 
 /**
@@ -480,7 +446,7 @@ Redux::setSection( $opt_name, array(
 			'desc'    => __( 'Isi dengan tag html dan menggunakan class styling Tailwind CSS', __TEXT_DOMAIN__ ),
 			'default' => "<p>Masih kosong, Silakan isi di edit dashboard admin</p>",
 			'options' => array(
-				'minLines' => 40
+				'minLines' => 25
 			)
 		),
 		array(
@@ -490,9 +456,55 @@ Redux::setSection( $opt_name, array(
 			'desc'    => __( 'Isi dengan tag html dan menggunakan class styling Tailwind CSS', __TEXT_DOMAIN__ ),
 			'default' => "<p>Masih kosong, Silakan isi di edit dashboard admin</p>",
 			'options' => array(
-				'minLines' => 40
+				'minLines' => 25
 			)
 		),
+	)
+) );
+
+Redux::setSection( $opt_name, array(
+	'id'         => 'ads-sections',
+	'title'      => __( 'Ads Sections', 'cbnews' ),
+	'desc'       => __( 'You can manage your ads', 'cbnews' ),
+	'icon'       => 'dashicons dashicons-dashboard',
+	'subsection' => true,
+	'fields'     => array(
+		array(
+			'id'       => 'repeater-field-id',
+			'type'     => 'repeater',
+			'title'    => __( 'Title', 'redux-framework-demo' ),
+			'subtitle' => __( '', 'redux-framework-demo' ),
+			'desc'     => __( '', 'redux-framework-demo' ),
+			//'group_values' => true, // Group all fields below within the repeater ID
+			//'item_name' => '', // Add a repeater block name to the Add and Delete buttons
+			//'bind_title' => '', // Bind the repeater block title to this field ID
+			//'static'     => 2, // Set the number of repeater blocks to be output
+			//'limit' => 2, // Limit the number of repeater blocks a user can create
+			//'sortable' => false, // Allow the users to sort the repeater blocks or not
+			'fields'   => array(
+				array(
+					'id'          => 'title_field',
+					'type'        => 'text',
+					'placeholder' => __( 'Title', 'redux-framework-demo' ),
+				),
+				array(
+					'id'          => 'text_field',
+					'type'        => 'text',
+					'placeholder' => __( 'Text Field', 'redux-framework-demo' ),
+				),
+				array(
+					'id'          => 'select_field',
+					'type'        => 'select',
+					'title'       => __( 'Select Field', 'redux-framework-demo' ),
+					'options'     => array(
+						'1' => __( 'Option 1', 'redux-framework-demo' ),
+						'2' => __( 'Option 2', 'redux-framework-demo' ),
+						'3' => __( 'Option 3', 'redux-framework-demo' ),
+					),
+					'placeholder' => __( 'Listing Field', 'redux-framework-demo' ),
+				),
+			)
+		)
 	)
 ) );
 

@@ -41,7 +41,7 @@ $query_slider = new WP_Query( array(
 
 								<div class="order-2 md:order-1 col-span-1 md:col-span-6 w-full h-full flex flex-col items-center md:items-start justify-center w-full md:w-4/5 gap-4 md:gap-8">
 									<div class="flex items-center gap-2 text-sm md:text-xl">
-										<p class="font-bold uppercase">
+										<p class="font-bold uppercase text-gray-600">
 											<?php
 											$categories = get_the_category();
 											if ( ! empty( $categories ) ) {
@@ -51,7 +51,7 @@ $query_slider = new WP_Query( array(
 											}
 											?>
 										</p>
-										<p>&#9679;</p>
+										<p class="text-gray-600">&#9679;</p>
 										<p>
 											<?= get_the_date() ?>
 										</p>

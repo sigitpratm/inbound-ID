@@ -93,6 +93,14 @@ class Taxonomy {
 		);
 
 		register_taxonomy( 'service-categories', 'service', $args );
+
+		$args = array(
+			'label'        => __( 'Work Categories' ),
+			'rewrite'      => array( 'slug' => 'work-categories' ),
+			'hierarchical' => true,
+		);
+
+		register_taxonomy( 'work-categories', 'our-work', $args );
 	}
 
 	/**
