@@ -295,14 +295,6 @@ Redux::setSection( $opt_name, array(
 			'default' => 'LAST ARTICLE',
 			'desc'    => '*input title for heading section last article'
 		),
-		array(
-			'id'    => 'home-last-article-categories',
-			'title' => ( 'Last Article' ),
-			'type'  => 'select',
-			'multi' => true,
-			'data'  => 'categories',
-			'args'  => array( 'post_type' => array( 'post' ), 'numberposts' => - 1 ),
-		)
 	)
 ) );
 

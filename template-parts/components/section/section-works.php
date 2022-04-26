@@ -49,7 +49,7 @@ if ( $selectCat !== null ) {
 			<div class="slide-work card-slider-work ease-in-out grid grid-cols-12 absolute top-0 left-0 w-full opacity-0"
 				 data-slider-work="slider-work<?= $i ?>">
 
-				<div class="col-span-12 md:col-span-4 bg-transparent md:bg-scheme-dark-gray flex items-center justify-center h-auto md:h-[40rem] rounded-xl relative overflow-hidden">
+				<div class="col-span-12 md:col-span-4 bg-scheme-dark-gray flex items-center justify-center h-auto md:h-[40rem] rounded-xl relative overflow-hidden">
 					<img src="<?= jpp_assets( '/img/png/clip-art-top.png' ) ?>" alt="" class="hidden md:block absolute top-0 left-0">
 					<img src="<?= jpp_assets( '/img/png/clip-art-bottom.png' ) ?>" alt=""
 						 class="hidden md:block absolute bottom-0 left-0 w-full">
@@ -61,7 +61,7 @@ if ( $selectCat !== null ) {
 				<div class="col-span-12 md:col-span-8">
 					<div class="grid grid-cols-12 overflow-hidden rounded-xl">
 						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-							<div class="col-span-6 rounded-xl h-44 md:h-[24rem] overflow-hidden">
+							<div class="col-span-6 rounded-xl h-44 md:h-[20rem] overflow-hidden">
 								<img src="<?= get_field( 'image' ) ?>" alt=""
 									 class="w-full h-full object-cover">
 							</div>

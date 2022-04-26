@@ -99,5 +99,6 @@ get_header(); ?>
 
 	<img src="<?= jpp_assets( '/img/png/img-bg-footer.png' ) ?>" alt="" class="w-full">
 
+
 <?php
 get_footer();

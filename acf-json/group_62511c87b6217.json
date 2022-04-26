@@ -61,8 +61,7 @@
             },
             "choices": {
                 "1": "Our Client",
-                "2": "Our Work",
-                "3": "Award"
+                "2": "Award"
             },
             "default_value": 1,
             "allow_null": 0,
@@ -336,5 +335,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1650529337
+    "modified": 1650964081
 }
