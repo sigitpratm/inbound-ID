@@ -43,17 +43,17 @@
 
 				<div id="item-nav" class="w-full flex flex-col items-start justify-start py-4 gap-4 text-sm">
 					<a href="#"
-					   class="btn btn-nav-sm w-full p-2 rounded-md hover:text-green-700 transition duration-200 cursor-pointer active-nav">HOME</a>
-					<a href="#"
-					   class="btn btn-nav-sm w-full p-2 rounded-md hover:text-green-700 transition duration-200 cursor-pointer">SERVICE</a>
-					<a href="#"
-					   class="btn btn-nav-sm w-full p-2 rounded-md hover:text-green-700 transition duration-200 cursor-pointer">BLOG</a>
-					<a href="#"
-					   class="btn btn-nav-sm w-full p-2 rounded-md hover:text-green-700 transition duration-200 cursor-pointer">CONTACT
-						US</a>
-					<a href="#"
-					   class="btn btn-nav-sm w-full p-2 rounded-md hover:text-green-700 transition duration-200 cursor-pointer">ABOUT
-						US</a>
+					   class="hidden btn btn-nav-sm w-full p-2 rounded-md hover:text-green-700 transition duration-200 cursor-pointer active-nav">HOME</a>
+					<div class="small-menu">
+						<?php
+						wp_nav_menu(
+								array(
+										'menu'           => 'default-menu',
+										'theme_location' => 'default-menuku',
+								)
+						);
+						?>
+					</div>
 				</div>
 
 			</nav>

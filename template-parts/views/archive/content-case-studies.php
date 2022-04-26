@@ -24,7 +24,7 @@ $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 					data-tax-query="[{key:'slug',}]"
 					data-target="all" data-tab="case-studies"
 					data-tab-active="0" data-index="0"
-					class="flex-none active-btn-article btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-1 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
+					class="flex-none active-btn-article btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-2 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
 				ALL
 			</button>
 			<?php
@@ -36,7 +36,7 @@ $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 							data-tax-query="[{key:'slug',}]"
 							data-target="<?= $item->slug ?>" data-tab="case-studies"
 							data-tab-active="<?= $i === 0 ?>" data-index="<?= $i; ?>"
-							class="flex-none  btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-1 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
+							class="flex-none  btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-2 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
 						<?= $item->name ?>
 					</button>
 				<?php endif; ?>

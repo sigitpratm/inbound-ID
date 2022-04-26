@@ -140,7 +140,7 @@ const AwardCard = function (attr) {
 
 	if (typeof (elems) !== 'undefined') {
 		if (elems.length > 0) {
-			console.log(elems, "AWARDS")
+			// console.log(elems, "AWARDS")
 			elems.forEach((el) => {
 				el.innerHTML = ""
 				el.innerHTML = "<div class='w-full grid-cols-1 md:col-span-2 space-y-2 h-[200px]'>Loading...</div>"
@@ -191,7 +191,7 @@ window.addEventListener('DOMContentLoaded', function () {
  */
 function cardPodcast(data = {}) {
 	let elem = document.createElement("div")
-	elem.className = "col-span-1 w-full min-h-[320px] rounded-xl space-y-6"
+	elem.className = "col-span-2 md:col-span-1 w-full min-h-[320px] rounded-xl space-y-6"
 	let el1 = document.createElement("div")
 	el1.className = "w-full min-h-[280px] bg-gray-50 rounded-xl overflow-hidden relative"
 
@@ -204,10 +204,10 @@ function cardPodcast(data = {}) {
 	elem.append(el1)
 
 	let el2 = document.createElement('div')
-	el2.className = "w-full flex items-center justify-center relative px-6"
+	el2.className = "w-full flex items-center justify-center relative px-0 md:px-6"
 
 	let a = document.createElement("a")
-	a.className = "w-full py-4 bg-[#3D9E26] shadow-lg rounded-full text-white font-semibold text-center"
+	a.className = "w-full py-2 md:py-4 bg-[#3D9E26] shadow-lg rounded-full text-white font-semibold text-center"
 	a.target = "_blank"
 	a.rel = "nofollow"
 	if (typeof (data?.fields?.podcast?.social?.type) !== "undefined" && typeof (data?.fields?.podcast?.social?.url) !== "undefined") {
@@ -271,7 +271,7 @@ function EmptyLayout(txt, classes = "col-span-4 h-[240px] flex items-center just
 function ChangeImageOnError() {
 	let images = document.querySelectorAll('img')
 	if (typeof (images) !== "undefined") {
-		console.log("ChangeImageOnError : ", images)
+		// console.log("ChangeImageOnError : ", images)
 
 		if (images.length > 0) {
 			images.forEach((el) => {
@@ -294,7 +294,7 @@ function ContentArticleTabByCategory(attr = "last-article", field = "slug", term
 	if (typeof (elements) !== "undefined" && elements) {
 		if (elements.length > 0) {
 			elements.forEach((el) => {
-				console.log(el, "CONTENT ARTICLE TAB BY CTAEGORY")
+				// console.log(el, "CONTENT ARTICLE TAB BY CTAEGORY")
 				el.innerHTML = `<div class="animate-pulse col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"><div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-gray-200"></div><div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"><div class="w-full h-4 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="px-6 py-2 bg-gray-200 rounded-full"></div></div></div>`
 				el.innerHTML += `<div class="animate-pulse col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"><div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-gray-200"></div><div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"><div class="w-full h-4 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="px-6 py-2 bg-gray-200 rounded-full"></div></div></div>`
 				el.innerHTML += `<div class="animate-pulse col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"><div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-gray-200"></div><div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"><div class="w-full h-4 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="px-6 py-2 bg-gray-200 rounded-full"></div></div></div>`
@@ -347,7 +347,7 @@ function ContentArticleTabByCategoryStudies(attr = "last-article", field = "slug
 	if (typeof (elements) !== "undefined" && elements) {
 		if (elements.length > 0) {
 			elements.forEach((el) => {
-				console.log(el, "CONTENT ARTICLE TAB BY CTAEGORY")
+				// console.log(el, "CONTENT ARTICLE TAB BY CTAEGORY")
 				el.innerHTML = `<div class="animate-pulse col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"><div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-gray-200"></div><div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"><div class="w-full h-4 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="px-6 py-2 bg-gray-200 rounded-full"></div></div></div>`
 				el.innerHTML += `<div class="animate-pulse col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"><div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-gray-200"></div><div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"><div class="w-full h-4 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="px-6 py-2 bg-gray-200 rounded-full"></div></div></div>`
 				el.innerHTML += `<div class="animate-pulse col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"><div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-gray-200"></div><div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"><div class="w-full h-4 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="px-6 py-2 bg-gray-200 rounded-full"></div></div></div>`
@@ -398,7 +398,7 @@ function CardArticleDefault(data = {}) {
 	let div = document.createElement('div')
 	div.className = "col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"
 	let divImg = document.createElement('div')
-	divImg.className = "h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-black"
+	divImg.className = "h-full w-[80rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-black"
 	let img = document.createElement("img")
 	img.src = data?.thumbnail?.url
 	img.className = "object-cover w-full h-full xl:h-52 2xl:h-72 transition duration-300 ease-in-out hover:scale-105 hover:opacity-60"
@@ -410,14 +410,14 @@ function CardArticleDefault(data = {}) {
 	div2.className = "p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"
 
 	let aTitle = document.createElement('a')
-	aTitle.className = "text-lg md:text-3xl font-bold text-scheme-green line-clamp-2"
+	aTitle.className = "text-lg md:text-3xl font-bold text-scheme-green line-clamp-2 min-h-[50px]"
 	aTitle.href = data?.url ?? ""
 	aTitle.innerText = data?.post_title ?? "-"
 
 	div2.append(aTitle)
 
 	let pDesc = document.createElement('p')
-	pDesc.className = "text-sm md:text-base line-clamp-2 text-scheme-gray"
+	pDesc.className = "text-sm md:text-base line-clamp-2 text-scheme-gray line-clamp-2 overflow-y-hidden"
 	pDesc.innerText = data?.post_content ?? ""
 
 	div2.append(pDesc)
@@ -524,7 +524,7 @@ window.addEventListener('DOMContentLoaded', function () {
 					// }else{
 					// 	el.classList.remove("active-btn-article")
 					// }
-					console.log('clicked', el.getAttribute("data-target"))
+					// console.log('clicked', el.getAttribute("data-target"))
 					ContentArticleTabByCategory('last-article', 'slug', el.getAttribute("data-target"))
 					ContentArticleTabByCategoryStudies('last-article-studies', 'slug', el.getAttribute("data-target"))
 				})

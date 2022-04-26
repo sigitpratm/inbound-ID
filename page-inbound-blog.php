@@ -27,9 +27,18 @@ $query_slider = new WP_Query( array(
 
 ) );
 ?>
-	<div class="pt-16 md:pt-[6.5rem] relative">
 
-		<div class="container mx-auto px-4">
+<?php get_template_part( 'template-parts/components/section/section-sticky-sosmed', get_post_type() ) ?>
+
+
+	<div class="pt-16 md:pt-[6.5rem] relative overflow-hidden">
+
+		<img src="<?= jpp_assets( '/img/png/img-bg-01.png' ) ?>" alt=""
+			 class="hidden md:block absolute top-52 left-0 opacity-50">
+		<img src="<?= jpp_assets( '/img/png/img-bg-02.png' ) ?>" alt=""
+			 class="hidden md:block absolute top-[20%] right-0 opacity-80 z-10">
+
+		<div class="container mx-auto px-4 xl:px-12 2xl:px-0 relative z-20">
 			<div id="body-slider-inbound-blog" class="body-slider-inbound-blog w-full overflow-x-hidden flex flex-row">
 
 				<?php if ( $query_slider->have_posts() ) : ?>
@@ -106,11 +115,13 @@ $query_slider = new WP_Query( array(
 
 		</div>
 
-		<div class="container mx-auto">
+		<div class="container mx-auto px-4 xl:px-12 2xl:px-0 relative z-30">
 			<?php get_template_part( 'template-parts/components/section/section-latest-article-blog', get_post_type() ) ?>
 		</div>
 
-		<div class="grid grid-cols-12 relative pt-4 md:pt-32 bg-scheme-light-gray relative z-20 relative">
+
+		<!-- last section -->
+		<div class="grid grid-cols-12 pt-4 md:pt-24 relative z-20 relative">
 
 			<div class="col-span-12 md:col-span-6">
 				<img src="<?= emk_options( 'blog-last-section-image', 'url' ) ?>" alt="" class="object-cover w-full">
@@ -143,8 +154,8 @@ $query_slider = new WP_Query( array(
 				</div>
 			</div>
 
-			<img src="<?= jpp_assets( '/img/png/img-bg-footer.png' ) ?>" alt="" class="absolute bottom-0 left-0 z-20">
 		</div>
+		<img src="<?= jpp_assets( '/img/png/img-bg-footer.png' ) ?>" alt="" class="absolute bottom-0 left-0 z-50">
 
 	</div>
 

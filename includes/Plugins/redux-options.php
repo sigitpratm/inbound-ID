@@ -150,15 +150,6 @@ Redux::setArgs( $opt_name, $args );
  */
 
 // -> START Basic Fields
-Redux::setSection( $opt_name, array(
-	'title'            => __( 'General', __TEXT_DOMAIN__ ),
-	'id'               => 'general',
-	'desc'             => __( 'General Setup', __TEXT_DOMAIN__ ),
-	'customizer_width' => '400px',
-	'icon'             => 'el el-home'
-) );
-
-
 /**
  * Header setup
  */
@@ -169,21 +160,15 @@ Redux::setSection( $opt_name, array(
 	'icon'             => 'el el-pencil'
 ) );
 
+/**
+ * HEADER - LAYOUT
+ */
 Redux::setSection( $opt_name, array(
 	'title'            => __( 'Layout', __TEXT_DOMAIN__ ),
 	'id'               => 'header-layout',
 	'customizer_width' => '450px',
 	'subsection'       => true,
 	'fields'           => array(
-		array(
-			'id'       => 'opt_header_logo',
-			'type'     => 'media',
-			'url'      => true,
-			'title'    => __( 'Logo', 'demo' ),
-			'compiler' => 'false',
-			'subtitle' => __( 'Upload your logo', 'demo' ),
-			'default'  => array( 'url' => get_template_directory_uri() . '/assets/img/sun.svg' ),
-		),
 		array(
 			'id'      => 'header-style',
 			'type'    => 'radio',
@@ -195,28 +180,17 @@ Redux::setSection( $opt_name, array(
 			'default' => 'with-logo',
 		),
 		array(
-			'id'      => 'header-background-color',
-			'type'    => 'color',
-			'title'   => __( 'Background Color', __TEXT_DOMAIN__ ),
-			'default' => '#2b2d42'
-		),
-		array(
-			'id'      => 'header-menu-background-color',
-			'type'    => 'color',
-			'title'   => __( 'Menu - Background Color', __TEXT_DOMAIN__ ),
-			'default' => '#2b2d42'
-		),
-		array(
-			'id'      => 'header-menu-hover-background-color',
-			'type'    => 'color',
-			'title'   => __( 'Menu - Background Color (Hover and Active)', __TEXT_DOMAIN__ ),
-			'default' => '#2b2d42'
-		),
-		array(
-			'id'      => 'header-menu-link-color',
-			'type'    => 'color',
-			'title'   => __( 'Menu - Link Color', __TEXT_DOMAIN__ ),
-			'default' => '#ffffff'
+			'id'       => 'opt_header_logo',
+			'type'     => 'media',
+			'url'      => true,
+			'title'    => __( 'Logo', 'demo' ),
+			'compiler' => 'false',
+			'subtitle' => __( 'Upload your logo', 'demo' ),
+			'default'  => array(
+				'url' => 'https://s.wordpress.org/style/images/codeispoetry.png'
+			),
+			'required' => array( 'header-style', '=', 'with-logo' )
+
 		),
 	)
 ) );
@@ -322,7 +296,7 @@ Redux::setSection( $opt_name, array(
 			'desc'    => '*input title for heading section last article'
 		),
 		array(
-			'id'    => 'last-article-categories',
+			'id'    => 'home-last-article-categories',
 			'title' => ( 'Last Article' ),
 			'type'  => 'select',
 			'multi' => true,
@@ -408,12 +382,42 @@ Redux::setSection( $opt_name, array(
 			'subtitle' => __( 'Upload your logo', 'default' ),
 			'default'  => array( 'url' => jpp_assets( '/img/png/img-footer.png' ) ),
 		),
-
 		array(
 			'id'      => 'home-last-section-text',
 			'title'   => __( 'Copy last section', __TEXT_DOMAIN__ ),
 			'type'    => 'textarea',
 			'default' => 'Have any other question? Feel free to contact us',
+		),
+		array(
+			'id'      => 'home-last-section-btn1-title',
+			'title'   => __( 'Button 1 Title', __TEXT_DOMAIN__ ),
+			'type'    => 'text',
+			'default' => 'Create A Brief',
+		),
+		array(
+			'id'      => 'home-last-section-btn1-url',
+			'title'   => __( 'Button 1 URL', __TEXT_DOMAIN__ ),
+			'type'    => 'text',
+			'default' => 'https://www.google.com',
+		),
+		array(
+			'id'    => 'home-last-section-use-btn2',
+			'title' => __( 'Show Button 2', __TEXT_DOMAIN__ ),
+			'type'  => 'switch',
+		),
+		array(
+			'id'       => 'home-last-section-btn2-title',
+			'title'    => __( 'Button 2 Title', __TEXT_DOMAIN__ ),
+			'type'     => 'text',
+			'default'  => 'Set a Meeting',
+			'required' => array( 'home-last-section-use-btn2', '=', '1' )
+		),
+		array(
+			'id'       => 'home-last-section-btn2-url',
+			'title'    => __( 'Button 2 URL', __TEXT_DOMAIN__ ),
+			'type'     => 'text',
+			'default'  => 'https://www.google.com',
+			'required' => array( 'home-last-section-use-btn2', '=', '1' )
 		),
 	)
 ) );
@@ -462,52 +466,6 @@ Redux::setSection( $opt_name, array(
 	)
 ) );
 
-Redux::setSection( $opt_name, array(
-	'id'         => 'ads-sections',
-	'title'      => __( 'Ads Sections', 'cbnews' ),
-	'desc'       => __( 'You can manage your ads', 'cbnews' ),
-	'icon'       => 'dashicons dashicons-dashboard',
-	'subsection' => true,
-	'fields'     => array(
-		array(
-			'id'       => 'repeater-field-id',
-			'type'     => 'repeater',
-			'title'    => __( 'Title', 'redux-framework-demo' ),
-			'subtitle' => __( '', 'redux-framework-demo' ),
-			'desc'     => __( '', 'redux-framework-demo' ),
-			//'group_values' => true, // Group all fields below within the repeater ID
-			//'item_name' => '', // Add a repeater block name to the Add and Delete buttons
-			//'bind_title' => '', // Bind the repeater block title to this field ID
-			//'static'     => 2, // Set the number of repeater blocks to be output
-			//'limit' => 2, // Limit the number of repeater blocks a user can create
-			//'sortable' => false, // Allow the users to sort the repeater blocks or not
-			'fields'   => array(
-				array(
-					'id'          => 'title_field',
-					'type'        => 'text',
-					'placeholder' => __( 'Title', 'redux-framework-demo' ),
-				),
-				array(
-					'id'          => 'text_field',
-					'type'        => 'text',
-					'placeholder' => __( 'Text Field', 'redux-framework-demo' ),
-				),
-				array(
-					'id'          => 'select_field',
-					'type'        => 'select',
-					'title'       => __( 'Select Field', 'redux-framework-demo' ),
-					'options'     => array(
-						'1' => __( 'Option 1', 'redux-framework-demo' ),
-						'2' => __( 'Option 2', 'redux-framework-demo' ),
-						'3' => __( 'Option 3', 'redux-framework-demo' ),
-					),
-					'placeholder' => __( 'Listing Field', 'redux-framework-demo' ),
-				),
-			)
-		)
-	)
-) );
-
 
 /**
  * ABOUT US - ACHIEVEMENT
@@ -534,7 +492,7 @@ Redux::setSection( $opt_name, array(
 			'id'      => 'achievement-desc-item1',
 			'title'   => "Description Item 1",
 			'type'    => 'text',
-			'default' => 'Lorem ipsum dolor sit amet, consectetur adipisicing',
+			'default' => '150+ digital marketing campaigns',
 		),
 		array(
 			'id'      => 'achievement-number-item2',
@@ -546,7 +504,7 @@ Redux::setSection( $opt_name, array(
 			'id'      => 'achievement-desc-item2',
 			'title'   => "Description Item 2",
 			'type'    => 'text',
-			'default' => 'Lorem ipsum dolor sit amet, consectetur adipisicing',
+			'default' => 'IDR 110+ bil spent on Google Ads, Facebook Ads, and other paid channels',
 		),
 		array(
 			'id'      => 'achievement-number-item3',
@@ -558,7 +516,7 @@ Redux::setSection( $opt_name, array(
 			'id'      => 'achievement-desc-item3',
 			'title'   => "Description Item 3",
 			'type'    => 'text',
-			'default' => 'Lorem ipsum dolor sit amet, consectetur adipisicing',
+			'default' => '5000+ optimized keywords',
 		),
 		array(
 			'id'      => 'achievement-number-item4',
@@ -570,7 +528,7 @@ Redux::setSection( $opt_name, array(
 			'id'      => 'achievement-desc-item4',
 			'title'   => "Description Item 4",
 			'type'    => 'text',
-			'default' => 'Lorem ipsum dolor sit amet, consectetur adipisicing',
+			'default' => '28000+ published contents',
 		),
 	)
 ) );

@@ -21,7 +21,7 @@ $data = emk_options( "case-studies-article-categories" );
 <div class="py-16 md:py-28 relative block space-y-8 md:space-y-12">
 	<?php if ( ! empty( emk_options( "case-studies-article-categories" ) ) ): ?>
 		<!-- body -->
-		<div class="overflow-hidden relative space-y-8 px-4">
+		<div class="overflow-hidden relative space-y-8">
 
 			<!-- tab links -->
 			<div id="nav-tab-article"

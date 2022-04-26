@@ -34,11 +34,18 @@ $terms = get_terms( array(
 
 ?>
 
+<?php get_template_part( 'template-parts/components/section/section-sticky-sosmed', get_post_type() ) ?>
 
-	<div class="pt-16 md:pt-[6.5rem] relative">
+
+	<div class="pt-16 md:pt-[6.5rem] relative overflow-hidden">
+
+		<img src="<?= jpp_assets( '/img/png/img-bg-01.png' ) ?>" alt=""
+			 class="hidden md:block absolute top-52 left-0 opacity-50">
+		<img src="<?= jpp_assets( '/img/png/img-bg-02.png' ) ?>" alt=""
+			 class="hidden md:block absolute top-[20%] right-0 opacity-50 z-10">
 
 		<!-- slider -->
-		<div class="container mx-auto px-4 pb-8 md:pb-24">
+		<div class="container mx-auto px-4 pb-8 md:pb-24 relative z-20 px-4 xl:px-12 2xl:px-0">
 
 			<div id="body-slider-case-studies"
 				 class="body-slider-case-studies w-full overflow-x-hidden flex flex-row py-4 md:py-0">
@@ -112,12 +119,14 @@ $terms = get_terms( array(
 		</div>
 
 		<!-- last post -->
-		<?php
-		get_template_part( 'template-parts/views/archive/content', 'case-studies' );
-		?>
+		<div class="xl:px-20 2xl:px-0">
+			<?php
+			get_template_part( 'template-parts/views/archive/content', 'case-studies' );
+			?>
+		</div>
 
 		<!-- last section -->
-		<div class="grid grid-cols-12 relative pt-4 md:pt-24 bg-scheme-light-gray relative z-20 relative">
+		<div class="grid grid-cols-12 pt-4 md:pt-24 relative z-30">
 
 			<div class="col-span-12 md:col-span-6">
 				<img src="<?= emk_options( 'case-studies-last-section-image', 'url' ) ?>" alt=""
@@ -151,8 +160,8 @@ $terms = get_terms( array(
 				</div>
 			</div>
 
-			<img src="<?= jpp_assets( '/img/png/img-bg-footer.png' ) ?>" alt="" class="absolute bottom-0 left-0 z-20">
 		</div>
+		<img src="<?= jpp_assets( '/img/png/img-bg-footer.png' ) ?>" alt="" class="absolute w-full bottom-0 z-50">
 
 	</div>
 

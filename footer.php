@@ -14,8 +14,8 @@
 </div><!-- #content -->
 </main><!-- #content -->
 
-<footer class="bg-scheme-green relative z-30 relative ">
-	<div class="flex md:flex-row flex-col items-center justify-between w-full max-w-[1360px] mx-auto py-16 text-white md:text-base xl:text-lg gap-16 xl:gap-0 px-4 xl:px-0">
+<footer class="bg-scheme-green relative z-50 relative ">
+	<div class="flex md:flex-row flex-col items-center justify-between w-full max-w-[1360px] mx-auto py-16 text-white md:text-base xl:text-lg gap-16 xl:gap-0 px-4 xl:px-16 2xl:px-0">
 
 		<div class="w-full space-y-4 md:text-left text-center">
 			<a href="">
@@ -154,22 +154,35 @@
 
 </script>
 
+
 <script>
 	let slides = document.getElementsByClassName("slide-work");
 	let navLinks = document.getElementsByClassName("link-slide-work");
+	let lengthSlideWork = document.querySelectorAll('.card-slider-work')
+	let maxSlideW = lengthSlideWork.length - 1
+
 	let currentSlide = 0;
 
 	let prevSlideWork = document.getElementById("prev-slide-work")
 	if (prevSlideWork !== null) {
 		prevSlideWork.addEventListener("click", () => {
-			changeSlide(currentSlide - 1)
+			if (currentSlide === 0) {
+				changeSlide(currentSlide = 0)
+			} else {
+				changeSlide(currentSlide - 1)
+			}
 		});
 	}
 
 	let nexSlideWork = document.getElementById("next-slide-work")
-	if (nexSlideWork !== null) {
+	if (nexSlideWork !== null && currentSlide !== maxSlideW) {
 		nexSlideWork.addEventListener("click", () => {
-			changeSlide(currentSlide + 1)
+			if (currentSlide === maxSlideW) {
+				changeSlide(currentSlide = currentSlide)
+			} else {
+				changeSlide(currentSlide + 1)
+			}
+
 		});
 	}
 

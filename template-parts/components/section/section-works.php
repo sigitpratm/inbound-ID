@@ -6,52 +6,7 @@ if ( $categories !== null ) {
 }
 if ( $selectCat !== null ) {
 	$countCategories = count( $selectCat );
-}
-
-
-for ( $i = 0; $i < $countCategories; $i ++ ):
-	$args = array(
-			'post_type'      => 'our-work',
-			'posts_per_page' => 4,
-			'order'          => 'ASC',
-			'tax_query'      => array(
-					array(
-							'taxonomy' => 'work-categories',
-							'field'    => 'id',
-							'terms'    => $selectCat[ $i ],
-					),
-			),
-	);
-
-	$the_query = new WP_Query( $args );
-	if ( $the_query->have_posts() ) : ?>
-		<div class="border border-red-400 p-4">
-			<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-				<div class="grid grid-cols-12">
-
-					<div class="col-span-4">
-						<p>
-							<?= get_the_category_by_ID( $selectCat[ $i ] ); ?>
-						</p>
-					</div>
-
-					<div class="col-span-8">
-						<p>
-							<?= get_the_title() ?>
-						</p>
-					</div>
-
-				</div>
-			<?php endwhile; ?>
-		</div>
-
-		<?php wp_reset_postdata();
-	else:
-		echo "null";
-	endif;
-
-endfor;
-?>
+} ?>
 
 
 <div class="py-16 md:py-28 space-y-12">
@@ -61,103 +16,72 @@ endfor;
 	</div>
 
 	<!-- body -->
-	<div class="relative h-[40rem] w-full">
-
-		<!-- items 1 -->
-		<div class="slide-work ease-in-out grid grid-cols-12 absolute top-0 left-0 w-full opacity-0 slide-work-active">
-			<div class="col-span-4 bg-scheme-dark-gray flex items-center justify-center h-[40rem] rounded-xl relative overflow-hidden">
-				<img src="<?= jpp_assets( '/img/png/clip-art-top.png' ) ?>" alt="" class="absolute top-0 left-0">
-				<img src="<?= jpp_assets( '/img/png/clip-art-bottom.png' ) ?>" alt=""
-					 class="absolute bottom-0 left-0 w-full">
-				<p class="w-2/3 mx-auto text-center text-4xl font-bold text-scheme-green">VIDEO & MOTION</p>
+	<div id="slide-body-works" class="body-slide-works relative h-[24rem] md:h-[40rem] w-full">
+		<?php if ( $countCategories === null ): ?>
+			<div class="bg-gray-200 w-full h-full flex items-center justify-center">
+				<p class="text-center text-gray-500 text-xl">
+					no post or haven't selected post yet
+				</p>
 			</div>
+		<?php endif; ?>
 
-			<div class="col-span-4">
-				<div class="rounded-xl h-[20rem] overflow-hidden">
-					<img src="<?= jpp_assets( '/img/jpg/our-works/img-vid_motion-porto-01.jpg' ) ?>" alt=""
-						 class="w-full h-full object-cover">
+		<?php
+		for ( $i = 0; $i < $countCategories; $i ++ ):
+			$args = array(
+					'post_type'      => 'our-work',
+					'posts_per_page' => 4,
+					'order'          => 'ASC',
+					'tax_query'      => array(
+							array(
+									'taxonomy' => 'work-categories',
+									'field'    => 'id',
+									'terms'    => $selectCat[ $i ],
+							),
+					),
+			);
+
+			$the_query = new WP_Query( $args ); ?>
+
+			<?php if ( $the_query->have_posts() ) : ?>
+
+
+
+			<div class="slide-work card-slider-work ease-in-out grid grid-cols-12 absolute top-0 left-0 w-full opacity-0"
+				 data-slider-work="slider-work<?= $i ?>">
+
+				<div class="col-span-12 md:col-span-4 bg-transparent md:bg-scheme-dark-gray flex items-center justify-center h-auto md:h-[40rem] rounded-xl relative overflow-hidden">
+					<img src="<?= jpp_assets( '/img/png/clip-art-top.png' ) ?>" alt="" class="hidden md:block absolute top-0 left-0">
+					<img src="<?= jpp_assets( '/img/png/clip-art-bottom.png' ) ?>" alt=""
+						 class="hidden md:block absolute bottom-0 left-0 w-full">
+					<p class="w-full md:w-2/3 mx-auto text-center text-2xl md:text-4xl font-bold text-scheme-green uppercase py-4">
+						<?= get_the_category_by_ID( $selectCat[ $i ] ); ?>
+					</p>
 				</div>
-				<div class="rounded-xl h-[20rem] overflow-hidden">
-					<img src="<?= jpp_assets( '/img/jpg/our-works/img-vid_motion-porto-02.jpg' ) ?>" alt=""
-						 class="w-full h-full object-cover">
+
+				<div class="col-span-12 md:col-span-8">
+					<div class="grid grid-cols-12 overflow-hidden rounded-xl">
+						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+							<div class="col-span-6 rounded-xl h-44 md:h-[24rem] overflow-hidden">
+								<img src="<?= get_field( 'image' ) ?>" alt=""
+									 class="w-full h-full object-cover">
+							</div>
+						<?php endwhile; ?>
+					</div>
 				</div>
 			</div>
 
-			<div class="col-span-4">
-				<div class="rounded-xl h-[20rem] overflow-hidden">
-					<img src="<?= jpp_assets( '/img/jpg/our-works/img-vid_motion-porto-03.jpg' ) ?>" alt=""
-						 class="w-full h-full object-cover">
-				</div>
-				<div class="rounded-xl h-[20rem] overflow-hidden">
-					<img src="<?= jpp_assets( '/img/jpg/our-works/img-vid_motion-porto-04.jpg' ) ?>" alt=""
-						 class="w-full h-full object-cover">
-				</div>
-			</div>
-		</div>
+			<?php wp_reset_postdata();
+		else:
+			echo "null";
+		endif; ?>
 
-		<!-- items 1 -->
-		<div class="slide-work ease-in-out grid grid-cols-12 absolute top-0 left-0 w-full opacity-0">
-			<div class="col-span-4 bg-scheme-dark-gray flex items-center justify-center h-[40rem] rounded-xl relative overflow-hidden">
-				<img src="<?= jpp_assets( '/img/png/clip-art-top.png' ) ?>" alt="" class="absolute top-0 left-0">
-				<img src="<?= jpp_assets( '/img/png/clip-art-bottom.png' ) ?>" alt=""
-					 class="absolute bottom-0 left-0 w-full">
-				<p class="w-2/3 mx-auto text-center text-4xl font-bold text-scheme-green">INFOGRAPHICS</p>
-			</div>
-
-			<div class="col-span-4">
-				<div class="rounded-xl h-[20rem] overflow-hidden bg-green-700"></div>
-				<div class="rounded-xl h-[20rem] overflow-hidden bg-green-500"></div>
-			</div>
-
-			<div class="col-span-4">
-				<div class="rounded-xl h-[20rem] overflow-hidden bg-green-500"></div>
-				<div class="rounded-xl h-[20rem] overflow-hidden bg-green-700"></div>
-			</div>
-		</div>
-
-		<!-- items 1 -->
-		<div class="slide-work ease-in-out grid grid-cols-12 absolute top-0 left-0 w-full opacity-0">
-			<div class="col-span-4 bg-scheme-dark-gray flex items-center justify-center h-[40rem] rounded-xl relative overflow-hidden">
-				<img src="<?= jpp_assets( '/img/png/clip-art-top.png' ) ?>" alt="" class="absolute top-0 left-0">
-				<img src="<?= jpp_assets( '/img/png/clip-art-bottom.png' ) ?>" alt=""
-					 class="absolute bottom-0 left-0 w-full">
-				<p class="w-2/3 mx-auto text-center text-4xl font-bold text-scheme-green">INSTAGRAM AR FILTER</p>
-			</div>
-
-			<div class="col-span-4">
-				<div class="rounded-xl h-[20rem] overflow-hidden bg-green-700"></div>
-				<div class="rounded-xl h-[20rem] overflow-hidden bg-green-500"></div>
-			</div>
-
-			<div class="col-span-4">
-				<div class="rounded-xl h-[20rem] overflow-hidden bg-green-500"></div>
-				<div class="rounded-xl h-[20rem] overflow-hidden bg-green-700"></div>
-			</div>
-		</div>
-
-		<!-- items 1 -->
-		<div class="slide-work ease-in-out grid grid-cols-12 absolute top-0 left-0 w-full opacity-0">
-			<div class="col-span-4 bg-scheme-dark-gray flex items-center justify-center h-[40rem] rounded-xl relative overflow-hidden">
-				<img src="<?= jpp_assets( '/img/png/clip-art-top.png' ) ?>" alt="" class="absolute top-0 left-0">
-				<img src="<?= jpp_assets( '/img/png/clip-art-bottom.png' ) ?>" alt=""
-					 class="absolute bottom-0 left-0 w-full">
-				<p class="w-2/3 mx-auto text-center text-4xl font-bold text-scheme-green">ARTICLES</p>
-			</div>
-
-			<div class="col-span-4">
-				<div class="rounded-xl h-[20rem] overflow-hidden bg-green-700"></div>
-				<div class="rounded-xl h-[20rem] overflow-hidden bg-green-500"></div>
-			</div>
-
-			<div class="col-span-4">
-				<div class="rounded-xl h-[20rem] overflow-hidden bg-green-500"></div>
-				<div class="rounded-xl h-[20rem] overflow-hidden bg-green-700"></div>
-			</div>
-		</div>
+		<?php endfor; ?>
 	</div>
 
 	<!-- footer -->
-	<div class="flex items-center justify-center">
+	<div class="flex items-center justify-center  <?php if ( $categories === null ) {
+		echo "hidden";
+	} ?>">
 		<button id="prev-slide-work"
 				class="w-8 h-8 rounded-full flex items-center justify-center border-4 bg-white border-scheme-green text-scheme-green">
 			<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -167,11 +91,10 @@ endfor;
 			</svg>
 		</button>
 
-		<div class="w-full bg-gray-600 h-1 rounded-full flex justify-between items-center">
-			<div class="link-slide-work ease-in-out w-full h-3 bg-gray-600 rounded-full opacity-0 slide-nav-active"></div>
-			<div class="link-slide-work ease-in-out w-full h-3 bg-gray-600 rounded-full opacity-0"></div>
-			<div class="link-slide-work ease-in-out w-full h-3 bg-gray-600 rounded-full opacity-0"></div>
-			<div class="link-slide-work ease-in-out w-full h-3 bg-gray-600 rounded-full opacity-0"></div>
+		<div id="slide-nav-works" class="w-full bg-gray-600 h-1 rounded-full flex justify-between items-center">
+			<?php for ( $i = 0; $i < $countCategories; $i ++ ) : ?>
+				<div class="link-slide-work ease-in-out w-full h-3 bg-gray-600 rounded-full opacity-0"></div>
+			<?php endfor; ?>
 		</div>
 
 		<button id="next-slide-work"
@@ -184,3 +107,13 @@ endfor;
 		</button>
 	</div>
 </div>
+
+
+<script>
+	if (document.getElementById('slide-body-works').children[0] !== undefined) {
+		document.getElementById('slide-body-works').children[0].classList.add('slide-work-active')
+	}
+	if (document.getElementById('slide-nav-works').children[0] !== undefined) {
+		document.getElementById('slide-nav-works').children[0].classList.add('slide-nav-active')
+	}
+</script>

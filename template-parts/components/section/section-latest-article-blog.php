@@ -21,7 +21,7 @@ $data = emk_options( "last-article-categories" );
 <div class="py-16 md:py-28 relative block space-y-8 md:space-y-12">
 	<?php if ( ! empty( emk_options( "last-article-categories" ) ) ): ?>
 		<!-- body -->
-		<div class="overflow-hidden relative space-y-8 px-4">
+		<div class="overflow-hidden relative space-y-8">
 
 			<!-- tab links -->
 			<div id="nav-tab-article" class="relative flex flex-row gap-2 md:items-center md:justify-center overflow-x-auto">
