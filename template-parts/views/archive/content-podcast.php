@@ -10,7 +10,7 @@
 		 class="hidden md:block absolute bottom-[-5%] right-0">
 
 
-	<div class="w-full max-w-[1360px] mx-auto min-h-screen xl:pt-20 space-y-20">
+	<div class="w-full container mx-auto min-h-screen xl:pt-20 space-y-20 xl:px-20 2xl:px-0">
 		<div class="w-full max-w-4xl space-y-10 mx-auto px-4">
 			<h1 class="text-3xl lg:text-5xl text-[#3D9E26] font-bold text-center"><?= emk_options( 'podcast-section1-items1-heading' ) ?></h1>
 			<p class="text-center text-base md:text-lg">
@@ -85,7 +85,7 @@
 				[
 						"classes"  => [
 								"card"      => "grid grid-cols-1 md:grid-cols-12 gap-8 xl:gap-20 justify-between pb-14",
-								"section-1" => "col-span-1 md:col-span-7 min-h-[420px] bg-gray-200 rounded-xl",
+								"section-1" => "col-span-1 md:col-span-7 min-h-[420px] bg-gray-200 rounded-xl px-4 md:px-0",
 								"section-2" => "col-span-1 md:col-span-5 pr-4 md:pr-10 pl-4 md:pl-0"
 						],
 						"position" => "right",
@@ -95,7 +95,7 @@
 								"images_classes"      => "w-full h-full rounded-3xl relative overflow-hidden pc-4 md:px-0",
 								"icon"                => null,
 								"title"               => emk_options( 'podcast-section2-item1-heading' ),
-								"title_classes"       => "text-3xl text-center md:text-6xl font-extrabold text-[#3D9E26] leading-tight",
+								"title_classes"       => "text-3xl text-center md:text-left md:text-6xl font-extrabold text-scheme-green leading-tight",
 								"description_classes" => "w-full",
 								"description"         => emk_options( 'podcast-section2-item1-subheading' ),
 								"btn_url"             => emk_options( 'podcast-section2-item1-btn-url' ),
@@ -161,9 +161,9 @@
 				<p class="text-base md:text-base lg:text-lg">
 					<?= emk_options( 'podcast-section3-item1-subheading' ) ?>
 				</p>
-				<div class="w-full">
+				<div class="w-full md:block relative flex items-start justify-center">
 					<a href="<?= emk_options( 'podcast-section3-item1-btn-url' ) ?>" rel="nofollow"
-					   class="w-full md:w-auto px-6 xl:px-14 py-4 bg-[#3D9E26] shadow-lg rounded-full text-white font-semibold">
+					   class="w-full md:w-auto text-center px-6 xl:px-14 py-4 bg-[#3D9E26] shadow-lg rounded-full text-white font-semibold">
 						<?= emk_options( 'podcast-section3-item1-btn-title' ) ?>
 					</a>
 				</div>

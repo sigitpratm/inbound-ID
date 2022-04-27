@@ -1,15 +1,15 @@
 <?php
 $arguments = [
-	"category" => [
-		[
-			"key"   => "seo",
-			"label" => "SEO"
-		],
-		[
-			"key"   => "digital-advertising",
-			"label" => "Digital Advertising"
+		"category" => [
+				[
+						"key"   => "seo",
+						"label" => "SEO"
+				],
+				[
+						"key"   => "digital-advertising",
+						"label" => "Digital Advertising"
+				]
 		]
-	]
 ];
 ?>
 
@@ -17,26 +17,27 @@ $arguments = [
 $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 ?>
 
-<div class="w-full max-w-[1360px] space-y-10 mx-auto">
+<div class="w-full min-h-screen max-w-[1360px] space-y-10 mx-auto  py-24">
 	<div class=" py-20 flex flex-col space-y-6">
 		<div class="w-full flex items-center justify-center gap-4">
 			<button
 					data-tax-query="[{key:'slug',}]"
 					data-target="all" data-tab="case-studies"
 					data-tab-active="0" data-index="0"
-					class="flex-none active-btn-article btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-2 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
+					class="flex-none active-btn-article btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-1 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
 				ALL
 			</button>
 			<?php
 			for ( $i = 0; $i < count( $data ); $i ++ ):
 				$item = get_term( $data[ $i ] );
 				if ( ! empty( $item ) ):
+					var_dump( $item );
 					?>
 					<button
 							data-tax-query="[{key:'slug',}]"
 							data-target="<?= $item->slug ?>" data-tab="case-studies"
-							data-tab-active="<?= $i === 0 ?>" data-index="<?= $i; ?>"
-							class="flex-none  btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-2 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
+							data-tab-active="<?= $i === 0 ?>" data-index="<?= $i + 1; ?>"
+							class="flex-none  btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-1 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
 						<?= $item->name ?>
 					</button>
 				<?php endif; ?>
@@ -50,33 +51,34 @@ $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 				<!-- card -->
 				<?php
 				$args       = array(
-					'post_type'      => [ 'post', 'case-studies' ],
-					'post_status'    => 'publish',
-					'orderby'        => 'date',
-					'order'          => 'DESC',
-					'paged'          => 1,
-					'posts_per_page' => 4,
-//						"tax_query" => [
+						'post_type'      => [ 'case-study' ],
+						'post_status'    => 'publish',
+//						'orderby'        => 'date',
+						'order'          => 'DESC',
+						'paged'          => 1,
+						'posts_per_page' => 4,
+//						"tax_query"      => [
 //								[
 //										'taxonomy' => "category",
-//										'field' => "slug",
-//										'terms' => get_term($data[0])->slug, //excluding the term you dont want.
+//										'field'    => "slug",
+//										'terms'    => get_term( $data[0] )->slug, //excluding the term you dont want.
 //										'operator' => 'IN',
 //								]
 //						],
-					'meta_query'     => [
-						'relation' => 'OR',
-						[
-							'key'     => 'case_studies',
-							'value'   => 1,
-							'compare' => '>=',
-						],
-					]
+//						'meta_query'     => [
+//								'relation' => 'OR',
+//								[
+//										'key'     => 'case_studies',
+//										'value'   => 1,
+//										'compare' => '>=',
+//								],
+//						]
 				);
 				$meta_query = new WP_Query( $args );
-				$meta_query->set( 'posts_per_page', 3 );
+				$meta_query->set( 'posts_per_page', 4 );
 				$meta_query->set( 'paged', 1 );
 				$meta_query->query( $meta_query->query_vars );
+
 
 				if ( $meta_query->have_posts() ) {
 					//Define and empty array
@@ -109,10 +111,7 @@ $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 									</a>
 								</div>
 								<p class="text-sm md:text-base line-clamp-2  line-clamp-3 overflow-y-hidden">
-									lorem ipsum dolor sit amet lorem ipsum do lorem ipsum dolor sit amet lorem ipsum do
-									lorem ipsum dolor sit amet lorem ipsum do lorem ipsum dolor sit amet lorem ipsum
-									dlorem ipsum dolor sit amet lorem ipsum dolorem ipsum dolor sit amet lorem ipsum do
-									lorem ipsum dolor sit amet lorem ipsum do
+									<?= get_the_content( get_the_ID() ) ?>
 								</p>
 								<a href="<?= get_permalink( get_the_ID() ); ?>"
 								   class="text-sm md:text-base text-scheme-green font-bold">Read more ></a>
@@ -205,33 +204,30 @@ $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 						params = {
 							limit: 10,
 							paged: 1,
-							post_type: "post",
+							post_type: "case-study",
 							post_status: "publish",
 							orderby: "date",
 							order: "DESC",
-							"meta_query[key]": "case_studies",
-							"meta_query[value]": 1,
-							"meta_query[relation]": "OR",
-							"meta_query[compare]": "=",
-							"tax_query[taxonomy]": "category",
+							// "meta_query[key]": "case_studies",
+							// "meta_query[value]": 1,
+							// "meta_query[relation]": "OR",
+							// "meta_query[compare]": "=",
+							"tax_query[taxonomy]": "case-study-category",
 							"tax_query[field]": field,
 							"tax_query[terms]": terms
 						}
 					} else {
 						params = {
-							limit: 10,
+							limit: 4,
 							paged: 1,
-							post_type: "post",
+							post_type: "case-study",
 							post_status: "publish",
 							orderby: "date",
 							order: "DESC",
-							"meta_query[key]": "case_studies",
-							"meta_query[value]": 1,
-							"meta_query[relation]": "OR",
-							"meta_query[compare]": "=",
-							// "tax_query[taxonomy]": "category",
-							// "tax_query[field]": field,
-							// "tax_query[terms]": terms
+							// "meta_query[key]": "case_studies",
+							// "meta_query[value]": 1,
+							// "meta_query[relation]": "OR",
+							// "meta_query[compare]": "=",
 						}
 					}
 

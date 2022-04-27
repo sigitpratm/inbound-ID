@@ -170,9 +170,9 @@ Redux::setSection( $opt_name, array(
 	'subsection'       => true,
 	'fields'           => array(
 		array(
-			'id'      => 'header-style',
+			'id'      => 'header-default-style',
 			'type'    => 'radio',
-			'title'   => __( 'Header Style', __TEXT_DOMAIN__ ),
+			'title'   => __( 'Header Default Style', __TEXT_DOMAIN__ ),
 			'options' => array(
 				'with-logo'       => __( 'With logo', __TEXT_DOMAIN__ ),
 				'with-site-title' => __( 'With site title', __TEXT_DOMAIN__ )
@@ -180,17 +180,39 @@ Redux::setSection( $opt_name, array(
 			'default' => 'with-logo',
 		),
 		array(
-			'id'       => 'opt_header_logo',
+			'id'       => 'opt-header-default-logo',
 			'type'     => 'media',
 			'url'      => true,
-			'title'    => __( 'Logo', 'demo' ),
+			'title'    => __( 'Logo header default', 'demo' ),
 			'compiler' => 'false',
 			'subtitle' => __( 'Upload your logo', 'demo' ),
 			'default'  => array(
 				'url' => 'https://s.wordpress.org/style/images/codeispoetry.png'
 			),
-			'required' => array( 'header-style', '=', 'with-logo' )
+			'required' => array( 'header-default-style', '=', 'with-logo' )
+		),
 
+		array(
+			'id'      => 'header-home-style',
+			'type'    => 'radio',
+			'title'   => __( 'Header Homepage Style', __TEXT_DOMAIN__ ),
+			'options' => array(
+				'with-logo'       => __( 'With logo', __TEXT_DOMAIN__ ),
+				'with-site-title' => __( 'With site title', __TEXT_DOMAIN__ )
+			),
+			'default' => 'with-logo',
+		),
+		array(
+			'id'       => 'opt-header-home-logo',
+			'type'     => 'media',
+			'url'      => true,
+			'title'    => __( 'Logo header home', 'demo' ),
+			'compiler' => 'false',
+			'subtitle' => __( 'Upload your logo', 'demo' ),
+			'default'  => array(
+				'url' => 'https://s.wordpress.org/style/images/codeispoetry.png'
+			),
+			'required' => array( 'header-home-style', '=', 'with-logo' )
 		),
 	)
 ) );

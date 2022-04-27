@@ -1,7 +1,17 @@
+<?php
+$headStyle = emk_options( 'header-default-style' );
+?>
+
+
 <header id="header" class="ease-in-out z-50 fixed top-0 w-full bg-transparent">
 	<div class="container mx-auto flex flex-row justify-between py-4 md:py-8 px-4 xl:px-0 relative">
 		<a href="<?= home_url() ?>" class="flex items-center">
-			<img src="<?= jpp_assets( '/img/png/img-nav-logo-2.png' ) ?>" alt="" class="h-4 md:h-8 w-auto">
+			<?php if ( $headStyle === "with-logo" ) : ?>
+				<img src="<?= emk_options( 'opt-header-default-logo', 'url' ) ?>" alt="site-logo"
+					 class="h-4 md:h-8 w-auto">
+			<?php else: ?>
+				<p class="text-2xl md:text-5xl font-bold text-white capitalize"><?= get_bloginfo() ?></p>
+			<?php endif; ?>
 		</a>
 
 		<!-- lg nav -->

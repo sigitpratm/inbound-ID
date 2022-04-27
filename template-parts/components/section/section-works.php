@@ -46,7 +46,7 @@ if ( $selectCat !== null ) {
 
 
 
-			<div class="slide-work card-slider-work ease-in-out grid grid-cols-12 absolute top-0 left-0 w-full opacity-0"
+			<div class="slide-work card-slider-work ease-in-out grid grid-cols-12 absolute top-0 left-0 w-full opacity-0 space-y-2 md:space-y-0"
 				 data-slider-work="slider-work<?= $i ?>">
 
 				<div class="col-span-12 md:col-span-4 bg-scheme-dark-gray flex items-center justify-center h-auto md:h-[40rem] rounded-xl relative overflow-hidden">

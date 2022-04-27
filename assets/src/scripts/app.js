@@ -153,7 +153,7 @@ const AwardCard = function (attr) {
 						orderby: "date",
 						order: "DESC",
 						"meta_query[key]": "item_type",
-						"meta_query[value]": 3,
+						"meta_query[value]": 2,
 					}
 				})
 					.then((response) => {
@@ -236,16 +236,16 @@ function cardAward(data = {}) {
 	mainElem.className = "grid-cols-1 md:col-span-2 space-y-6"
 
 	let childEl1 = document.createElement("div")
-	childEl1.className = "h-60 flex items-end justify-center"
+	childEl1.className = "h-40 md:h-60 flex items-end justify-center"
 
 	let imgChildEl1 = document.createElement("img")
-	imgChildEl1.className = "object-contain max-h-60 h-full w-auto"
+	imgChildEl1.className = "object-contain max-h-40 md:max-h-60 h-full w-auto"
 	imgChildEl1.src = data?.thumbnail?.url ?? ""
 	imgChildEl1.alt = "img-card-award"
 
 	let childEl2 = document.createElement("div")
 	let pChildEl2 = document.createElement("p")
-	pChildEl2.className = "text-lg font-bold text-scheme-green text-center"
+	pChildEl2.className = "text-sm md:text-lg font-bold text-scheme-green text-center"
 	pChildEl2.innerText = data?.post_title ?? "-"
 
 	childEl1.append(imgChildEl1)

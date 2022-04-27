@@ -14,6 +14,16 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charSet="UTF-8"/>
+	<meta http-equiv="content-security-policy|content-type|default-style|refresh" content="30"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="keywords" content="<?= is_single() ? "testing" :"asdlkasdasldkasdasdasdl khasdkl hasd"?>"/>
+	<meta name="description" content="<?= is_single() ? "testing" :"asdlkasdasldkasdasdasdl khasdkl hasd"?>"/>
+	<meta name="mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<link rel="cannonical" href="<?= get_site_url(); ?>"/>
 	<link rel="icon" type="image/x-icon" href="<?= jpp_assets( 'img/png/favicon.png' ) ?>">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">

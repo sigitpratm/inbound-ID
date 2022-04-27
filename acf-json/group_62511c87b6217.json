@@ -12,7 +12,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_62511f27a4052",
+                        "field": "field_62511d89a4051",
                         "operator": "!=",
                         "value": "1"
                     }
@@ -28,7 +28,7 @@
                 "2": "video",
                 "3": "photo",
                 "4": "Audio",
-                "5": "Item Section ( client, award, work)"
+                "5": "Item Section ( client & award)"
             },
             "default_value": "article",
             "allow_null": 0,
@@ -335,5 +335,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1650964081
+    "modified": 1651042234
 }

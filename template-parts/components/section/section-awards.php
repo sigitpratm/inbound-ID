@@ -1,4 +1,4 @@
-<div class="py-16 md:py-28 relative block xl:space-y-12 2xl:space-y-24">
+<div class="py-16 md:py-28 relative block space-y-6 xl:space-y-12 2xl:space-y-24">
 	<!-- heading -->
 	<div class="space-y-4">
 		<p class="font-bold text-center text-4xl md:text-5xl text-scheme-green">

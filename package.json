@@ -43,7 +43,6 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-transform-export-extensions": "^6.22.0",
     "jquery": "^3.5.1",
-    "laravel-mix-bundle": "^2.0.0",
     "mini-css-extract-plugin": "^2.6.0",
     "mix-tailwindcss": "^1.3.0",
     "normalize-scss": "^7.0.1",

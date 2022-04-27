@@ -311,7 +311,7 @@ get_header(); ?>
 			<div class="col-span-12 md:col-span-6 lg:px-24 xl:px-32 2xl:px-44 relative z-40">
 				<div class="w-full h-full flex flex-col items-center justify-center space-y-8 md:space-y-16 pt-8 md:pt-0 pb-32 md:pb:0 px-4 md:px-0">
 
-					<p class="text-lg xl:text-3xl 2xl:text-4xl font-bold text-scheme-green text-center">
+					<p class="text-lg xl:text-3xl 2xl:text-5xl font-bold text-scheme-green text-center">
 						<?= emk_options( 'heading-about-us-last-section' ) ?>
 					</p>
 
