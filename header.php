@@ -18,8 +18,12 @@
 	<meta http-equiv="content-security-policy|content-type|default-style|refresh" content="30"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<meta name="keywords" content="<?= is_single() ? "testing" :"asdlkasdasldkasdasdasdl khasdkl hasd"?>"/>
-	<meta name="description" content="<?= is_single() ? "testing" :"asdlkasdasldkasdasdasdl khasdkl hasd"?>"/>
+	<meta name="keywords" content="<?= is_single() ? "testing" : "asdlkasdasldkasdasdasdl khasdkl hasd" ?>"/>
+
+	<?php if ( is_single() ) { ?>
+		<meta name="description" content="<?php echo wp_strip_all_tags( get_the_excerpt(), true ); ?>"/>
+	<?php } ?>
+
 	<meta name="mobile-web-app-capable" content="yes"/>
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
 	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
@@ -79,7 +83,7 @@
 
 </head>
 <body <?php body_class( 'font-display' ); ?> x-data="{atTop: true, isArchive: false}"
-                                             x-on:scroll.window="atTop = (window.pageYOffset > 60) ? false : true; ">
+											 x-on:scroll.window="atTop = (window.pageYOffset > 60) ? false : true; ">
 <?php wp_body_open(); ?>
 
 <?php
@@ -91,5 +95,5 @@ if ( is_home() ) {
 ?>
 
 <main id="page"
-      class="bg-scheme-light-gray site w-full min-h-screen" <?php echo ! is_customize_preview() ?: 'style="padding: 0 40px;"'; ?>>
+	  class="bg-scheme-light-gray site w-full min-h-screen" <?php echo ! is_customize_preview() ?: 'style="padding: 0 40px;"'; ?>>
 	<div id="content" class="site-content">

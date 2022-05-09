@@ -1,21 +1,21 @@
 {
-    "key": "group_62661d291992f",
-    "title": "Our Works Option",
+    "key": "group_6278ac728d6ce",
+    "title": "Service Taxonomy",
     "fields": [
         {
-            "key": "field_62661d36669ec",
+            "key": "field_6278ac7c53e30",
             "label": "Image",
             "name": "image",
             "type": "image",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "return_format": "url",
+            "return_format": "array",
             "preview_size": "medium",
             "library": "all",
             "min_width": "",
@@ -25,33 +25,14 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
-        },
-        {
-            "key": "field_62661d8f83301",
-            "label": "Description",
-            "name": "description",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "taxonomy",
                 "operator": "==",
-                "value": "our-work"
+                "value": "service-categories"
             }
         ]
     ],
@@ -61,10 +42,9 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
-        "the_content",
-        "excerpt"
+        "the_content"
     ],
     "active": true,
     "description": "",
-    "modified": 1651128138
+    "modified": 1652076018
 }

@@ -6,6 +6,36 @@
 	background: #48A835 !important;
 }
 
+.menu-item {
+	position: relative;
+}
+
+.sub-menu {
+	position: absolute;
+	display: none;
+	color: white !important;
+	background: #3D9E26;
+	font-weight: 300;
+	padding: 12px;
+	width: 100%;
+	min-width: 18rem;
+	border-radius: 1rem;
+	transition: all 0s, all 0.5s linear;
+
+	li {
+		font-size: 12px;
+		text-transform: uppercase;
+		border-bottom: 1px solid white;
+		padding: 6px 0;
+	}
+}
+
+.menu-item:hover {
+	.sub-menu {
+		display: block;
+	}
+}
+
 
 .menu-default-menu-container {
 	.menu {
@@ -19,6 +49,10 @@
 
 .small-nav {
 	width: 100%;
+}
+
+.post-service {
+	text-transform: capitalize !important;
 }
 
 @media only screen and (max-width: 428px) {

@@ -11,11 +11,11 @@
 			<div class="card-slider w-full flex-none xl:h-[38rem] 2xl:h-[50rem] first-slider-hero overflow-hidden">
 				<div class="grid grid-cols-12 w-full h-full gap-6 lg:gap-0">
 					<!-- CONTENT LEFT -->
-					<div class="col-span-12 lg:col-span-5 space-y-6 md:space-y-12 flex justify-between md:justify-start flex-col text-center lg:text-left pt-0 xl:pt-16 2xl:pt-32">
+					<div class="col-span-12 lg:col-span-5 space-y-4 xl:space-y-8 2xl:space-y-10 flex justify-between md:justify-start flex-col text-center lg:text-left pt-0 xl:pt-16 2xl:pt-28">
 						<?php if ( get_field( 'use_image_banner', $data ) === true ) : ?>
-							<div>
+							<div class="xl:pr-20 2xl:pr-24">
 								<img src="<?= get_field( 'image_banner', $data ) ?>" alt=""
-									 class="xl:w-[24rem] 2xl:w-[32rem] h-auto object-contain">
+									 class="xl:max-h-52 max-h-40 2xl:max-h-60 object-contain mx-auto md:mx-0">
 							</div>
 						<?php else: ?>
 							<p class="text-4xl xl:text-7xl 2xl:text-8xl font-bold text-white line-clamp-2">
@@ -24,7 +24,7 @@
 						<?php endif; ?>
 
 
-						<p class="text-base lg:text-sm xl:text-base 2xl:text-lg text-white w-full lg:w-4/5 line-clamp-5 leading-7">
+						<p class="text-base lg:text-sm xl:text-base 2xl:text-lg text-white w-full lg:w-4/5 line-clamp-6 leading-7">
 							<?= get_field( 'description', $data ) ?>
 						</p>
 
@@ -32,7 +32,7 @@
 							<?php $cta1 = get_field( 'use_cta_1', $data );
 							if ( $cta1 === true ) : ?>
 								<a href="<?= get_field( 'cta_1_url', $data ) ?>"
-								   class="w-full lg:w-auto min-w-[20rem] py-4 lg:py-4 xl:py-6 bg-white text-scheme-green  lg:text-lg xl:text-xl font-bold rounded-full text-center transition duration-300 hover:shadow-xl">
+								   class="w-full lg:w-auto min-w-[20rem] py-4 lg:py-4 xl:py-4 2xl:py-6 bg-white text-scheme-green  lg:text-lg xl:text-xl font-bold rounded-full text-center transition duration-300 hover:shadow-xl">
 									<?= get_field( 'cta_1_title', $data ) ?>
 								</a>
 							<?php endif; ?>
@@ -40,7 +40,7 @@
 							<?php $cta2 = get_field( 'use_cta_2', $data );
 							if ( $cta2 === true ) : ?>
 								<a href="<?= get_field( 'cta_2_url', $data ) ?>"
-								   class="w-full lg:w-auto min-w-[20rem] py-4 lg:py-4 xl:py-6 bg-white text-scheme-green  lg:text-lg xl:text-xl font-bold rounded-full text-center transition duration-300 hover:shadow-xl">
+								   class="w-full lg:w-auto min-w-[20rem] py-4 lg:py-4 xl:py-4 2xl:py-6 bg-white text-scheme-green  lg:text-lg xl:text-xl font-bold rounded-full text-center transition duration-300 hover:shadow-xl">
 									<?= get_field( 'cta_2_title', $data ) ?>
 								</a>
 							<?php endif; ?>
@@ -48,9 +48,9 @@
 					</div>
 
 					<!-- CONTENT RIGHT-->
-					<div class="col-span-12 lg:col-span-7 flex items-center">
+					<div class="col-span-12 lg:col-span-7 flex items-center justify-center">
 						<img src="<?= get_the_post_thumbnail_url( $data ) ?>" alt="image-hero"
-							 class="h-full">
+							 class="h-72 md:h-full">
 					</div>
 				</div>
 			</div>

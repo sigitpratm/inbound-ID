@@ -17,27 +17,25 @@ $arguments = [
 $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 ?>
 
-<div class="w-full min-h-screen max-w-[1360px] space-y-10 mx-auto  py-24">
+<div class="w-full space-y-10 mx-auto container px-4 md:px-0">
 	<div class=" py-20 flex flex-col space-y-6">
-		<div class="w-full flex items-center justify-center gap-4">
+		<div class="w-full flex items-center md:justify-center gap-4 overflow-x-auto pb-4 md:pb-0">
 			<button
 					data-tax-query="[{key:'slug',}]"
 					data-target="all" data-tab="case-studies"
 					data-tab-active="0" data-index="0"
-					class="flex-none active-btn-article btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-1 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
+					class="flex-none active-btn-article btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-2 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
 				ALL
 			</button>
 			<?php
 			for ( $i = 0; $i < count( $data ); $i ++ ):
 				$item = get_term( $data[ $i ] );
-				if ( ! empty( $item ) ):
-					var_dump( $item );
-					?>
+				if ( ! empty( $item ) ): ?>
 					<button
 							data-tax-query="[{key:'slug',}]"
 							data-target="<?= $item->slug ?>" data-tab="case-studies"
 							data-tab-active="<?= $i === 0 ?>" data-index="<?= $i + 1; ?>"
-							class="flex-none  btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-1 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
+							class="flex-none  btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-2 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
 						<?= $item->name ?>
 					</button>
 				<?php endif; ?>
@@ -53,26 +51,9 @@ $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 				$args       = array(
 						'post_type'      => [ 'case-study' ],
 						'post_status'    => 'publish',
-//						'orderby'        => 'date',
 						'order'          => 'DESC',
 						'paged'          => 1,
 						'posts_per_page' => 4,
-//						"tax_query"      => [
-//								[
-//										'taxonomy' => "category",
-//										'field'    => "slug",
-//										'terms'    => get_term( $data[0] )->slug, //excluding the term you dont want.
-//										'operator' => 'IN',
-//								]
-//						],
-//						'meta_query'     => [
-//								'relation' => 'OR',
-//								[
-//										'key'     => 'case_studies',
-//										'value'   => 1,
-//										'compare' => '>=',
-//								],
-//						]
 				);
 				$meta_query = new WP_Query( $args );
 				$meta_query->set( 'posts_per_page', 4 );
@@ -88,7 +69,7 @@ $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 						$meta_query->the_post();
 
 						?>
-						<div class="col-span-1 md:col-span-3 overflow-hidden transition duration-300 flex flex-row md:block">
+						<div class="col-span-1 md:col-span-3 overflow-hidden transition duration-300 flex flex-row md:block gap-4">
 							<div class="h-full w-[32rem] md:w-auto xl:h-52 overflow-hidden bg-black rounded-tl-2xl rounded-tr-2xl">
 								<img src="<?= get_the_post_thumbnail_url( get_the_ID() ); ?>" alt=""
 									 class="object-cover w-full h-full xl:h-52 2xl:h-72 transition duration-300 ease-in-out hover:scale-105 hover:opacity-60">
@@ -96,25 +77,31 @@ $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 
 							<div class="py-4 flex flex-col items-start justify-center gap-2">
 								<div class="flex flex-col space-y-1">
-									<?php
-									$i = 0;
-									foreach ( get_the_category( get_the_ID() ) as $cat ):?>
-										<?php if ( $i === 0 ): ?>
-											<p class="font-bold "><?= $cat->name; ?></p>
-										<?php endif; ?>
-										<?php
-										$i ++;
-									endforeach; ?>
 									<a href=""
 									   class="text-lg md:text-3xl font-bold text-scheme-green truncate ">
 										<?= get_the_title( get_the_ID() ) ?>
 									</a>
 								</div>
-								<p class="text-sm md:text-base line-clamp-2  line-clamp-3 overflow-y-hidden">
-									<?= get_the_content( get_the_ID() ) ?>
+
+
+								<p class="text-sm md:text-base overflow-y-hidden line-clamp-3">
+									<?php
+									$excerpt = get_the_excerpt();
+									$excerpt = substr( $excerpt, 0, 100 );
+									$result  = substr( $excerpt, 0, strrpos( $excerpt, ' ' ) );
+									echo $result;
+									?>
 								</p>
 								<a href="<?= get_permalink( get_the_ID() ); ?>"
-								   class="text-sm md:text-base text-scheme-green font-bold">Read more ></a>
+								   class="text-sm md:text-base text-scheme-green font-bold flex items-center">
+									<span>Read more</span>
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+										 fill="currentColor">
+										<path fill-rule="evenodd"
+											  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+											  clip-rule="evenodd"/>
+									</svg>
+								</a>
 							</div>
 						</div>
 					<?php }

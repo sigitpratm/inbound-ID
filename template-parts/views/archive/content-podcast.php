@@ -1,5 +1,4 @@
 <!-- section sticky social -->
-
 <?php get_template_part( 'template-parts/components/section/section-sticky-sosmed', get_post_type() ) ?>
 
 <div class="flex flex-col w-full min-h-screen py-24 relative pb-16 md:pb-72">
