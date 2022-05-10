@@ -34,11 +34,11 @@ for ( $i = 0; $i < $maxCount; $i ++ ) {
 
 
 					<div class="card-slider w-full flex-none overflow-hidden">
-						<div class="w-full grid grid-cols-2 md:grid-cols-12 gap-12 md:gap-32">
+						<div class="w-full grid grid-cols-2 md:grid-cols-4 gap-12 xl:gap-24 2xl:gap-32">
 							<?php for ( $j = 0; $j < count( (array) $arrPost[ $k ] ); $j ++ ):
 								$item = $arrPost[ $k ][ $j ] ?>
 
-								<div class="col-span-1 md:col-span-3 h-32 md:h-40 flex items-center justify-center">
+								<div class="col-span-1 md:col-span-1 h-32 md:h-40 flex items-center justify-center">
 									<img src="<?= get_the_post_thumbnail_url( $item->ID ) ?>" alt=""
 										 class="object-contain max-h-32 md:max-h-40 h-full w-auto">
 								</div>

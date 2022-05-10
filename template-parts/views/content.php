@@ -18,7 +18,7 @@ $terms = get_terms( array(
 
 <?php get_template_part( 'template-parts/components/section/section-sticky-sosmed', get_post_type() ) ?>
 
-<div class="py-[6.5rem] w-full  px-4 lg:px-16 xl:px-20 2xl:px-0 z-30 relative">
+<div class="py-[6.5rem] w-full px-4 lg:px-16 xl:px-20 2xl:px-0 z-30 relative">
 
 	<img src="<?= jpp_assets( 'img/png/img-bg-header.png' ) ?>" alt="bg-top"
 		 class="hidden md:block absolute top-0 left-0">

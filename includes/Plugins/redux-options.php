@@ -441,6 +441,144 @@ Redux::setSection( $opt_name, array(
  * ABOUT US
  */
 Redux::setSection( $opt_name, array(
+	'title'            => __( 'Service', __TEXT_DOMAIN__ ),
+	'id'               => 'services',
+	'customizer_width' => '400px',
+	'icon'             => 'el el-pencil'
+) );
+
+
+/**
+ * SERVICE - Assets Management
+ */
+Redux::setSection( $opt_name, array(
+	'title'      => __( 'Assets Management', __TEXT_DOMAIN__ ),
+	'id'         => 'service-assets-management',
+	'subsection' => true,
+	'fields'     => array(
+		array(
+			'id'      => 'heading-assets-management',
+			'type'    => 'textarea',
+			'title'   => __( 'Heading Assets Management', __TEXT_DOMAIN__ ),
+			'default' => "INBOUNDID DIGITAL ASSETS MANAGEMENT NUMBERS",
+		),
+		array(
+			'id'      => 'assets-management-data1-number',
+			'type'    => 'text',
+			'title'   => __( 'Assets Management Data 1 - Number', __TEXT_DOMAIN__ ),
+			'default' => "150+",
+		),
+		array(
+			'id'      => 'assets-management-data1-desc',
+			'type'    => 'textarea',
+			'title'   => __( 'Assets Management Data 1 - Desc', __TEXT_DOMAIN__ ),
+			'default' => "150+ digital marketing campaign",
+		),
+		array(
+			'id'      => 'assets-management-data2-number',
+			'type'    => 'text',
+			'title'   => __( 'Assets Management Data 2 - Number', __TEXT_DOMAIN__ ),
+			'default' => "150+",
+		),
+		array(
+			'id'      => 'assets-management-data2-desc',
+			'type'    => 'textarea',
+			'title'   => __( 'Assets Management Data 2 - Desc', __TEXT_DOMAIN__ ),
+			'default' => "150+ digital marketing campaign",
+		),
+		array(
+			'id'      => 'assets-management-data2-show-idr',
+			'type'    => 'switch',
+			'title'   => __( 'Assets Management Data 2 - Show IDR', __TEXT_DOMAIN__ ),
+			'default' => false,
+		),
+		array(
+			'id'      => 'assets-management-data3-number',
+			'type'    => 'text',
+			'title'   => __( 'Assets Management Data 3 - Number', __TEXT_DOMAIN__ ),
+			'default' => "150+",
+		),
+		array(
+			'id'      => 'assets-management-data3-desc',
+			'type'    => 'textarea',
+			'title'   => __( 'Assets Management Data 3 - Desc', __TEXT_DOMAIN__ ),
+			'default' => "150+ digital marketing campaign",
+		),
+		array(
+			'id'      => 'assets-management-data4-number',
+			'type'    => 'text',
+			'title'   => __( 'Assets Management Data 4 - Number', __TEXT_DOMAIN__ ),
+			'default' => "150+",
+		),
+		array(
+			'id'      => 'assets-management-data4-desc',
+			'type'    => 'textarea',
+			'title'   => __( 'Assets Management Data 4 - Desc', __TEXT_DOMAIN__ ),
+			'default' => "150+ digital marketing campaign",
+		),
+	)
+) );
+
+Redux::setSection( $opt_name, array(
+	'title'      => __( 'Last Section', __TEXT_DOMAIN__ ),
+	'id'         => 'service-last-section',
+	'subsection' => true,
+	'fields'     => array(
+		array(
+			'id'      => 'service-last-section-heading',
+			'type'    => 'textarea',
+			'title'   => __( 'Heading Assets Management', __TEXT_DOMAIN__ ),
+			'default' => "Heading last Section Inbound Blog",
+		),
+		array(
+			'id'       => 'service-last-section-image',
+			'type'     => 'media',
+			'url'      => true,
+			'title'    => __( 'image', 'default' ),
+			'compiler' => 'false',
+			'subtitle' => __( 'Upload your logo', 'default' ),
+			'default'  => array( 'url' => jpp_assets( '/img/png/img-footer.png' ) ),
+		),
+		array(
+			'id'      => 'service-last-section-link-btn1',
+			'title'   => "Link Button 1",
+			'type'    => 'text',
+			'default' => 'https://www.google.com',
+		),
+		array(
+			'id'      => 'service-last-section-text-btn1',
+			'title'   => "Text Button 1",
+			'type'    => 'text',
+			'default' => 'Create a Brief',
+		),
+		array(
+			'id'      => 'show-btn2-service-last-section',
+			'title'   => __( 'Show Button 2 ?', __TEXT_DOMAIN__ ),
+			'type'    => 'switch',
+			'default' => false,
+		),
+		array(
+			'id'       => 'service-last-section-link-btn2',
+			'title'    => "Link Button 2",
+			'type'     => 'text',
+			'default'  => 'https://www.google.com',
+			'required' => array( 'show-btn2-service-last-section', '=', '1' )
+		),
+		array(
+			'id'       => 'service-last-section-text-btn2',
+			'title'    => "Text Button 2",
+			'type'     => 'text',
+			'default'  => 'Set a Meeting',
+			'required' => array( 'show-btn2-service-last-section', '=', '1' )
+		),
+	)
+) );
+
+
+/**
+ * ABOUT US
+ */
+Redux::setSection( $opt_name, array(
 	'title'            => __( 'About Us', __TEXT_DOMAIN__ ),
 	'id'               => 'about-us',
 	'customizer_width' => '400px',

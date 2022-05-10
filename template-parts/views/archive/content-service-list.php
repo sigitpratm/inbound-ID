@@ -15,10 +15,9 @@
 
 get_header(); ?>
 
-<?php //get_template_part( 'template-parts/components/section/section-sticky-sosmed', get_post_type() ) ?>
+<?php get_template_part( 'template-parts/components/section/section-sticky-sosmed', get_post_type() ) ?>
 
-
-	<div class="relative block pt-[5rem] md:pt-[6.5rem] text-gray-600 pb-40 md:pb-[32rem] px-4 md:px-0 overflow-hidden">
+	<div class="relative block pt-[5rem] md:pt-[6.5rem] text-gray-600 pb-40 md:pb-[32rem] px-4 lg:px-16 xl:px-20 2xl:px-0 overflow-hidden">
 		<img src="<?= jpp_assets( '/img/png/img-bg-01.png' ) ?>" alt=""
 			 class="hidden md:block absolute top-52 left-0 z-10 opacity-40">
 		<img src="<?= jpp_assets( '/img/png/img-bg-02.png' ) ?>" alt=""
@@ -53,7 +52,8 @@ get_header(); ?>
 
 									<div class="w-full h-[20rem] md:h-[28rem] bg-red-100 rounded-2xl overflow-hidden">
 										<?php $img = get_field( 'image', $term ); ?>
-										<img src="<?= $img['url'] ?>" alt="" class="w-full h-full object-cover">
+										<img src="<?= $img['url'] ?>" alt=""
+											 class="w-full h-full object-cover transition duration-300 hover:scale-110">
 									</div>
 
 									<div class="w-full h-auto space-y-3 md:space-y-6">
@@ -141,7 +141,8 @@ get_header(); ?>
 
 									<div class="order-1 md:order-2 w-full h-[20rem] md:h-[28rem] bg-red-100 rounded-2xl overflow-hidden">
 										<?php $img = get_field( 'image', $term ); ?>
-										<img src="<?= $img['url'] ?>" alt="" class="w-full h-full object-cover">
+										<img src="<?= $img['url'] ?>" alt=""
+											 class="w-full h-full object-cover transition duration-300 hover:scale-110">
 									</div>
 								</div>
 							<?php endif; ?>
@@ -155,7 +156,8 @@ get_header(); ?>
 			</div>
 		</div>
 
-		<img src="<?= jpp_assets( '/img/png/img-bg-footer.png' ) ?>" alt="" class="absolute bottom-0 left-0 z-50">
+		<img src="<?= jpp_assets( '/img/png/img-bg-footer.png' ) ?>" alt=""
+			 class="w-full absolute bottom-0 left-0 z-50">
 	</div>
 
 
