@@ -24,7 +24,8 @@ $data = emk_options( "last-article-categories" );
 		<div class="overflow-hidden relative space-y-8">
 
 			<!-- tab links -->
-			<div id="nav-tab-article" class="relative flex flex-row gap-2 md:items-center md:justify-center overflow-x-auto">
+			<div id="nav-tab-article"
+				 class="relative flex flex-row gap-2 md:items-center md:justify-center overflow-x-auto">
 				<?php
 				for ( $i = 0; $i < count( $data ); $i ++ ):
 					$item = get_term( $data[ $i ] );
@@ -32,8 +33,8 @@ $data = emk_options( "last-article-categories" );
 						?>
 
 						<button data-target="<?= $item->slug ?>" data-tab="last-article"
-						        data-tab-active="<?= $i === 0 ?>" data-index="<?= $i; ?>"
-						        class="flex-none <?= $i === 0 ? "active-btn-article" : "" ?>  btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-2 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
+								data-tab-active="<?= $i === 0 ?>" data-index="<?= $i; ?>"
+								class="flex-none <?= $i === 0 ? "active-btn-article" : "" ?>  btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-2 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
 							<?= $item->name ?>
 						</button>
 
@@ -44,7 +45,7 @@ $data = emk_options( "last-article-categories" );
 			<!-- tab contents -->
 			<div id="panel-article-tab">
 				<div id="tab-article-seo" data-tab-content="last-article"
-				     class="active-tab-article content-tab-article grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+					 class="active-tab-article content-tab-article grid grid-cols-3 gap-4 md:gap-8">
 
 					<!-- card -->
 					<?php
@@ -60,7 +61,6 @@ $data = emk_options( "last-article-categories" );
 											'taxonomy' => "category",
 											'field'    => "slug",
 											'terms'    => get_term( $data[0] )->slug,
-										//excluding the term you dont want.
 											'operator' => 'IN',
 									]
 							]
@@ -76,26 +76,34 @@ $data = emk_options( "last-article-categories" );
 						$data = array();
 						// Store each post's title in the array
 						while ( $meta_query->have_posts() ) {
-							$meta_query->the_post();
+							$meta_query->the_post(); ?>
 
-							?>
-							<div class="col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block">
-								<div class="h-full w-[80rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-black">
-									<img src="<?= get_the_post_thumbnail_url( get_the_ID() ); ?>" alt=""
-									     class="object-cover w-full h-full xl:h-52 2xl:h-72 transition duration-300 ease-in-out hover:scale-105 hover:opacity-60">
-								</div>
 
-								<div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4">
-									<a href=""
-									   class="text-lg md:text-3xl font-bold text-scheme-green line-clamp-2 min-h-[50px]">
-										<?= get_the_title( get_the_ID() ) ?>
-									</a>
-									<p class="text-sm md:text-base line-clamp-2 text-scheme-gray line-clamp-2 overflow-y-hidden">
-										<?= wp_strip_all_tags( get_the_excerpt() ); ?>
-									</p>
-									<a href="" class="text-sm md:text-base text-scheme-green font-bold">Read more</a>
+							<div class="col-span-3 md:col-span-1 bg-white rounded-3xl overflow-hidden text-gray-500">
+								<div class="flex flex-col">
+									<div class="h-[180px] md:h-xl:h-[200px] xl:h-[230px] 2xl:h-[300px] bg-red-100 overflow-hidden">
+										<img src="<?= get_the_post_thumbnail_url() ?>" alt=""
+											 class="object-cover w-full h-full transition duration-500 hover:scale-105">
+									</div>
+									<div class="px-6 py-4 md:px-8 md:py-6 space-y-4 xl:space-y-4 2xl:space-y-6">
+										<p class="line-clamp-2 text-scheme-green font-bold text-xl xl:text-2xl 2xl:text-3xl">
+											<a href="<?= get_the_permalink() ?>">
+												<?= get_the_title() ?>
+											</a>
+										</p>
+										<p class="line-clamp-3 text-sm xl:text-sm 2xl:text-base">
+											<?= wp_strip_all_tags( get_the_excerpt() ) ?>
+										</p>
+										<div>
+											<a href="<?= get_the_permalink() ?>"
+											   class="">
+												<span class="font-bold text-lg text-scheme-green">Read more</span>
+											</a>
+										</div>
+									</div>
 								</div>
 							</div>
+
 						<?php }
 					}
 					wp_reset_postdata();

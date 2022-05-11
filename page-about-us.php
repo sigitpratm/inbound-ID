@@ -18,7 +18,7 @@ get_header(); ?>
 <?php get_template_part( 'template-parts/components/section/section-sticky-sosmed', get_post_type() ) ?>
 
 
-	<div class="pt-[6.5rem] relative">
+	<div class="pt-[6.5rem] relative text-gray-600">
 
 		<img src="<?= jpp_assets( '/img/png/img-bg-01.png' ) ?>" alt=""
 			 class="hidden md:block absolute top-52 left-0 opacity-50 z-[5]">
@@ -51,7 +51,7 @@ get_header(); ?>
 
 					<div class="w-full h-full space-y-2 md:space-y-8">
 						<p class="text-5xl xl:text-7xl 2xl:text-8xl font-bold text-scheme-green"><?= emk_options( 'achievement-number-item1' ) ?></p>
-						<p class="xl:text-base 2xl:text-lg px-12">
+						<p class="text-lg xl:text-base 2xl:text-lg px-12">
 							<?= emk_options( 'achievement-desc-item1' ) ?>
 						</p>
 					</div>
@@ -60,21 +60,21 @@ get_header(); ?>
 						<p class="text-5xl xl:text-7xl 2xl:text-8xl font-bold text-scheme-green">
 							<span class="text-2xl md:text-5xl">IDR</span><span><?= emk_options( 'achievement-number-item2' ) ?></span>
 						</p>
-						<p class="xl:text-base 2xl:text-lg px-12">
+						<p class="text-lg xl:text-base 2xl:text-lg px-12">
 							<?= emk_options( 'achievement-desc-item2' ) ?>
 						</p>
 					</div>
 
 					<div class="w-full h-full space-y-2 md:space-y-8">
 						<p class="text-5xl xl:text-7xl 2xl:text-8xl font-bold text-scheme-green"><?= emk_options( 'achievement-number-item3' ) ?></p>
-						<p class="xl:text-base 2xl:text-lg px-12">
+						<p class="text-lg xl:text-base 2xl:text-lg px-12">
 							<?= emk_options( 'achievement-desc-item3' ) ?>
 						</p>
 					</div>
 
 					<div class="w-full h-full space-y-2 md:space-y-8">
 						<p class="text-5xl xl:text-7xl 2xl:text-8xl font-bold text-scheme-green"><?= emk_options( 'achievement-number-item4' ) ?></p>
-						<p class="xl:text-base 2xl:text-lg px-12">
+						<p class="text-lg xl:text-base 2xl:text-lg px-12">
 							<?= emk_options( 'achievement-desc-item4' ) ?>
 						</p>
 					</div>
@@ -292,6 +292,205 @@ get_header(); ?>
 			<div id="nav-slider-milestone" class="flex items-center justify-center gap-6">
 				<button class="btn-slider-milestone w-4 h-4 rounded-full bg-gray-300 active-btn-milestone"></button>
 				<button class="btn-slider-milestone w-4 h-4 rounded-full bg-gray-300"></button>
+			</div>
+
+		</div>
+
+		<div class="block md:hidden py-12 relative z-10 px-4 text-gray-600 space-y-4">
+			<div class="text-3xl text-center font-bold text-scheme-green">
+				<p>MILESTONE</p>
+			</div>
+
+			<!-- main content milestone -->
+			<div class="relative">
+				<div class="overflow-x-auto flex snap-x">
+
+					<!-- milestone item -->
+					<div class="flex-none py-6 px-3 w-80 snap-center">
+						<div class="flex flex-col items-center justify-center gap-3">
+							<div class="text-center inline-block bg-scheme-green text-white font-bold px-8 py-1 rounded-full">
+								<p>2009</p>
+							</div>
+							<div class="w-44 h-20 overflow-hidden">
+								<img src="<?= jpp_assets( '/img/png/milestone/s1-1.png' ) ?>" alt=""
+									 class="object-contain w-full h-full">
+							</div>
+							<div class="text-center">
+								<p>Inboundid Founded</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- milestone item -->
+					<div class="flex-none py-6 px-3 w-80 snap-center">
+						<div class="flex flex-col items-center justify-center gap-3">
+							<div class="text-center inline-block bg-scheme-green text-white font-bold px-8 py-1 rounded-full">
+								<p>2012</p>
+							</div>
+							<div class="w-44 h-20 overflow-hidden">
+								<img src="<?= jpp_assets( '/img/png/milestone/s1-2.png' ) ?>" alt=""
+									 class="object-contain w-full h-full">
+							</div>
+							<div class="text-center">
+								<p>Unilever, Indosat, Qm Financial joined as our first clients</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- milestone item -->
+					<div class="flex-none py-6 px-3 w-80 snap-center">
+						<div class="flex flex-col items-center justify-center gap-3">
+							<div class="text-center inline-block bg-scheme-green text-white font-bold px-8 py-1 rounded-full">
+								<p>2013</p>
+							</div>
+							<div class="w-44 h-20 overflow-hidden">
+								<img src="<?= jpp_assets( '/img/png/milestone/s1-3.png' ) ?>" alt=""
+									 class="object-contain w-full h-full">
+							</div>
+							<div class="text-center">
+								<p>
+									InboundID got: Google Premier Partner badge Facebook Preferred Partner badge
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- milestone item -->
+					<div class="flex-none py-6 px-3 w-80 snap-center">
+						<div class="flex flex-col items-center justify-center gap-3">
+							<div class="text-center inline-block bg-scheme-green text-white font-bold px-8 py-1 rounded-full">
+								<p>2014</p>
+							</div>
+							<div class="w-44 h-20 overflow-hidden">
+								<img src="<?= jpp_assets( '/img/png/milestone/s1-4.png' ) ?>" alt=""
+									 class="object-contain w-full h-full">
+							</div>
+							<div class="text-center">
+								<p>
+									InboundID won teh Google All Star Challenge 2014
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- milestone item -->
+					<div class="flex-none py-6 px-3 w-80 snap-center">
+						<div class="flex flex-col items-center justify-center gap-3">
+							<div class="text-center inline-block bg-scheme-green text-white font-bold px-8 py-1 rounded-full">
+								<p>2015</p>
+							</div>
+							<div class="w-44 h-20 overflow-hidden">
+								<img src="<?= jpp_assets( '/img/png/milestone/s1-5.png' ) ?>" alt=""
+									 class="object-contain w-full h-full">
+							</div>
+							<div class="text-center">
+								<p>
+									Became part of digital marketing team of Indonesia Ministry of Tourism
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- milestone item -->
+					<div class="flex-none py-6 px-3 w-80 snap-center">
+						<div class="flex flex-col items-center justify-center gap-3">
+							<div class="text-center inline-block bg-scheme-green text-white font-bold px-8 py-1 rounded-full">
+								<p>2017</p>
+							</div>
+							<div class="w-44 h-20 overflow-hidden">
+								<img src="<?= jpp_assets( '/img/png/milestone/s2-1.png' ) ?>" alt=""
+									 class="object-contain w-full h-full">
+							</div>
+							<div class="text-center">
+								<p>
+									Managed 100 Billion campaign budget Joined FreakOut Group
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- milestone item -->
+					<div class="flex-none py-6 px-3 w-80 snap-center">
+						<div class="flex flex-col items-center justify-center gap-3">
+							<div class="text-center inline-block bg-scheme-green text-white font-bold px-8 py-1 rounded-full">
+								<p>2018</p>
+							</div>
+							<div class="w-44 h-20 overflow-hidden">
+								<img src="<?= jpp_assets( '/img/png/milestone/s2-2.png' ) ?>" alt=""
+									 class="object-contain w-full h-full">
+							</div>
+							<div class="text-center">
+								<p>
+									Received Premier Partner Award 2018
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- milestone item -->
+					<div class="flex-none py-6 px-3 w-80 snap-center">
+						<div class="flex flex-col items-center justify-center gap-3">
+							<div class="text-center inline-block bg-scheme-green text-white font-bold px-8 py-1 rounded-full">
+								<p>2019</p>
+							</div>
+							<div class="text-center">
+								<p>
+									Managed 150+ clients from different industries
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- milestone item -->
+					<div class="flex-none py-6 px-3 w-80 snap-center">
+						<div class="flex flex-col items-center justify-center gap-3">
+							<div class="text-center inline-block bg-scheme-green text-white font-bold px-8 py-1 rounded-full">
+								<p>2020</p>
+							</div>
+							<div class="w-44 h-20 overflow-hidden">
+								<img src="<?= jpp_assets( '/img/png/milestone/s2-3.png' ) ?>" alt=""
+									 class="object-contain w-full h-full">
+							</div>
+							<div class="text-center">
+								<p>
+									#3 Facebook Agency League in Q4 2020
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- milestone item -->
+					<div class="flex-none py-6 px-3 w-80 snap-center">
+						<div class="flex flex-col items-center justify-center gap-3">
+							<div class="text-center inline-block bg-scheme-green text-white font-bold px-8 py-1 rounded-full">
+								<p>2021</p>
+							</div>
+							<div class="w-44 h-20 overflow-hidden">
+								<img src="<?= jpp_assets( '/img/png/milestone/s2-4.png' ) ?>" alt=""
+									 class="object-contain w-full h-full">
+							</div>
+							<div class="text-center">
+								<p>
+									Runner Up Young Lions Competitions 2021 Media Category #1 Facebook Agency League in 2021
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- milestone item -->
+					<div class="flex-none py-6 px-3 w-80 snap-center">
+						<div class="flex flex-col items-center justify-center gap-3">
+							<div class="text-center inline-block bg-scheme-green text-white font-bold px-8 py-1 rounded-full">
+								<p>2022</p>
+							</div>
+							<div class="w-44 h-20 overflow-hidden">
+								<img src="<?= jpp_assets( '/img/png/milestone/s2-5.png' ) ?>" alt=""
+									 class="object-contain w-full h-full">
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
 
 		</div>

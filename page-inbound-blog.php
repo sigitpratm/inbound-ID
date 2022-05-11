@@ -21,8 +21,7 @@ $count_slider = emk_options( 'hero-banner-blog-total-slider' );
 
 $query_slider = new WP_Query( array(
 		'post_type'      => 'post',
-		'meta_key'       => 'content_type',
-		'meta_value'     => 1,
+		'post_status'    => "publish",
 		'posts_per_page' => $count_slider,
 
 ) );

@@ -71,6 +71,16 @@ function jpp_search_form() {
 
 add_filter( 'get_search_form', 'jpp_search_form' );
 
+function wpb_search_filter( $query ) {
+	if ( $query->is_search ) {
+		$query->set( 'post_type', [ 'post', 'case-study' ] );
+	}
+
+	return $query;
+}
+
+add_filter( 'pre_get_posts', 'wpb_search_filter' );
+
 
 
 

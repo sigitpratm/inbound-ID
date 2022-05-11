@@ -115,9 +115,9 @@ if ( $output !== null ) {
 
 		<div class="absolute -bottom-6 left-0 w-full">
 			<div class="flex items-center justify-center">
-				<button class="text-sm md:text-base font-bold py-4 px-6 md:px-8 rounded-full border-2 border-scheme-green bg-scheme-light-gray text-scheme-dark-green transition duration-200 hover:bg-scheme-dark-green hover:text-white">
+				<a href="<?= get_post_type_archive_link( 'service' ); ?>" class="text-sm md:text-base font-bold py-4 px-6 md:px-8 rounded-full border-2 border-scheme-green bg-scheme-light-gray text-scheme-dark-green transition duration-200 hover:bg-scheme-dark-green hover:text-white">
 					Learn more about our service
-				</button>
+				</a>
 			</div>
 		</div>
 

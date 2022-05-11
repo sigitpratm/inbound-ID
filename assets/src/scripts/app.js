@@ -148,12 +148,10 @@ const AwardCard = function (attr) {
 					params: {
 						limit: 5,
 						paged: 1,
-						post_type: "post",
+						post_type: "award",
 						post_status: "publish",
 						orderby: "date",
 						order: "DESC",
-						"meta_query[key]": "item_type",
-						"meta_query[value]": 2,
 					}
 				})
 					.then((response) => {

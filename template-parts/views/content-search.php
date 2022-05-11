@@ -9,15 +9,27 @@
 
 ?>
 
+
+<?php //if ( get_post_type() === 'post' || get_post_type() === 'case-study' ) : ?>
 <article id="post-<?php the_ID(); ?>"
-		 class="col-span-1 md:col-span-6 border border-gray-200 bg-white rounded-xl p-4 transition duration-200 hover:shadow-md min-h-[12rem] md:min-h-[14rem]">
-	<div class="flex items-start justify-center gap-4">
-		<div class="w-[52rem] w-[52rem] overflow-hidden rounded-lg border">
-			<img src="<?= get_the_post_thumbnail_url() ?>" alt=""
-				 class="w-full h-full object-cover transition ease-in-out duration-300 hover:scale-110">
+		 class="col-span-1 md:col-span-6 border border-gray-200 bg-white rounded-xl p-4 transition duration-200 hover:shadow-md min-h-[10rem] md:min-h-[12rem]">
+
+	<div class="grid grid-cols-12 gap-4">
+
+		<div class="col-span-4 h-36 md:h-44 overflow-hidden rounded-lg border">
+			<?php $thumbs = get_the_post_thumbnail_url();
+			if ( $thumbs ) : ?>
+				<img src="<?= get_the_post_thumbnail_url() ?>" alt=""
+					 class="w-full h-full object-cover transition ease-in-out duration-300 hover:scale-110">
+
+			<?php else: ?>
+				<div class="flex items-center justify-center w-full h-full bg-gray-200">
+					<p class="text-sm text-gray-400">Image not found</p>
+				</div>
+			<?php endif; ?>
 		</div>
 
-		<div class="space-y-2">
+		<div class="col-span-8 space-y-2">
 			<div>
 				<p class="line-clamp-2 font-bold text-xl md:text-2xl text-scheme-dark-green">
 					<a href="<?= get_the_permalink() ?>">
@@ -61,6 +73,6 @@
 				</svg>
 			</div>
 		</div>
-
 	</div>
 </article>
+<?php //endif; ?>

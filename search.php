@@ -10,9 +10,9 @@
 get_header(); ?>
 
 
-	<div class="pt-[5rem] md:py-[6.5rem] w-full lg:px-16 xl:px-12 2xl:px-0 mx-auto z-30 relative">
+	<div class="pt-[5rem] md:pt-[6.5rem] w-full lg:px-16 xl:px-12 2xl:px-0 mx-auto z-30 relative">
 		<div class="container mx-auto">
-			<section id="primary" class="space-y-8 px-4">
+			<section id="primary" class="space-y-8 px-4 py-4 md:py-16 min-h-screen">
 				<!-- heading -->
 				<header>
 					<h1 class="page-title font-bold text-gray-600 text-2xl md:text-3xl">
@@ -28,6 +28,8 @@ get_header(); ?>
 
 				<!-- body -->
 				<div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+
+
 					<?php
 					if ( have_posts() ):
 						while ( have_posts() ): the_post(); ?>
@@ -43,17 +45,21 @@ get_header(); ?>
 						</div>
 
 
-					<?php else:
-						echo '<p> Post tidak ditemukan </p>';
-					endif;
-					?>
+					<?php else: ?>
+						<div class="col-span-1 md:col-span-12 flex py-4 items-center justify-center gap-4 py-8">
+							<p class="text-gray-400 text-3xl text-center">search did not find</p>
+						</div>
+					<?php endif; ?>
 				</div>
 			</section>
-
 		</div>
+
+
+	</div>
+	<div class="">
+		<img src="<?= jpp_assets( '/img/png/img-bg-footer.png' ) ?>" alt="" class="">
 	</div>
 
 
-	<img src="<?= jpp_assets( '/img/png/img-bg-footer.png' ) ?>" alt="" class="">
 <?php
 get_footer();

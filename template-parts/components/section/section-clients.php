@@ -1,9 +1,9 @@
 <?php
 $query = new WP_Query( array(
-		'post_type'      => 'post',
+		'post_type'      => 'client',
 		'posts_per_page' => - 1,
-		'meta_key'       => 'item_type',
-		'meta_value'     => 1
+		'order'          => 'DESC',
+		'post_status'    => "publish",
 ) );
 
 $data = $query->posts;
