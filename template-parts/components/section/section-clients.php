@@ -17,7 +17,7 @@ for ( $i = 0; $i < $maxCount; $i ++ ) {
 
 ?>
 
-<div class="py-16 md:py-28 relative block space-y-8 xl:space-y-12 2xl:space-y-24">
+<div class="py-16 md:py-28 relative block space-y-8 xl:space-y-12 2xl:space-y-16">
 	<!-- heading -->
 	<div>
 		<p class="font-bold text-center text-4xl md:text-5xl text-scheme-green">OUR CLIENTS</p>
@@ -26,7 +26,7 @@ for ( $i = 0; $i < $maxCount; $i ++ ) {
 	<!-- body -->
 	<div id="body-slider-client" class="w-full overflow-x-hidden flex flex-row">
 		<?php $totSlide = intval( emk_options( 'client-select-slide' ) ); ?>
-		<?php if ( $totSlide !== 0 ):
+		<?php if ( $totSlide !== 0 ):	
 			$offsets = 0;
 			$limit = 8;
 			for ( $i = 0; $i < $totSlide; $i ++ ) :
@@ -34,13 +34,12 @@ for ( $i = 0; $i < $maxCount; $i ++ ) {
 
 
 					<div class="card-slider w-full flex-none overflow-hidden">
-						<div class="w-full grid grid-cols-2 md:grid-cols-4 gap-12 xl:gap-24 2xl:gap-32">
+						<div class="w-full grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 xl:gap-20 2xl:gap-24">
 							<?php for ( $j = 0; $j < count( (array) $arrPost[ $k ] ); $j ++ ):
 								$item = $arrPost[ $k ][ $j ] ?>
-
-								<div class="col-span-1 md:col-span-1 h-32 md:h-40 flex items-center justify-center">
+								<div class="col-span-1 md:col-span-1 h-auto">
 									<img src="<?= get_the_post_thumbnail_url( $item->ID ) ?>" alt=""
-										 class="object-contain max-h-32 md:max-h-40 h-full w-auto">
+										 class="w-full h-full">
 								</div>
 
 							<?php endfor; ?>
@@ -54,7 +53,7 @@ for ( $i = 0; $i < $maxCount; $i ++ ) {
 
 
 	<!-- footer -->
-	<div id="nav-slider-client" class="flex items-center justify-center gap-6 py-6">
+	<div id="nav-slider-client" class="flex items-center justify-center gap-6">
 		<?php if ( $totSlide !== 0 ): ?>
 			<?php for ( $i = 0; $i < $totSlide; $i ++ ) : ?>
 

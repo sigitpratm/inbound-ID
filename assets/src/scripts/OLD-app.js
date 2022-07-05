@@ -23,7 +23,7 @@ window.fetchingData = async function fetchingData(props) {
 					total: 0,
 					total_page: 0,
 					current_page: 1,
-					posts_per_page: props?.params?.limit ?? 4
+					posts_per_page: props?.params?.limit ?? 10
 				}
 				if (response?.status === 200) {
 					let data = response?.data
@@ -56,7 +56,7 @@ window.fetchingData = async function fetchingData(props) {
 						total: 0,
 						total_page: 0,
 						current_page: 1,
-						posts_per_page: this?.params?.limit ?? 4
+						posts_per_page: this?.params?.limit ?? 10
 					},
 					data: []
 				}
@@ -96,15 +96,15 @@ const PodcastCard = function (attr) {
 				// console.log(el, "ini item nya")
 				axios.get(`${SITE_URL}/wp-json/emkalab/v1/post/`, {
 					params: {
-						limit: 4,
+						limit: 3,
 						paged: 1,
 						post_type: "podcast",
 						post_status: "publish",
 						orderby: "date",
 						order: "DESC",
 						"meta_query[key]": "content_type",
-						"meta_query[value]": el.getAttribute("data-podcast") ?? "1",
-						"meta_query[relation]": "AND",
+						"meta_query[value]": el.getAttribute("data-podcast") ?? "watched",
+						"meta_query[relation]": "OR",
 					}
 				})
 					.then((response) => {
@@ -146,7 +146,7 @@ const AwardCard = function (attr) {
 				el.innerHTML = "<div class='w-full grid-cols-1 md:col-span-2 space-y-2 h-[200px]'>Loading...</div>"
 				axios.get(`${SITE_URL}/wp-json/emkalab/v1/post/`, {
 					params: {
-						limit: 4,
+						limit: 5,
 						paged: 1,
 						post_type: "award",
 						post_status: "publish",
@@ -211,11 +211,11 @@ function cardPodcast(data = {}) {
 	if (typeof (data?.fields?.podcast?.social?.type) !== "undefined" && typeof (data?.fields?.podcast?.social?.url) !== "undefined") {
 		a.href = data?.fields?.podcast?.social?.url
 
-		if (data?.fields?.podcast?.content_type === "1") {
+		if (data?.fields?.podcast?.content_type === "listened") {
 			a.innerText = "Listen on Spotify"
-		} else if (data?.fields?.podcast?.content_typea === "2") {
+		} else if (data?.fields?.podcast?.content_type === "watched") {
 			a.innerText = "Watch on Youtube"
-		} else{
+		} else if (data?.fields?.podcast?.content_type === "classes") {
 			a.innerText = "See More"
 		}
 	}
@@ -298,7 +298,7 @@ function ContentArticleTabByCategory(attr = "last-article", field = "slug", term
 				el.innerHTML += `<div class="animate-pulse col-span-1 md:col-span-4 rounded-2xl md:rounded-3xl bg-white overflow-hidden transition duration-300 hover:shadow-md flex flex-row md:block"><div class="h-full w-[32rem] md:w-auto xl:h-52 2xl:h-72 overflow-hidden bg-gray-200"></div><div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4"><div class="w-full h-4 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="w-full h-3 bg-gray-200 rounded-full"></div><div class="px-6 py-2 bg-gray-200 rounded-full"></div></div></div>`
 				axios.get(`${SITE_URL}/wp-json/emkalab/v1/post/`, {
 					params: {
-						limit: 4,
+						limit: 10,
 						paged: 1,
 						post_type: "post",
 						post_status: "publish",

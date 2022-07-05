@@ -96,9 +96,9 @@
                 "id": ""
             },
             "choices": {
-                "listened": "Listened Podcast",
-                "watched": "Watched Sessions",
-                "classes": "Previous Class"
+                "1: Listened Podcast": "1: Listened Podcast",
+                "2: Watched Sessions": "2: Watched Sessions",
+                "3: Previous Class": "3: Previous Class"
             },
             "default_value": "listened",
             "allow_null": 0,
@@ -126,5 +126,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1651128138
+    "modified": 1652350073
 }

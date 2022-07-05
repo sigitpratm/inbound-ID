@@ -1067,14 +1067,14 @@ Redux::setSection( $opt_name, array(
 			'id'      => 'podcast-section1-items1-heading',
 			'title'   => __( '(Section 1 - Items 1 ) Heading' ),
 			'type'    => 'text',
-			'default' => 'DEFAULT OUR PROGRAMS'
+			'default' => '(Section 1 - Items 1 ) Heading'
 		),
 
 		array(
 			'id'      => 'podcast-section1-items1-subheading',
 			'title'   => __( '(Section 1 - Items 1 ) Subheading' ),
 			'type'    => 'textarea',
-			'default' => 'DEFAULT Sharing is caring! While we share our expertise to your brand and business, we also love to share our care, knowledge and story to the community, to the people and neighborhood we live in.'
+			'default' => 'podcast-section1-items1-subheading'
 		),
 
 		array(
@@ -1109,7 +1109,7 @@ Redux::setSection( $opt_name, array(
 			'id'       => 'podcast-section1-item2-heading',
 			'title'    => __( '(Section 1 - Item 2) - Heading', __TEXT_DOMAIN__ ),
 			'type'     => 'text',
-			'default'  => 'DEFAULT REBOUND Podcast by InboundID',
+			'default'  => 'title section1 - item2 heading ',
 			'required' => array( 'podcast-section1-item2-btn-use-image', '=', '0' )
 		),
 
@@ -1117,14 +1117,14 @@ Redux::setSection( $opt_name, array(
 			'id'      => 'podcast-section1-item2-subheading',
 			'title'   => __( '(Section 1 - Item 2) - Subheading' ),
 			'type'    => 'textarea',
-			'default' => 'Rebound podcast is Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium at dignissimos expedita maxime nihil officiis placeat praesentium quas voluptatem!'
+			'default' => 'podcast-section1-item2-subheading'
 		),
 
 		array(
 			'id'      => 'podcast-section1-item2-btn-title',
 			'title'   => __( '(Section 1 - Item 2) - Button Title' ),
 			'type'    => 'text',
-			'default' => 'DEFAULT LISTED NOW'
+			'default' => 'podcast-section1-item2-btn-title'
 		),
 
 		array(
@@ -1139,7 +1139,7 @@ Redux::setSection( $opt_name, array(
 			'id'      => 'podcast-section1-item3-heading',
 			'title'   => __( '(Section 1 - Item 3) - Heading' ),
 			'type'    => 'text',
-			'default' => 'DEFAULT OUR MOST LISTENED PODCASTS'
+			'default' => 'podcast-section1-item3-heading'
 		),
 
 	)
@@ -1156,24 +1156,31 @@ Redux::setSection( $opt_name, array(
 	'desc'       => __( 'This is section top area' ),
 	'fields'     => array(
 		array(
+			'id'      => 'podcast-section2-item1-title-card',
+			'type'    => 'text',
+			'title'   => __( '(Section 2 - Item 1) - Title Card', __TEXT_DOMAIN__ ),
+			'default' => 'podcast-section2-item1-title-card'
+		),
+
+		array(
 			'id'      => 'podcast-section2-item1-heading',
 			'type'    => 'text',
 			'title'   => __( '(Section 2 - Item 1) - Heading', __TEXT_DOMAIN__ ),
-			'default' => 'DEFAULT REBOUND TALK'
+			'default' => 'podcast-section2-item1-heading'
 		),
 
 		array(
 			'id'      => 'podcast-section2-item1-subheading',
 			'type'    => 'textarea',
 			'title'   => __( '(Section 2 - Item 1) - Subheading', __TEXT_DOMAIN__ ),
-			'default' => 'DEFAULT Get updates about the digital marketing world and the know-how through in-depth discussions with experts.'
+			'default' => 'podcast-section2-item1-subheading'
 		),
 
 		array(
 			'id'      => 'podcast-section2-item1-btn-title',
 			'type'    => 'text',
 			'title'   => __( '(Section 2 - Item 1) - Button Title', __TEXT_DOMAIN__ ),
-			'default' => 'DEFAULT VISIT NOW'
+			'default' => 'podcast-section2-item1-btn-title'
 		),
 
 		array(
@@ -1198,14 +1205,14 @@ Redux::setSection( $opt_name, array(
 			'id'      => 'podcast-section2-item2-heading',
 			'type'    => 'text',
 			'title'   => __( '(Section 2 - Item 2) - Heading', __TEXT_DOMAIN__ ),
-			'default' => 'DEFAULT REBOUND TALK'
+			'default' => 'podcast-section2-item2-heading'
 		),
 
 		array(
 			'id'      => 'podcast-section2-item3-subheading',
 			'type'    => 'text',
 			'title'   => __( '(Section 2 - Item 3) - subheading', __TEXT_DOMAIN__ ),
-			'default' => 'DEFAULT Miracles in InboundID Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dolor, labore laudantium magni odit quo?'
+			'default' => 'podcast-section2-item3-subheading'
 		),
 
 		array(
@@ -1247,14 +1254,14 @@ Redux::setSection( $opt_name, array(
 			'id'      => 'podcast-section3-item1-heading',
 			'type'    => 'text',
 			'title'   => __( '(Section 3 - Item 1) - Heading', __TEXT_DOMAIN__ ),
-			'default' => 'DEFAULT OUR MIRACLES PROGRAM'
+			'default' => 'podcast-section3-item1-heading'
 		),
 
 		array(
 			'id'      => 'podcast-section3-item1-subheading',
 			'type'    => 'textarea',
 			'title'   => __( '(Section 3 - Item 1) - Subheading', __TEXT_DOMAIN__ ),
-			'default' => 'DEFAULT Our Collaboration Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, distinctio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, possimus?'
+			'default' => 'podcast-section3-item1-subheading'
 		),
 
 		array(
@@ -1268,7 +1275,7 @@ Redux::setSection( $opt_name, array(
 			'id'      => 'podcast-section3-item1-btn-title',
 			'type'    => 'text',
 			'title'   => __( '(Section 3 - Item 1) - Button Title', __TEXT_DOMAIN__ ),
-			'default' => 'DEFAULT BTN'
+			'default' => 'podcast-section3-item1-btn-title'
 		),
 
 		array(
@@ -1320,7 +1327,7 @@ Redux::setSection( $opt_name, array(
 			'id'      => 'podcast-section3-item2-subheading',
 			'title'   => __( '(Section 3 - Item 2) - Subheading', __TEXT_DOMAIN__ ),
 			'type'    => 'textarea',
-			'default' => 'DEFAULT Digital marketing academy for professionals who wants to improve their skills in digital marketing, fresh graduates who wants to kickstart their careerr in digital marketing and college students who wants to gain knowledge about digital marketing.'
+			'default' => 'podcast-section3-item2-subheading'
 		),
 
 		array(
@@ -1334,14 +1341,14 @@ Redux::setSection( $opt_name, array(
 			'id'      => 'podcast-section3-item2-btn-title',
 			'title'   => __( '(Section 3 - Item 2) - Button URL', __TEXT_DOMAIN__ ),
 			'type'    => 'text',
-			'default' => 'DEFAULT Button'
+			'default' => 'podcast-section3-item2-btn-title'
 		),
 
 		array(
 			'id'      => 'podcast-section3-item3-heading',
 			'title'   => __( '(Section 3 - Item 3) - Heading', __TEXT_DOMAIN__ ),
 			'type'    => 'text',
-			'default' => 'DEFAULT PREVIOUS CLASSES'
+			'default' => 'podcast-section3-item3-heading'
 		),
 
 

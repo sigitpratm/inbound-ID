@@ -44,7 +44,7 @@ $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 		<!-- tab contents -->
 		<div id="panel-article-tab">
 			<div data-tab-content="case-studies"
-				 class="active-tab-article content-tab-article grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+				 class="active-tab-article content-tab-article flex flex-col lg:grid lg:grid-cols-12 gap-4 md:gap-8">
 
 				<!-- card -->
 				<?php
@@ -69,16 +69,16 @@ $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 						$meta_query->the_post();
 
 						?>
-						<div class="col-span-1 md:col-span-3 overflow-hidden transition duration-300 flex flex-row md:block gap-4">
-							<div class="h-full w-[32rem] md:w-auto xl:h-52 overflow-hidden bg-black rounded-tl-2xl rounded-tr-2xl">
+						<div class="col-span-1 md:col-span-3 overflow-hidden bg-white  rounded-2xl md:rounded-none md:bg-transparent transition duration-300 flex flex-row md:block gap-4">
+							<div class="h-full flex-none w-[10rem] md:w-auto xl:h-52 overflow-hidden bg-black rounded-tl-2xl rounded-tr-2xl">
 								<img src="<?= get_the_post_thumbnail_url( get_the_ID() ); ?>" alt=""
 									 class="object-cover w-full h-full xl:h-52 2xl:h-72 transition duration-300 ease-in-out hover:scale-105 hover:opacity-60">
 							</div>
 
 							<div class="py-4 flex flex-col items-start justify-center gap-2">
-								<div class="flex flex-col space-y-1">
-									<a href=""
-									   class="text-lg md:text-3xl font-bold text-scheme-green truncate ">
+								<div class="flex flex-col space-y-1 w-full flex-grow overflow-hidden">
+									<a href="<?= get_the_permalink(get_the_ID());?>"
+									   class="text-lg md:text-3xl font-bold text-scheme-green line-clamp-2 ">
 										<?= get_the_title( get_the_ID() ) ?>
 									</a>
 								</div>
@@ -260,12 +260,11 @@ $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 
 	function CardHTML(data = {}) {
 		try {
-			console.log(data, "response data")
 			let element = document.createElement("div")
-			element.className = `col-span-1 md:col-span-3 overflow-hidden transition duration-300 flex flex-row md:block`
+			element.className = `col-span-1 md:col-span-3 overflow-hidden gap-4 bg-white rounded-xl md:bg-transparent transition duration-300 flex flex-row md:block`
 
 			let elImages = document.createElement("div")
-			elImages.className = `h-full w-[32rem] md:w-auto xl:h-52 overflow-hidden bg-black rounded-tl-2xl rounded-tr-2xl`
+			elImages.className = `h-full flex-none w-[10rem] md:w-auto xl:h-52 overflow-hidden rounded-xl md:rounded-tl-2xl md:rounded-tr-2xl`
 
 			let img = document.createElement('img')
 			img.src = data?.thumbnail?.url ?? ""
@@ -277,7 +276,7 @@ $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 			element.append(elImages)
 
 			let elFirst = document.createElement("div")
-			elFirst.className = "py-4 flex flex-col items-start justify-center gap-2"
+			elFirst.className = "pr-4 md:pr-0 py-4 flex flex-col items-start justify-center gap-2"
 
 			let divElFirst = document.createElement("div")
 			divElFirst.className = "flex flex-col space-y-1 overflow-hidden"

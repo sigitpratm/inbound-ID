@@ -17,6 +17,292 @@ $postType = get_post_type();
 
 <?php get_template_part( 'template-parts/components/section/section-sticky-sosmed', get_post_type() ) ?>
 
+<?php if ( $postType === 'case-study' ): ?>
+	<div class="py-[6.5rem] w-full px-4 lg:px-16 xl:px-20 2xl:px-0 mx-auto z-30 relative pb-16 text-scheme-gray-text relative">
+		<div class="container mx-auto space-y-16 md:space-y-24">
+
+			<!-- content top -->
+			<div class="pt-4 md:pt-20 space-y-4 text-center">
+				<h1 class="text-3xl md:text-4xl font-bold text-scheme-green">
+					<?= get_the_title() ?>
+				</h1>
+				<p class="font-bold text-gray-600 text-lg md:text-xl">
+					<?php
+					$studyCat = get_the_terms( get_the_ID(), 'case-study-category' );
+					if ( $studyCat !== null || $studyCat !== '' ) {
+						echo $studyCat[0]->name;
+					}
+					?>
+				</p>
+				<p class="text-xl leading-relaxed md:leading-9 mx-auto w-full md:w-2/3">
+					<?php
+					if ( get_field( 'study_summary' ) !== null || get_field( 'study_summary' ) !== '' ) {
+						echo get_field( 'study_summary' );
+					}
+					?>
+				</p>
+			</div>
+
+			<!-- image brand -->
+			<div class="w-2/3 md:w-1/3 mx-auto">
+				<?php if ( get_field( 'icon_brand_study' ) !== null || get_field( 'icon_brand_study' ) !== '' ) : ?>
+					<img src="<?= get_field( 'icon_brand_study' ) ?>" alt="logo-brand" class="w-full">
+				<?php endif; ?>
+			</div>
+
+			<!-- case study -->
+			<div class="space-y-6 md:space-y-12">
+				<div class="text-center space-y-6">
+					<p class="text-3xl md:text-4xl font-bold text-scheme-green">
+						Case Study
+					</p>
+					<p class="md:w-2/3 mx-auto text-lg md:text-xl leading-relaxed md:leading-9">
+						<?php if ( get_field( 'icon_brand_study' ) !== null || get_field( 'icon_brand_study' ) !== '' ) {
+							echo get_field( 'study_description' );
+						} ?>
+					</p>
+				</div>
+
+				<div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20">
+					<?php
+					$dataFirst  = get_field( 'second_improvement' );
+					$dataSecond = get_field( 'second_improvement' );
+
+					if ( $dataFirst !== null && $dataSecond !== null ) { ?>
+						<div class="w-auto h-auto text-center space-y-2 md:space-y-6">
+							<p class="text-4xl md:text-7xl font-bold text-scheme-green">
+								<?= get_field( 'first_improvement' ) ?>
+							</p>
+							<p class="text-xl md:text-xl">
+								<?= get_field( 'first_improvement_data' ) ?>
+							</p>
+						</div>
+
+						<div class="w-auto h-auto text-center space-y-2 md:space-y-6">
+							<p class="text-4xl md:text-7xl font-bold text-scheme-green">
+								<?= get_field( 'second_improvement' ) ?>
+							</p>
+							<p class="text-xl md:text-xl">
+								<?= get_field( 'second_improvement_data' ) ?>
+							</p>
+						</div>
+					<?php } else { ?>
+						<div class="w-full h-auto text-center font-bold text-scheme-green space-y-2">
+							<p class="text-xl md:text-2xl">
+								<?= get_field( 'first_improvement' ) ?>
+							</p>
+							<p class="text-4xl md:text-7xl">
+								<?= get_field( 'first_improvement_data' ) ?>
+							</p>
+						</div>
+					<?php } ?>
+				</div>
+			</div>
+
+			<!-- the story -->
+			<div class="w-full flex flex-col md:flex-row items-start gap-6 md:gap-16">
+				<div class="w-full h-auto space-y-4 pt-8">
+					<p class="text-3xl text-center md:text-left md:text-4xl font-bold text-scheme-green">
+						The Story
+					</p>
+					<p class="text-center md:text-left text-lg md:text-xl leading-relaxed md:leading-9">
+						<?= get_field( 'story_description' ) ?>
+					</p>
+				</div>
+
+				<div class="w-full h-auto">
+					<div class="w-full h-72 md:h-[26rem] bg-red-200 rounded-xl overflow-hidden">
+						<img src="<?= get_field( 'story_image' ) ?>" alt="image-story"
+							 class="w-full h-full object-cover">
+					</div>
+				</div>
+			</div>
+
+			<!-- the goal -->
+			<div class="text-center space-y-4">
+				<p class=" text-3xl md:text-4xl font-bold text-scheme-green">
+					The Goal
+				</p>
+				<p class="text-xl md:text-2xl font-bold uppercase">
+					<?= get_field( 'goal_title' ) ?>
+				</p>
+				<p class="text-xl w-full md:w-2/3 mx-auto leading-relaxed md:leading-9">
+					<?= get_field( 'goal_description' ) ?>
+				</p>
+			</div>
+
+			<!-- the solution -->
+			<div class="space-y-2 md:space-y-16">
+				<div class="text-center space-y-2 md:space-y-6">
+					<p class="text-3xl md:text-4xl font-bold text-scheme-green">
+						The Solution
+					</p>
+					<p class="font-bold text-lg md:text-xl">
+						<?php
+						$studyCat = get_the_terms( get_the_ID(), 'case-study-category' );
+						if ( $studyCat !== null || $studyCat !== '' ) {
+							echo $studyCat[0]->name;
+						}
+						?>
+					</p>
+				</div>
+
+				<div class="w-full h-auto flex flex-col md:flex-row items-start gap-4 md:gap-16">
+					<div class="w-full h-auto md:h-full md:min-h-[26rem] flex items-center justify-center space-y-4 md:pt-8">
+						<p class=" text-lg text-center md:text-left md:text-xl leading-relaxed md:leading-9">
+							<?= get_field( 'solution_description' ) ?>
+						</p>
+					</div>
+
+					<div class="w-full h-auto">
+						<div class="w-full h-72 md:h-[26rem] bg-red-200 rounded-xl overflow-hidden">
+							<img src="<?= get_field( 'solution_image' ) ?>" alt="image-story"
+								 class="w-full h-full object-cover">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- the results -->
+			<div>
+				<div class="w-full h-auto flex flex-col-reverse md:flex-row items-start gap-6 md:gap-16">
+					<div class="w-full h-auto">
+						<div class="w-full h-72 md:h-[26rem] bg-red-200 rounded-xl overflow-hidden">
+							<img src="<?= get_field( 'results_image' ) ?>" alt="image-story"
+								 class="w-full h-auto md:h-full object-cover">
+						</div>
+					</div>
+
+					<div class="w-full h-auto md:h-full md:min-h-[26rem] flex flex-col items-center md:items-start justify-start md:justify-center space-y-4 md:space-y-6">
+						<p class="text-center md:text-left text-4xl text-scheme-green font-semibold">
+							The Results
+						</p>
+
+						<p class="text-center md:text-left text-2xl md:text-4xl font-bold text-scheme-green">
+							<?= get_field( 'results_title' ) ?>
+						</p>
+
+						<p class="text-center md:text-left text-lg md:text-xl leading-relaxed md:leading-9">
+							<?= get_field( 'results_description' ) ?>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- the services -->
+			<div class="text-center space-y-6">
+				<p class="text-4xl font-bold text-scheme-green">
+					Services Used
+				</p>
+
+				<?php
+				$rows = get_field( 'item_service' );
+				if ( $rows ) : ?>
+					<div class="flex items-start justify-center gap-6">
+						<?php foreach ( $rows as $row ) : ?>
+
+							<div class="w-80 flex flex-col items-center justify-center gap-4">
+								<div class="w-full rounded-xl py-8 md:py-16 text-white bg-scheme-green font-bold text-lg md:text-xl uppercase">
+									<p>
+										<?= $row['name_service'] ?>
+									</p>
+								</div>
+
+								<p class="text-lg md:px-8">
+									<?= $row['effect_service'] ?>
+								</p>
+							</div>
+
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
+			</div>
+
+			<!-- testimonies -->
+			<div class="space-y-6 md:space-y-12">
+				<p class="text-center text-4xl font-bold text-scheme-green">
+					TESTIMONIES
+				</p>
+
+				<div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-20">
+					<div class="w-full">
+						<p class="text-lg md:text-xl text-center md:text-left leading-relaxed md:leading-9">
+							<?= get_field( 'testimony_text' ) ?>
+						</p>
+					</div>
+
+					<div class="w-full flex flex-col md:flex-row items-center md:items-center justify-center md:justify-center gap-6 md:gap-0">
+						<div class="w-36 md:w-72 h-36 md:h-44 mx-auto md:mx-0 overflow-hidden">
+							<img src="<?= get_field( 'testimony_image' ) ?>" alt="image-testimony"
+								 class="w-36 md:w-44 h-36 md:h-44 object-cover rounded-full">
+						</div>
+						<div class="w-full space-y-2 md:space-y-4 text-xl text-center md:text-left">
+							<p class="font-bold uppercase">
+								<?= get_field( 'testimony_name' ) ?>
+							</p>
+							<p class="w-full md:w-1/2">
+								<?= get_field( 'testimony_role' ) ?>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<a href="<?= get_permalink( get_page_by_path( 'case-studies' ) ); ?>"
+				   class="flex items-center justify-center text-gray-500 font-bold gap-4 pt-8 md:pt-16">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+						<path fill-rule="evenodd"
+							  d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+							  clip-rule="evenodd"/>
+					</svg>
+					<span>
+						BACK TO CASE STUDIES
+					</span>
+				</a>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="relative">
+		<!-- last section -->
+		<div class="grid grid-cols-12 pt-4 md:pt-24 relative z-30">
+
+			<div class="col-span-12 md:col-span-6">
+				<img src="<?= emk_options( 'case-studies-last-section-image', 'url' ) ?>" alt=""
+					 class="object-cover w-full">
+			</div>
+
+			<div class="col-span-12 md:col-span-6 lg:px-24 xl:px-32 2xl:px-44 relative z-40">
+				<div class="w-full h-full flex flex-col items-center justify-center space-y-8 md:space-y-16 pt-8 md:pt-0 pb-32 md:pb:0 px-4 md:px-0">
+
+					<p class="text-lg xl:text-3xl 2xl:text-5xl font-bold text-scheme-green text-center">
+						<?= emk_options( 'heading-case-studies-last-section' ) ?>
+					</p>
+
+					<div class="flex flex-col justify-center gap-4">
+						<a href="<?= emk_options( 'case-studies-last-section-link-btn2' ) ?>" target="_blank"
+						   class="min-w-[16rem] bg-scheme-green py-4 xl:py-4 2xl:py-6 flex-none text-center rounded-full font-bold text-white transition duration-200 hover:shadow-lg">
+							<?= emk_options( 'case-studies-last-section-text-btn1' ) ?>
+						</a>
+
+						<?php
+						if ( emk_options( 'show-btn2-case-studies-last-section' ) ) :
+							if ( emk_options( 'show-btn2-case-studies-last-section' ) === '1' ):?>
+								<a href="<?= emk_options( 'case-studies-last-section-link-btn2' ) ?>" target="_blank"
+								   class="min-w-[16rem] bg-scheme-green py-4 xl:py-4 2xl:py-6 flex-none text-center rounded-full font-bold text-white transition duration-200 hover:shadow-lg">
+									<?= emk_options( 'case-studies-last-section-text-btn2' ) ?>
+								</a>
+							<?php endif; ?>
+						<?php endif; ?>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<img src="<?= jpp_assets( '/img/png/img-bg-footer.png' ) ?>" alt="" class="absolute w-full bottom-0 z-50">
+	</div>
+<?php else : ?>
 	<div class="py-[6.5rem] w-full px-4 lg:px-16 xl:px-20 2xl:px-0 mx-auto z-30 relative pb-16">
 		<div class="container mx-auto space-y-10">
 
@@ -205,8 +491,11 @@ $postType = get_post_type();
 								</div>
 								<div class="text-gray-600 font-bold flex items-center">
 									<a href="<?= get_permalink() ?>" target="_blank">Read more</a>
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-										<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+										 fill="currentColor">
+										<path fill-rule="evenodd"
+											  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+											  clip-rule="evenodd"/>
 									</svg>
 								</div>
 							</div>
@@ -225,6 +514,8 @@ $postType = get_post_type();
 	<div class="relative block z-50">
 		<img src="<?= jpp_assets( '/img/png/img-bg-footer.png' ) ?>" alt="" class="">
 	</div>
+<?php endif; ?>
+
 
 	<script>
 		function funcCopyText() {

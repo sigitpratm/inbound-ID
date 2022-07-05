@@ -31,7 +31,7 @@ $data = emk_options( "last-article-categories" );
 		<div class="overflow-hidden relative space-y-8">
 
 			<!-- tab links -->
-			<div id="nav-tab-article" class="relative flex flex-row gap-2 overflow-x-auto">
+			<div id="nav-tab-article" class="relative flex flex-row gap-2 overflow-x-auto justify-center">
 				<?php
 				for ( $i = 0; $i < count( $data ); $i ++ ):
 					$item = get_term( $data[ $i ] );

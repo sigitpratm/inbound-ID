@@ -61,10 +61,9 @@ $terms = get_terms( array(
 									<div class="flex items-center gap-2 text-lg md:text-2xl text-gray-600 text-center md:text-left">
 										<p class="font-bold">
 											<?php
-											if ( ! empty( $terms ) ) {
-												echo esc_html( $terms[0]->name );
-											} else {
-												echo esc_html( "Uncategories" );
+											$studyCat = get_the_terms( get_the_ID(), 'case-study-category' );
+											if ( $studyCat !== null || $studyCat !== '' ) {
+												echo $studyCat[0]->name;
 											}
 											?>
 										</p>

@@ -8,6 +8,7 @@ const colors = {
 			"gray": "#D4D5D5",
 			"dark-gray": "#bbbbbb",
 			"light-gray": "#EDEEEF",
+			"gray-text": "#474646",
 		}
 
 	},

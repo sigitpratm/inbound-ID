@@ -52,7 +52,7 @@
 									"with_icon"           => false,
 									"images"              => emk_options( 'podcast-section1-items2-image1', 'url' ),
 									"icon"                => null,
-									"title"               => "REBOUND \nPodcast by InboundID",
+									"title"               => emk_options( 'podcast-section1-item2-heading' ),
 									"title_classes"       => "text-4xl font-extrabold text-[#3D9E26] leading-tight",
 									"description_classes" => "w-3/4",
 									"description"         => emk_options( 'podcast-section1-item2-subheading' ),
@@ -68,7 +68,7 @@
 		<div class="block relative space-y-4 xl:space-y-10 pb-20 px-4 md:px-0 md:space-y-0">
 			<div class="w-full">
 				<h2 class="text-3xl lg:text-3xl text-[#3D9E26] font-extrabold text-center">
-					<?= emk_options( 'podcast-section2-item1-heading' ) ?>
+					<?= emk_options( 'podcast-section2-item1-title-card' ) ?>
 				</h2>
 			</div>
 			<div class="w-full grid grid-cols-4 xl:gap-6 emk-podcast overflow-x-auto gap-4 md:gap-0"
@@ -94,7 +94,7 @@
 								"images_classes"      => "w-full h-full rounded-3xl relative overflow-hidden pc-4 md:px-0",
 								"icon"                => null,
 								"title"               => emk_options( 'podcast-section2-item1-heading' ),
-								"title_classes"       => "text-3xl text-center md:text-left md:text-6xl font-extrabold text-scheme-green leading-tight",
+								"title_classes"       => "text-3xl text-center md:text-left md:text-6xl font-bold text-scheme-green leading-tight",
 								"description_classes" => "w-full",
 								"description"         => emk_options( 'podcast-section2-item1-subheading' ),
 								"btn_url"             => emk_options( 'podcast-section2-item1-btn-url' ),
