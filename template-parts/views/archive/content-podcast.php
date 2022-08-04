@@ -72,7 +72,7 @@
 				</h2>
 			</div>
 			<div class="w-full grid grid-cols-4 xl:gap-6 emk-podcast overflow-x-auto gap-4 md:gap-0"
-				 data-podcast="listened"
+				 data-podcast="1"
 				 data-podcast-empty="Belum ada item">
 				<?php // ini biarin kosong udah di handle sama js ?>
 			</div>
@@ -109,7 +109,7 @@
 					<?= emk_options( 'podcast-section2-item2-heading' ) ?>
 				</h2>
 			</div>
-			<div class="w-full grid grid-cols-4 gap-4 xl:gap-6" data-podcast="watched"
+			<div class="w-full grid grid-cols-4 gap-4 xl:gap-6" data-podcast="2"
 				 data-podcast-empty="Belum ada item">
 				<?php
 				// ini biarin kosong udah di handle sama js
@@ -199,7 +199,7 @@
 			<div class="w-full">
 				<h2 class="text-3xl lg:text-3xl text-[#3D9E26] font-extrabold text-center"><?= emk_options( 'podcast-section3-item3-heading' ) ?></h2>
 			</div>
-			<div class="w-full grid grid-cols-4 gap-4 xl:gap-6" data-podcast="classes"
+			<div class="w-full grid grid-cols-4 gap-4 xl:gap-6" data-podcast="3"
 				 data-podcast-empty="Belum ada item">
 				<?php
 				// ini biarin kosong udah di handle sama js

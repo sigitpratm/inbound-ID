@@ -315,6 +315,7 @@ if ( ! function_exists( 'jpp_radiant_section' ) ) {
 if ( ! function_exists( 'jpp_assets' ) ) {
 	function jpp_assets( $filename ) {
 		if ( ! empty( $filename ) ) {
+//			var_dump(get_template_directory_uri() . "/assets/dist/$filename");
 			return get_template_directory_uri() . "/assets/dist/$filename";
 		}
 	}

@@ -14,32 +14,37 @@ $arguments = [
 ?>
 
 <?php
-$data = array_reverse( emk_options( "case-studies-select-categories" ) );
+$data = [];
+if(!empty(emk_options( "case-studies-select-categories" ))){
+	$data = array_reverse( emk_options( "case-studies-select-categories" ) );
+}
+
 ?>
 
 <div class="w-full space-y-10 mx-auto container px-4 md:px-0">
 	<div class=" py-20 flex flex-col space-y-6">
 		<div class="w-full flex items-center md:justify-center gap-4 overflow-x-auto pb-4 md:pb-0">
 			<button
-					data-tax-query="[{key:'slug',}]"
+					data-tax-query="[{key:'slug'}]"
 					data-target="all" data-tab="case-studies"
 					data-tab-active="0" data-index="0"
 					class="flex-none active-btn-article btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-2 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
 				ALL
 			</button>
 			<?php
+			if(!empty($data)):
 			for ( $i = 0; $i < count( $data ); $i ++ ):
 				$item = get_term( $data[ $i ] );
 				if ( ! empty( $item ) ): ?>
 					<button
-							data-tax-query="[{key:'slug',}]"
+							data-tax-query="[{key:'slug'}]"
 							data-target="<?= $item->slug ?>" data-tab="case-studies"
 							data-tab-active="<?= $i === 0 ?>" data-index="<?= $i + 1; ?>"
 							class="flex-none  btn-tab-article w-48 xl:w-52 bg-scheme-gray px-4 rounded-full py-2 lg:py-4 font-bold text-white text-sm lg:text-sm 2xl:text-base">
 						<?= $item->name ?>
 					</button>
 				<?php endif; ?>
-			<?php endfor; ?>
+			<?php endfor; endif;?>
 		</div>
 		<!-- tab contents -->
 		<div id="panel-article-tab">
@@ -49,10 +54,11 @@ $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 				<!-- card -->
 				<?php
 				$args       = array(
-						'post_type'      => [ 'case-study' ],
+						'post_type'      => "case-study",
 						'post_status'    => 'publish',
 						'order'          => 'DESC',
 						'paged'          => 1,
+						'orderBy'		=> 'date',
 						'posts_per_page' => 4,
 				);
 				$meta_query = new WP_Query( $args );
@@ -304,9 +310,10 @@ $data = array_reverse( emk_options( "case-studies-select-categories" ) );
 
 			elFirst.append(divElFirst)
 
+			console.log({data},'POST CONTENT')
 			let elDesc = document.createElement("p")
 			elDesc.className = 'text-sm md:text-base line-clamp-2  line-clamp-3 overflow-y-hidden'
-			elDesc.innerText = data?.post_content ?? "-"
+			elDesc.innerText = data?.post_content !== "" ?data?.post_content :  data?.fields?.study?.description ?? "-"
 
 			elFirst.append(elDesc)
 

@@ -14,6 +14,8 @@ $arguments = [
 ?>
 
 <?php
+//var_dump(emk_options('last-article-categories'));
+//die;
 //$data = array_reverse( array( emk_options( "last-article-categories" ) ) );
 $data = emk_options( "last-article-categories" );
 ?>
@@ -93,7 +95,7 @@ $data = emk_options( "last-article-categories" );
 								</div>
 
 								<div class="p-4 md:p-8 flex flex-col items-start justify-center gap-2 md:gap-4">
-									<a href=""
+									<a href="<?= get_permalink(get_the_ID())?>"
 									   class="text-lg md:text-3xl font-bold text-scheme-green line-clamp-2 min-h-[50px]">
 										<?= get_the_title( get_the_ID() ) ?>
 									</a>

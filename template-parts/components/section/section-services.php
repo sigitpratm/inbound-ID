@@ -1,11 +1,15 @@
 <?php
 $originData = emk_options( 'select-category-service' );
-$dataSorted = array_map( 'intval', $originData );
-sort( $dataSorted, SORT_NUMERIC );
-$categories = $dataSorted;
+$categories = [];
+if(!empty($originData)){
+	$dataSorted = array_map( 'intval', $originData );
+	sort( $dataSorted, SORT_NUMERIC );
+	$categories = $dataSorted;
+}
 
 
-if ( $categories !== null ) {
+
+if (!empty($categories) &&  $categories !== null ) {
 	$output = array_slice( $categories, 0, 5 );
 }
 if ( $output !== null ) {

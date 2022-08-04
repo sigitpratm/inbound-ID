@@ -81,7 +81,7 @@ class Posts {
 				array(
 					'key'     => $query['key'],
 					'value'   => $query['value'],
-					'compare' => $query["compare"] ?? '>=',
+					'compare' => $query["compare"] ?? '=',
 				),
 			),
 			"tax_query"      => $taxQuery
@@ -97,7 +97,7 @@ class Posts {
 		$meta_query->set( 'posts_per_page', $per_page );
 		$meta_query->set( 'paged', $paged );
 		$meta_query->set( 'meta_query', $args["meta_query"] );
-		$meta_query->set( 'taxa_query', $args["tax_query"] );
+		$meta_query->set( 'tax_query', $args["tax_query"] );
 		$meta_query->query( $meta_query->query_vars );
 
 
@@ -140,6 +140,9 @@ class Posts {
 						"awards"       => [
 							"images"      => get_field( "awards_images", $post->ID ) ?? null,
 							"description" => get_field( "awards_description", $post->ID ) ?? null
+						],
+						"study"		=> [
+							'description' => get_field( "study_description", $post->ID ) ?? null
 						],
 						"media"        => get_field( "media", $post->ID ) ?? null,
 						"icon"         => get_field( "icon", $post->ID ) ?? null,
@@ -214,7 +217,7 @@ class Posts {
 //					'compare' => "=",
 //				),
 //			),
-//			"tax_query"      => $taxQuery
+			"tax_query"      => $taxQuery
 
 		);
 
@@ -225,6 +228,7 @@ class Posts {
 		$meta_query->set("post_type","podcast");
 		$meta_query->set("post_status","publish");
 		$meta_query->set("order",$_GET['orderby'] ?? 'date');
+		$meta_query->set("tax_query", $args['tax_query']);
 		$meta_query->query( $meta_query->query_vars );
 
 		if ( $meta_query->have_posts() ) {
@@ -266,6 +270,9 @@ class Posts {
 						"awards"       => [
 							"images"      => get_field( "awards_images", $post->ID ) ?? null,
 							"description" => get_field( "awards_description", $post->ID ) ?? null
+						],
+						"studies"		=> [
+							'description' => get_field( "study_description", $post->ID ) ?? null
 						],
 						"media"        => get_field( "media", $post->ID ) ?? null,
 						"icon"         => get_field( "icon", $post->ID ) ?? null,

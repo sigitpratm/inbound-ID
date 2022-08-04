@@ -26,8 +26,8 @@ $terms = get_terms( array(
 	<!-- hero banner -->
 	<?php get_template_part( 'template-parts/components/hero/hero-default', get_post_type() ) ?>
 
-	<img src="<?= jpp_assets( '/img/png/img-bg-01.png' ) ?>" alt="" class="hidden md:block absolute top-[30%] left-0 opacity-50">
-	<img src="<?= jpp_assets( '/img/png/img-bg-02.png' ) ?>" alt="" class="hidden md:block absolute bottom-[-5%] right-0">
+	<img src="<?= jpp_assets( 'img/png/img-bg-01.png' ) ?>" alt="" class="hidden md:block absolute top-[30%] left-0 opacity-50">
+	<img src="<?= jpp_assets( 'img/png/img-bg-02.png' ) ?>" alt="" class="hidden md:block absolute bottom-[-5%] right-0">
 
 	<div class="container mx-auto relative">
 

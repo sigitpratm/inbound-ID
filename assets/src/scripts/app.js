@@ -281,7 +281,7 @@ function ChangeImageOnError() {
 		}
 	}
 }
-
+window.ChangeImageOnError = ChangeImageOnError
 ChangeImageOnError()
 
 
