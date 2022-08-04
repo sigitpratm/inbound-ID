@@ -1,5 +1,9 @@
 <?php
-$categories = emk_options( 'select-category-service' );
+$originData = emk_options( 'select-category-service' );
+$dataSorted = array_map( 'intval', $originData );
+sort( $dataSorted, SORT_NUMERIC );
+$categories = $dataSorted;
+
 
 if ( $categories !== null ) {
 	$output = array_slice( $categories, 0, 5 );
@@ -9,6 +13,29 @@ if ( $output !== null ) {
 }
 ?>
 
+<pre>
+
+	<?php
+	//	$test = array_map( 'intval', $categories );
+	//	sort($test, SORT_NUMERIC);
+	//	print_r($test);
+	?>
+
+	<?php
+
+
+	//	var_dump( $categories );
+	//
+	//	$string = "1,2,3";
+	//	$ids    = explode( ',', $string );
+	//	var_dump( $string );
+	//
+	//	$integerIDs = array_map('intval', explode(',', $string));
+	//
+	//	var_dump( $integerIDs );
+
+	?>
+</pre>
 
 <div class="py-28 space-y-12">
 
@@ -36,27 +63,31 @@ if ( $output !== null ) {
 			 class="pt-8 flex items-center justify-start md:justify-center overflow-x-auto relative gap-4 md:gap-8">
 
 			<?php
-			$query       = new WP_Query( array(
+			$query = new WP_Query( array(
 					'post_type'      => 'service',
 					'posts_per_page' => 8,
-					'category'       => ''
+					'category'       => '',
 			) );
 
-			if ( $countCategories !== null || $countCategories !== 0 ) :
-				for ( $i = 0; $i < $countCategories; $i ++ ) : $catItems = $categories[ $i ];
-					$cat = get_term_by( 'id', $catItems, 'service-categories' ) ?>
-					<div class="xl:w-[210px] 2xl:w-[240px] relative flex-none">
-						<div class="flex items-center flex-col">
-							<button
-									class="active-btn-service button-indicator w-full h-auto min-h-[52px] md:min-h-[80px] md:min-h-auto py-2 px-4 xl:px-8 2xl:px-8 bg-scheme-gray rounded-full text-white text-base xl:text-sm 2xl:text-lg ">
-								<?= $cat->name ?>
-							</button>
-							<div class="bottom-indicator-service h-12 w-1 bg-gray-400 opacity-0 indicator-bottom-active-service ">
-							</div>
+			$terms = get_terms( [
+					'taxonomy' => 'service-categories',
+					'orderby'  => 'ID',
+					'order'    => 'ASC',
+			] ); ?>
+
+
+			<?php foreach ( $terms as $term ) : ?>
+				<div class="xl:w-[210px] 2xl:w-[240px] relative flex-none">
+					<div class="flex items-center flex-col">
+						<button
+								class="active-btn-service button-indicator w-full h-auto min-h-[52px] md:min-h-[80px] md:min-h-auto py-2 px-4 xl:px-8 2xl:px-8 bg-scheme-gray rounded-full text-white text-base xl:text-sm 2xl:text-lg ">
+							<?= $term->name ?>
+						</button>
+						<div class="bottom-indicator-service h-12 w-1 bg-gray-400 opacity-0 indicator-bottom-active-service ">
 						</div>
 					</div>
-				<?php endfor; ?>
-			<?php endif; ?>
+				</div>
+			<?php endforeach; ?>
 		</div>
 
 
@@ -79,7 +110,10 @@ if ( $output !== null ) {
 									),
 							),
 					);
-					$the_query = new WP_Query( $args ); ?>
+
+					$the_query = new WP_Query( $args );
+					?>
+
 					<div id="service<?= $i ?>" class="tabs content-tab-service hidden" data-tab="service<?= $i ?>"
 						 style="display: none;">
 						<div class="grid grid-cols-12 gap-4">
@@ -106,16 +140,17 @@ if ( $output !== null ) {
 								<p class="col-span-6 text-center text-2xl text-gray-400">no posts yet</p>
 							<?php endif;
 							wp_reset_postdata(); ?>
-
 						</div>
 					</div>
+
 				<?php endfor; ?>
 			<?php endif; ?>
 		</div>
 
 		<div class="absolute -bottom-6 left-0 w-full">
 			<div class="flex items-center justify-center">
-				<a href="<?= get_post_type_archive_link( 'service' ); ?>" class="text-sm md:text-base font-bold py-4 px-6 md:px-8 rounded-full border-2 border-scheme-green bg-scheme-light-gray text-scheme-dark-green transition duration-200 hover:bg-scheme-dark-green hover:text-white">
+				<a href="<?= get_post_type_archive_link( 'service' ); ?>"
+				   class="text-sm md:text-base font-bold py-4 px-6 md:px-8 rounded-full border-2 border-scheme-green bg-scheme-light-gray text-scheme-dark-green transition duration-200 hover:bg-scheme-dark-green hover:text-white">
 					Learn more about our service
 				</a>
 			</div>

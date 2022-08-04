@@ -147,42 +147,22 @@
 				Featured Works
 			</p>
 
-			<?php
-			$args_rand  = array(
-					'post_type'      => 'service',
-					'posts_per_page' => 4,
-					'orderby'        => 'rand'
-			);
-			$query_rand = new WP_Query( $args_rand );
-			?>
-
 			<div class="grid grid-cols-2 md:grid-cols-12 gap-6">
 				<?php
-				if ( $query_rand->have_posts() ) {
+				$term          = get_queried_object();
+				$featuredWorks = get_field( 'featured_works', $term );
 
-					while ( $row = $query_rand->have_posts() ) {
-
-						$query_rand->the_post(); ?>
-
+				if ( $featuredWorks ) : ?>
+					<?php foreach ( $featuredWorks as $row ) : ?>
 						<div class="col-span-1 md:col-span-3 space-y-6 md:space-y-16">
 							<div class="w-full h-52 md:h-80 rounded-2xl overflow-hidden bg-red-100">
-								<img src="<?= get_the_post_thumbnail_url() ?>" alt=""
+								<img src="<?= $row['featured_work_image'] ?>" alt=""
 									 class="h-full w-full object-cover transition duration-500 hover:scale-110">
 							</div>
-							<p class="text-center text-scheme-green text-lg md:text-xl font-bold"><?= get_the_title() ?></p>
+							<p class="text-center text-scheme-green text-lg md:text-xl font-bold"><?= $row['featured_work_name'] ?></p>
 						</div>
-
-						<?php
-					}
-
-				} else {
-					// no posts found
-				}
-				/* Restore original Post Data */
-				wp_reset_postdata();
-				?>
-
-
+					<?php endforeach; ?>
+				<?php endif; ?>
 			</div>
 		</div>
 

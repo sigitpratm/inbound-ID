@@ -42,10 +42,15 @@ get_header(); ?>
 					</p>
 				</div>
 
+
 				<div>
 					<div class="space-y-20 md:space-y-16">
 						<?php
-						$terms = get_terms( 'service-categories' );
+						$terms = get_terms( [
+								'taxonomy' => 'service-categories',
+								'orderby'  => 'ID',
+								'order'    => 'ASC',
+						] );
 						if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) :
 							foreach ( $terms as $key => $term ) : ?>
 
@@ -148,7 +153,6 @@ get_header(); ?>
 										</div>
 									</div>
 								<?php endif; ?>
-
 
 							<?php
 							endforeach;
