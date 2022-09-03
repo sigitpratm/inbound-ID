@@ -310,7 +310,7 @@ $data = emk_options( "last-article-categories" );
 			console.log({data},'POST CONTENT')
 			let elDesc = document.createElement("p")
 			elDesc.className = 'text-sm md:text-base line-clamp-2  line-clamp-3 overflow-y-hidden'
-			elDesc.innerText = data?.post_content !== "" ?data?.post_content :  data?.fields?.study?.description ?? "-"
+			elDesc.innerHTML = data?.post_content !== "" ?data?.post_content :  data?.fields?.study?.description ?? "-"
 
 			elFirst.append(elDesc)
 

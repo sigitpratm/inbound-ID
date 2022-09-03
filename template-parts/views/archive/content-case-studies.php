@@ -61,7 +61,11 @@ if(!empty(emk_options( "case-studies-select-categories" ))){
 						'orderBy'		=> 'date',
 						'posts_per_page' => 4,
 				);
-				$meta_query = new WP_Query( $args );
+				$meta_query = new WP_Query(  );
+				$meta_query->set( 'post_type', 'case-study' );
+				$meta_query->set( 'post_status', 'publish' );
+				$meta_query->set( 'order', 'desc' );
+				$meta_query->set( 'orderBY', 'date' );
 				$meta_query->set( 'posts_per_page', 4 );
 				$meta_query->set( 'paged', 1 );
 				$meta_query->query( $meta_query->query_vars );
@@ -313,7 +317,7 @@ if(!empty(emk_options( "case-studies-select-categories" ))){
 			console.log({data},'POST CONTENT')
 			let elDesc = document.createElement("p")
 			elDesc.className = 'text-sm md:text-base line-clamp-2  line-clamp-3 overflow-y-hidden'
-			elDesc.innerText = data?.post_content !== "" ?data?.post_content :  data?.fields?.study?.description ?? "-"
+			elDesc.innerHTML = data?.post_content !== "" ?data?.post_content :  data?.fields?.study?.description ?? "-"
 
 			elFirst.append(elDesc)
 

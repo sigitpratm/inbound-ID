@@ -416,7 +416,7 @@ function CardArticleDefault(data = {}) {
 
 	let pDesc = document.createElement('p')
 	pDesc.className = "text-sm md:text-base line-clamp-2 text-scheme-gray line-clamp-2 overflow-y-hidden"
-	pDesc.innerText = data?.post_content ?? ""
+	pDesc.innerHTML = data?.post_content ?? ""
 
 	div2.append(pDesc)
 
@@ -456,7 +456,7 @@ function CardArticleDefaultCaseStudies(data = {}) {
 
 	let pDesc = document.createElement('p')
 	pDesc.className = "text-sm md:text-base line-clamp-2 text-scheme-gray"
-	pDesc.innerText = data?.post_content ?? ""
+	pDesc.innerHTML = data?.post_content ?? ""
 
 	div2.append(pDesc)
 
